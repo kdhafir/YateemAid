@@ -10,7 +10,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/template/prep.php';
 if(isset($user) && $user->isLoggedIn()){
 }
 ?>
-<div id="page-wrapper">
+<div id="page-wrapper" dir="rtl">
 	<div class="container">
 		<div class="jumbotron">
 			<h1 align="center"><?=lang("JOIN_SUC");?> <?php echo $settings->site_name;?></h1>
@@ -18,6 +18,7 @@ if(isset($user) && $user->isLoggedIn()){
 			<p align="center">
 				<?php
 				if($user->isLoggedIn()){?>
+					<a class="btn btn-primary" href="ysys/index.php" role="button">نظام الأيتام &raquo;</a>
 					<a class="btn btn-primary" href="users/account.php" role="button"><?=lang("ACCT_HOME");?> &raquo;</a>
 				<?php }else{?>
 					<a class="btn btn-warning" href="users/login.php" role="button"><?=lang("SIGNIN_TEXT");?> &raquo;</a>

@@ -11,3 +11,5 @@ gdpr = 2
 userman = 2
 comments = 2
 langcheck = 2
+perfomancechecker = 2
+spice_shaker = 2
