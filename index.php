@@ -13,8 +13,8 @@ if(isset($user) && $user->isLoggedIn()){
 <div id="page-wrapper" dir="rtl">
 	<div class="container">
 		<div class="jumbotron">
-			<h1 align="center"><?=lang("JOIN_SUC");?> <?php echo $settings->site_name;?></h1>
-			<p align="center" class="text-muted"><?=lang("MAINT_OPEN")?></p>
+			<h2 align="center"><?=lang("JOIN_SUC");?> <?php echo $settings->site_name;?></h2>
+			<p align="center" class="text-muted">لمؤسسة المحسنين التنموية الخيرية - اليمن</p>
 			<p align="center">
 				<?php
 				if($user->isLoggedIn()){?>
@@ -26,8 +26,8 @@ if(isset($user) && $user->isLoggedIn()){
 				<?php }?>
 			</p>
 			<br>
-			<p align="center"><?=lang("MAINT_PLEASE");?></p>
-			<h4 align="center"><a href="https://userspice.com/getting-started/">https://userspice.com/getting-started/</a></h4>
+			
+			
 		</div>
 <?php languageSwitcher();?>
 	</div>

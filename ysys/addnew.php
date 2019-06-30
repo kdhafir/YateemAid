@@ -14,24 +14,9 @@ $counAytam = $aytamQ->count();
 
 <div class="row" dir="rtl">
 	<div class="col-sm-12 col-md-12">
-	<a class="btn btn-primary" href="#">إضافة يتيم</a>
-<?php
-if($counAytam > 0){
-    $aytamResult = $aytamQ->results();
-    $x = 1;
-    foreach($aytamResult as $ar){
-?>
-		<table class="table">
-		<tr>
-		<td></td>
-		</tr>
-		</table>
-<?php
-	} // end of foreach($aytamResult as $ar)
-} // end of if($counAytam > 0)
 
-?>
-	</div>
+
+    </div>
 
 </div>
 
