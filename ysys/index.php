@@ -14,8 +14,9 @@ $counAytam = $aytamQ->count();
 
 <div class="row" dir="rtl">
 	<div class="col-sm-12 col-md-12">
-	<a class="btn btn-primary" href="#">إضافة يتيم</a>
+	<a class="btn btn-primary" href="addnew.php">إضافة يتيم</a>
 <?php
+displayTable('11yateemmaininfo');
 if($counAytam > 0){
     $aytamResult = $aytamQ->results();
     $x = 1;

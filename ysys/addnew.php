@@ -14,8 +14,9 @@ $counAytam = $aytamQ->count();
 
 <div class="row" dir="rtl">
 	<div class="col-sm-12 col-md-12">
-
-
+    <?php
+    displayForm('11yateemmaininfo');
+    ?>
     </div>
 
 </div>
