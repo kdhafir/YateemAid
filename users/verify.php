@@ -1,7 +1,7 @@
 <?php
 // This is a user-facing page
 /*
-UserSpice 4
+UserSpice 5
 An Open Source PHP User Management System
 by the UserSpice Team at http://UserSpice.com
 
@@ -73,6 +73,14 @@ if(Input::exists('get')){
 		$errors = $validation->errors();
 	}
 }
+
+?>
+
+<div id="page-wrapper">
+<div class="container">
+
+<?php
+
 if ($verify_success){
 	require $abs_us_root.$us_url_root.'users/views/_verify_success.php';
 }else{
@@ -80,7 +88,8 @@ if ($verify_success){
 }
 
 ?><br />
-
+</div>
+</div>
 
 <?php require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>
 

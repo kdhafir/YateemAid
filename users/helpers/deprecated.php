@@ -3,6 +3,64 @@
 //that you are missing into usersc/custom_functions.php and you'll be back to normal.
 
 
+function output_message($message) {
+return $message;
+}
+
+function inputBlock($type,$label,$id,$divAttr=array(),$inputAttr=array(),$helper=''){
+	$divAttrStr = '';
+	foreach($divAttr as $k => $v){
+		$divAttrStr .= ' '.$k.'="'.$v.'"';
+	}
+	$inputAttrStr = '';
+	foreach($inputAttr as $k => $v){
+		$inputAttrStr .= ' '.$k.'="'.$v.'"';
+	}
+	$html = '<div'.$divAttrStr.'>';
+	$html .= '<label for="'.$id.'">'.$label.'</label>';
+	if($helper != ''){
+		$html .= '<button class="help-trigger"><span class="fa fa-question"></span></button>';
+	}
+	$html .= '<input type="'.$type.'" id="'.$id.'" name="'.$id.'"'.$inputAttrStr.'>';
+  if($helper != ''){
+		$html .= '<div class="helper-text">'.$helper.'</div>';
+	}
+	$html .= '</div>';
+    return $html;
+}
+
+//returns the id of the current page
+function currentPageId($uri) {
+  $abs_us_root=$_SERVER['DOCUMENT_ROOT'];
+  $self_path=explode("/", $_SERVER['PHP_SELF']);
+  $self_path_length=count($self_path);
+  $file_found=FALSE;
+
+  for($i = 1; $i < $self_path_length; $i++){
+  	array_splice($self_path, $self_path_length-$i, $i);
+  	$us_url_root=implode("/",$self_path)."/";
+
+  	if (file_exists($abs_us_root.$us_url_root.'z_us_root.php')){
+  		$file_found=TRUE;
+  		break;
+  	}else{
+  		$file_found=FALSE;
+  	}
+  }
+
+  $urlRootLength=strlen($us_url_root);
+  $path=substr($uri,$urlRootLength,strlen($uri)-$urlRootLength);
+    $db = DB::getInstance();
+    $query = $db->query("SELECT id FROM pages WHERE page = ?",array($path));
+    $count = $query->count();
+    if($count>0){
+        $result = $query->first();
+        return $result->id;    //Return the id of the page we're on
+    } else {
+        return 0; //Fail nicely
+    }
+}
+
 //Retrive a list of all .php files in users/ folder
 if(!function_exists('getUSPageFiles')) {
 	function getUSPageFiles() {

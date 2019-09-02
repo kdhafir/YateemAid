@@ -104,6 +104,10 @@ if(!empty($_POST)){
   }
   if($results->verify_url != $_POST['verify_url']) {
     $verify_url = Input::get('verify_url');
+    if(substr($verify_url,-1)!='/') {
+      $verify_url = $verify_url.'/';
+      $successes[] = "Auto corrected verify_url to append trailing slash";
+    }
     $fields=array('verify_url'=>$verify_url);
     $db->update('email',1,$fields);
     $successes[] = "Updated verify_url";
@@ -162,7 +166,7 @@ if(!empty($_POST)){
 
 ?>
 <div class="content mt-3">
-<form autocomplete="off" name='update' action='admin.php?view=email' method='post'>
+<form name='update' action='admin.php?view=email' method='post'>
 <h2 class="mb-3">Email Server Settings</h2>
   <p>
     These settings control all things email-related for the server including emailing your users and verifying the user's email address.

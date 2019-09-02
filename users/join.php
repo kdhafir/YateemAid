@@ -1,7 +1,7 @@
 <?php
 // This is a user-facing page
 /*
-UserSpice 4
+UserSpice 5
 An Open Source PHP User Management System
 by the UserSpice Team at http://UserSpice.com
 
@@ -24,10 +24,6 @@ ini_set("allow_url_fopen", 1);
 require_once '../users/init.php';
 require_once $abs_us_root.$us_url_root.'users/includes/template/prep.php';
 
-use PragmaRX\Google2FA\Google2FA;
-if($settings->twofa == 1){
-$google2fa = new Google2FA();
-}
 ?>
 
 <?php if (!securePage($_SERVER['PHP_SELF'])){die();}
@@ -37,6 +33,7 @@ if($user->isLoggedIn()) Redirect::to($us_url_root.'index.php');
 if($settings->recaptcha == 1 || $settings->recaptcha == 2){
         //require_once($abs_us_root.$us_url_root."users/includes/recaptcha.config.php");
 }
+includeHook($hooks,'pre');
 //There is a lot of commented out code for a future release of sign ups with payments
 $form_method = 'POST';
 $form_action = 'join.php';
@@ -260,15 +257,10 @@ if(Input::exists()){
 
 ?>
 <?php header('X-Frame-Options: DENY'); ?>
-
+<div id="page-wrapper">
+<div class="container">
 <?php
 if($settings->registration==1) {
-  if($settings->glogin==1 && !$user->isLoggedIn()){
-    require_once $abs_us_root.$us_url_root.'users/includes/google_oauth_login.php';
-  }
-  if($settings->fblogin==1 && !$user->isLoggedIn()){
-    require_once $abs_us_root.$us_url_root.'users/includes/facebook_oauth.php';
-  }
   require $abs_us_root.$us_url_root.'users/views/_join.php';
 }
 else {
@@ -276,6 +268,9 @@ else {
 }
 includeHook($hooks,'bottom');
 ?>
+
+</div>
+</div>
 
 <!-- footers -->
 <?php require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>

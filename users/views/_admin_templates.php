@@ -59,12 +59,12 @@
   <!-- Existing Templates -->
   <div class="container">
     <div class="row">
-      <div class="col-8">
+      <div class="col-4">
         <h2>Template Manager</h2>
         <br>
       </div>
-      <div class="col-4">
-        <a class="btn btn-success" href="https://userspice.com/templates" class="button">Download More Templates</a>
+      <div class="col-8">
+        <a href="admin.php?view=spice&type=template">Download Official Templates</a> or <a href="https://userspice.com/templates" class="button">Download More Templates</a>
       </div>
     </div>
     <div class="row">
@@ -81,7 +81,7 @@
                   <?php }else{ ?>
                   <p align="center"><a href="#" type="button" class="btn btn-default">No Preview Available</a></p>
               <?php } ?>
-              <form autocomplete="off" class="" id="temlate" action="<?=$us_url_root?>users/admin.php?view=templates" method="post">
+              <form class="" id="temlate" action="<?=$us_url_root?>users/admin.php?view=templates" method="post">
                 <input type="hidden" name="template" value="<?= $t ?>">
 
                 <?php if ($t != $settings->template) { ?>
@@ -149,7 +149,7 @@
                         ?>
 
                         <strong>Nav Style:</strong>
-                        <form autocomplete="off" class="form" id="navstyle"  action="<?=$us_url_root?>users/admin.php?view=templates" method="POST">
+                        <form class="form" id="navstyle"  action="<?=$us_url_root?>users/admin.php?view=templates" method="POST">
                           <div class="form-group">
                             <font color="blue">
                               <select class="form-control" id="navstyle" name="navstyle">

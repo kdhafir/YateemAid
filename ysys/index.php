@@ -11,7 +11,6 @@ $aytamQ = $db->query("SELECT * FROM `yy_yateem_main_info` ORDER BY id DESC");
 $counAytam = $aytamQ->count();
 
 ?>
-
 <div class="row" dir="rtl">
 	<div class="col-sm-12 col-md-12">
 	<a class="btn btn-primary" href="addnew.php">إضافة يتيم</a>

@@ -9,11 +9,15 @@
 </div>
 </div>
 </header><!-- /header -->
-<script src="js/Chart.bundle.js"></script>
 <div class="content mt-3">
   <div class="row">
-    <div class="col-12">
-          <p align="right"><a href="https://userspice.com/widgets">Get more dashboard widgets here</a></p>
+    <div class="col-6 text-left">
+      <?php if(in_array($user->data()->id,$master_account)){ ?>
+          You have a Master Account (<a href="https://userspice.com/master-account/">What's this?</a>)
+      <?php } ?>
+    </div>
+    <div class="col-6 text-right">
+          <a href="admin.php?view=spice&type=widget">Download Official Widgets</a> or <a href="https://userspice.com/widgets" class="button">Download More Widgets</a>
     </div>
   </div>
 
@@ -36,50 +40,6 @@
   </div>
 <?php } ?>
 <!-- End admin_panel_buttons.php -->
-<?php
-// UserSpice Announcements
-$filename= 'https://rss.userspice.com/rss.xml';
-$file_headers = @get_headers($filename);
-if(($file_headers[0] != 'HTTP/1.1 200 OK') && ($file_headers[1] != 'HTTP/1.1 200 OK')){
-  //logger($user->data()->id,"Errors","UserSpice Announcements feed not found. Please tell UserSpice!");
-} else {
-  $limit = 0;
-  $dis = $db->query("SELECT * FROM us_announcements")->results();
-  $dismissed = [];
-  foreach($dis as $d){
-    $dismissed[] = $d->dismissed;
-  }
-  $xmlDoc = new DOMDocument();
-  $xmlDoc->load('https://rss.userspice.com/rss.xml');
-  $x=$xmlDoc->getElementsByTagName('item');
-  for ($i=0; $i<=2; $i++) {
-    if($limit == 1){
-      continue;
-    }
-
-    $dis=$x->item($i)->getElementsByTagName('dis')
-    ->item(0)->childNodes->item(0)->nodeValue;
-
-    if(!in_array($dis,$dismissed) && $dis != 0){
-      $limit = 1;
-      $ignore=$x->item($i)->getElementsByTagName('ignore')
-      ->item(0)->childNodes->item(0)->nodeValue;
-      $title=$x->item($i)->getElementsByTagName('title')
-      ->item(0)->childNodes->item(0)->nodeValue;
-      $class=$x->item($i)->getElementsByTagName('class')
-      ->item(0)->childNodes->item(0)->nodeValue;
-      $link=$x->item($i)->getElementsByTagName('link')
-      ->item(0)->childNodes->item(0)->nodeValue;
-      $message=$x->item($i)->getElementsByTagName('message')
-      ->item(0)->childNodes->item(0)->nodeValue;
-      if(version_compare($ignore, $user_spice_ver) !=  1){
-        continue;
-      }
-
-  }
-}
-}
-?>
 <div class="row">
 <div class="col-12">
 

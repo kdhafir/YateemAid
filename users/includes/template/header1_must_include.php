@@ -2,7 +2,7 @@
 ob_start();
 header('X-Frame-Options: SAMEORIGIN');
 /*
-UserSpice 4
+UserSpice 5
 An Open Source PHP User Management System
 by the UserSpice Team at http://UserSpice.com
 
@@ -19,13 +19,9 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-?>
-<?php require_once $abs_us_root.$us_url_root.'users/helpers/helpers.php'; ?>
-<?php require_once $abs_us_root.$us_url_root.'users/includes/user_spice_ver.php'; ?>
 
-<?php
-$db = DB::getInstance();
-$settings = $db->query("SELECT * FROM settings")->first();
+// $db = DB::getInstance();
+// $settings = $db->query("SELECT * FROM settings")->first();
 
 //language
 
@@ -94,9 +90,6 @@ if($user->isLoggedIn()){
 	}
 }
 
-if($settings->glogin==1 && !$user->isLoggedIn()){
-	require_once $abs_us_root.$us_url_root.'users/includes/google_oauth.php';
-}
 
 if ($settings->force_ssl==1){
 
@@ -109,16 +102,6 @@ if ($settings->force_ssl==1){
 }
 require_once $abs_us_root.$us_url_root.'usersc/includes/security_headers.php';
 
-//if track_guest enabled AND there is a user logged in
-if($settings->track_guest == 1 && $user->isLoggedIn()){
-	if ($user->isLoggedIn()){
-		$user_id=$user->data()->id;
-	}else{
-		$user_id=0;
-	}
-	new_user_online($user_id);
-
-}
 
 // Get html lang attribute, default 'en'
 if(isset($_SESSION['us_lang'])){ $html_lang = substr($_SESSION['us_lang'],0,2);}else{$html_lang = 'en';}
@@ -142,50 +125,5 @@ else $pageTitle = '';
 		require_once $abs_us_root.$us_url_root.'usersc/includes/head_tags.php';
 	}
 
-	if(($settings->messaging == 1) && ($user->isLoggedIn())){
-		$msgQ = $db->query("SELECT id FROM messages WHERE msg_to = ? AND msg_read = 0 AND deleted = 0",array($user->data()->id));
-		$msgC = $msgQ->count();
-		if($msgC == 1){
-			$grammar = 'Message';
-		}else{
-			$grammar = 'Messages';
-		}
-	}
 	?>
 	<title><?= (($pageTitle != '') ? $pageTitle : ''); ?> <?=$settings->site_name?></title>
-
-	<?php if($settings->session_manager && !isset($_SESSION['fingerprint'])) {?>
-		<script src="<?=$us_url_root?>users/js/tomfoolery.js"></script>
-		<script>
-		if (window.requestIdleCallback) {
-			requestIdleCallback(function () {
-				Fingerprint2.get(function (components) {
-					var values = components.map(function (component) { return component.value })
-					var murmur = Fingerprint2.x64hash128(values.join(''), 31)
-					var fingerprint = murmur;
-					$.ajax({
-						type: "POST",
-						url: '<?=$us_url_root?>users/parsers/fingerprint_post.php',
-						data: ({fingerprint:fingerprint}),
-					});
-								})
-							})
-						} else {
-							setTimeout(function () {
-								Fingerprint2.get(function (components) {
-									var values = components.map(function (component) { return component.value })
-									var murmur = Fingerprint2.x64hash128(values.join(''), 31)
-									var fingerprint = murmur;
-									$.ajax({
-										type: "POST",
-										url: '<?=$us_url_root?>users/parsers/fingerprint_post.php',
-										data: ({fingerprint:fingerprint}),
-									});
-								})
-							}, 500)
-						}
-					</script>
-<?php }
-if($settings->session_manager==1) storeUser(); ?>
-
-<?php if(isset($settings->oauth_tos_accepted) && $user->isLoggedIn() && !$user->data()->oauth_tos_accepted && $currentPage != 'oauth_success.php') Redirect::to($us_url_root.'users/oauth_success.php?action=tos'); ?>

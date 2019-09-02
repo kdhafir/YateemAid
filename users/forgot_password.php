@@ -1,7 +1,7 @@
 <?php
 // This is a user-facing page
 /*
-UserSpice 4
+UserSpice 5
 An Open Source PHP User Management System
 by the UserSpice Team at http://UserSpice.com
 
@@ -64,7 +64,7 @@ if (Input::get('forgotten_password')) {
                 $errors[] = lang("ERR_EMAIL");
             }
         }else{
-            $errors[] = lang("ERR_EMAIL");
+            $errors[] = lang("ERR_EM_DB");
         }
     }else{
         //display the errors
@@ -76,6 +76,8 @@ if (Input::get('forgotten_password')) {
 if ($user->isLoggedIn()) $user->logout();
 ?>
 
+<div id="page-wrapper">
+<div class="container">
 <?php
 
 if($email_sent){
@@ -85,9 +87,10 @@ if($email_sent){
 }
 
 ?>
-
+</div><!-- /.container-fluid -->
+</div><!-- /#page-wrapper -->
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
+<!-- footer -->
 <!-- footers -->
 <?php require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>
 

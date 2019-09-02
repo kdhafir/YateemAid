@@ -142,7 +142,7 @@ if(Input::exists()){
   <div class="content mt-3">
     <h2>Page Permissions </h2>
     <?php resultBlock($errors,$successes); ?>
-    <form autocomplete="off" name='adminPage' action='<?=$us_url_root?>users/admin.php?view=page&id=<?=$pageId;?>' method='post'>
+    <form name='adminPage' action='<?=$us_url_root?>users/admin.php?view=page&id=<?=$pageId;?>' method='post'>
       <input type='hidden' name='process' value='1'>
 
       <div class="row">
@@ -223,7 +223,7 @@ if(Input::exists()){
               <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">
                   <div class="form-group">
-                    <label for="title">Page Title:</label> <span class="small">(This is the text that's displayed on the browser's titlebar or tab)</small>
+                    <label for="title">Page Title:</label> <span class="small">(This is the text that's displayed on the browser's titlebar or tab)</span>
                       <input type="text" class="form-control" name="changeTitle" maxlength="50" value="<?= $pageDetails->title; ?>" />
                     </div>
                   </div>

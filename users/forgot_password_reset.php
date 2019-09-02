@@ -1,7 +1,7 @@
 <?php
 // This is a user-facing page
 /*
-UserSpice 4
+UserSpice 5
 An Open Source PHP User Management System
 by the UserSpice Team at http://UserSpice.com
 
@@ -101,6 +101,8 @@ if(Input::get('reset') == 1){ //$_GET['reset'] is set when clicking the link in 
 
 ?>
 
+<div id="page-wrapper">
+<div class="container">
 
 <?php
 if ((Input::get('reset') == 1)){
@@ -116,8 +118,10 @@ if ((Input::get('reset') == 1)){
 }
 ?>
 
+</div><!-- /.container-fluid -->
+</div><!-- /#page-wrapper -->
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
+<!-- footer -->
 <!-- footers -->
 <?php require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>
 

@@ -1,4 +1,6 @@
-<?php $hooks = getMyHooks(['page' =>'admin.php?view=general']); ?>
+<?php $hooks = getMyHooks(['page' =>'admin.php?view=general']);
+includeHook($hooks,'pre');
+?>
 <div class="col-sm-8">
   <div class="page-header float-right">
     <div class="page-title">
@@ -16,7 +18,7 @@
 <div class="content mt-3">
 
   <!-- Site Settings -->
-  <form autocomplete="off" class="" action="admin.php?view=<?=$view?>" name="settings" method="post">
+  <form class="" action="admin.php?view=<?=$view?>" name="settings" method="post">
     <h2 class="mb-3">Site Settings</h2>
     <div class="row">
       <div class="col-md-6">
@@ -105,34 +107,6 @@
               </div>
 
               <div class="form-group">
-                <label for="twofa">2 Factor Authentication <a href="#!" tabindex="-1" title="Note" data-trigger="focus" class="nounderline" data-toggle="popover" data-content="Two Factor Auth is here! Default: Disabled.">?</a></label>
-                <select id="twofa" class="form-control ajxnum" name="twofa" data-desc="Two Factor Authentication" >
-                  <option value="1" <?php if($settings->twofa==1) echo 'selected="selected"'; ?> >Enabled</option>
-                  <option value="0" <?php if($settings->twofa==0) echo 'selected="selected"'; ?> >Disabled</option>
-                  <option value="-1">Disabled and Reset All Users Two FA</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="admin_verify">Require Admin Re-verification <a href="#!" tabindex="-1" title="Note" data-trigger="focus" class="nounderline" data-toggle="popover" data-content="In conjunction with ReAuth in the Pages Management section, this setting will require users to reauthenticate themselves using their password or a chosen PIN code based on the time set in the in the timeout setting. Default: Enabled."><i class="fa fa-question-circle"></i></a></label>
-                <span style="float:right;">
-                  <label class="switch switch-text switch-success">
-                    <input id="admin_verify" type="checkbox" class="switch-input toggle" data-desc="Admin Verification" <?php if($settings->admin_verify==1) echo 'checked="true"'; ?>>
-                    <span data-on="Yes" data-off="No" class="switch-label"></span>
-                    <span class="switch-handle"></span>
-                  </label>
-                </span>
-              </div>
-
-              <div class="form-group">
-                <label for="admin_verify_timeout">Admin Verification Timeout <a href="#!" tabindex="-1" title="Note" data-trigger="focus" class="nounderline" data-toggle="popover" data-content="The amount of time in Minutes that a user is prompted for Verification as described in the Admin Verification. Minimum:1, Maximum: 999999999. Default: 120 minutes."><i class="fa fa-question-circle"></i></a></label>
-                <div class="input-group">
-                  <input type="number" step="1" min="1" max="999999999" class="form-control ajxnum" data-desc="Admin Verify Timeout" name="admin_verify_timeout" id="admin_verify_timeout" value="<?=$settings->admin_verify_timeout?>">
-                  <span class="input-group-addon">Minutes</span>
-                </div>
-              </div>
-
-              <div class="form-group">
                 <label for="force_user_pr">Force Password Reset <a href="#!" tabindex="-1" title="Note" data-trigger="focus" class="nounderline" data-toggle="popover" data-content="This will change the force_pr value in your users database for all users to 1, requiring every user including the current one to reset their password. They will not be able to leave the user settings page until this make this change. This will always be no, however when you change it to Yes and save changes, it will perform the above action, and reset back to no. This isn't a setting, but a function."><i class="fa fa-question-circle"></i></a></label>
                 <span style="float:right;">
                   <button type="button" name="force_user_pr" id="force_user_pr" class="btn btn-danger input-group-addon">Force PW Reset</button>
@@ -178,19 +152,6 @@
                     <label for="cron_ip">Only allow cron jobs from the following IP <a href="#!" tabindex="-1" title="Note" data-trigger="focus" class="nounderline" data-toggle="popover" data-content="Cron jobs are automated server tasks that can make your life easier.  You may want to make sure, though, that they originate from you and not someone else.  You can whitelist an ip address here."><i class="fa fa-question-circle"></i></a></label>
                     <input type="text" autocomplete="off" class="form-control ajxtxt" data-desc="Cron Job IP" name="cron_ip" id="cron_ip" value="<?=$settings->cron_ip?>" placeholder="<?php if($settings->cron_ip == ''){echo 'No security is IP is set';}?>">
                   </div>
-
-
-
-                  <div class="form-group">
-                    <label for="session_manager">Enable Session Management <a href="#!" tabindex="-1" title="Note" data-trigger="focus" class="nounderline" data-toggle="popover" data-content="Session Management will track unique details about users including their unique fingerprint, IP, OS, Browser, Session Start Time, End Time and their last activity and page. Session Management can allow forceful and soft ending of sessions including a kill switch via the Admin Panel to log all users out. Default: Enabled."><i class="fa fa-question-circle"></i></a></label>
-                    <span style="float:right;">
-                      <label class="switch switch-text switch-success">
-                        <input id="session_manager" type="checkbox" class="switch-input toggle" data-desc="Session Management Setting" <?php if($settings->session_manager==1) echo 'checked="true"'; ?>>
-                        <span data-on="Yes" data-off="No" class="switch-label"></span>
-                        <span class="switch-handle"></span>
-                      </label>
-                    </span>
-                  </div>
                 </div>
               </div>
               <?php includeHook($hooks,'body');?>
@@ -198,69 +159,6 @@
 
             <!-- right column -->
             <div class="col-md-6">
-              <!-- Force Password Reset -->
-              <div class="card no-padding">
-                <div class="card-header"><h3>Messages & Notifications</h3></div>
-                <div class="card-body">
-
-                  <!-- Messaging Option -->
-                  <div class="form-group">
-                    <label for="messaging">Enable Messaging System<a href="#!" tabindex="-1" title="Note" data-trigger="focus" class="nounderline" data-toggle="popover" data-content="Enable or disable the built in messaging system which features Mass Messaging, user-specific messaging with replies in thread format and email notifications.Â Default: Disabled."><i class="fa fa-question-circle"></i></a></label>
-                    <span style="float:right;">
-                      <label class="switch switch-text switch-success">
-                        <input id="messaging" type="checkbox" class="switch-input toggle" data-desc="Messaging System Status" <?php if($settings->messaging==1) echo 'checked="true"'; ?>>
-                        <span data-on="Yes" data-off="No" class="switch-label"></span>
-                        <span class="switch-handle"></span>
-                      </label>
-                    </span>
-                  </div>
-
-                  <!-- WYSIWYG Option -->
-                  <div class="form-group">
-                    <label for="wys">Enable WYSIWYG Editor <a href="#!" tabindex="-1" title="Note" data-trigger="focus" class="nounderline" data-toggle="popover" data-content="This does what it says. If you want to disable the Editor, you can change this. This is used in the messaging system.Â Default: Enabled."><i class="fa fa-question-circle"></i></a></label>
-                    <span style="float:right;">
-                      <label class="switch switch-text switch-success">
-                        <input id="wys" type="checkbox" class="switch-input toggle" data-desc="WYSIWYG Editor Status" <?php if($settings->wys==1) echo 'checked="true"'; ?>>
-                        <span data-on="Yes" data-off="No" class="switch-label"></span>
-                        <span class="switch-handle"></span>
-                      </label>
-                    </span>
-                  </div>
-
-                  <!-- Notification System -->
-                  <div class="form-group">
-                    <label for="notifications">Enable Notification System <a href="#!" tabindex="-1" title="Note" data-trigger="focus" class="nounderline" data-toggle="popover" data-content="Enable or disable the notification system. Default: Disabled."><i class="fa fa-question-circle"></i></a></label>
-                    <span style="float:right;">
-                      <label class="switch switch-text switch-success">
-                        <input id="notifications" type="checkbox" class="switch-input toggle" data-desc="Notification System Status" <?php if($settings->notifications==1) echo 'checked="true"'; ?>>
-                        <span data-on="Yes" data-off="No" class="switch-label"></span>
-                        <span class="switch-handle"></span>
-                      </label>
-                    </span>
-                  </div>
-
-                  <!-- Notification System -->
-                  <div class="form-group">
-                    <label for="force_notif">Force users to see notifications <a href="#!" tabindex="-1" title="Note" data-trigger="focus" class="nounderline" data-toggle="popover" data-content="With this enabled, notifications will popup automatically for your users. It could be annoying, but in some situatuons, notifications are crucial."><i class="fa fa-question-circle"></i></a></label>
-                    <span style="float:right;">
-                      <label class="switch switch-text switch-success">
-                        <input id="force_notif" type="checkbox" class="switch-input toggle" data-desc="Force Notifications Setting" <?php if($settings->force_notif==1) echo 'checked="true"'; ?>>
-                        <span data-on="Yes" data-off="No" class="switch-label"></span>
-                        <span class="switch-handle"></span>
-                      </label>
-                    </span>
-                  </div>
-
-                  <!-- Expiration for Notifications Setting -->
-                  <div class="form-group">
-                    <label for="notif_daylimit">Expiration for Notifications <a href="#!" tabindex="-1" title="Note" data-trigger="focus" class="nounderline" data-toggle="popover" data-content="Notifications are archived from user views automatically when they load a page that has the HTML footer (by default all US files) based on the date of the notification, and the difference between that date and now. Change this to increase or decrease the amount of days. Minimum: 1, Maximum: 999, Default: 7."><i class="fa fa-question-circle"></i></a></label>
-                    <div class="input-group">
-                      <input type="number" step="1" min="1" max="999" class="form-control ajxnum" data-desc="Expiration For Notifications" name="notif_daylimit" id="notif_daylimit" value="<?=$settings->notif_daylimit?>">
-                      <span class="input-group-addon">Days</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
               <div class="card no-padding">
                 <div class="card-header"><h3>User Settings</h3></div>
@@ -294,6 +192,18 @@
                     </select>
                   </div>
                 </div>
+              </div>
+
+              <!-- WYSIWYG Option -->
+              <div class="form-group">
+                <label for="wys">Enable WYSIWYG Editor <a href="#!" tabindex="-1" title="Note" data-trigger="focus" class="nounderline" data-toggle="popover" data-content="This does what it says. If you want to disable the Editor, you can change this. This is used in the messaging system.Â Default: Enabled."><i class="fa fa-question-circle"></i></a></label>
+                <span style="float:right;">
+                  <label class="switch switch-text switch-success">
+                    <input id="wys" type="checkbox" class="switch-input toggle" data-desc="WYSIWYG Editor Status" <?php if($settings->wys==1) echo 'checked="true"'; ?>>
+                    <span data-on="Yes" data-off="No" class="switch-label"></span>
+                    <span class="switch-handle"></span>
+                  </label>
+                </span>
               </div>
 
               <div class="card no-padding">
@@ -331,6 +241,10 @@
                   <!-- Set Default Language -->
                   <?php $languages = scandir($abs_us_root.$us_url_root."users/lang");
                   foreach($languages as $k=>$v){
+                    if($v == "." || $v == ".." || $v == "flags"){
+                      unset($languages[$k]);
+                      continue;
+                    }
                     $languages[$k] = substr($v,0,-4);
                   }
                   ?>

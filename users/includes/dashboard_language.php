@@ -1,4 +1,12 @@
 <?php
+$db = DB::getInstance();
+$settings = $db->query("SELECT * FROM settings")->first();
+if(file_exists($abs_us_root.$us_url_root."users/lang/".$settings->default_language.".php")){
+require_once $abs_us_root.$us_url_root."users/lang/".$settings->default_language.".php";
+}elseif(file_exists($abs_us_root.$us_url_root."users/lang/en-US.php")){
+require_once $abs_us_root.$us_url_root."users/lang/en-US.php";
+}
+
 //Account
 $lang = array_merge($lang,array(
 	"ACCOUNT_USER_ADDED" 		=> "New user added!",
@@ -126,5 +134,4 @@ $lang = array_merge($lang,array(
 	//Admin Page
 	$lang = array_merge($lang,array(
 		"PERMISSION_CHAR_LIMIT"			=> "Permission names must be between %m1% and %m2% characters in length",
-
 		));

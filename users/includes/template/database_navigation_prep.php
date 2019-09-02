@@ -1,15 +1,4 @@
   <?php
-  // $settingsQ = $db->query("SELECT * FROM settings");
-  // $settings = $settingsQ->first();
-
-  // Set up notifications button/modal
-  if ($user->isLoggedIn()) {
-      if ($dayLimitQ = $db->query('SELECT notif_daylimit FROM settings', array())) $dayLimit = $dayLimitQ->results()[0]->notif_daylimit;
-      else $dayLimit = 7;
-
-      // 2nd parameter- true/false for all notifications or only current
-  	$notifications = new Notification($user->data()->id, false, $dayLimit);
-  }
   /*
   Load main navigation menus
   */

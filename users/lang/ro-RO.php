@@ -7,7 +7,7 @@ allow us to autoformat numbers on the sites.
 PLEASE put your name somewhere at the top of the language file so we can get in touch with
 you to update it and thank you for your hard work!
 
-UserSpice 4
+UserSpice 5
 An Open Source PHP User Management System
 by the UserSpice Team at http://UserSpice.com
 

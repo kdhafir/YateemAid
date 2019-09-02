@@ -81,12 +81,12 @@ $token = Token::generate();
 ?>
 <div class="content mt-3">
   <div class="row">
-    <div class="col-8">
+    <div class="col-6">
       <h2>Plugin Manager</h2>
       <strong>Please Note:</strong>There are often important installation and security notes in the big table at the bottom of this page.<br>
     </div>
-    <div class="col-4">
-      <a class="btn btn-success" href="https://userspice.com/plugins" class="button">Download More Plugins</a>
+    <div class="col-6">
+      <a href="admin.php?view=spice&type=plugin">Download Official Plugins</a> or <a href="https://userspice.com/plugins" class="button">Download More Plugins</a>
     </div>
   </div>
   <?php resultBlock($errors,$successes);?>
@@ -122,7 +122,7 @@ $token = Token::generate();
               <?php pluginStatus($usplugins[$t]); ?>
           </td>
           <td align="center">
-            <form autocomplete="off" class="" action="admin.php?view=plugins" method="post">
+            <form class="" action="admin.php?view=plugins" method="post">
               <input type="hidden" name="jump" value="#ctrl-<?=$xml->name?>">
               <input type="hidden" name="plugin" value="<?=$t?>">
               <?php if($usplugins[$t] == 1){ ?>

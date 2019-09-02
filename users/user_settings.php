@@ -1,7 +1,7 @@
 <?php
 // This is a user-facing page
 /*
-UserSpice 4
+UserSpice 5
 An Open Source PHP User Management System
 by the UserSpice Team at http://UserSpice.com
 
@@ -23,6 +23,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/template/prep.php';
 
 if (!securePage($_SERVER['PHP_SELF'])){die();}
 $hooks =  getMyHooks();
+includeHook($hooks,'pre');
 //dealing with if the user is logged in
 if($user->isLoggedIn() && !checkMenu(2,$user->data()->id)){
 	if (($settings->site_offline==1) && (!in_array($user->data()->id, $master_account)) && ($currentPage != 'login.php') && ($currentPage != 'maintenance.php')){
@@ -247,6 +248,9 @@ if(!empty($_POST)) {
 $user2 = new User();
 $userdetails=$user2->data();
 ?>
+<div id="page-wrapper">
+    <div class="container">
+        <div class="well">
             <div class="row">
                 <div class="col-sm-12 col-md-2">
                     <p><img src="<?=$grav; ?>" class="img-thumbnail" alt="Generic placeholder thumbnail"></p>
@@ -343,8 +347,16 @@ $userdetails=$user2->data();
 
                 </div>
             </div>
+        </div>
+
+
+    </div> <!-- /container -->
+
+</div> <!-- /#page-wrapper -->
+
 
 <!-- footers -->
+<?php require_once $abs_us_root . $us_url_root . 'usersc/templates/' . $settings->template . '/container_close.php'; //custom template container    ?>
 
 <?php require_once $abs_us_root . $us_url_root . 'users/includes/page_footer.php'; ?>
 

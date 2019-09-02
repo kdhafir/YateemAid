@@ -1,7 +1,7 @@
 <?php
 // This is a user-facing page
 /*
-UserSpice 4
+UserSpice 5
 An Open Source PHP User Management System
 by the UserSpice Team at http://UserSpice.com
 
@@ -22,6 +22,7 @@ require_once '../users/init.php';
 if (!securePage($_SERVER['PHP_SELF'])){die();}
 require_once $abs_us_root.$us_url_root.'users/includes/template/prep.php';
 $hooks =  getMyHooks();
+includeHook($hooks,'pre');
 
 
 
@@ -57,21 +58,23 @@ $signupdate = $raw['month']."/".$raw['day']."/".$raw['year'];
 $userdetails = fetchUserDetails(NULL, NULL, $get_info_id); //Fetch user details
 ?>
 
+<div id="page-wrapper">
+<div class="container">
+<div class="well">
 <div class="row">
 	<div class="col-sm-12 col-md-3">
 		<p>
 		</p>
-		<p><img src="<?=$grav; ?>" class="img-thumbnail" alt="Generic placeholder thumbnail"></p>
+		<p>
+			<?php
+			if(isset($user->data()->steam_avatar) && $user->data()->steam_avatar != ''){
+				$grav = $user->data()->steam_avatar;
+			}elseif(isset($user->data()->picture) && $user->data()->picture != ''){
+				$grav = $user->data()->picture;
+			}
+			?>
+			<img src="<?=$grav; ?>" class="img-thumbnail" alt="Generic placeholder thumbnail"></p>
 		<p><a href="../users/user_settings.php" class="btn btn-primary"><?=lang("ACCT_EDIT")?></a></p>
-		<?php
-		if($settings->twofa == 1){
-		$twoQ = $db->query("select twoKey from users where id = ? and twoEnabled = 0", [$userdetails->id]);
-		if($twoQ->count() > 0){ ?>
-			<p><a class="btn btn-primary " href="../users/enable2fa.php" role="button"><?=lang("ACCT_2FA")?></a></p>
-	<?php	} else { ?>
-			<p><a class="btn btn-primary " href="../users/manage2fa.php" role="button"><?=lang("ACCT_2FA")?></a></p>
-	<?php }} ?>
-	<?php if($settings->session_manager==1) {?><p><a class="btn btn-primary " href="../users/manage_sessions.php" role="button"><?=lang("ACCT_SESS")?></a></p><?php } ?>
 	<?php if(isset($_SESSION['cloak_to'])){ ?>
 		<form class="" action="account.php" method="post">
 			<input type="submit" name="uncloak" value="Uncloak!" class='btn btn-danger'>
@@ -87,14 +90,17 @@ $userdetails = fetchUserDetails(NULL, NULL, $get_info_id); //Fetch user details
 		<p><?=lang("ACCT_LOGINS")?>: <?=$user->data()->logins?></p>
 		<?php if($settings->session_manager==1) {?><p><?=lang("ACCT_SESSIONS")?>: <?=UserSessionCount()?> <sup><a class="nounderline" data-toggle="tooltip" title="<?=lang("ACCT_MNG_SES")?>">?</a></sup></p><?php }
 		?>
-		<?php includeHook($hooks,'bottom');?>
+		<?php
+		includeHook($hooks,'bottom');?>
 	</div>
 
 </div>
 
-
+</div>
 	<?php languageSwitcher(); ?>
+</div> <!-- /container -->
 
+</div> <!-- /#page-wrapper -->
 
 <!-- footers -->
 

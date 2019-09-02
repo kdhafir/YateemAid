@@ -1,7 +1,7 @@
 <?php
 // This is a user-facing page
 /*
-UserSpice 4
+UserSpice 5
 An Open Source PHP User Management System
 by the UserSpice Team at http://UserSpice.com
 
@@ -23,6 +23,7 @@ if(isset($_SESSION)){session_destroy();}
 require_once '../users/init.php';
 require_once $abs_us_root.$us_url_root.'users/includes/template/prep.php';
 $hooks =  getMyHooks();
+includeHook($hooks,'pre');
 if($settings->twofa == 1){
   $google2fa = new PragmaRX\Google2FA\Google2FA();
 }
@@ -84,15 +85,6 @@ if (!empty($_POST['login_hook'])) {
         $login = $user->loginEmail(Input::get('username'), trim(Input::get('password')), $remember);
         if ($login) {
           $dest = sanitizedDest('dest');
-          $twoQ = $db->query("select twoKey from users where id = ? and twoEnabled = 1",[$user->data()->id]);
-          if($twoQ->count()>0) {
-            $_SESSION['twofa']=1;
-            if(!empty($dest)) {
-              $page=encodeURIComponent(Input::get('redirect'));
-              logger($user->data()->id,"Two FA","Two FA being requested.");
-              Redirect::to($us_url_root.'users/twofa.php?dest='.$dest.'&redirect='.$page); }
-              else Redirect::To($us_url_root.'users/twofa.php');
-            } else {
               # if user was attempting to get to a page before login, go there
               $_SESSION['last_confirm']=date("Y-m-d H:i:s");
 
@@ -101,7 +93,7 @@ if (!empty($_POST['login_hook'])) {
                 if($user->data()->oauth_tos_accepted == 0){
                   Redirect::to($us_url_root.'users/user_agreement_acknowledge.php');
                 }
-              }
+
 
               if (!empty($dest)) {
                 $redirect=htmlspecialchars_decode(Input::get('redirect'));
@@ -134,19 +126,18 @@ if (!empty($_POST['login_hook'])) {
     }
     $token = Token::generate();
     ?>
+    <div id="page-wrapper">
+      <div class="container">
         <?=resultBlock($errors,$successes);?>
         <div class="row">
           <div class="col-sm-12">
             <?php
-
             includeHook($hooks,'body');
-            if($settings->glogin==1 && !$user->isLoggedIn()){
-              require_once $abs_us_root.$us_url_root.'users/includes/google_oauth_login.php';
-            }
-            if($settings->fblogin==1 && !$user->isLoggedIn()){
-              require_once $abs_us_root.$us_url_root.'users/includes/facebook_oauth.php';
-            }
             ?>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
             <form name="login" id="login-form" class="form-signin" action="login.php" method="post">
               <h2 class="form-signin-heading"></i> <?=lang("SIGNIN_TITLE","");?></h2>
               <input type="hidden" name="dest" value="<?= $dest ?>" />
@@ -189,7 +180,10 @@ if (!empty($_POST['login_hook'])) {
               <?php   includeHook($hooks,'bottom');?>
                 <?php languageSwitcher();?>
             </div>
+          </div>
+        </div>
 
+        <?php require_once $abs_us_root.$us_url_root.'usersc/templates/'.$settings->template.'/container_close.php'; //custom template container ?>
 
         <!-- footers -->
         <?php require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>

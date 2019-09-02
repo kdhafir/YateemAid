@@ -9,7 +9,7 @@ you to update it and thank you for your hard work!
 
 PLEASE NOTE: DO NOT ADD RANDOM KEYS in the middle of the translations.  In order to make it easier to tell what language keys are missing, from this point forward, we are going to add all new language keys at the BOTTOM of this file. The number of lines in your language file will tell you which keys still need to be translated.  If you have questions please ask on the forums or on Discord.
 
-UserSpice 4
+UserSpice 5
 An Open Source PHP User Management System
 by the UserSpice Team at http://UserSpice.com
 
@@ -386,6 +386,24 @@ $lang = array_merge($lang,array(
 		"DAT_ASC"           => "Activate to sort column ascending",
 		"DAT_DESC"          => "Activate to sort column descending",
 		));
+
+
+///////////////////////////////////////////////////////////////
+
+//Backend Translations for UserSpice 5
+$lang = array_merge($lang,array(
+"BE_DASH"    			=> "Dashboard",
+"BE_SETTINGS"     => "Settings",
+"BE_GEN"					=> "General",
+"BE_REG"					=> "Registration",
+"BE_CUS"					=> "Custom Settings",
+"BE_DASH_ACC"			=> "Dashboard Access",
+"BE_TOOLS"				=> "Tools",
+"BE_BACKUP"				=> "Backup",
+"BE_UPDATE"				=> "Updates",
+"BE_CRON"				  => "Cron Jobs",
+"BE_IP"				  	=> "IP Manager",
+));
 
 
 
