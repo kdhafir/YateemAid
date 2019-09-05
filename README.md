@@ -1,11 +1,14 @@
-# نظام مساعد اليتيم
-لإدارة الأيتام وكفالاتهم وكافليهم
+# YateemAid Software
 
-النظام مبني على اطار UserSpice 
-ويستخدم الأضافة FormBuilder في بناء النماذج 
+This software helps organizations to manage orphans and thier data
 
-يمكن تركيب النظام في السيرفر المحلي بعد تركيب قاعدة البيانات المرفقة باسم yaiddb.sql
+The system is built on UserSpice php frameword, and it's using   FormBuilder plugin to create forms.
 
-بيانات الدخول الافتراضية للنظام: [حساب المدير]
+to start using this software you have to create the database in phpmyadmin from this file [yaiddb.sql]
+
+default admin account is:
 username: admin
 password: password
+
+This software is open source and I hope that you can benfit using it.
+ارجو من الله ان ينفع به
