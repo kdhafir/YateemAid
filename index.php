@@ -18,7 +18,7 @@ if(isset($user) && $user->isLoggedIn()){
 			<p align="center">
 				<?php
 				if($user->isLoggedIn()){?>
-					<a class="btn btn-primary" href="ysys/addnew.php" role="button">اضافة يتيم &raquo;</a>
+					<a class="btn btn-primary" href="ysys/yateem_addnew.php" role="button">اضافة يتيم &raquo;</a>
 					<a class="btn btn-primary" href="ysys/index.php" role="button">استعراض الأيتام &raquo;</a>
 					<a class="btn btn-primary" href="users/account.php" role="button"><?=lang("ACCT_HOME");?> &raquo;</a>
 				<?php }else{?>
