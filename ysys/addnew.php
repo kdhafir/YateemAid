@@ -15,6 +15,8 @@ require_once $abs_us_root.$us_url_root.'users/includes/template/prep.php';
 <div class="row" dir="rtl">
 	<div class="col-sm-12 col-md-12">
     <br>
+    <h2>نموذج اضافة يتيم جديد</h2>
+    <hr>
     <?php
     fb_displayform('ya_yateeminfo_01');
     ?>

@@ -14,22 +14,45 @@ $counAytam = $aytamQ->count();
 <div class="row" dir="rtl">
 	<div class="col-sm-12 col-md-12">
 	<a class="btn btn-primary" href="addnew.php">إضافة يتيم</a>
+	<table class="table table-striped">
+	
+	<thead class="thead-light">
+	<tr>
+      <th>#</th>
+      <th>الاسم</th>
+      <th>تاريخ الميلاد</th>
+	  <th>اسم الوصي</th>
+	  <th>صلة القرابة</th>
+	  <th>اسم الأم</th>
+	  <th>على قيد الحياة</th>
+    </tr>
+	</thead>
+	<tbody>
 <?php
 if($counAytam > 0){
     $aytamResult = $aytamQ->results();
     $x = 1;
     foreach($aytamResult as $ar){
 ?>
-		<table class="table">
+		
 		<tr>
 		<td></td>
+		<td><?php echo $ar->yName; ?></td>
+		<td><?php echo $ar->yDateOfBirth; ?></td>
+		<td><?php echo $ar->rName; ?></td>
+		<td><?php echo $ar->rRelation; ?></td>
+		<td><?php echo $ar->mName; ?></td>
+		<td><?php echo $ar->mAlive; ?></td>
+		<td><?php echo $ar->fFinanceStatus; ?></td>
 		</tr>
-		</table>
+		
 <?php
 	} // end of foreach($aytamResult as $ar)
 } // end of if($counAytam > 0)
 
 ?>
+</tbody>
+</table>
 	</div>
 
 </div>

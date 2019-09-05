@@ -74,6 +74,7 @@ html{
 }
 body{
     height:100%; /* force the BODY element to match the height of the HTML element */
+	  text-align: right;
 }
 
 
