@@ -13,7 +13,12 @@ $counAytam = $aytamQ->count();
 ?>
 <div class="row" dir="rtl">
 	<div class="col-sm-12 col-md-12">
-	<a class="btn btn-primary" href="addnew.php">إضافة يتيم</a>
+	<br>
+	<div class="d-flex justify-content-start bg-secondary">
+		<a class="btn btn-info" href="yateem_addnew.php">إضافة يتيم</a>
+		<a class="btn btn-info" href="yateem_addnew.php">إضافة يتيم</a>
+		<a class="btn btn-info" href="yateem_addnew.php">إضافة يتيم</a>
+	</div>
 	<table class="table table-striped">
 	
 	<thead class="thead-light">
@@ -25,6 +30,7 @@ $counAytam = $aytamQ->count();
 	  <th>صلة القرابة</th>
 	  <th>اسم الأم</th>
 	  <th>على قيد الحياة</th>
+	  <th>حالة الأسرة</th>
     </tr>
 	</thead>
 	<tbody>
