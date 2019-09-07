@@ -7,7 +7,7 @@ require_once '../users/init.php';
 if (!securePage($_SERVER['PHP_SELF'])){die();}
 require_once $abs_us_root.$us_url_root.'users/includes/template/prep.php';
 
-$kafilQ = $db->query("SELECT * FROM `ya_kafeelinfo_01` ORDER BY id DESC");
+$kafilQ = $db->query("SELECT * FROM `ya_kafilinfo_01` ORDER BY id DESC");
 $countKafil = $kafilQ->count();
 
 ?>
