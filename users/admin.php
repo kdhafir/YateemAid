@@ -255,12 +255,9 @@ require_once $abs_us_root.$us_url_root.'users/views/_admin_announcements.php';
 </div><!-- /#right-panel -->
 
 <!-- Right Panel -->
-
-
-
 <script type="text/javascript">
 $(document).ready(function() {
-('[data-toggle="popover"]').popover();
+$('[data-toggle="popover"]').popover();
 
   function messages(data) {
     console.log("messages found");
