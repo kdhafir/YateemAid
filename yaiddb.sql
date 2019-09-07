@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 05, 2019 at 09:07 AM
+-- Generation Time: Sep 07, 2019 at 11:10 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -122,7 +122,9 @@ CREATE TABLE `fb_formbuilder` (
 
 INSERT INTO `fb_formbuilder` (`id`, `form`) VALUES
 (2, 'fb_settings'),
-(3, 'ya_yateeminfo_01');
+(3, 'ya_yateeminfo_01'),
+(5, 'ya_kafeelinfo_01'),
+(6, 'ya_kafalahinfo_01');
 
 -- --------------------------------------------------------
 
@@ -347,7 +349,14 @@ INSERT INTO `logs` (`id`, `user_id`, `logdate`, `logtype`, `lognote`, `ip`) VALU
 (43, 1, '2019-09-03 08:15:08', 'USPlugins', 'formbuilder Activated', '127.0.0.1'),
 (44, 1, '2019-09-04 07:45:57', 'Email Settings', 'Updated website_name from User Spice to Yateem Aid.', '::1'),
 (45, 1, '2019-09-05 06:57:09', 'System Updates', 'Inserted announcements checker to settings table', '::1'),
-(46, 1, '2019-09-05 06:57:09', 'System Updates', 'Update 2019-09-04a successfully deployed.', '::1');
+(46, 1, '2019-09-05 06:57:09', 'System Updates', 'Update 2019-09-04a successfully deployed.', '::1'),
+(47, 1, '2019-09-05 08:32:45', 'Pages Manager', 'Added 1 permission(s) to ysys/yateem_addnew.php.', '::1'),
+(48, 1, '2019-09-07 05:11:19', 'User', 'User logged in.', NULL),
+(49, 1, '2019-09-07 05:56:53', 'System Updates', 'Update 2019-09-05c successfully deployed.', '::1'),
+(50, 1, '2019-09-07 08:38:50', 'Pages Manager', 'Added 1 permission(s) to ysys/kafil_addnew.php.', '::1'),
+(51, 1, '2019-09-07 08:39:01', 'Pages Manager', 'Added 1 permission(s) to ysys/kafil_viewall.php.', '::1'),
+(52, 1, '2019-09-07 08:48:00', 'Pages Manager', 'Added 1 permission(s) to ysys/kafalah_addnew.php.', '::1'),
+(53, 1, '2019-09-07 08:48:09', 'Pages Manager', 'Added 1 permission(s) to ysys/kafalah_viewall.php.', '::1');
 
 -- --------------------------------------------------------
 
@@ -559,7 +568,12 @@ INSERT INTO `pages` (`id`, `page`, `title`, `private`, `re_auth`) VALUES
 (88, 'users/loader.php', '', 1, 0),
 (89, 'users/twofa.php', '', 1, 0),
 (90, 'ysys/addnew.php', '', 1, 0),
-(91, 'ysys/index.php', '', 1, 0);
+(91, 'ysys/index.php', '', 1, 0),
+(92, 'ysys/yateem_addnew.php', '', 1, 0),
+(93, 'ysys/kafil_addnew.php', '', 1, 0),
+(94, 'ysys/kafil_viewall.php', '', 1, 0),
+(95, 'ysys/kafalah_addnew.php', '', 1, 0),
+(96, 'ysys/kafalah_viewall.php', '', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -648,7 +662,12 @@ INSERT INTO `permission_page_matches` (`id`, `permission_id`, `page_id`) VALUES
 (56, 1, 83),
 (57, 2, 84),
 (58, 1, 90),
-(59, 1, 91);
+(59, 1, 91),
+(60, 1, 92),
+(61, 1, 93),
+(62, 1, 94),
+(63, 1, 95),
+(64, 1, 96);
 
 -- --------------------------------------------------------
 
@@ -753,7 +772,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `recaptcha`, `force_ssl`, `css_sample`, `us_css1`, `us_css2`, `us_css3`, `site_name`, `language`, `track_guest`, `site_offline`, `force_pr`, `glogin`, `fblogin`, `gid`, `gsecret`, `gredirect`, `ghome`, `fbid`, `fbsecret`, `fbcallback`, `graph_ver`, `finalredir`, `req_cap`, `req_num`, `min_pw`, `max_pw`, `min_un`, `max_un`, `messaging`, `snooping`, `echouser`, `wys`, `change_un`, `backup_dest`, `backup_source`, `backup_table`, `msg_notification`, `permission_restriction`, `auto_assign_un`, `page_permission_restriction`, `msg_blocked_users`, `msg_default_to`, `notifications`, `notif_daylimit`, `recap_public`, `recap_private`, `page_default_private`, `navigation_type`, `copyright`, `custom_settings`, `system_announcement`, `twofa`, `force_notif`, `cron_ip`, `registration`, `join_vericode_expiry`, `reset_vericode_expiry`, `admin_verify`, `admin_verify_timeout`, `session_manager`, `template`, `saas`, `redirect_uri_after_login`, `show_tos`, `default_language`, `allow_language`, `spice_api`, `announce`) VALUES
-(1, 0, 0, 0, '../users/css/color_schemes/bootstrap.min.css', '../users/css/sb-admin.css', '../users/css/custom.css', 'مساعد اليتيم', 'en', 1, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', 0, 0, 6, 30, 4, 30, 1, 1, 0, 1, 0, '/', 'everything', '', 0, 0, 0, 0, 0, 1, 0, 7, '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI', '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe', 1, 1, 'Khalid Dhafir', 1, '', 0, 0, 'off', 1, 24, 15, 1, 120, 0, 'standard', NULL, NULL, 1, 'ar-EG', 1, NULL, '2019-09-05 09:57:09');
+(1, 0, 0, 0, '../users/css/color_schemes/bootstrap.min.css', '../users/css/sb-admin.css', '../users/css/custom.css', 'مساعد اليتيم', 'en', 1, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', 0, 0, 6, 30, 4, 30, 0, 1, 0, 1, 0, '/', 'everything', '', 0, 0, 0, 0, 0, 1, 0, 7, '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI', '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe', 1, 1, 'Khalid Dhafir', 1, '', 0, 0, 'off', 1, 24, 15, 1, 120, 0, 'standard', NULL, NULL, 1, 'ar-EG', 1, NULL, '2019-09-07 08:11:59');
 
 -- --------------------------------------------------------
 
@@ -810,7 +829,8 @@ INSERT INTO `updates` (`id`, `migration`, `applied_on`, `update_skipped`) VALUES
 (49, 'y4A1Y0u9n2SS', '2019-09-03 08:08:25', NULL),
 (50, '0DaShInkjV87', '2019-09-03 08:08:25', NULL),
 (51, '0DaShInkjV88', '2019-09-03 08:08:25', NULL),
-(52, '2019-09-04a', '2019-09-05 06:57:09', NULL);
+(52, '2019-09-04a', '2019-09-05 06:57:09', NULL),
+(53, '2019-09-05c', '2019-09-07 05:56:53', NULL);
 
 -- --------------------------------------------------------
 
@@ -869,7 +889,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `email_new`, `username`, `password`, `pin`, `fname`, `lname`, `permissions`, `logins`, `account_owner`, `account_id`, `company`, `join_date`, `last_login`, `email_verified`, `vericode`, `active`, `oauth_provider`, `oauth_uid`, `gender`, `locale`, `gpluslink`, `picture`, `created`, `modified`, `fb_uid`, `un_changed`, `msg_exempt`, `last_confirm`, `protected`, `dev_user`, `msg_notification`, `force_pr`, `twoKey`, `twoEnabled`, `twoDate`, `cloak_allowed`, `org`, `account_mgr`, `oauth_tos_accepted`, `vericode_expiry`, `language`) VALUES
-(1, 'almohseneen.it@gmail.com', NULL, 'admin', '$2y$12$1v06jm2KMOXuuo3qP7erTuTIJFOnzhpds1Moa8BadnUUeX0RV3ex.', NULL, 'مدير النظام', 'Admin', 1, 1, 1, 0, 'UserSpice', '2016-01-01 00:00:00', '2019-09-03 11:08:43', 1, 'nlPsJDtyeqFWsS', 0, '', '', '', '', '', '', '0000-00-00 00:00:00', '1899-11-30 00:00:00', '', 0, 1, '2017-10-08 15:24:37', 1, 0, 1, 0, NULL, 0, NULL, 0, NULL, 0, NULL, NULL, 'ar-EG'),
+(1, 'almohseneen.it@gmail.com', NULL, 'admin', '$2y$12$1v06jm2KMOXuuo3qP7erTuTIJFOnzhpds1Moa8BadnUUeX0RV3ex.', NULL, 'مدير النظام', 'Admin', 1, 2, 1, 0, 'UserSpice', '2016-01-01 00:00:00', '2019-09-07 08:11:19', 1, 'nlPsJDtyeqFWsS', 0, '', '', '', '', '', '', '0000-00-00 00:00:00', '1899-11-30 00:00:00', '', 0, 1, '2017-10-08 15:24:37', 1, 0, 1, 0, NULL, 0, NULL, 0, NULL, 0, NULL, NULL, 'ar-EG'),
 (2, 'noreply@userspice.com', NULL, 'user', '$2y$12$HZa0/d7evKvuHO8I3U8Ff.pOjJqsGTZqlX8qURratzP./EvWetbkK', NULL, 'Sample', 'User', 1, 0, 1, 0, 'none', '2016-01-02 00:00:00', '2017-10-08 15:47:41', 1, '2ENJN4xD8nnjOgk', 1, '', '', '', '', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 0, 0, NULL, 0, 0, 1, 0, NULL, 0, NULL, 0, NULL, 0, NULL, NULL, 'en-US');
 
 -- --------------------------------------------------------
@@ -1212,6 +1232,102 @@ CREATE TABLE `us_user_sessions` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `ya_kafalahinfo_01`
+--
+
+CREATE TABLE `ya_kafalahinfo_01` (
+  `id` int(11) NOT NULL,
+  `kafilID` varchar(255) DEFAULT NULL,
+  `kafalahAmount` decimal(50,0) DEFAULT NULL,
+  `kafalahCurrency` varchar(255) DEFAULT NULL,
+  `kafalahDuration` decimal(50,0) DEFAULT NULL,
+  `kafalahLoop` varchar(255) DEFAULT NULL,
+  `kafalahAytam` decimal(50,0) DEFAULT NULL,
+  `kafalahType` varchar(255) DEFAULT NULL,
+  `kafalahSDate` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ya_kafalahinfo_01_fb_fields`
+--
+
+CREATE TABLE `ya_kafalahinfo_01_fb_fields` (
+  `id` int(11) NOT NULL,
+  `fb_order` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `field_type` text NOT NULL,
+  `field_html` text NOT NULL,
+  `requirements` text NOT NULL,
+  `databasevalue` varchar(255) DEFAULT NULL,
+  `database_name` varchar(255) DEFAULT NULL,
+  `database_value` varchar(255) DEFAULT NULL,
+  `database_where` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ya_kafalahinfo_01_fb_fields`
+--
+
+INSERT INTO `ya_kafalahinfo_01_fb_fields` (`id`, `fb_order`, `name`, `field_type`, `field_html`, `requirements`, `databasevalue`, `database_name`, `database_value`, `database_where`) VALUES
+(1, 0, 'kafilID', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\"}', '', 'ya_kafeelinfo_01', 'id', ''),
+(2, 0, 'kafalahAmount', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0645\\u0628\\u0644\\u063a \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0645\\u0628\\u0644\\u063a \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\"}', '', '', '', ''),
+(3, 0, 'kafalahCurrency', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0639\\u0645\\u0644\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0639\\u0645\\u0644\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\"}', '[{\"id\":\"YER\",\"value\":\"\\u0631\\u064a\\u0627\\u0644 \\u064a\\u0645\\u0646\\u064a\"},{\"id\":\"SAR\",\"value\":\"\\u0631\\u064a\\u0627\\u0644 \\u0633\\u0639\\u0648\\u062f\\u064a\"},{\"id\":\"USD\",\"value\":\"\\u062f\\u0648\\u0644\\u0627\\u0631 \\u0623\\u0645\\u0631\\u064a\\u0643\\u064a\"},{\"id\":\"QAR\"', '', '', ''),
+(4, 0, 'kafalahDuration', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0645\\u062f\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0645\\u062f\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\"}', '', '', '', ''),
+(5, 0, 'kafalahLoop', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062f\\u0648\\u0631\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062f\\u0648\\u0631\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\"}', '[{\"id\":\"w\",\"value\":\"\\u0627\\u0633\\u0628\\u0648\\u0639\\u064a\\u0629\"},{\"id\":\"m\",\"value\":\"\\u0634\\u0647\\u0631\\u064a\\u0629\"},{\"id\":\"\\u0633\\u0646\\u0648\\u064a\\u0629\",\"value\":\"\"}]', '', '', ''),
+(6, 0, 'kafalahAytam', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0639\\u062f\\u062f \\u0627\\u0644\\u0623\\u064a\\u062a\\u0627\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0639\\u062f\\u062f \\u0627\\u0644\\u0623\\u064a\\u062a\\u0627\\u0645\"}', '', '', '', ''),
+(7, 0, 'kafalahType', 'radio', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\"}', '[{\"id\":\"c\",\"value\":\"\\u0645\\u0633\\u062a\\u0645\\u0631\\u0629\"},{\"id\":\"o\",\"value\":\"\\u0645\\u0646\\u0642\\u0637\\u0639\\u0629\"}]', '', '', ''),
+(8, 0, 'kafalahSDate', 'date', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0627\\u0644\\u0628\\u062f\\u0621\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0627\\u0644\\u0628\\u062f\\u0621\"}', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ya_kafeelinfo_01`
+--
+
+CREATE TABLE `ya_kafeelinfo_01` (
+  `id` int(11) NOT NULL,
+  `kName` varchar(255) DEFAULT NULL,
+  `kAddress` varchar(255) DEFAULT NULL,
+  `kPhone` decimal(50,0) DEFAULT NULL,
+  `kType` varchar(255) DEFAULT NULL,
+  `kCountry` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ya_kafeelinfo_01_fb_fields`
+--
+
+CREATE TABLE `ya_kafeelinfo_01_fb_fields` (
+  `id` int(11) NOT NULL,
+  `fb_order` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `field_type` text NOT NULL,
+  `field_html` text NOT NULL,
+  `requirements` text NOT NULL,
+  `databasevalue` varchar(255) DEFAULT NULL,
+  `database_name` varchar(255) DEFAULT NULL,
+  `database_value` varchar(255) DEFAULT NULL,
+  `database_where` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ya_kafeelinfo_01_fb_fields`
+--
+
+INSERT INTO `ya_kafeelinfo_01_fb_fields` (`id`, `fb_order`, `name`, `field_type`, `field_html`, `requirements`, `databasevalue`, `database_name`, `database_value`, `database_where`) VALUES
+(1, 0, 'kName', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\",\"required\":true}', '', '', '', ''),
+(2, 0, 'kAddress', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0639\\u0646\\u0648\\u0627\\u0646 \\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0639\\u0646\\u0648\\u0627\\u0646 \\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\"}', '', '', '', ''),
+(3, 0, 'kPhone', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0631\\u0642\\u0645 \\u0647\\u0627\\u062a\\u0641 \\/ \\u0645\\u0648\\u0628\\u0627\\u064a\\u0644 \\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0631\\u0642\\u0645 \\u0647\\u0627\\u062a\\u0641 \\/ \\u0645\\u0648\\u0628\\u0627\\u064a\\u0644 \\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\"}', '', '', '', ''),
+(4, 0, 'kType', 'radio', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\"}', '[{\"id\":\"i\",\"value\":\"\\u062f\\u0627\\u062e\\u0644\\u064a\"},{\"id\":\"o\",\"value\":\"\\u062e\\u0627\\u0631\\u062c\\u064a\"}]', '', '', ''),
+(5, 0, 'kCountry', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u062f\\u0648\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u062f\\u0648\\u0644\\u0629\"}', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `ya_yateeminfo_01`
 --
 
@@ -1259,15 +1375,21 @@ CREATE TABLE `ya_yateeminfo_01` (
   `fFinanceStatus` varchar(255) DEFAULT NULL,
   `fFinanceSalary` decimal(50,0) DEFAULT NULL,
   `fFinanceSource` varchar(255) DEFAULT NULL,
-  `sOpinion` text DEFAULT NULL
+  `sOpinion` text DEFAULT NULL,
+  `BasicInfo` varchar(255) DEFAULT NULL,
+  `identifierName` varchar(255) DEFAULT NULL,
+  `identifierSection` varchar(255) DEFAULT NULL,
+  `idName` varchar(255) DEFAULT NULL,
+  `idMobile` varchar(12) DEFAULT NULL,
+  `idAddress` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `ya_yateeminfo_01`
 --
 
-INSERT INTO `ya_yateeminfo_01` (`id`, `dateOfEntry`, `yName`, `ySex`, `yDateOfBirth`, `yBirthPlace`, `yNationality`, `yFeatures`, `yAddress`, `yRankInFamily`, `fDeathDate`, `fDeathReason`, `yEduLevel`, `yEduClass`, `yEduSchoolName`, `yEduSchoolPhone`, `yEduNoEduReason`, `yHealthStatus`, `yHealthSickness`, `yQuranLevel`, `yQuranSchool`, `rSectionName`, `rName`, `rSex`, `rDateOfBirth`, `rRelation`, `rMobile`, `rMobilePerson`, `rWorkName`, `rWorkType`, `mSection`, `mSectionName`, `mName`, `mAlive`, `mStatus`, `mWork`, `fNumberOfBrothers`, `fRankInFamily`, `fHomeType`, `fAddress`, `fFinanceStatus`, `fFinanceSalary`, `fFinanceSource`, `sOpinion`) VALUES
-(1, '0000-00-00', 'ككشسيبت', NULL, '0000-00-00', 'يشيب', 'يشي', 'شيب', 'شيسب', '2', '0000-00-00', 'سيب', '', '', '', '0', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `ya_yateeminfo_01` (`id`, `dateOfEntry`, `yName`, `ySex`, `yDateOfBirth`, `yBirthPlace`, `yNationality`, `yFeatures`, `yAddress`, `yRankInFamily`, `fDeathDate`, `fDeathReason`, `yEduLevel`, `yEduClass`, `yEduSchoolName`, `yEduSchoolPhone`, `yEduNoEduReason`, `yHealthStatus`, `yHealthSickness`, `yQuranLevel`, `yQuranSchool`, `rSectionName`, `rName`, `rSex`, `rDateOfBirth`, `rRelation`, `rMobile`, `rMobilePerson`, `rWorkName`, `rWorkType`, `mSection`, `mSectionName`, `mName`, `mAlive`, `mStatus`, `mWork`, `fNumberOfBrothers`, `fRankInFamily`, `fHomeType`, `fAddress`, `fFinanceStatus`, `fFinanceSalary`, `fFinanceSource`, `sOpinion`, `BasicInfo`, `identifierName`, `identifierSection`, `idName`, `idMobile`, `idAddress`) VALUES
+(1, '0000-00-00', 'ككشسيبت', NULL, '0000-00-00', 'يشيب', 'يشي', 'شيب', 'شيسب', '2', '0000-00-00', 'سيب', '', '', '', '0', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1293,48 +1415,53 @@ CREATE TABLE `ya_yateeminfo_01_fb_fields` (
 --
 
 INSERT INTO `ya_yateeminfo_01_fb_fields` (`id`, `fb_order`, `name`, `field_type`, `field_html`, `requirements`, `databasevalue`, `database_name`, `database_value`, `database_where`) VALUES
-(1, 0, 'dateOfEntry', 'date', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0627\\u0644\\u0625\\u062f\\u062e\\u0627\\u0644\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0627\\u0644\\u0625\\u062f\\u062e\\u0627\\u0644\",\"is_datetime\":true,\"required\":true}', '', '', '', ''),
-(2, 0, 'yName', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645 \\u0631\\u0628\\u0627\\u0639\\u064a\\u0627\\u064b \\u0645\\u0639 \\u0627\\u0644\\u0644\\u0642\\u0628\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645 \\u0631\\u0628\\u0627\\u0639\\u064a\\u0627\\u064b \\u0645\\u0639 \\u0627\\u0644\\u0644\\u0642\\u0628\",\"required\":true}', '', '', '', ''),
-(3, 0, 'ySex', 'radio', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062c\\u0646\\u0633 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062c\\u0646\\u0633 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\"}', '[{\"id\":\"m\",\"value\":\"\\u0630\\u0643\\u0631\"},{\"id\":\"f\",\"value\":\"\\u0623\\u0646\\u062b\\u0649\"}]', '', '', ''),
-(4, 0, 'yDateOfBirth', 'date', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0645\\u064a\\u0644\\u0627\\u062f \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0645\\u064a\\u0644\\u0627\\u062f \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\"}', '', '', '', ''),
-(5, 0, 'yBirthPlace', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0645\\u062d\\u0644 \\u0645\\u064a\\u0644\\u0627\\u062f \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0645\\u062d\\u0644 \\u0645\\u064a\\u0644\\u0627\\u062f \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"required\":true}', '', '', '', ''),
-(6, 0, 'yNationality', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062c\\u0646\\u0633\\u064a\\u0629 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u062c\\u0646\\u0633\\u064a\\u0629 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"required\":true}', '', '', '', ''),
-(7, 0, 'yFeatures', 'textarea', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0645\\u0648\\u0627\\u0647\\u0628 \\u0648\\u0645\\u0645\\u064a\\u0632\\u0627\\u062a \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"dir=&quot;rtl&quot;\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0645\\u0648\\u0627\\u0647\\u0628 \\u0648\\u0645\\u0645\\u064a\\u0632\\u0627\\u062a \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"required\":true}', '', '', '', ''),
-(8, 0, 'yAddress', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0645\\u062d\\u0644 \\u0627\\u0642\\u0627\\u0645\\u0629 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645 [ \\u0645\\u062d\\u0627\\u0641\\u0638\\u0629 - \\u0645\\u062f\\u064a\\u0631\\u064a\\u0629 - \\u0639\\u0632\\u0644\\u0629 \\/ \\u062d\\u064a ]\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0645\\u062d\\u0644 \\u0627\\u0642\\u0627\\u0645\\u0629 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645 [ \\u0645\\u062d\\u0627\\u0641\\u0638\\u0629 - \\u0645\\u062f\\u064a\\u0631\\u064a\\u0629 - \\u0639\\u0632\\u0644\\u0629 \\/ \\u062d\\u064a ]\",\"required\":true}', '', '', '', ''),
-(9, 0, 'yRankInFamily', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062a\\u0631\\u062a\\u064a\\u0628 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645 \\u0628\\u064a\\u0646 \\u0627\\u062e\\u0648\\u0627\\u0646\\u0647 \\u0648\\u0627\\u062e\\u0648\\u0627\\u062a\\u0647 [ \\u0645\\u0646 \\u0627\\u0644\\u0623\\u0643\\u0628\\u0631 \\u0627\\u0644\\u0649 \\u0627\\u0644\\u0623\\u0635\\u063a\\u0631 ]\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u062a\\u0631\\u062a\\u064a\\u0628 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645 \\u0628\\u064a\\u0646 \\u0627\\u062e\\u0648\\u0627\\u0646\\u0647 \\u0648\\u0627\\u062e\\u0648\\u0627\\u062a\\u0647 [ \\u0645\\u0646 \\u0627\\u0644\\u0623\\u0643\\u0628\\u0631 \\u0627\\u0644\\u0649 \\u0627\\u0644\\u0623\\u0635\\u063a\\u0631 ]\",\"required\":true}', '', '', '', ''),
-(10, 0, 'fDeathDate', 'date', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0648\\u0641\\u0627\\u0629 \\u0627\\u0644\\u0623\\u0628\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0648\\u0641\\u0627\\u0629 \\u0627\\u0644\\u0623\\u0628\",\"required\":true}', '', '', '', ''),
-(11, 0, 'fDeathReason', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0633\\u0628\\u0628 \\u0648\\u0641\\u0627\\u0629 \\u0627\\u0644\\u0623\\u0628\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0633\\u0628\\u0628 \\u0648\\u0641\\u0627\\u0629 \\u0627\\u0644\\u0623\\u0628\",\"required\":true}', '', '', '', ''),
-(12, 0, 'yEduLevel', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u0645\\u0633\\u062a\\u0648\\u0649 \\u0627\\u0644\\u062a\\u0639\\u0644\\u064a\\u0645\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u0645\\u0633\\u062a\\u0648\\u0649 \\u0627\\u0644\\u062a\\u0639\\u0644\\u064a\\u0645\\u064a\"}', '', '', '', ''),
-(13, 0, 'yEduClass', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u0635\\u0641 \\u0627\\u0644\\u062f\\u0631\\u0627\\u0633\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u0635\\u0641 \\u0627\\u0644\\u062f\\u0631\\u0627\\u0633\\u064a\"}', '', '', '', ''),
-(14, 0, 'yEduSchoolName', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0645\\u062f\\u0631\\u0633\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0645\\u062f\\u0631\\u0633\\u0629\"}', '', '', '', ''),
-(15, 0, 'yEduSchoolPhone', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0631\\u0642\\u0645 \\u0647\\u0627\\u062a\\u0641 \\u0627\\u0644\\u0645\\u062f\\u0631\\u0633\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0631\\u0642\\u0645 \\u0647\\u0627\\u062a\\u0641 \\u0627\\u0644\\u0645\\u062f\\u0631\\u0633\\u0629\"}', '', '', '', ''),
-(16, 0, 'yEduNoEduReason', 'textarea', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0633\\u0628\\u0628 \\u0627\\u0644\\u0627\\u0646\\u0642\\u0627\\u0637\\u0639 \\u0639\\u0646 \\u0627\\u0644\\u062a\\u0639\\u0644\\u064a\\u0645 [ \\u0641\\u064a \\u062d\\u0627\\u0644 \\u0627\\u0644\\u0627\\u0646\\u0642\\u0637\\u0627\\u0639 ]\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0633\\u0628\\u0628 \\u0627\\u0644\\u0627\\u0646\\u0642\\u0627\\u0637\\u0639 \\u0639\\u0646 \\u0627\\u0644\\u062a\\u0639\\u0644\\u064a\\u0645 [ \\u0641\\u064a \\u062d\\u0627\\u0644 \\u0627\\u0644\\u0627\\u0646\\u0642\\u0637\\u0627\\u0639 ]\"}', '', '', '', ''),
-(17, 0, 'yHealthStatus', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u062d\\u0627\\u0644\\u0629 \\u0627\\u0644\\u0635\\u062d\\u064a\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u062d\\u0627\\u0644\\u0629 \\u0627\\u0644\\u0635\\u062d\\u064a\\u0629\"}', '', '', '', ''),
-(18, 0, 'yHealthSickness', 'textarea', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0628\\u064a\\u0627\\u0646 \\u0627\\u0644\\u0645\\u0631\\u0636 [ \\u0625\\u0646 \\u0648\\u062c\\u062f ]\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0628\\u064a\\u0627\\u0646 \\u0627\\u0644\\u0645\\u0631\\u0636 [ \\u0625\\u0646 \\u0648\\u062c\\u062f ]\"}', '', '', '', ''),
-(19, 0, 'yQuranLevel', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0645\\u0642\\u062f\\u0627\\u0631 \\u0627\\u0644\\u062d\\u0641\\u0638 \\u0645\\u0646 \\u0627\\u0644\\u0642\\u0631\\u0622\\u0646\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0645\\u0642\\u062f\\u0627\\u0631 \\u0627\\u0644\\u062d\\u0641\\u0638 \\u0645\\u0646 \\u0627\\u0644\\u0642\\u0631\\u0622\\u0646\"}', '', '', '', ''),
-(20, 0, 'yQuranSchool', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0633\\u0645 \\u0645\\u062f\\u0631\\u0633\\u0629 \\u0627\\u0644\\u062a\\u062d\\u0641\\u064a\\u0638\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0633\\u0645 \\u0645\\u062f\\u0631\\u0633\\u0629 \\u0627\\u0644\\u062a\\u062d\\u0641\\u064a\\u0638\"}', '', '', '', ''),
-(21, 0, 'rSectionName', 'label', '{\"div_class1\":\"\",\"div_class2\":\"form-group bg-dark text-white\",\"label\":\"\\u0628\\u064a\\u0627\\u0646\\u0627\\u062a \\u0627\\u0644\\u0648\\u0635\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0628\\u064a\\u0627\\u0646\\u0627\\u062a \\u0627\\u0644\\u0648\\u0635\\u064a\"}', '', '', '', ''),
-(22, 0, 'rName', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0648\\u0635\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0648\\u0635\\u064a\",\"required\":true}', '', '', '', ''),
-(23, 0, 'rSex', 'radio', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062c\\u0646\\u0633 \\u0627\\u0644\\u0648\\u0635\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062c\\u0646\\u0633 \\u0627\\u0644\\u0648\\u0635\\u064a\"}', '[{\"id\":\"m\",\"value\":\"\\u0630\\u0643\\u0631\"},{\"id\":\"f\",\"value\":\"\\u0623\\u0646\\u062b\\u0649\"}]', '', '', ''),
-(24, 0, 'rDateOfBirth', 'date', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0645\\u064a\\u0644\\u0627\\u062f \\u0627\\u0644\\u0648\\u0635\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0645\\u064a\\u0644\\u0627\\u062f \\u0627\\u0644\\u0648\\u0635\\u064a\"}', '', '', '', ''),
-(25, 0, 'rRelation', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0635\\u0644\\u0629 \\u0642\\u0631\\u0627\\u0628\\u0629 \\u0627\\u0644\\u0648\\u0635\\u064a \\u0628\\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0635\\u0644\\u0629 \\u0642\\u0631\\u0627\\u0628\\u0629 \\u0627\\u0644\\u0648\\u0635\\u064a \\u0628\\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\"}', '', '', '', ''),
-(26, 0, 'rMobile', 'tel', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0631\\u0642\\u0645 \\u0645\\u0648\\u0628\\u0627\\u064a\\u0644 \\u0627\\u0644\\u0648\\u0635\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0631\\u0642\\u0645 \\u0645\\u0648\\u0628\\u0627\\u064a\\u0644 \\u0627\\u0644\\u0648\\u0635\\u064a\"}', '', '', '', ''),
-(27, 0, 'rMobilePerson', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0635\\u0627\\u062d\\u0628 \\u0627\\u0644\\u0645\\u0648\\u0628\\u0627\\u064a\\u0644 (\\u0645\\u0633\\u062c\\u0644 \\u0628\\u0627\\u0633\\u0645 \\u0645\\u0646)\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0635\\u0627\\u062d\\u0628 \\u0627\\u0644\\u0645\\u0648\\u0628\\u0627\\u064a\\u0644 (\\u0645\\u0633\\u062c\\u0644 \\u0628\\u0627\\u0633\\u0645 \\u0645\\u0646)\"}', '', '', '', ''),
-(28, 0, 'rWorkName', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062c\\u0647\\u0629 \\u0639\\u0645\\u0644 \\u0627\\u0644\\u0648\\u0635\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062c\\u0647\\u0629 \\u0639\\u0645\\u0644 \\u0627\\u0644\\u0648\\u0635\\u064a\"}', '', '', '', ''),
-(29, 0, 'rWorkType', 'radio', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0639\\u0645\\u0644\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0639\\u0645\\u0644\"}', '[{\"id\":\"g\",\"value\":\"\\u062d\\u0643\\u0648\\u0645\\u064a\"},{\"id\":\"s\",\"value\":\"\\u062e\\u0627\\u0635\"},{\"id\":\"c\",\"value\":\"\\u062e\\u064a\\u0631\\u064a\"},{\"id\":\"f\",\"value\":\"\\u062d\\u0631\"},{\"id\":\"n\",\"value\":\"\\u0644\\u0627 \\u064a\\u0648\\u062c\\u062f\"}]', '', '', ''),
-(30, 0, 'mSectionName', 'label', '{\"div_class1\":\"\",\"div_class2\":\"form-group bg-dark text-white\",\"label\":\"\\u0628\\u064a\\u0627\\u0646\\u0627\\u062a \\u0627\\u0644\\u0623\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0628\\u064a\\u0627\\u0646\\u0627\\u062a \\u0627\\u0644\\u0623\\u0645\"}', '', '', '', ''),
-(31, 0, 'mName', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0623\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0623\\u0645\",\"required\":true}', '', '', '', ''),
-(32, 0, 'mAlive', 'radio', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0647\\u0644 \\u0627\\u0644\\u0623\\u0645 \\u0639\\u0644\\u0649 \\u0642\\u064a\\u062f \\u0627\\u0644\\u062d\\u064a\\u0627\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0647\\u0644 \\u0627\\u0644\\u0623\\u0645 \\u0639\\u0644\\u0649 \\u0642\\u064a\\u062f \\u0627\\u0644\\u062d\\u064a\\u0627\\u0629\"}', '[{\"id\":\"y\",\"value\":\"\\u0646\\u0639\\u0645\"},{\"id\":\"n\",\"value\":\"\\u0644\\u0627\"}]', '', '', ''),
-(33, 0, 'mStatus', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062d\\u0627\\u0644\\u0629 \\u0627\\u0644\\u0623\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062d\\u0627\\u0644\\u0629 \\u0627\\u0644\\u0623\\u0645\"}', '[{\"id\":\"widow\",\"value\":\"\\u0623\\u0631\\u0645\\u0644\\u0629\"},{\"id\":\"married\",\"value\":\"\\u0645\\u062a\\u0632\\u0648\\u062c\\u0629\"}]', '', '', ''),
-(34, 0, 'mWork', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0639\\u0645\\u0644 \\u0627\\u0644\\u0623\\u0645 [ \\u0625\\u0646 \\u0648\\u062c\\u062f ]\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0639\\u0645\\u0644 \\u0627\\u0644\\u0623\\u0645 [ \\u0625\\u0646 \\u0648\\u062c\\u062f ]\"}', '', '', '', ''),
-(35, 0, 'fNumberOfBrothers', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0639\\u062f\\u062f \\u0627\\u0644\\u0627\\u062e\\u0648\\u0629 \\u0648\\u0627\\u0644\\u0623\\u062e\\u0648\\u0627\\u062a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0639\\u062f\\u062f \\u0627\\u0644\\u0627\\u062e\\u0648\\u0629 \\u0648\\u0627\\u0644\\u0623\\u062e\\u0648\\u0627\\u062a\",\"required\":true}', '', '', '', ''),
-(36, 0, 'fRankInFamily', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062a\\u0631\\u062a\\u064a\\u0628 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645 \\u0628\\u064a\\u0646 \\u0627\\u062e\\u0648\\u0627\\u0646\\u0647 \\u0648\\u0627\\u062e\\u0648\\u0627\\u062a\\u0647 [ \\u0645\\u0646 \\u0627\\u0644\\u0623\\u0643\\u0628\\u0631 \\u0627\\u0644\\u0649 \\u0627\\u0644\\u0623\\u0635\\u063a\\u0631 ]\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u062a\\u0631\\u062a\\u064a\\u0628 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645 \\u0628\\u064a\\u0646 \\u0627\\u062e\\u0648\\u0627\\u0646\\u0647 \\u0648\\u0627\\u062e\\u0648\\u0627\\u062a\\u0647 [ \\u0645\\u0646 \\u0627\\u0644\\u0623\\u0643\\u0628\\u0631 \\u0627\\u0644\\u0649 \\u0627\\u0644\\u0623\\u0635\\u063a\\u0631 ]\",\"required\":true}', '', '', '', ''),
-(37, 0, 'fHomeType', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0633\\u0643\\u0646\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0633\\u0643\\u0646\"}', '[{\"id\":\"o\",\"value\":\"\\u0645\\u0644\\u0643\"},{\"id\":\"r\",\"value\":\"\\u0627\\u064a\\u062c\\u0627\\u0631\"}]', '', '', ''),
-(38, 0, 'fAddress', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0639\\u0646\\u0648\\u0627\\u0646 \\u0633\\u0643\\u0646 \\u0627\\u0644\\u0623\\u0633\\u0631\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0639\\u0646\\u0648\\u0627\\u0646 \\u0633\\u0643\\u0646 \\u0627\\u0644\\u0623\\u0633\\u0631\\u0629\"}', '', '', '', ''),
-(39, 0, 'fFinanceStatus', 'radio', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u0648\\u0636\\u0639 \\u0627\\u0644\\u0645\\u0627\\u062f\\u064a \\u0644\\u0644\\u0623\\u0633\\u0631\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u0648\\u0636\\u0639 \\u0627\\u0644\\u0645\\u0627\\u062f\\u064a \\u0644\\u0644\\u0623\\u0633\\u0631\\u0629\"}', '[{\"id\":\"m\",\"value\":\"\\u0645\\u062a\\u0648\\u0633\\u0637\"},{\"id\":\"p\",\"value\":\"\\u0641\\u0642\\u064a\\u0631\\u0629\"},{\"id\":\"v\",\"value\":\"\\u0645\\u0639\\u062f\\u0645\\u0629\"}]', '', '', ''),
-(40, 0, 'fFinanceSalary', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u062f\\u062e\\u0644 \\u0627\\u0644\\u0634\\u0647\\u0631\\u064a \\u0644\\u0644\\u0623\\u0633\\u0631\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u062f\\u062e\\u0644 \\u0627\\u0644\\u0634\\u0647\\u0631\\u064a \\u0644\\u0644\\u0623\\u0633\\u0631\\u0629\"}', '', '', '', ''),
-(41, 0, 'fFinanceSource', 'checkbox', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0645\\u0635\\u062f\\u0631 \\u0627\\u0644\\u062f\\u062e\\u0644 \\u0644\\u0644\\u0623\\u0633\\u0631\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0645\\u0635\\u062f\\u0631 \\u0627\\u0644\\u062f\\u062e\\u0644 \\u0644\\u0644\\u0623\\u0633\\u0631\\u0629\"}', '[{\"id\":\"s\",\"value\":\"\\u0631\\u0627\\u062a\\u0628 \\u0634\\u0647\\u0631\\u064a\"},{\"id\":\"h\",\"value\":\"\\u0645\\u0633\\u0627\\u0639\\u062f\\u0627\\u062a \\u0634\\u0647\\u0631\\u064a\\u0629\"},{\"id\":\"o\",\"value\":\"\\u0645\\u0635\\u0627\\u062f\\u0631 \\u0623\\u062e\\u0631\\u0649\"}]', '', '', ''),
-(42, 0, 'sOpinion', 'textarea', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0631\\u0623\\u064a \\u0627\\u0644\\u0625\\u062f\\u0627\\u0631\\u0629 \\u0627\\u0644\\u0645\\u0639\\u0646\\u064a\\u0629 [ \\u0627\\u0644\\u0645\\u062e\\u062a\\u0635 ]\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0631\\u0623\\u064a \\u0627\\u0644\\u0625\\u062f\\u0627\\u0631\\u0629 \\u0627\\u0644\\u0645\\u0639\\u0646\\u064a\\u0629 [ \\u0627\\u0644\\u0645\\u062e\\u062a\\u0635 ]\"}', '', '', '', '');
+(1, 20, 'dateOfEntry', 'date', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0627\\u0644\\u0625\\u062f\\u062e\\u0627\\u0644\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0627\\u0644\\u0625\\u062f\\u062e\\u0627\\u0644\",\"is_datetime\":true,\"required\":true}', '', '', '', ''),
+(2, 30, 'yName', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645 \\u0631\\u0628\\u0627\\u0639\\u064a\\u0627\\u064b \\u0645\\u0639 \\u0627\\u0644\\u0644\\u0642\\u0628\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645 \\u0631\\u0628\\u0627\\u0639\\u064a\\u0627\\u064b \\u0645\\u0639 \\u0627\\u0644\\u0644\\u0642\\u0628\",\"required\":true}', '', '', '', ''),
+(3, 40, 'ySex', 'radio', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062c\\u0646\\u0633 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062c\\u0646\\u0633 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\"}', '[{\"id\":\"m\",\"value\":\"\\u0630\\u0643\\u0631\"},{\"id\":\"f\",\"value\":\"\\u0623\\u0646\\u062b\\u0649\"}]', '', '', ''),
+(4, 50, 'yDateOfBirth', 'date', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0645\\u064a\\u0644\\u0627\\u062f \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0645\\u064a\\u0644\\u0627\\u062f \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\"}', '', '', '', ''),
+(5, 60, 'yBirthPlace', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0645\\u062d\\u0644 \\u0645\\u064a\\u0644\\u0627\\u062f \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0645\\u062d\\u0644 \\u0645\\u064a\\u0644\\u0627\\u062f \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"required\":true}', '', '', '', ''),
+(6, 70, 'yNationality', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062c\\u0646\\u0633\\u064a\\u0629 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u062c\\u0646\\u0633\\u064a\\u0629 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"required\":true}', '', '', '', ''),
+(7, 80, 'yFeatures', 'textarea', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0645\\u0648\\u0627\\u0647\\u0628 \\u0648\\u0645\\u0645\\u064a\\u0632\\u0627\\u062a \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"dir=&quot;rtl&quot;\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0645\\u0648\\u0627\\u0647\\u0628 \\u0648\\u0645\\u0645\\u064a\\u0632\\u0627\\u062a \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"required\":true}', '', '', '', ''),
+(8, 90, 'yAddress', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0645\\u062d\\u0644 \\u0627\\u0642\\u0627\\u0645\\u0629 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645 [ \\u0645\\u062d\\u0627\\u0641\\u0638\\u0629 - \\u0645\\u062f\\u064a\\u0631\\u064a\\u0629 - \\u0639\\u0632\\u0644\\u0629 \\/ \\u062d\\u064a ]\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0645\\u062d\\u0644 \\u0627\\u0642\\u0627\\u0645\\u0629 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645 [ \\u0645\\u062d\\u0627\\u0641\\u0638\\u0629 - \\u0645\\u062f\\u064a\\u0631\\u064a\\u0629 - \\u0639\\u0632\\u0644\\u0629 \\/ \\u062d\\u064a ]\",\"required\":true}', '', '', '', ''),
+(9, 100, 'yRankInFamily', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062a\\u0631\\u062a\\u064a\\u0628 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645 \\u0628\\u064a\\u0646 \\u0627\\u062e\\u0648\\u0627\\u0646\\u0647 \\u0648\\u0627\\u062e\\u0648\\u0627\\u062a\\u0647 [ \\u0645\\u0646 \\u0627\\u0644\\u0623\\u0643\\u0628\\u0631 \\u0627\\u0644\\u0649 \\u0627\\u0644\\u0623\\u0635\\u063a\\u0631 ]\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u062a\\u0631\\u062a\\u064a\\u0628 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645 \\u0628\\u064a\\u0646 \\u0627\\u062e\\u0648\\u0627\\u0646\\u0647 \\u0648\\u0627\\u062e\\u0648\\u0627\\u062a\\u0647 [ \\u0645\\u0646 \\u0627\\u0644\\u0623\\u0643\\u0628\\u0631 \\u0627\\u0644\\u0649 \\u0627\\u0644\\u0623\\u0635\\u063a\\u0631 ]\",\"required\":true}', '', '', '', ''),
+(10, 110, 'fDeathDate', 'date', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0648\\u0641\\u0627\\u0629 \\u0627\\u0644\\u0623\\u0628\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0648\\u0641\\u0627\\u0629 \\u0627\\u0644\\u0623\\u0628\",\"required\":true}', '', '', '', ''),
+(11, 120, 'fDeathReason', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0633\\u0628\\u0628 \\u0648\\u0641\\u0627\\u0629 \\u0627\\u0644\\u0623\\u0628\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0633\\u0628\\u0628 \\u0648\\u0641\\u0627\\u0629 \\u0627\\u0644\\u0623\\u0628\",\"required\":true}', '', '', '', ''),
+(12, 130, 'yEduLevel', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u0645\\u0633\\u062a\\u0648\\u0649 \\u0627\\u0644\\u062a\\u0639\\u0644\\u064a\\u0645\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u0645\\u0633\\u062a\\u0648\\u0649 \\u0627\\u0644\\u062a\\u0639\\u0644\\u064a\\u0645\\u064a\"}', '', '', '', ''),
+(13, 140, 'yEduClass', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u0635\\u0641 \\u0627\\u0644\\u062f\\u0631\\u0627\\u0633\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u0635\\u0641 \\u0627\\u0644\\u062f\\u0631\\u0627\\u0633\\u064a\"}', '', '', '', ''),
+(14, 150, 'yEduSchoolName', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0645\\u062f\\u0631\\u0633\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0645\\u062f\\u0631\\u0633\\u0629\"}', '', '', '', ''),
+(15, 160, 'yEduSchoolPhone', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0631\\u0642\\u0645 \\u0647\\u0627\\u062a\\u0641 \\u0627\\u0644\\u0645\\u062f\\u0631\\u0633\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0631\\u0642\\u0645 \\u0647\\u0627\\u062a\\u0641 \\u0627\\u0644\\u0645\\u062f\\u0631\\u0633\\u0629\"}', '', '', '', ''),
+(16, 170, 'yEduNoEduReason', 'textarea', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0633\\u0628\\u0628 \\u0627\\u0644\\u0627\\u0646\\u0642\\u0627\\u0637\\u0639 \\u0639\\u0646 \\u0627\\u0644\\u062a\\u0639\\u0644\\u064a\\u0645 [ \\u0641\\u064a \\u062d\\u0627\\u0644 \\u0627\\u0644\\u0627\\u0646\\u0642\\u0637\\u0627\\u0639 ]\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0633\\u0628\\u0628 \\u0627\\u0644\\u0627\\u0646\\u0642\\u0627\\u0637\\u0639 \\u0639\\u0646 \\u0627\\u0644\\u062a\\u0639\\u0644\\u064a\\u0645 [ \\u0641\\u064a \\u062d\\u0627\\u0644 \\u0627\\u0644\\u0627\\u0646\\u0642\\u0637\\u0627\\u0639 ]\"}', '', '', '', ''),
+(17, 180, 'yHealthStatus', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u062d\\u0627\\u0644\\u0629 \\u0627\\u0644\\u0635\\u062d\\u064a\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u062d\\u0627\\u0644\\u0629 \\u0627\\u0644\\u0635\\u062d\\u064a\\u0629\"}', '', '', '', ''),
+(18, 190, 'yHealthSickness', 'textarea', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0628\\u064a\\u0627\\u0646 \\u0627\\u0644\\u0645\\u0631\\u0636 [ \\u0625\\u0646 \\u0648\\u062c\\u062f ]\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0628\\u064a\\u0627\\u0646 \\u0627\\u0644\\u0645\\u0631\\u0636 [ \\u0625\\u0646 \\u0648\\u062c\\u062f ]\"}', '', '', '', ''),
+(19, 200, 'yQuranLevel', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0645\\u0642\\u062f\\u0627\\u0631 \\u0627\\u0644\\u062d\\u0641\\u0638 \\u0645\\u0646 \\u0627\\u0644\\u0642\\u0631\\u0622\\u0646\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0645\\u0642\\u062f\\u0627\\u0631 \\u0627\\u0644\\u062d\\u0641\\u0638 \\u0645\\u0646 \\u0627\\u0644\\u0642\\u0631\\u0622\\u0646\"}', '', '', '', ''),
+(20, 210, 'yQuranSchool', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0633\\u0645 \\u0645\\u062f\\u0631\\u0633\\u0629 \\u0627\\u0644\\u062a\\u062d\\u0641\\u064a\\u0638\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0633\\u0645 \\u0645\\u062f\\u0631\\u0633\\u0629 \\u0627\\u0644\\u062a\\u062d\\u0641\\u064a\\u0638\"}', '', '', '', ''),
+(21, 220, 'rSectionName', 'label', '{\"div_class1\":\"\",\"div_class2\":\"form-group bg-dark text-white\",\"label\":\"\\u0628\\u064a\\u0627\\u0646\\u0627\\u062a \\u0627\\u0644\\u0648\\u0635\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0628\\u064a\\u0627\\u0646\\u0627\\u062a \\u0627\\u0644\\u0648\\u0635\\u064a\"}', '', '', '', ''),
+(22, 230, 'rName', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0648\\u0635\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0648\\u0635\\u064a\",\"required\":true}', '', '', '', ''),
+(23, 240, 'rSex', 'radio', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062c\\u0646\\u0633 \\u0627\\u0644\\u0648\\u0635\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062c\\u0646\\u0633 \\u0627\\u0644\\u0648\\u0635\\u064a\"}', '[{\"id\":\"m\",\"value\":\"\\u0630\\u0643\\u0631\"},{\"id\":\"f\",\"value\":\"\\u0623\\u0646\\u062b\\u0649\"}]', '', '', ''),
+(24, 250, 'rDateOfBirth', 'date', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0645\\u064a\\u0644\\u0627\\u062f \\u0627\\u0644\\u0648\\u0635\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0645\\u064a\\u0644\\u0627\\u062f \\u0627\\u0644\\u0648\\u0635\\u064a\"}', '', '', '', ''),
+(25, 260, 'rRelation', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0635\\u0644\\u0629 \\u0642\\u0631\\u0627\\u0628\\u0629 \\u0627\\u0644\\u0648\\u0635\\u064a \\u0628\\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0635\\u0644\\u0629 \\u0642\\u0631\\u0627\\u0628\\u0629 \\u0627\\u0644\\u0648\\u0635\\u064a \\u0628\\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\"}', '', '', '', ''),
+(26, 270, 'rMobile', 'tel', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0631\\u0642\\u0645 \\u0645\\u0648\\u0628\\u0627\\u064a\\u0644 \\u0627\\u0644\\u0648\\u0635\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0631\\u0642\\u0645 \\u0645\\u0648\\u0628\\u0627\\u064a\\u0644 \\u0627\\u0644\\u0648\\u0635\\u064a\"}', '', '', '', ''),
+(27, 280, 'rMobilePerson', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0635\\u0627\\u062d\\u0628 \\u0627\\u0644\\u0645\\u0648\\u0628\\u0627\\u064a\\u0644 (\\u0645\\u0633\\u062c\\u0644 \\u0628\\u0627\\u0633\\u0645 \\u0645\\u0646)\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0635\\u0627\\u062d\\u0628 \\u0627\\u0644\\u0645\\u0648\\u0628\\u0627\\u064a\\u0644 (\\u0645\\u0633\\u062c\\u0644 \\u0628\\u0627\\u0633\\u0645 \\u0645\\u0646)\"}', '', '', '', ''),
+(28, 290, 'rWorkName', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062c\\u0647\\u0629 \\u0639\\u0645\\u0644 \\u0627\\u0644\\u0648\\u0635\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062c\\u0647\\u0629 \\u0639\\u0645\\u0644 \\u0627\\u0644\\u0648\\u0635\\u064a\"}', '', '', '', ''),
+(29, 300, 'rWorkType', 'radio', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0639\\u0645\\u0644\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0639\\u0645\\u0644\"}', '[{\"id\":\"g\",\"value\":\"\\u062d\\u0643\\u0648\\u0645\\u064a\"},{\"id\":\"s\",\"value\":\"\\u062e\\u0627\\u0635\"},{\"id\":\"c\",\"value\":\"\\u062e\\u064a\\u0631\\u064a\"},{\"id\":\"f\",\"value\":\"\\u062d\\u0631\"},{\"id\":\"n\",\"value\":\"\\u0644\\u0627 \\u064a\\u0648\\u062c\\u062f\"}]', '', '', ''),
+(30, 310, 'mSectionName', 'label', '{\"div_class1\":\"\",\"div_class2\":\"form-group bg-dark text-white\",\"label\":\"\\u0628\\u064a\\u0627\\u0646\\u0627\\u062a \\u0627\\u0644\\u0623\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0628\\u064a\\u0627\\u0646\\u0627\\u062a \\u0627\\u0644\\u0623\\u0645\"}', '', '', '', ''),
+(31, 320, 'mName', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0623\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0623\\u0645\",\"required\":true}', '', '', '', ''),
+(32, 330, 'mAlive', 'radio', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0647\\u0644 \\u0627\\u0644\\u0623\\u0645 \\u0639\\u0644\\u0649 \\u0642\\u064a\\u062f \\u0627\\u0644\\u062d\\u064a\\u0627\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0647\\u0644 \\u0627\\u0644\\u0623\\u0645 \\u0639\\u0644\\u0649 \\u0642\\u064a\\u062f \\u0627\\u0644\\u062d\\u064a\\u0627\\u0629\"}', '[{\"id\":\"y\",\"value\":\"\\u0646\\u0639\\u0645\"},{\"id\":\"n\",\"value\":\"\\u0644\\u0627\"}]', '', '', ''),
+(33, 340, 'mStatus', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062d\\u0627\\u0644\\u0629 \\u0627\\u0644\\u0623\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062d\\u0627\\u0644\\u0629 \\u0627\\u0644\\u0623\\u0645\"}', '[{\"id\":\"widow\",\"value\":\"\\u0623\\u0631\\u0645\\u0644\\u0629\"},{\"id\":\"married\",\"value\":\"\\u0645\\u062a\\u0632\\u0648\\u062c\\u0629\"}]', '', '', ''),
+(34, 350, 'mWork', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0639\\u0645\\u0644 \\u0627\\u0644\\u0623\\u0645 [ \\u0625\\u0646 \\u0648\\u062c\\u062f ]\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0639\\u0645\\u0644 \\u0627\\u0644\\u0623\\u0645 [ \\u0625\\u0646 \\u0648\\u062c\\u062f ]\"}', '', '', '', ''),
+(35, 360, 'fNumberOfBrothers', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0639\\u062f\\u062f \\u0627\\u0644\\u0627\\u062e\\u0648\\u0629 \\u0648\\u0627\\u0644\\u0623\\u062e\\u0648\\u0627\\u062a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0639\\u062f\\u062f \\u0627\\u0644\\u0627\\u062e\\u0648\\u0629 \\u0648\\u0627\\u0644\\u0623\\u062e\\u0648\\u0627\\u062a\",\"required\":true}', '', '', '', ''),
+(36, 370, 'fRankInFamily', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062a\\u0631\\u062a\\u064a\\u0628 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645 \\u0628\\u064a\\u0646 \\u0627\\u062e\\u0648\\u0627\\u0646\\u0647 \\u0648\\u0627\\u062e\\u0648\\u0627\\u062a\\u0647 [ \\u0645\\u0646 \\u0627\\u0644\\u0623\\u0643\\u0628\\u0631 \\u0627\\u0644\\u0649 \\u0627\\u0644\\u0623\\u0635\\u063a\\u0631 ]\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u062a\\u0631\\u062a\\u064a\\u0628 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645 \\u0628\\u064a\\u0646 \\u0627\\u062e\\u0648\\u0627\\u0646\\u0647 \\u0648\\u0627\\u062e\\u0648\\u0627\\u062a\\u0647 [ \\u0645\\u0646 \\u0627\\u0644\\u0623\\u0643\\u0628\\u0631 \\u0627\\u0644\\u0649 \\u0627\\u0644\\u0623\\u0635\\u063a\\u0631 ]\",\"required\":true}', '', '', '', ''),
+(37, 380, 'fHomeType', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0633\\u0643\\u0646\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0633\\u0643\\u0646\"}', '[{\"id\":\"o\",\"value\":\"\\u0645\\u0644\\u0643\"},{\"id\":\"r\",\"value\":\"\\u0627\\u064a\\u062c\\u0627\\u0631\"}]', '', '', ''),
+(38, 390, 'fAddress', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0639\\u0646\\u0648\\u0627\\u0646 \\u0633\\u0643\\u0646 \\u0627\\u0644\\u0623\\u0633\\u0631\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0639\\u0646\\u0648\\u0627\\u0646 \\u0633\\u0643\\u0646 \\u0627\\u0644\\u0623\\u0633\\u0631\\u0629\"}', '', '', '', ''),
+(39, 400, 'fFinanceStatus', 'radio', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u0648\\u0636\\u0639 \\u0627\\u0644\\u0645\\u0627\\u062f\\u064a \\u0644\\u0644\\u0623\\u0633\\u0631\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u0648\\u0636\\u0639 \\u0627\\u0644\\u0645\\u0627\\u062f\\u064a \\u0644\\u0644\\u0623\\u0633\\u0631\\u0629\"}', '[{\"id\":\"m\",\"value\":\"\\u0645\\u062a\\u0648\\u0633\\u0637\"},{\"id\":\"p\",\"value\":\"\\u0641\\u0642\\u064a\\u0631\\u0629\"},{\"id\":\"v\",\"value\":\"\\u0645\\u0639\\u062f\\u0645\\u0629\"}]', '', '', ''),
+(40, 410, 'fFinanceSalary', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u062f\\u062e\\u0644 \\u0627\\u0644\\u0634\\u0647\\u0631\\u064a \\u0644\\u0644\\u0623\\u0633\\u0631\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u062f\\u062e\\u0644 \\u0627\\u0644\\u0634\\u0647\\u0631\\u064a \\u0644\\u0644\\u0623\\u0633\\u0631\\u0629\"}', '', '', '', ''),
+(41, 420, 'fFinanceSource', 'checkbox', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0645\\u0635\\u062f\\u0631 \\u0627\\u0644\\u062f\\u062e\\u0644 \\u0644\\u0644\\u0623\\u0633\\u0631\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0645\\u0635\\u062f\\u0631 \\u0627\\u0644\\u062f\\u062e\\u0644 \\u0644\\u0644\\u0623\\u0633\\u0631\\u0629\"}', '[{\"id\":\"s\",\"value\":\"\\u0631\\u0627\\u062a\\u0628 \\u0634\\u0647\\u0631\\u064a\"},{\"id\":\"h\",\"value\":\"\\u0645\\u0633\\u0627\\u0639\\u062f\\u0627\\u062a \\u0634\\u0647\\u0631\\u064a\\u0629\"},{\"id\":\"o\",\"value\":\"\\u0645\\u0635\\u0627\\u062f\\u0631 \\u0623\\u062e\\u0631\\u0649\"}]', '', '', ''),
+(42, 430, 'sOpinion', 'textarea', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0631\\u0623\\u064a \\u0627\\u0644\\u0625\\u062f\\u0627\\u0631\\u0629 \\u0627\\u0644\\u0645\\u0639\\u0646\\u064a\\u0629 [ \\u0627\\u0644\\u0645\\u062e\\u062a\\u0635 ]\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0631\\u0623\\u064a \\u0627\\u0644\\u0625\\u062f\\u0627\\u0631\\u0629 \\u0627\\u0644\\u0645\\u0639\\u0646\\u064a\\u0629 [ \\u0627\\u0644\\u0645\\u062e\\u062a\\u0635 ]\"}', '', '', '', ''),
+(43, 10, 'BasicInfo', 'label', '{\"div_class1\":\"\",\"div_class2\":\"form-group bg-dark text-white\",\"label\":\"\\u0627\\u0644\\u0628\\u064a\\u0627\\u0646\\u0627\\u062a \\u0627\\u0644\\u0623\\u0633\\u0627\\u0633\\u064a\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u0628\\u064a\\u0627\\u0646\\u0627\\u062a \\u0627\\u0644\\u0623\\u0633\\u0627\\u0633\\u064a\\u0629\"}', '', '', '', ''),
+(44, 440, 'identifierSection', 'label', '{\"div_class1\":\"\",\"div_class2\":\"form-group bg-dark text-white\",\"label\":\"\\u0628\\u064a\\u0627\\u0646\\u0627\\u062a \\u0627\\u0644\\u0645\\u0639\\u0631\\u0641\",\"label_class\":\"form-group\",\"input_class\":\"\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0628\\u064a\\u0627\\u0646\\u0627\\u062a \\u0627\\u0644\\u0645\\u0639\\u0631\\u0641\"}', '', '', '', ''),
+(45, 450, 'idName', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0645\\u0639\\u0631\\u0641\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0645\\u0639\\u0631\\u0641\"}', '', '', '', ''),
+(46, 460, 'idMobile', 'tel', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0631\\u0642\\u0645 \\u0645\\u0648\\u0628\\u0627\\u064a\\u0644 \\u0627\\u0644\\u0645\\u0639\\u0631\\u0641\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0631\\u0642\\u0645 \\u0645\\u0648\\u0628\\u0627\\u064a\\u0644 \\u0627\\u0644\\u0645\\u0639\\u0631\\u0641\"}', '', '', '', ''),
+(47, 470, 'idAddress', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0639\\u0646\\u0648\\u0627\\u0646 \\u0633\\u0643\\u0646 \\u0627\\u0644\\u0645\\u0639\\u0631\\u0641\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0639\\u0646\\u0648\\u0627\\u0646 \\u0633\\u0643\\u0646 \\u0627\\u0644\\u0645\\u0639\\u0631\\u0641\"}', '', '', '', '');
 
 --
 -- Indexes for dumped tables
@@ -1597,6 +1724,30 @@ ALTER TABLE `us_user_sessions`
   ADD PRIMARY KEY (`kUserSessionID`);
 
 --
+-- Indexes for table `ya_kafalahinfo_01`
+--
+ALTER TABLE `ya_kafalahinfo_01`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ya_kafalahinfo_01_fb_fields`
+--
+ALTER TABLE `ya_kafalahinfo_01_fb_fields`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ya_kafeelinfo_01`
+--
+ALTER TABLE `ya_kafeelinfo_01`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ya_kafeelinfo_01_fb_fields`
+--
+ALTER TABLE `ya_kafeelinfo_01_fb_fields`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `ya_yateeminfo_01`
 --
 ALTER TABLE `ya_yateeminfo_01`
@@ -1640,7 +1791,7 @@ ALTER TABLE `email`
 -- AUTO_INCREMENT for table `fb_formbuilder`
 --
 ALTER TABLE `fb_formbuilder`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `fb_javascript`
@@ -1682,7 +1833,7 @@ ALTER TABLE `keys`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `logs_exempt`
@@ -1718,7 +1869,7 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT for table `permissions`
@@ -1730,7 +1881,7 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `permission_page_matches`
 --
 ALTER TABLE `permission_page_matches`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `profiles`
@@ -1748,7 +1899,7 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `updates`
 --
 ALTER TABLE `updates`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -1865,6 +2016,30 @@ ALTER TABLE `us_user_sessions`
   MODIFY `kUserSessionID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `ya_kafalahinfo_01`
+--
+ALTER TABLE `ya_kafalahinfo_01`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ya_kafalahinfo_01_fb_fields`
+--
+ALTER TABLE `ya_kafalahinfo_01_fb_fields`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `ya_kafeelinfo_01`
+--
+ALTER TABLE `ya_kafeelinfo_01`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ya_kafeelinfo_01_fb_fields`
+--
+ALTER TABLE `ya_kafeelinfo_01_fb_fields`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `ya_yateeminfo_01`
 --
 ALTER TABLE `ya_yateeminfo_01`
@@ -1874,7 +2049,7 @@ ALTER TABLE `ya_yateeminfo_01`
 -- AUTO_INCREMENT for table `ya_yateeminfo_01_fb_fields`
 --
 ALTER TABLE `ya_yateeminfo_01_fb_fields`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
