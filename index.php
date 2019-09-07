@@ -18,8 +18,16 @@ if(isset($user) && $user->isLoggedIn()){
 			<p align="center">
 				<?php
 				if($user->isLoggedIn()){?>
-					<a class="btn btn-primary" href="ysys/yateem_addnew.php" role="button">اضافة يتيم &raquo;</a>
+					
+					<a class="btn btn-primary" href="ysys/kafil_addnew.php" role="button">إضافة كافل &raquo;</a>
+					<a class="btn btn-primary" href="ysys/kafil_viewall.php" role="button">ادارة الكافلين &raquo;</a>
+					<br><br>
+					<a class="btn btn-primary" href="ysys/yateem_addnew.php" role="button">إضافة كفالة &raquo;</a>
+					<a class="btn btn-primary" href="ysys/yateem_addnew.php" role="button">ادارة الكفالات &raquo;</a>
+					<br><br>
+					<a class="btn btn-primary" href="ysys/yateem_addnew.php" role="button">إضافة يتيم &raquo;</a>
 					<a class="btn btn-primary" href="ysys/index.php" role="button">استعراض الأيتام &raquo;</a>
+					<br><br>
 					<a class="btn btn-primary" href="users/account.php" role="button"><?=lang("ACCT_HOME");?> &raquo;</a>
 				<?php }else{?>
 					<a class="btn btn-warning" href="users/login.php" role="button"><?=lang("SIGNIN_TEXT");?> &raquo;</a>
