@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 07, 2019 at 11:10 AM
+-- Generation Time: Sep 07, 2019 at 11:30 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -123,7 +123,7 @@ CREATE TABLE `fb_formbuilder` (
 INSERT INTO `fb_formbuilder` (`id`, `form`) VALUES
 (2, 'fb_settings'),
 (3, 'ya_yateeminfo_01'),
-(5, 'ya_kafeelinfo_01'),
+(5, 'ya_kafilinfo_01'),
 (6, 'ya_kafalahinfo_01');
 
 -- --------------------------------------------------------
@@ -1271,9 +1271,9 @@ CREATE TABLE `ya_kafalahinfo_01_fb_fields` (
 --
 
 INSERT INTO `ya_kafalahinfo_01_fb_fields` (`id`, `fb_order`, `name`, `field_type`, `field_html`, `requirements`, `databasevalue`, `database_name`, `database_value`, `database_where`) VALUES
-(1, 0, 'kafilID', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\"}', '', 'ya_kafeelinfo_01', 'id', ''),
+(1, 0, 'kafilID', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\"}', '', 'ya_kafeelinfo_01', 'kName', ''),
 (2, 0, 'kafalahAmount', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0645\\u0628\\u0644\\u063a \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0645\\u0628\\u0644\\u063a \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\"}', '', '', '', ''),
-(3, 0, 'kafalahCurrency', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0639\\u0645\\u0644\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0639\\u0645\\u0644\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\"}', '[{\"id\":\"YER\",\"value\":\"\\u0631\\u064a\\u0627\\u0644 \\u064a\\u0645\\u0646\\u064a\"},{\"id\":\"SAR\",\"value\":\"\\u0631\\u064a\\u0627\\u0644 \\u0633\\u0639\\u0648\\u062f\\u064a\"},{\"id\":\"USD\",\"value\":\"\\u062f\\u0648\\u0644\\u0627\\u0631 \\u0623\\u0645\\u0631\\u064a\\u0643\\u064a\"},{\"id\":\"QAR\"', '', '', ''),
+(3, 0, 'kafalahCurrency', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0639\\u0645\\u0644\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0639\\u0645\\u0644\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\"}', '[{\"id\":\"YER\",\"value\":\"\\u0631\\u064a\\u0627\\u0644 \\u064a\\u0645\\u0646\\u064a\"},{\"id\":\"USD\",\"value\":\"\\u062f\\u0648\\u0644\\u0627\\u0631 \\u0623\\u0645\\u0631\\u064a\\u0643\\u064a\"}]', '', '', ''),
 (4, 0, 'kafalahDuration', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0645\\u062f\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0645\\u062f\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\"}', '', '', '', ''),
 (5, 0, 'kafalahLoop', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062f\\u0648\\u0631\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062f\\u0648\\u0631\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\"}', '[{\"id\":\"w\",\"value\":\"\\u0627\\u0633\\u0628\\u0648\\u0639\\u064a\\u0629\"},{\"id\":\"m\",\"value\":\"\\u0634\\u0647\\u0631\\u064a\\u0629\"},{\"id\":\"\\u0633\\u0646\\u0648\\u064a\\u0629\",\"value\":\"\"}]', '', '', ''),
 (6, 0, 'kafalahAytam', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0639\\u062f\\u062f \\u0627\\u0644\\u0623\\u064a\\u062a\\u0627\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0639\\u062f\\u062f \\u0627\\u0644\\u0623\\u064a\\u062a\\u0627\\u0645\"}', '', '', '', ''),
@@ -1283,10 +1283,10 @@ INSERT INTO `ya_kafalahinfo_01_fb_fields` (`id`, `fb_order`, `name`, `field_type
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ya_kafeelinfo_01`
+-- Table structure for table `ya_kafilinfo_01`
 --
 
-CREATE TABLE `ya_kafeelinfo_01` (
+CREATE TABLE `ya_kafilinfo_01` (
   `id` int(11) NOT NULL,
   `kName` varchar(255) DEFAULT NULL,
   `kAddress` varchar(255) DEFAULT NULL,
@@ -1295,13 +1295,20 @@ CREATE TABLE `ya_kafeelinfo_01` (
   `kCountry` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `ya_kafilinfo_01`
+--
+
+INSERT INTO `ya_kafilinfo_01` (`id`, `kName`, `kAddress`, `kPhone`, `kType`, `kCountry`) VALUES
+(1, 'فاعل خير', 'اليمن - صنعاء', '777777777', '', 'اليمن');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ya_kafeelinfo_01_fb_fields`
+-- Table structure for table `ya_kafilinfo_01_fb_fields`
 --
 
-CREATE TABLE `ya_kafeelinfo_01_fb_fields` (
+CREATE TABLE `ya_kafilinfo_01_fb_fields` (
   `id` int(11) NOT NULL,
   `fb_order` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -1315,10 +1322,10 @@ CREATE TABLE `ya_kafeelinfo_01_fb_fields` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `ya_kafeelinfo_01_fb_fields`
+-- Dumping data for table `ya_kafilinfo_01_fb_fields`
 --
 
-INSERT INTO `ya_kafeelinfo_01_fb_fields` (`id`, `fb_order`, `name`, `field_type`, `field_html`, `requirements`, `databasevalue`, `database_name`, `database_value`, `database_where`) VALUES
+INSERT INTO `ya_kafilinfo_01_fb_fields` (`id`, `fb_order`, `name`, `field_type`, `field_html`, `requirements`, `databasevalue`, `database_name`, `database_value`, `database_where`) VALUES
 (1, 0, 'kName', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\",\"required\":true}', '', '', '', ''),
 (2, 0, 'kAddress', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0639\\u0646\\u0648\\u0627\\u0646 \\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0639\\u0646\\u0648\\u0627\\u0646 \\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\"}', '', '', '', ''),
 (3, 0, 'kPhone', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0631\\u0642\\u0645 \\u0647\\u0627\\u062a\\u0641 \\/ \\u0645\\u0648\\u0628\\u0627\\u064a\\u0644 \\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0631\\u0642\\u0645 \\u0647\\u0627\\u062a\\u0641 \\/ \\u0645\\u0648\\u0628\\u0627\\u064a\\u0644 \\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\"}', '', '', '', ''),
@@ -1736,15 +1743,15 @@ ALTER TABLE `ya_kafalahinfo_01_fb_fields`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ya_kafeelinfo_01`
+-- Indexes for table `ya_kafilinfo_01`
 --
-ALTER TABLE `ya_kafeelinfo_01`
+ALTER TABLE `ya_kafilinfo_01`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ya_kafeelinfo_01_fb_fields`
+-- Indexes for table `ya_kafilinfo_01_fb_fields`
 --
-ALTER TABLE `ya_kafeelinfo_01_fb_fields`
+ALTER TABLE `ya_kafilinfo_01_fb_fields`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2028,15 +2035,15 @@ ALTER TABLE `ya_kafalahinfo_01_fb_fields`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `ya_kafeelinfo_01`
+-- AUTO_INCREMENT for table `ya_kafilinfo_01`
 --
-ALTER TABLE `ya_kafeelinfo_01`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `ya_kafilinfo_01`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `ya_kafeelinfo_01_fb_fields`
+-- AUTO_INCREMENT for table `ya_kafilinfo_01_fb_fields`
 --
-ALTER TABLE `ya_kafeelinfo_01_fb_fields`
+ALTER TABLE `ya_kafilinfo_01_fb_fields`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
