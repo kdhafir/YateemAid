@@ -13,7 +13,7 @@ if(isset($user) && $user->isLoggedIn()){
 <div id="page-wrapper">
 	<div class="container" dir="rtl">
 		<div class="jumbotron">
-			<h1 align="center">نظام مساعد اليتيم</h1>
+			<h1 align="center"> نظام مساعد اليتيم</h1>
 			<p align="center" class="text-muted">لإدارة الأيتام وكفالاتهم</p>
 			<p align="center">
 				<?php

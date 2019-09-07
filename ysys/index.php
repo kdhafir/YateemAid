@@ -19,6 +19,7 @@ $counAytam = $aytamQ->count();
 		<a class="btn btn-info" href="yateem_addnew.php">إضافة يتيم</a>
 		<a class="btn btn-info" href="yateem_addnew.php">إضافة يتيم</a>
 	</div>
+	<br>
 	<table class="table table-striped">
 	
 	<thead class="thead-light">
