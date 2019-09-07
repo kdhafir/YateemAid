@@ -7,8 +7,8 @@ require_once '../users/init.php';
 if (!securePage($_SERVER['PHP_SELF'])){die();}
 require_once $abs_us_root.$us_url_root.'users/includes/template/prep.php';
 
-$aytamQ = $db->query("SELECT * FROM `ya_kafeelinfo_01` ORDER BY id DESC");
-$counAytam = $aytamQ->count();
+$kafilQ = $db->query("SELECT * FROM `ya_kafeelinfo_01` ORDER BY id DESC");
+$countKafil = $kafilQ->count();
 
 ?>
 <div class="row" dir="rtl">
@@ -34,7 +34,7 @@ $counAytam = $aytamQ->count();
 	</thead>
 	<tbody>
 <?php
-if($counAytam > 0){
+if($countKafil > 0){
     $kafilResult = $kafilQ->results();
     $x = 1;
     foreach($kafilResult as $k){

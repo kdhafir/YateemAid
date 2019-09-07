@@ -19,11 +19,11 @@ if(isset($user) && $user->isLoggedIn()){
 				<?php
 				if($user->isLoggedIn()){?>
 					
-					<a class="btn btn-primary" href="ysys/kafil_addnew.php" role="button">إضافة كافل &raquo;</a>
-					<a class="btn btn-primary" href="ysys/kafil_viewall.php" role="button">ادارة الكافلين &raquo;</a>
+					<a class="btn btn-success" href="ysys/kafil_addnew.php" role="button">إضافة كافل &raquo;</a>
+					<a class="btn btn-success" href="ysys/kafil_viewall.php" role="button">ادارة الكافلين &raquo;</a>
 					<br><br>
-					<a class="btn btn-primary" href="ysys/kafalah_addnew.php" role="button">إضافة كفالة &raquo;</a>
-					<a class="btn btn-primary" href="ysys/kafalah_viewall.php" role="button">ادارة الكفالات &raquo;</a>
+					<a class="btn btn-warning" href="ysys/kafalah_addnew.php" role="button">إضافة كفالة &raquo;</a>
+					<a class="btn btn-warning" href="ysys/kafalah_viewall.php" role="button">ادارة الكفالات &raquo;</a>
 					<br><br>
 					<a class="btn btn-primary" href="ysys/yateem_addnew.php" role="button">إضافة يتيم &raquo;</a>
 					<a class="btn btn-primary" href="ysys/index.php" role="button">استعراض الأيتام &raquo;</a>

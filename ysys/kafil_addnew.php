@@ -15,7 +15,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/template/prep.php';
 <div class="row" dir="rtl">
 	<div class="col-sm-12 col-md-12">
     <br>
-    <h2><a class="btn btn-primary" href="./kafil_viewall.php">عودة</a> نموذج اضافة كافل جديد</h2>
+    <h2><a class="btn btn-success" href="./kafil_viewall.php">استعراض الكل</a> نموذج اضافة كافل جديد</h2>
     <hr>
     <?php
     fb_displayform('ya_kafeelinfo_01');
