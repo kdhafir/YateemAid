@@ -10,7 +10,11 @@ require_once $abs_us_root.$us_url_root.'users/includes/template/prep.php';
 ?>
 
 <div class="row" dir="rtl">
-	<div class="col-sm-12 col-md-12">
+    <div class="col-md-4">
+    <br>
+    <h4>التنقل السريع</h4>
+    </div>
+	<div class="col-sm-12 col-md-8">
     <br>
     <h2><a class="btn btn-warning" href="./kafalah_viewall.php">استعراض الكفالات</a> نموذج اضافة كفالة جديدة</h2>
     <hr>
