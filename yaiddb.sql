@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 07, 2019 at 11:30 AM
+-- Generation Time: Sep 09, 2019 at 02:01 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -124,7 +124,17 @@ INSERT INTO `fb_formbuilder` (`id`, `form`) VALUES
 (2, 'fb_settings'),
 (3, 'ya_yateeminfo_01'),
 (5, 'ya_kafilinfo_01'),
-(6, 'ya_kafalahinfo_01');
+(6, 'ya_kafalahinfo_01'),
+(7, 'ya_settings_currency'),
+(8, 'ya_settings_sex'),
+(9, 'ya_settings_jobtype'),
+(10, 'ya_settings_yesno'),
+(11, 'ya_settings_mstate'),
+(12, 'ya_settings_hometype'),
+(13, 'ya_settings_fstate'),
+(14, 'ya_settings_fsource'),
+(15, 'ya_settings_kafalahloop'),
+(16, 'ya_settings_kafalahtype');
 
 -- --------------------------------------------------------
 
@@ -356,7 +366,16 @@ INSERT INTO `logs` (`id`, `user_id`, `logdate`, `logtype`, `lognote`, `ip`) VALU
 (50, 1, '2019-09-07 08:38:50', 'Pages Manager', 'Added 1 permission(s) to ysys/kafil_addnew.php.', '::1'),
 (51, 1, '2019-09-07 08:39:01', 'Pages Manager', 'Added 1 permission(s) to ysys/kafil_viewall.php.', '::1'),
 (52, 1, '2019-09-07 08:48:00', 'Pages Manager', 'Added 1 permission(s) to ysys/kafalah_addnew.php.', '::1'),
-(53, 1, '2019-09-07 08:48:09', 'Pages Manager', 'Added 1 permission(s) to ysys/kafalah_viewall.php.', '::1');
+(53, 1, '2019-09-07 08:48:09', 'Pages Manager', 'Added 1 permission(s) to ysys/kafalah_viewall.php.', '::1'),
+(54, 2, '2019-09-07 09:48:45', 'User', 'User logged in.', NULL),
+(55, 2, '2019-09-07 09:50:12', 'User', 'Changed fname from Sample to ???? ????????.', '10.0.0.68'),
+(56, 2, '2019-09-07 09:56:04', 'User', 'User logged in.', NULL),
+(57, 1, '2019-09-09 08:15:34', 'USPlugins', 'forms installed', '::1'),
+(58, 1, '2019-09-09 08:16:41', 'USPlugins', 'forms Activated', '::1'),
+(59, 1, '2019-09-09 08:18:47', 'USPlugins', 'formbuilder Activated', '::1'),
+(60, 1, '2019-09-09 08:18:50', 'USPlugins', 'forms uninstalled', '::1'),
+(61, 1, '2019-09-09 08:35:50', 'USPlugins', 'forms installed', '::1'),
+(62, 1, '2019-09-09 08:35:56', 'USPlugins', 'forms Activated', '::1');
 
 -- --------------------------------------------------------
 
@@ -772,7 +791,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `recaptcha`, `force_ssl`, `css_sample`, `us_css1`, `us_css2`, `us_css3`, `site_name`, `language`, `track_guest`, `site_offline`, `force_pr`, `glogin`, `fblogin`, `gid`, `gsecret`, `gredirect`, `ghome`, `fbid`, `fbsecret`, `fbcallback`, `graph_ver`, `finalredir`, `req_cap`, `req_num`, `min_pw`, `max_pw`, `min_un`, `max_un`, `messaging`, `snooping`, `echouser`, `wys`, `change_un`, `backup_dest`, `backup_source`, `backup_table`, `msg_notification`, `permission_restriction`, `auto_assign_un`, `page_permission_restriction`, `msg_blocked_users`, `msg_default_to`, `notifications`, `notif_daylimit`, `recap_public`, `recap_private`, `page_default_private`, `navigation_type`, `copyright`, `custom_settings`, `system_announcement`, `twofa`, `force_notif`, `cron_ip`, `registration`, `join_vericode_expiry`, `reset_vericode_expiry`, `admin_verify`, `admin_verify_timeout`, `session_manager`, `template`, `saas`, `redirect_uri_after_login`, `show_tos`, `default_language`, `allow_language`, `spice_api`, `announce`) VALUES
-(1, 0, 0, 0, '../users/css/color_schemes/bootstrap.min.css', '../users/css/sb-admin.css', '../users/css/custom.css', 'مساعد اليتيم', 'en', 1, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', 0, 0, 6, 30, 4, 30, 0, 1, 0, 1, 0, '/', 'everything', '', 0, 0, 0, 0, 0, 1, 0, 7, '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI', '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe', 1, 1, 'Khalid Dhafir', 1, '', 0, 0, 'off', 1, 24, 15, 1, 120, 0, 'standard', NULL, NULL, 1, 'ar-EG', 1, NULL, '2019-09-07 08:11:59');
+(1, 0, 0, 0, '../users/css/color_schemes/bootstrap.min.css', '../users/css/sb-admin.css', '../users/css/custom.css', 'مساعد اليتيم', 'en', 1, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', 0, 0, 6, 30, 4, 30, 0, 1, 0, 1, 0, '/', 'everything', '', 0, 0, 0, 0, 0, 1, 0, 7, '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI', '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe', 1, 1, 'Khalid Dhafir', 1, '', 0, 0, 'off', 1, 24, 15, 1, 120, 0, 'standard', NULL, NULL, 1, 'ar-EG', 0, 'JDMSC-YNAYD-X5D76-096E2-69A6', '2019-09-09 09:01:16');
 
 -- --------------------------------------------------------
 
@@ -890,7 +909,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `email_new`, `username`, `password`, `pin`, `fname`, `lname`, `permissions`, `logins`, `account_owner`, `account_id`, `company`, `join_date`, `last_login`, `email_verified`, `vericode`, `active`, `oauth_provider`, `oauth_uid`, `gender`, `locale`, `gpluslink`, `picture`, `created`, `modified`, `fb_uid`, `un_changed`, `msg_exempt`, `last_confirm`, `protected`, `dev_user`, `msg_notification`, `force_pr`, `twoKey`, `twoEnabled`, `twoDate`, `cloak_allowed`, `org`, `account_mgr`, `oauth_tos_accepted`, `vericode_expiry`, `language`) VALUES
 (1, 'almohseneen.it@gmail.com', NULL, 'admin', '$2y$12$1v06jm2KMOXuuo3qP7erTuTIJFOnzhpds1Moa8BadnUUeX0RV3ex.', NULL, 'مدير النظام', 'Admin', 1, 2, 1, 0, 'UserSpice', '2016-01-01 00:00:00', '2019-09-07 08:11:19', 1, 'nlPsJDtyeqFWsS', 0, '', '', '', '', '', '', '0000-00-00 00:00:00', '1899-11-30 00:00:00', '', 0, 1, '2017-10-08 15:24:37', 1, 0, 1, 0, NULL, 0, NULL, 0, NULL, 0, NULL, NULL, 'ar-EG'),
-(2, 'noreply@userspice.com', NULL, 'user', '$2y$12$HZa0/d7evKvuHO8I3U8Ff.pOjJqsGTZqlX8qURratzP./EvWetbkK', NULL, 'Sample', 'User', 1, 0, 1, 0, 'none', '2016-01-02 00:00:00', '2017-10-08 15:47:41', 1, '2ENJN4xD8nnjOgk', 1, '', '', '', '', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 0, 0, NULL, 0, 0, 1, 0, NULL, 0, NULL, 0, NULL, 0, NULL, NULL, 'en-US');
+(2, 'noreply@userspice.com', NULL, 'user', '$2y$12$HZa0/d7evKvuHO8I3U8Ff.pOjJqsGTZqlX8qURratzP./EvWetbkK', NULL, 'مدخل البيانات', 'User', 1, 2, 1, 0, 'none', '2016-01-02 00:00:00', '2019-09-07 12:56:04', 1, '2ENJN4xD8nnjOgk', 1, '', '', '', '', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 0, 0, NULL, 0, 0, 1, 0, NULL, 0, NULL, 0, NULL, 0, NULL, NULL, 'en-US');
 
 -- --------------------------------------------------------
 
@@ -925,6 +944,13 @@ CREATE TABLE `users_session` (
   `hash` varchar(255) NOT NULL,
   `uagent` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users_session`
+--
+
+INSERT INTO `users_session` (`id`, `user_id`, `hash`, `uagent`) VALUES
+(1, 2, '3a229148f5903294d29d73e8e0ce63ec8a0a13d398cd86aefc7ee812396c487f', 'Mozilla (Windows NT 6.1) AppleWebKit (KHTML, like Gecko) Chrome Safari');
 
 -- --------------------------------------------------------
 
@@ -1095,7 +1121,9 @@ CREATE TABLE `us_ip_list` (
 
 INSERT INTO `us_ip_list` (`id`, `ip`, `user_id`, `timestamp`) VALUES
 (1, '::1', 1, '2017-10-09 15:20:03'),
-(2, '127.0.0.1', 1, '2019-09-03 08:08:43');
+(2, '127.0.0.1', 1, '2019-09-03 08:08:43'),
+(3, '10.0.0.68', 2, '2019-09-07 09:48:45'),
+(4, '10.0.0.252', 2, '2019-09-07 09:56:04');
 
 -- --------------------------------------------------------
 
@@ -1165,7 +1193,8 @@ CREATE TABLE `us_plugins` (
 --
 
 INSERT INTO `us_plugins` (`id`, `plugin`, `status`, `updates`) VALUES
-(1, 'formbuilder', 'active', '[\"5\"]');
+(1, 'formbuilder', 'active', '[\"5\"]'),
+(3, 'forms', 'disabled', NULL);
 
 -- --------------------------------------------------------
 
@@ -1244,8 +1273,17 @@ CREATE TABLE `ya_kafalahinfo_01` (
   `kafalahLoop` varchar(255) DEFAULT NULL,
   `kafalahAytam` decimal(50,0) DEFAULT NULL,
   `kafalahType` varchar(255) DEFAULT NULL,
-  `kafalahSDate` date DEFAULT NULL
+  `kafalahSDate` date DEFAULT NULL,
+  `kafalahRepeat` decimal(50,0) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ya_kafalahinfo_01`
+--
+
+INSERT INTO `ya_kafalahinfo_01` (`id`, `kafilID`, `kafalahAmount`, `kafalahCurrency`, `kafalahDuration`, `kafalahLoop`, `kafalahAytam`, `kafalahType`, `kafalahSDate`, `kafalahRepeat`) VALUES
+(1, '1', '500000', 'YER', '1', 'w', '400', '', '0000-00-00', '2'),
+(2, '1', '500', 'USD', '2', 'w', '40', '', '2019-09-09', '3');
 
 -- --------------------------------------------------------
 
@@ -1271,14 +1309,15 @@ CREATE TABLE `ya_kafalahinfo_01_fb_fields` (
 --
 
 INSERT INTO `ya_kafalahinfo_01_fb_fields` (`id`, `fb_order`, `name`, `field_type`, `field_html`, `requirements`, `databasevalue`, `database_name`, `database_value`, `database_where`) VALUES
-(1, 0, 'kafilID', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\"}', '', 'ya_kafeelinfo_01', 'kName', ''),
-(2, 0, 'kafalahAmount', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0645\\u0628\\u0644\\u063a \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0645\\u0628\\u0644\\u063a \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\"}', '', '', '', ''),
-(3, 0, 'kafalahCurrency', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0639\\u0645\\u0644\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0639\\u0645\\u0644\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\"}', '[{\"id\":\"YER\",\"value\":\"\\u0631\\u064a\\u0627\\u0644 \\u064a\\u0645\\u0646\\u064a\"},{\"id\":\"USD\",\"value\":\"\\u062f\\u0648\\u0644\\u0627\\u0631 \\u0623\\u0645\\u0631\\u064a\\u0643\\u064a\"}]', '', '', ''),
-(4, 0, 'kafalahDuration', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0645\\u062f\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0645\\u062f\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\"}', '', '', '', ''),
-(5, 0, 'kafalahLoop', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062f\\u0648\\u0631\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062f\\u0648\\u0631\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\"}', '[{\"id\":\"w\",\"value\":\"\\u0627\\u0633\\u0628\\u0648\\u0639\\u064a\\u0629\"},{\"id\":\"m\",\"value\":\"\\u0634\\u0647\\u0631\\u064a\\u0629\"},{\"id\":\"\\u0633\\u0646\\u0648\\u064a\\u0629\",\"value\":\"\"}]', '', '', ''),
-(6, 0, 'kafalahAytam', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0639\\u062f\\u062f \\u0627\\u0644\\u0623\\u064a\\u062a\\u0627\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0639\\u062f\\u062f \\u0627\\u0644\\u0623\\u064a\\u062a\\u0627\\u0645\"}', '', '', '', ''),
-(7, 0, 'kafalahType', 'radio', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\"}', '[{\"id\":\"c\",\"value\":\"\\u0645\\u0633\\u062a\\u0645\\u0631\\u0629\"},{\"id\":\"o\",\"value\":\"\\u0645\\u0646\\u0642\\u0637\\u0639\\u0629\"}]', '', '', ''),
-(8, 0, 'kafalahSDate', 'date', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0627\\u0644\\u0628\\u062f\\u0621\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0627\\u0644\\u0628\\u062f\\u0621\"}', '', '', '', '');
+(1, 10, 'kafilID', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\"}', '', 'ya_kafilinfo_01', 'kName', ''),
+(2, 20, 'kafalahAmount', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0645\\u0628\\u0644\\u063a \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0645\\u0628\\u0644\\u063a \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\"}', '', '', '', ''),
+(3, 30, 'kafalahCurrency', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0639\\u0645\\u0644\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0639\\u0645\\u0644\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\"}', '', 'ya_settings_currency', 'cNameAra', ''),
+(4, 40, 'kafalahDuration', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0645\\u062f\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629 \\u0628\\u0627\\u0644\\u0623\\u0634\\u0647\\u0631\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0645\\u062f\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629 \\u0628\\u0627\\u0644\\u0623\\u0634\\u0647\\u0631\"}', '', '', '', ''),
+(5, 60, 'kafalahLoop', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062f\\u0648\\u0631\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062f\\u0648\\u0631\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\"}', '', 'ya_settings_kafalahloop', 'loopName', ''),
+(6, 80, 'kafalahAytam', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0639\\u062f\\u062f \\u0627\\u0644\\u0623\\u064a\\u062a\\u0627\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0639\\u062f\\u062f \\u0627\\u0644\\u0623\\u064a\\u062a\\u0627\\u0645\"}', '', '', '', ''),
+(7, 90, 'kafalahType', 'radio', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\"}', '', 'ya_settings_kafalahtype', 'kafalahType', ''),
+(8, 50, 'kafalahSDate', 'date', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0627\\u0644\\u0628\\u062f\\u0621\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0627\\u0644\\u0628\\u062f\\u0621\"}', '', '', '', ''),
+(9, 70, 'kafalahRepeat', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u062a\\u0643\\u0631\\u0627\\u0631\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u062a\\u0643\\u0631\\u0627\\u0631\"}', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -1292,15 +1331,18 @@ CREATE TABLE `ya_kafilinfo_01` (
   `kAddress` varchar(255) DEFAULT NULL,
   `kPhone` decimal(50,0) DEFAULT NULL,
   `kType` varchar(255) DEFAULT NULL,
-  `kCountry` varchar(255) DEFAULT NULL
+  `kCountry` varchar(255) DEFAULT NULL,
+  `kEmail` varchar(255) DEFAULT NULL,
+  `kWebsite` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `ya_kafilinfo_01`
 --
 
-INSERT INTO `ya_kafilinfo_01` (`id`, `kName`, `kAddress`, `kPhone`, `kType`, `kCountry`) VALUES
-(1, 'فاعل خير', 'اليمن - صنعاء', '777777777', '', 'اليمن');
+INSERT INTO `ya_kafilinfo_01` (`id`, `kName`, `kAddress`, `kPhone`, `kType`, `kCountry`, `kEmail`, `kWebsite`) VALUES
+(1, 'فاعل خير', 'اليمن - صنعاء', '777777777', '', 'اليمن', NULL, NULL),
+(2, 'كافل يتيم', '', '0', '', '', 'شيبششسيبسيبشيسب', '');
 
 -- --------------------------------------------------------
 
@@ -1330,7 +1372,475 @@ INSERT INTO `ya_kafilinfo_01_fb_fields` (`id`, `fb_order`, `name`, `field_type`,
 (2, 0, 'kAddress', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0639\\u0646\\u0648\\u0627\\u0646 \\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0639\\u0646\\u0648\\u0627\\u0646 \\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\"}', '', '', '', ''),
 (3, 0, 'kPhone', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0631\\u0642\\u0645 \\u0647\\u0627\\u062a\\u0641 \\/ \\u0645\\u0648\\u0628\\u0627\\u064a\\u0644 \\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0631\\u0642\\u0645 \\u0647\\u0627\\u062a\\u0641 \\/ \\u0645\\u0648\\u0628\\u0627\\u064a\\u0644 \\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\"}', '', '', '', ''),
 (4, 0, 'kType', 'radio', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\"}', '[{\"id\":\"i\",\"value\":\"\\u062f\\u0627\\u062e\\u0644\\u064a\"},{\"id\":\"o\",\"value\":\"\\u062e\\u0627\\u0631\\u062c\\u064a\"}]', '', '', ''),
-(5, 0, 'kCountry', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u062f\\u0648\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u062f\\u0648\\u0644\\u0629\"}', '', '', '', '');
+(5, 0, 'kCountry', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u062f\\u0648\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u062f\\u0648\\u0644\\u0629\"}', '', '', '', ''),
+(6, 0, 'kEmail', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u0628\\u0631\\u064a\\u062f \\u0627\\u0644\\u0627\\u0644\\u0643\\u062a\\u0631\\u0648\\u0646\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u0628\\u0631\\u064a\\u062f \\u0627\\u0644\\u0627\\u0644\\u0643\\u062a\\u0631\\u0648\\u0646\\u064a\"}', '', '', '', ''),
+(7, 0, 'kWebsite', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u0645\\u0648\\u0642\\u0639 \\u0627\\u0644\\u0627\\u0644\\u0643\\u062a\\u0631\\u0648\\u0646\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u0645\\u0648\\u0642\\u0639 \\u0627\\u0644\\u0627\\u0644\\u0643\\u062a\\u0631\\u0648\\u0646\\u064a\"}', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ya_settings_currency`
+--
+
+CREATE TABLE `ya_settings_currency` (
+  `id` int(11) NOT NULL,
+  `cNameAra` varchar(255) DEFAULT NULL,
+  `cNameEn` varchar(255) DEFAULT NULL,
+  `cSymbol` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ya_settings_currency`
+--
+
+INSERT INTO `ya_settings_currency` (`id`, `cNameAra`, `cNameEn`, `cSymbol`) VALUES
+(1, 'ريال يمني', 'Yemeni Riyal', 'ر.ي'),
+(2, 'دولار أمريكي', 'US Dollar', 'USD'),
+(3, 'ريال سعودي', 'Saudi Riyal', 'SAR'),
+(4, 'ريال قطري', 'Qatari Riyal', 'QAR');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ya_settings_currency_fb_fields`
+--
+
+CREATE TABLE `ya_settings_currency_fb_fields` (
+  `id` int(11) NOT NULL,
+  `fb_order` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `field_type` text NOT NULL,
+  `field_html` text NOT NULL,
+  `requirements` text NOT NULL,
+  `databasevalue` varchar(255) DEFAULT NULL,
+  `database_name` varchar(255) DEFAULT NULL,
+  `database_value` varchar(255) DEFAULT NULL,
+  `database_where` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ya_settings_currency_fb_fields`
+--
+
+INSERT INTO `ya_settings_currency_fb_fields` (`id`, `fb_order`, `name`, `field_type`, `field_html`, `requirements`, `databasevalue`, `database_name`, `database_value`, `database_where`) VALUES
+(1, 0, 'cNameAra', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0639\\u0645\\u0644\\u0629 \\u0628\\u0627\\u0644\\u0639\\u0631\\u0628\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0639\\u0645\\u0644\\u0629 \\u0628\\u0627\\u0644\\u0639\\u0631\\u0628\\u064a\",\"required\":true}', '', '', '', ''),
+(2, 0, 'cNameEn', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0639\\u0645\\u0644\\u0629 \\u0628\\u0627\\u0644\\u0625\\u0646\\u062c\\u0644\\u064a\\u0632\\u064a\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0639\\u0645\\u0644\\u0629 \\u0628\\u0627\\u0644\\u0625\\u0646\\u062c\\u0644\\u064a\\u0632\\u064a\\u0629\"}', '', '', '', ''),
+(3, 0, 'cSymbol', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0631\\u0645\\u0632 \\u0627\\u0644\\u0639\\u0645\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0631\\u0645\\u0632 \\u0627\\u0644\\u0639\\u0645\\u0644\\u0629\"}', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ya_settings_fsource`
+--
+
+CREATE TABLE `ya_settings_fsource` (
+  `id` int(11) NOT NULL,
+  `fSource` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ya_settings_fsource`
+--
+
+INSERT INTO `ya_settings_fsource` (`id`, `fSource`) VALUES
+(1, 'راتب شهري'),
+(2, 'مساعدات شهرية'),
+(3, 'مصادر أخرى');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ya_settings_fsource_fb_fields`
+--
+
+CREATE TABLE `ya_settings_fsource_fb_fields` (
+  `id` int(11) NOT NULL,
+  `fb_order` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `field_type` text NOT NULL,
+  `field_html` text NOT NULL,
+  `requirements` text NOT NULL,
+  `databasevalue` varchar(255) DEFAULT NULL,
+  `database_name` varchar(255) DEFAULT NULL,
+  `database_value` varchar(255) DEFAULT NULL,
+  `database_where` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ya_settings_fsource_fb_fields`
+--
+
+INSERT INTO `ya_settings_fsource_fb_fields` (`id`, `fb_order`, `name`, `field_type`, `field_html`, `requirements`, `databasevalue`, `database_name`, `database_value`, `database_where`) VALUES
+(1, 0, 'fSource', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0645\\u0635\\u062f\\u0631 \\u0627\\u0644\\u062f\\u062e\\u0644 \\u0644\\u0644\\u0623\\u0633\\u0631\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0645\\u0635\\u062f\\u0631 \\u0627\\u0644\\u062f\\u062e\\u0644 \\u0644\\u0644\\u0623\\u0633\\u0631\\u0629\",\"required\":true}', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ya_settings_fstate`
+--
+
+CREATE TABLE `ya_settings_fstate` (
+  `id` int(11) NOT NULL,
+  `fState` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ya_settings_fstate`
+--
+
+INSERT INTO `ya_settings_fstate` (`id`, `fState`) VALUES
+(1, 'متوسط'),
+(2, 'فقيرة'),
+(3, 'معدمة');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ya_settings_fstate_fb_fields`
+--
+
+CREATE TABLE `ya_settings_fstate_fb_fields` (
+  `id` int(11) NOT NULL,
+  `fb_order` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `field_type` text NOT NULL,
+  `field_html` text NOT NULL,
+  `requirements` text NOT NULL,
+  `databasevalue` varchar(255) DEFAULT NULL,
+  `database_name` varchar(255) DEFAULT NULL,
+  `database_value` varchar(255) DEFAULT NULL,
+  `database_where` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ya_settings_fstate_fb_fields`
+--
+
+INSERT INTO `ya_settings_fstate_fb_fields` (`id`, `fb_order`, `name`, `field_type`, `field_html`, `requirements`, `databasevalue`, `database_name`, `database_value`, `database_where`) VALUES
+(1, 0, 'fState', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u0648\\u0636\\u0639 \\u0627\\u0644\\u0645\\u0627\\u062f\\u064a \\u0644\\u0644\\u0623\\u0633\\u0631\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u0648\\u0636\\u0639 \\u0627\\u0644\\u0645\\u0627\\u062f\\u064a \\u0644\\u0644\\u0623\\u0633\\u0631\\u0629\",\"required\":true}', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ya_settings_hometype`
+--
+
+CREATE TABLE `ya_settings_hometype` (
+  `id` int(11) NOT NULL,
+  `hType` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ya_settings_hometype`
+--
+
+INSERT INTO `ya_settings_hometype` (`id`, `hType`) VALUES
+(1, 'ملك'),
+(2, 'ايجار');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ya_settings_hometype_fb_fields`
+--
+
+CREATE TABLE `ya_settings_hometype_fb_fields` (
+  `id` int(11) NOT NULL,
+  `fb_order` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `field_type` text NOT NULL,
+  `field_html` text NOT NULL,
+  `requirements` text NOT NULL,
+  `databasevalue` varchar(255) DEFAULT NULL,
+  `database_name` varchar(255) DEFAULT NULL,
+  `database_value` varchar(255) DEFAULT NULL,
+  `database_where` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ya_settings_hometype_fb_fields`
+--
+
+INSERT INTO `ya_settings_hometype_fb_fields` (`id`, `fb_order`, `name`, `field_type`, `field_html`, `requirements`, `databasevalue`, `database_name`, `database_value`, `database_where`) VALUES
+(1, 0, 'hType', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0633\\u0643\\u0646\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0633\\u0643\\u0646\",\"required\":true}', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ya_settings_jobtype`
+--
+
+CREATE TABLE `ya_settings_jobtype` (
+  `id` int(11) NOT NULL,
+  `jName` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ya_settings_jobtype`
+--
+
+INSERT INTO `ya_settings_jobtype` (`id`, `jName`) VALUES
+(1, 'حكومي'),
+(2, 'خاص'),
+(3, 'خيري'),
+(4, 'حر'),
+(5, 'لا يوجد');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ya_settings_jobtype_fb_fields`
+--
+
+CREATE TABLE `ya_settings_jobtype_fb_fields` (
+  `id` int(11) NOT NULL,
+  `fb_order` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `field_type` text NOT NULL,
+  `field_html` text NOT NULL,
+  `requirements` text NOT NULL,
+  `databasevalue` varchar(255) DEFAULT NULL,
+  `database_name` varchar(255) DEFAULT NULL,
+  `database_value` varchar(255) DEFAULT NULL,
+  `database_where` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ya_settings_jobtype_fb_fields`
+--
+
+INSERT INTO `ya_settings_jobtype_fb_fields` (`id`, `fb_order`, `name`, `field_type`, `field_html`, `requirements`, `databasevalue`, `database_name`, `database_value`, `database_where`) VALUES
+(1, 0, 'jName', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0639\\u0645\\u0644\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0639\\u0645\\u0644\",\"required\":true}', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ya_settings_kafalahloop`
+--
+
+CREATE TABLE `ya_settings_kafalahloop` (
+  `id` int(11) NOT NULL,
+  `loopName` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ya_settings_kafalahloop`
+--
+
+INSERT INTO `ya_settings_kafalahloop` (`id`, `loopName`) VALUES
+(1, 'سنوية'),
+(2, 'شهرية'),
+(3, 'اسبوعية');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ya_settings_kafalahloop_fb_fields`
+--
+
+CREATE TABLE `ya_settings_kafalahloop_fb_fields` (
+  `id` int(11) NOT NULL,
+  `fb_order` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `field_type` text NOT NULL,
+  `field_html` text NOT NULL,
+  `requirements` text NOT NULL,
+  `databasevalue` varchar(255) DEFAULT NULL,
+  `database_name` varchar(255) DEFAULT NULL,
+  `database_value` varchar(255) DEFAULT NULL,
+  `database_where` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ya_settings_kafalahloop_fb_fields`
+--
+
+INSERT INTO `ya_settings_kafalahloop_fb_fields` (`id`, `fb_order`, `name`, `field_type`, `field_html`, `requirements`, `databasevalue`, `database_name`, `database_value`, `database_where`) VALUES
+(1, 0, 'loopName', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u062f\\u0648\\u0631\\u0629 \\u0644\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u062f\\u0648\\u0631\\u0629 \\u0644\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"required\":true}', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ya_settings_kafalahtype`
+--
+
+CREATE TABLE `ya_settings_kafalahtype` (
+  `id` int(11) NOT NULL,
+  `kafalahType` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ya_settings_kafalahtype`
+--
+
+INSERT INTO `ya_settings_kafalahtype` (`id`, `kafalahType`) VALUES
+(1, 'مستمرة'),
+(2, 'منقطعة');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ya_settings_kafalahtype_fb_fields`
+--
+
+CREATE TABLE `ya_settings_kafalahtype_fb_fields` (
+  `id` int(11) NOT NULL,
+  `fb_order` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `field_type` text NOT NULL,
+  `field_html` text NOT NULL,
+  `requirements` text NOT NULL,
+  `databasevalue` varchar(255) DEFAULT NULL,
+  `database_name` varchar(255) DEFAULT NULL,
+  `database_value` varchar(255) DEFAULT NULL,
+  `database_where` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ya_settings_kafalahtype_fb_fields`
+--
+
+INSERT INTO `ya_settings_kafalahtype_fb_fields` (`id`, `fb_order`, `name`, `field_type`, `field_html`, `requirements`, `databasevalue`, `database_name`, `database_value`, `database_where`) VALUES
+(1, 0, 'kafalahType', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"required\":true}', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ya_settings_mstate`
+--
+
+CREATE TABLE `ya_settings_mstate` (
+  `id` int(11) NOT NULL,
+  `msName` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ya_settings_mstate`
+--
+
+INSERT INTO `ya_settings_mstate` (`id`, `msName`) VALUES
+(1, 'أرملة'),
+(2, 'متزوجة');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ya_settings_mstate_fb_fields`
+--
+
+CREATE TABLE `ya_settings_mstate_fb_fields` (
+  `id` int(11) NOT NULL,
+  `fb_order` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `field_type` text NOT NULL,
+  `field_html` text NOT NULL,
+  `requirements` text NOT NULL,
+  `databasevalue` varchar(255) DEFAULT NULL,
+  `database_name` varchar(255) DEFAULT NULL,
+  `database_value` varchar(255) DEFAULT NULL,
+  `database_where` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ya_settings_mstate_fb_fields`
+--
+
+INSERT INTO `ya_settings_mstate_fb_fields` (`id`, `fb_order`, `name`, `field_type`, `field_html`, `requirements`, `databasevalue`, `database_name`, `database_value`, `database_where`) VALUES
+(1, 0, 'msName', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062d\\u0627\\u0644\\u0629 \\u0627\\u0644\\u0623\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u062d\\u0627\\u0644\\u0629 \\u0627\\u0644\\u0623\\u0645\",\"required\":true}', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ya_settings_sex`
+--
+
+CREATE TABLE `ya_settings_sex` (
+  `id` int(11) NOT NULL,
+  `sNameAra` varchar(255) DEFAULT NULL,
+  `sNameEng` varchar(255) DEFAULT NULL,
+  `sSymbol` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ya_settings_sex`
+--
+
+INSERT INTO `ya_settings_sex` (`id`, `sNameAra`, `sNameEng`, `sSymbol`) VALUES
+(1, 'ذكر', 'Male', 'M'),
+(2, 'أنثى', 'Female', 'F');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ya_settings_sex_fb_fields`
+--
+
+CREATE TABLE `ya_settings_sex_fb_fields` (
+  `id` int(11) NOT NULL,
+  `fb_order` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `field_type` text NOT NULL,
+  `field_html` text NOT NULL,
+  `requirements` text NOT NULL,
+  `databasevalue` varchar(255) DEFAULT NULL,
+  `database_name` varchar(255) DEFAULT NULL,
+  `database_value` varchar(255) DEFAULT NULL,
+  `database_where` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ya_settings_sex_fb_fields`
+--
+
+INSERT INTO `ya_settings_sex_fb_fields` (`id`, `fb_order`, `name`, `field_type`, `field_html`, `requirements`, `databasevalue`, `database_name`, `database_value`, `database_where`) VALUES
+(1, 0, 'sNameAra', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u062c\\u0646\\u0633 \\u0628\\u0627\\u0644\\u0639\\u0631\\u0628\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u062c\\u0646\\u0633 \\u0628\\u0627\\u0644\\u0639\\u0631\\u0628\\u064a\",\"required\":true}', '', '', '', ''),
+(2, 0, 'sNameEng', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u0627\\u0633\\u0645 \\u0628\\u0627\\u0644\\u0627\\u0646\\u062c\\u0644\\u064a\\u0632\\u064a\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u0627\\u0633\\u0645 \\u0628\\u0627\\u0644\\u0627\\u0646\\u062c\\u0644\\u064a\\u0632\\u064a\\u0629\"}', '', '', '', ''),
+(3, 0, 'sSymbol', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u0631\\u0645\\u0632\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u0631\\u0645\\u0632\"}', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ya_settings_yesno`
+--
+
+CREATE TABLE `ya_settings_yesno` (
+  `id` int(11) NOT NULL,
+  `aName` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ya_settings_yesno`
+--
+
+INSERT INTO `ya_settings_yesno` (`id`, `aName`) VALUES
+(1, 'نعم'),
+(2, 'لا');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ya_settings_yesno_fb_fields`
+--
+
+CREATE TABLE `ya_settings_yesno_fb_fields` (
+  `id` int(11) NOT NULL,
+  `fb_order` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `field_type` text NOT NULL,
+  `field_html` text NOT NULL,
+  `requirements` text NOT NULL,
+  `databasevalue` varchar(255) DEFAULT NULL,
+  `database_name` varchar(255) DEFAULT NULL,
+  `database_value` varchar(255) DEFAULT NULL,
+  `database_where` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ya_settings_yesno_fb_fields`
+--
+
+INSERT INTO `ya_settings_yesno_fb_fields` (`id`, `fb_order`, `name`, `field_type`, `field_html`, `requirements`, `databasevalue`, `database_name`, `database_value`, `database_where`) VALUES
+(1, 0, 'aName', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0646\\u0639\\u0645 \\u0623\\u0648 \\u0644\\u0627\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0646\\u0639\\u0645 \\u0623\\u0648 \\u0644\\u0627\",\"required\":true}', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -1388,15 +1898,18 @@ CREATE TABLE `ya_yateeminfo_01` (
   `identifierSection` varchar(255) DEFAULT NULL,
   `idName` varchar(255) DEFAULT NULL,
   `idMobile` varchar(12) DEFAULT NULL,
-  `idAddress` varchar(255) DEFAULT NULL
+  `idAddress` varchar(255) DEFAULT NULL,
+  `mIDCard` varchar(255) DEFAULT NULL,
+  `rIDCard` varchar(255) DEFAULT NULL,
+  `BasicInfoSection` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `ya_yateeminfo_01`
 --
 
-INSERT INTO `ya_yateeminfo_01` (`id`, `dateOfEntry`, `yName`, `ySex`, `yDateOfBirth`, `yBirthPlace`, `yNationality`, `yFeatures`, `yAddress`, `yRankInFamily`, `fDeathDate`, `fDeathReason`, `yEduLevel`, `yEduClass`, `yEduSchoolName`, `yEduSchoolPhone`, `yEduNoEduReason`, `yHealthStatus`, `yHealthSickness`, `yQuranLevel`, `yQuranSchool`, `rSectionName`, `rName`, `rSex`, `rDateOfBirth`, `rRelation`, `rMobile`, `rMobilePerson`, `rWorkName`, `rWorkType`, `mSection`, `mSectionName`, `mName`, `mAlive`, `mStatus`, `mWork`, `fNumberOfBrothers`, `fRankInFamily`, `fHomeType`, `fAddress`, `fFinanceStatus`, `fFinanceSalary`, `fFinanceSource`, `sOpinion`, `BasicInfo`, `identifierName`, `identifierSection`, `idName`, `idMobile`, `idAddress`) VALUES
-(1, '0000-00-00', 'ككشسيبت', NULL, '0000-00-00', 'يشيب', 'يشي', 'شيب', 'شيسب', '2', '0000-00-00', 'سيب', '', '', '', '0', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `ya_yateeminfo_01` (`id`, `dateOfEntry`, `yName`, `ySex`, `yDateOfBirth`, `yBirthPlace`, `yNationality`, `yFeatures`, `yAddress`, `yRankInFamily`, `fDeathDate`, `fDeathReason`, `yEduLevel`, `yEduClass`, `yEduSchoolName`, `yEduSchoolPhone`, `yEduNoEduReason`, `yHealthStatus`, `yHealthSickness`, `yQuranLevel`, `yQuranSchool`, `rSectionName`, `rName`, `rSex`, `rDateOfBirth`, `rRelation`, `rMobile`, `rMobilePerson`, `rWorkName`, `rWorkType`, `mSection`, `mSectionName`, `mName`, `mAlive`, `mStatus`, `mWork`, `fNumberOfBrothers`, `fRankInFamily`, `fHomeType`, `fAddress`, `fFinanceStatus`, `fFinanceSalary`, `fFinanceSource`, `sOpinion`, `BasicInfo`, `identifierName`, `identifierSection`, `idName`, `idMobile`, `idAddress`, `mIDCard`, `rIDCard`, `BasicInfoSection`) VALUES
+(1, '0000-00-00', 'ككشسيبت', NULL, '0000-00-00', 'يشيب', 'يشي', 'شيب', 'شيسب', '2', '0000-00-00', 'سيب', '', '', '', '0', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1422,9 +1935,9 @@ CREATE TABLE `ya_yateeminfo_01_fb_fields` (
 --
 
 INSERT INTO `ya_yateeminfo_01_fb_fields` (`id`, `fb_order`, `name`, `field_type`, `field_html`, `requirements`, `databasevalue`, `database_name`, `database_value`, `database_where`) VALUES
-(1, 20, 'dateOfEntry', 'date', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0627\\u0644\\u0625\\u062f\\u062e\\u0627\\u0644\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0627\\u0644\\u0625\\u062f\\u062e\\u0627\\u0644\",\"is_datetime\":true,\"required\":true}', '', '', '', ''),
+(1, 20, 'dateOfEntry', 'date', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0627\\u0644\\u0625\\u062f\\u062e\\u0627\\u0644\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0627\\u0644\\u0625\\u062f\\u062e\\u0627\\u0644\",\"required\":true}', '', '', '', ''),
 (2, 30, 'yName', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645 \\u0631\\u0628\\u0627\\u0639\\u064a\\u0627\\u064b \\u0645\\u0639 \\u0627\\u0644\\u0644\\u0642\\u0628\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645 \\u0631\\u0628\\u0627\\u0639\\u064a\\u0627\\u064b \\u0645\\u0639 \\u0627\\u0644\\u0644\\u0642\\u0628\",\"required\":true}', '', '', '', ''),
-(3, 40, 'ySex', 'radio', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062c\\u0646\\u0633 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062c\\u0646\\u0633 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\"}', '[{\"id\":\"m\",\"value\":\"\\u0630\\u0643\\u0631\"},{\"id\":\"f\",\"value\":\"\\u0623\\u0646\\u062b\\u0649\"}]', '', '', ''),
+(3, 40, 'ySex', 'radio', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062c\\u0646\\u0633 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062c\\u0646\\u0633 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\"}', '', 'ya_settings_sex', 'sNameAra', ''),
 (4, 50, 'yDateOfBirth', 'date', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0645\\u064a\\u0644\\u0627\\u062f \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0645\\u064a\\u0644\\u0627\\u062f \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\"}', '', '', '', ''),
 (5, 60, 'yBirthPlace', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0645\\u062d\\u0644 \\u0645\\u064a\\u0644\\u0627\\u062f \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0645\\u062d\\u0644 \\u0645\\u064a\\u0644\\u0627\\u062f \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"required\":true}', '', '', '', ''),
 (6, 70, 'yNationality', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062c\\u0646\\u0633\\u064a\\u0629 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u062c\\u0646\\u0633\\u064a\\u0629 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"required\":true}', '', '', '', ''),
@@ -1444,31 +1957,33 @@ INSERT INTO `ya_yateeminfo_01_fb_fields` (`id`, `fb_order`, `name`, `field_type`
 (20, 210, 'yQuranSchool', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0633\\u0645 \\u0645\\u062f\\u0631\\u0633\\u0629 \\u0627\\u0644\\u062a\\u062d\\u0641\\u064a\\u0638\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0633\\u0645 \\u0645\\u062f\\u0631\\u0633\\u0629 \\u0627\\u0644\\u062a\\u062d\\u0641\\u064a\\u0638\"}', '', '', '', ''),
 (21, 220, 'rSectionName', 'label', '{\"div_class1\":\"\",\"div_class2\":\"form-group bg-dark text-white\",\"label\":\"\\u0628\\u064a\\u0627\\u0646\\u0627\\u062a \\u0627\\u0644\\u0648\\u0635\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0628\\u064a\\u0627\\u0646\\u0627\\u062a \\u0627\\u0644\\u0648\\u0635\\u064a\"}', '', '', '', ''),
 (22, 230, 'rName', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0648\\u0635\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0648\\u0635\\u064a\",\"required\":true}', '', '', '', ''),
-(23, 240, 'rSex', 'radio', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062c\\u0646\\u0633 \\u0627\\u0644\\u0648\\u0635\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062c\\u0646\\u0633 \\u0627\\u0644\\u0648\\u0635\\u064a\"}', '[{\"id\":\"m\",\"value\":\"\\u0630\\u0643\\u0631\"},{\"id\":\"f\",\"value\":\"\\u0623\\u0646\\u062b\\u0649\"}]', '', '', ''),
+(23, 240, 'rSex', 'radio', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062c\\u0646\\u0633 \\u0627\\u0644\\u0648\\u0635\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062c\\u0646\\u0633 \\u0627\\u0644\\u0648\\u0635\\u064a\"}', '', 'ya_settings_sex', 'sNameAra', ''),
 (24, 250, 'rDateOfBirth', 'date', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0645\\u064a\\u0644\\u0627\\u062f \\u0627\\u0644\\u0648\\u0635\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0645\\u064a\\u0644\\u0627\\u062f \\u0627\\u0644\\u0648\\u0635\\u064a\"}', '', '', '', ''),
 (25, 260, 'rRelation', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0635\\u0644\\u0629 \\u0642\\u0631\\u0627\\u0628\\u0629 \\u0627\\u0644\\u0648\\u0635\\u064a \\u0628\\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0635\\u0644\\u0629 \\u0642\\u0631\\u0627\\u0628\\u0629 \\u0627\\u0644\\u0648\\u0635\\u064a \\u0628\\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\"}', '', '', '', ''),
 (26, 270, 'rMobile', 'tel', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0631\\u0642\\u0645 \\u0645\\u0648\\u0628\\u0627\\u064a\\u0644 \\u0627\\u0644\\u0648\\u0635\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0631\\u0642\\u0645 \\u0645\\u0648\\u0628\\u0627\\u064a\\u0644 \\u0627\\u0644\\u0648\\u0635\\u064a\"}', '', '', '', ''),
 (27, 280, 'rMobilePerson', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0635\\u0627\\u062d\\u0628 \\u0627\\u0644\\u0645\\u0648\\u0628\\u0627\\u064a\\u0644 (\\u0645\\u0633\\u062c\\u0644 \\u0628\\u0627\\u0633\\u0645 \\u0645\\u0646)\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0635\\u0627\\u062d\\u0628 \\u0627\\u0644\\u0645\\u0648\\u0628\\u0627\\u064a\\u0644 (\\u0645\\u0633\\u062c\\u0644 \\u0628\\u0627\\u0633\\u0645 \\u0645\\u0646)\"}', '', '', '', ''),
 (28, 290, 'rWorkName', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062c\\u0647\\u0629 \\u0639\\u0645\\u0644 \\u0627\\u0644\\u0648\\u0635\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062c\\u0647\\u0629 \\u0639\\u0645\\u0644 \\u0627\\u0644\\u0648\\u0635\\u064a\"}', '', '', '', ''),
-(29, 300, 'rWorkType', 'radio', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0639\\u0645\\u0644\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0639\\u0645\\u0644\"}', '[{\"id\":\"g\",\"value\":\"\\u062d\\u0643\\u0648\\u0645\\u064a\"},{\"id\":\"s\",\"value\":\"\\u062e\\u0627\\u0635\"},{\"id\":\"c\",\"value\":\"\\u062e\\u064a\\u0631\\u064a\"},{\"id\":\"f\",\"value\":\"\\u062d\\u0631\"},{\"id\":\"n\",\"value\":\"\\u0644\\u0627 \\u064a\\u0648\\u062c\\u062f\"}]', '', '', ''),
+(29, 300, 'rWorkType', 'radio', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0639\\u0645\\u0644\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0639\\u0645\\u0644\"}', '', 'ya_settings_jobtype', 'jName', ''),
 (30, 310, 'mSectionName', 'label', '{\"div_class1\":\"\",\"div_class2\":\"form-group bg-dark text-white\",\"label\":\"\\u0628\\u064a\\u0627\\u0646\\u0627\\u062a \\u0627\\u0644\\u0623\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0628\\u064a\\u0627\\u0646\\u0627\\u062a \\u0627\\u0644\\u0623\\u0645\"}', '', '', '', ''),
 (31, 320, 'mName', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0623\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0623\\u0645\",\"required\":true}', '', '', '', ''),
-(32, 330, 'mAlive', 'radio', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0647\\u0644 \\u0627\\u0644\\u0623\\u0645 \\u0639\\u0644\\u0649 \\u0642\\u064a\\u062f \\u0627\\u0644\\u062d\\u064a\\u0627\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0647\\u0644 \\u0627\\u0644\\u0623\\u0645 \\u0639\\u0644\\u0649 \\u0642\\u064a\\u062f \\u0627\\u0644\\u062d\\u064a\\u0627\\u0629\"}', '[{\"id\":\"y\",\"value\":\"\\u0646\\u0639\\u0645\"},{\"id\":\"n\",\"value\":\"\\u0644\\u0627\"}]', '', '', ''),
-(33, 340, 'mStatus', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062d\\u0627\\u0644\\u0629 \\u0627\\u0644\\u0623\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062d\\u0627\\u0644\\u0629 \\u0627\\u0644\\u0623\\u0645\"}', '[{\"id\":\"widow\",\"value\":\"\\u0623\\u0631\\u0645\\u0644\\u0629\"},{\"id\":\"married\",\"value\":\"\\u0645\\u062a\\u0632\\u0648\\u062c\\u0629\"}]', '', '', ''),
+(32, 330, 'mAlive', 'radio', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0647\\u0644 \\u0627\\u0644\\u0623\\u0645 \\u0639\\u0644\\u0649 \\u0642\\u064a\\u062f \\u0627\\u0644\\u062d\\u064a\\u0627\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0647\\u0644 \\u0627\\u0644\\u0623\\u0645 \\u0639\\u0644\\u0649 \\u0642\\u064a\\u062f \\u0627\\u0644\\u062d\\u064a\\u0627\\u0629\"}', '', 'ya_settings_yesno', 'aName', ''),
+(33, 340, 'mStatus', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062d\\u0627\\u0644\\u0629 \\u0627\\u0644\\u0623\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062d\\u0627\\u0644\\u0629 \\u0627\\u0644\\u0623\\u0645\"}', '', 'ya_settings_mstate', 'msName', ''),
 (34, 350, 'mWork', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0639\\u0645\\u0644 \\u0627\\u0644\\u0623\\u0645 [ \\u0625\\u0646 \\u0648\\u062c\\u062f ]\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0639\\u0645\\u0644 \\u0627\\u0644\\u0623\\u0645 [ \\u0625\\u0646 \\u0648\\u062c\\u062f ]\"}', '', '', '', ''),
 (35, 360, 'fNumberOfBrothers', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0639\\u062f\\u062f \\u0627\\u0644\\u0627\\u062e\\u0648\\u0629 \\u0648\\u0627\\u0644\\u0623\\u062e\\u0648\\u0627\\u062a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0639\\u062f\\u062f \\u0627\\u0644\\u0627\\u062e\\u0648\\u0629 \\u0648\\u0627\\u0644\\u0623\\u062e\\u0648\\u0627\\u062a\",\"required\":true}', '', '', '', ''),
 (36, 370, 'fRankInFamily', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062a\\u0631\\u062a\\u064a\\u0628 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645 \\u0628\\u064a\\u0646 \\u0627\\u062e\\u0648\\u0627\\u0646\\u0647 \\u0648\\u0627\\u062e\\u0648\\u0627\\u062a\\u0647 [ \\u0645\\u0646 \\u0627\\u0644\\u0623\\u0643\\u0628\\u0631 \\u0627\\u0644\\u0649 \\u0627\\u0644\\u0623\\u0635\\u063a\\u0631 ]\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u062a\\u0631\\u062a\\u064a\\u0628 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645 \\u0628\\u064a\\u0646 \\u0627\\u062e\\u0648\\u0627\\u0646\\u0647 \\u0648\\u0627\\u062e\\u0648\\u0627\\u062a\\u0647 [ \\u0645\\u0646 \\u0627\\u0644\\u0623\\u0643\\u0628\\u0631 \\u0627\\u0644\\u0649 \\u0627\\u0644\\u0623\\u0635\\u063a\\u0631 ]\",\"required\":true}', '', '', '', ''),
-(37, 380, 'fHomeType', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0633\\u0643\\u0646\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0633\\u0643\\u0646\"}', '[{\"id\":\"o\",\"value\":\"\\u0645\\u0644\\u0643\"},{\"id\":\"r\",\"value\":\"\\u0627\\u064a\\u062c\\u0627\\u0631\"}]', '', '', ''),
+(37, 380, 'fHomeType', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0633\\u0643\\u0646\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0633\\u0643\\u0646\"}', '', 'ya_settings_hometype', 'hType', ''),
 (38, 390, 'fAddress', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0639\\u0646\\u0648\\u0627\\u0646 \\u0633\\u0643\\u0646 \\u0627\\u0644\\u0623\\u0633\\u0631\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0639\\u0646\\u0648\\u0627\\u0646 \\u0633\\u0643\\u0646 \\u0627\\u0644\\u0623\\u0633\\u0631\\u0629\"}', '', '', '', ''),
-(39, 400, 'fFinanceStatus', 'radio', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u0648\\u0636\\u0639 \\u0627\\u0644\\u0645\\u0627\\u062f\\u064a \\u0644\\u0644\\u0623\\u0633\\u0631\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u0648\\u0636\\u0639 \\u0627\\u0644\\u0645\\u0627\\u062f\\u064a \\u0644\\u0644\\u0623\\u0633\\u0631\\u0629\"}', '[{\"id\":\"m\",\"value\":\"\\u0645\\u062a\\u0648\\u0633\\u0637\"},{\"id\":\"p\",\"value\":\"\\u0641\\u0642\\u064a\\u0631\\u0629\"},{\"id\":\"v\",\"value\":\"\\u0645\\u0639\\u062f\\u0645\\u0629\"}]', '', '', ''),
+(39, 400, 'fFinanceStatus', 'radio', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u0648\\u0636\\u0639 \\u0627\\u0644\\u0645\\u0627\\u062f\\u064a \\u0644\\u0644\\u0623\\u0633\\u0631\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u0648\\u0636\\u0639 \\u0627\\u0644\\u0645\\u0627\\u062f\\u064a \\u0644\\u0644\\u0623\\u0633\\u0631\\u0629\"}', '', 'ya_settings_fstate', 'fState', ''),
 (40, 410, 'fFinanceSalary', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u062f\\u062e\\u0644 \\u0627\\u0644\\u0634\\u0647\\u0631\\u064a \\u0644\\u0644\\u0623\\u0633\\u0631\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u062f\\u062e\\u0644 \\u0627\\u0644\\u0634\\u0647\\u0631\\u064a \\u0644\\u0644\\u0623\\u0633\\u0631\\u0629\"}', '', '', '', ''),
 (41, 420, 'fFinanceSource', 'checkbox', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0645\\u0635\\u062f\\u0631 \\u0627\\u0644\\u062f\\u062e\\u0644 \\u0644\\u0644\\u0623\\u0633\\u0631\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0645\\u0635\\u062f\\u0631 \\u0627\\u0644\\u062f\\u062e\\u0644 \\u0644\\u0644\\u0623\\u0633\\u0631\\u0629\"}', '[{\"id\":\"s\",\"value\":\"\\u0631\\u0627\\u062a\\u0628 \\u0634\\u0647\\u0631\\u064a\"},{\"id\":\"h\",\"value\":\"\\u0645\\u0633\\u0627\\u0639\\u062f\\u0627\\u062a \\u0634\\u0647\\u0631\\u064a\\u0629\"},{\"id\":\"o\",\"value\":\"\\u0645\\u0635\\u0627\\u062f\\u0631 \\u0623\\u062e\\u0631\\u0649\"}]', '', '', ''),
 (42, 430, 'sOpinion', 'textarea', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0631\\u0623\\u064a \\u0627\\u0644\\u0625\\u062f\\u0627\\u0631\\u0629 \\u0627\\u0644\\u0645\\u0639\\u0646\\u064a\\u0629 [ \\u0627\\u0644\\u0645\\u062e\\u062a\\u0635 ]\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0631\\u0623\\u064a \\u0627\\u0644\\u0625\\u062f\\u0627\\u0631\\u0629 \\u0627\\u0644\\u0645\\u0639\\u0646\\u064a\\u0629 [ \\u0627\\u0644\\u0645\\u062e\\u062a\\u0635 ]\"}', '', '', '', ''),
-(43, 10, 'BasicInfo', 'label', '{\"div_class1\":\"\",\"div_class2\":\"form-group bg-dark text-white\",\"label\":\"\\u0627\\u0644\\u0628\\u064a\\u0627\\u0646\\u0627\\u062a \\u0627\\u0644\\u0623\\u0633\\u0627\\u0633\\u064a\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u0628\\u064a\\u0627\\u0646\\u0627\\u062a \\u0627\\u0644\\u0623\\u0633\\u0627\\u0633\\u064a\\u0629\"}', '', '', '', ''),
+(43, 10, 'BasicInfoSection', 'label', '{\"div_class1\":\"\",\"div_class2\":\"form-group bg-dark text-white\",\"label\":\"\\u0627\\u0644\\u0628\\u064a\\u0627\\u0646\\u0627\\u062a \\u0627\\u0644\\u0623\\u0633\\u0627\\u0633\\u064a\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u0628\\u064a\\u0627\\u0646\\u0627\\u062a \\u0627\\u0644\\u0623\\u0633\\u0627\\u0633\\u064a\\u0629\"}', '', '', '', ''),
 (44, 440, 'identifierSection', 'label', '{\"div_class1\":\"\",\"div_class2\":\"form-group bg-dark text-white\",\"label\":\"\\u0628\\u064a\\u0627\\u0646\\u0627\\u062a \\u0627\\u0644\\u0645\\u0639\\u0631\\u0641\",\"label_class\":\"form-group\",\"input_class\":\"\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0628\\u064a\\u0627\\u0646\\u0627\\u062a \\u0627\\u0644\\u0645\\u0639\\u0631\\u0641\"}', '', '', '', ''),
 (45, 450, 'idName', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0645\\u0639\\u0631\\u0641\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0645\\u0639\\u0631\\u0641\"}', '', '', '', ''),
 (46, 460, 'idMobile', 'tel', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0631\\u0642\\u0645 \\u0645\\u0648\\u0628\\u0627\\u064a\\u0644 \\u0627\\u0644\\u0645\\u0639\\u0631\\u0641\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0631\\u0642\\u0645 \\u0645\\u0648\\u0628\\u0627\\u064a\\u0644 \\u0627\\u0644\\u0645\\u0639\\u0631\\u0641\"}', '', '', '', ''),
-(47, 470, 'idAddress', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0639\\u0646\\u0648\\u0627\\u0646 \\u0633\\u0643\\u0646 \\u0627\\u0644\\u0645\\u0639\\u0631\\u0641\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0639\\u0646\\u0648\\u0627\\u0646 \\u0633\\u0643\\u0646 \\u0627\\u0644\\u0645\\u0639\\u0631\\u0641\"}', '', '', '', '');
+(47, 470, 'idAddress', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0639\\u0646\\u0648\\u0627\\u0646 \\u0633\\u0643\\u0646 \\u0627\\u0644\\u0645\\u0639\\u0631\\u0641\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0639\\u0646\\u0648\\u0627\\u0646 \\u0633\\u0643\\u0646 \\u0627\\u0644\\u0645\\u0639\\u0631\\u0641\"}', '', '', '', ''),
+(48, 321, 'mIDCard', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0631\\u0642\\u0645 \\u0627\\u0644\\u0647\\u0648\\u064a\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0631\\u0642\\u0645 \\u0627\\u0644\\u0647\\u0648\\u064a\\u0629\"}', '', '', '', ''),
+(49, 231, 'rIDCard', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0631\\u0642\\u0645 \\u0647\\u0648\\u064a\\u0629 \\u0627\\u0644\\u0648\\u0635\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0631\\u0642\\u0645 \\u0647\\u0648\\u064a\\u0629 \\u0627\\u0644\\u0648\\u0635\\u064a\"}', '', '', '', '');
 
 --
 -- Indexes for dumped tables
@@ -1755,6 +2270,126 @@ ALTER TABLE `ya_kafilinfo_01_fb_fields`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `ya_settings_currency`
+--
+ALTER TABLE `ya_settings_currency`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ya_settings_currency_fb_fields`
+--
+ALTER TABLE `ya_settings_currency_fb_fields`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ya_settings_fsource`
+--
+ALTER TABLE `ya_settings_fsource`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ya_settings_fsource_fb_fields`
+--
+ALTER TABLE `ya_settings_fsource_fb_fields`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ya_settings_fstate`
+--
+ALTER TABLE `ya_settings_fstate`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ya_settings_fstate_fb_fields`
+--
+ALTER TABLE `ya_settings_fstate_fb_fields`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ya_settings_hometype`
+--
+ALTER TABLE `ya_settings_hometype`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ya_settings_hometype_fb_fields`
+--
+ALTER TABLE `ya_settings_hometype_fb_fields`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ya_settings_jobtype`
+--
+ALTER TABLE `ya_settings_jobtype`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ya_settings_jobtype_fb_fields`
+--
+ALTER TABLE `ya_settings_jobtype_fb_fields`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ya_settings_kafalahloop`
+--
+ALTER TABLE `ya_settings_kafalahloop`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ya_settings_kafalahloop_fb_fields`
+--
+ALTER TABLE `ya_settings_kafalahloop_fb_fields`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ya_settings_kafalahtype`
+--
+ALTER TABLE `ya_settings_kafalahtype`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ya_settings_kafalahtype_fb_fields`
+--
+ALTER TABLE `ya_settings_kafalahtype_fb_fields`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ya_settings_mstate`
+--
+ALTER TABLE `ya_settings_mstate`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ya_settings_mstate_fb_fields`
+--
+ALTER TABLE `ya_settings_mstate_fb_fields`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ya_settings_sex`
+--
+ALTER TABLE `ya_settings_sex`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ya_settings_sex_fb_fields`
+--
+ALTER TABLE `ya_settings_sex_fb_fields`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ya_settings_yesno`
+--
+ALTER TABLE `ya_settings_yesno`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ya_settings_yesno_fb_fields`
+--
+ALTER TABLE `ya_settings_yesno_fb_fields`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `ya_yateeminfo_01`
 --
 ALTER TABLE `ya_yateeminfo_01`
@@ -1798,7 +2433,7 @@ ALTER TABLE `email`
 -- AUTO_INCREMENT for table `fb_formbuilder`
 --
 ALTER TABLE `fb_formbuilder`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `fb_javascript`
@@ -1840,7 +2475,7 @@ ALTER TABLE `keys`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `logs_exempt`
@@ -1924,7 +2559,7 @@ ALTER TABLE `users_online`
 -- AUTO_INCREMENT for table `users_session`
 --
 ALTER TABLE `users_session`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user_permission_matches`
@@ -1978,7 +2613,7 @@ ALTER TABLE `us_ip_blacklist`
 -- AUTO_INCREMENT for table `us_ip_list`
 --
 ALTER TABLE `us_ip_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `us_ip_whitelist`
@@ -1996,7 +2631,7 @@ ALTER TABLE `us_management`
 -- AUTO_INCREMENT for table `us_plugins`
 --
 ALTER TABLE `us_plugins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `us_plugin_hooks`
@@ -2026,25 +2661,145 @@ ALTER TABLE `us_user_sessions`
 -- AUTO_INCREMENT for table `ya_kafalahinfo_01`
 --
 ALTER TABLE `ya_kafalahinfo_01`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `ya_kafalahinfo_01_fb_fields`
 --
 ALTER TABLE `ya_kafalahinfo_01_fb_fields`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `ya_kafilinfo_01`
 --
 ALTER TABLE `ya_kafilinfo_01`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `ya_kafilinfo_01_fb_fields`
 --
 ALTER TABLE `ya_kafilinfo_01_fb_fields`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `ya_settings_currency`
+--
+ALTER TABLE `ya_settings_currency`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `ya_settings_currency_fb_fields`
+--
+ALTER TABLE `ya_settings_currency_fb_fields`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `ya_settings_fsource`
+--
+ALTER TABLE `ya_settings_fsource`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `ya_settings_fsource_fb_fields`
+--
+ALTER TABLE `ya_settings_fsource_fb_fields`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `ya_settings_fstate`
+--
+ALTER TABLE `ya_settings_fstate`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `ya_settings_fstate_fb_fields`
+--
+ALTER TABLE `ya_settings_fstate_fb_fields`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `ya_settings_hometype`
+--
+ALTER TABLE `ya_settings_hometype`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `ya_settings_hometype_fb_fields`
+--
+ALTER TABLE `ya_settings_hometype_fb_fields`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `ya_settings_jobtype`
+--
+ALTER TABLE `ya_settings_jobtype`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `ya_settings_jobtype_fb_fields`
+--
+ALTER TABLE `ya_settings_jobtype_fb_fields`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `ya_settings_kafalahloop`
+--
+ALTER TABLE `ya_settings_kafalahloop`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `ya_settings_kafalahloop_fb_fields`
+--
+ALTER TABLE `ya_settings_kafalahloop_fb_fields`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `ya_settings_kafalahtype`
+--
+ALTER TABLE `ya_settings_kafalahtype`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `ya_settings_kafalahtype_fb_fields`
+--
+ALTER TABLE `ya_settings_kafalahtype_fb_fields`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `ya_settings_mstate`
+--
+ALTER TABLE `ya_settings_mstate`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `ya_settings_mstate_fb_fields`
+--
+ALTER TABLE `ya_settings_mstate_fb_fields`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `ya_settings_sex`
+--
+ALTER TABLE `ya_settings_sex`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `ya_settings_sex_fb_fields`
+--
+ALTER TABLE `ya_settings_sex_fb_fields`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `ya_settings_yesno`
+--
+ALTER TABLE `ya_settings_yesno`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `ya_settings_yesno_fb_fields`
+--
+ALTER TABLE `ya_settings_yesno_fb_fields`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `ya_yateeminfo_01`
@@ -2056,7 +2811,7 @@ ALTER TABLE `ya_yateeminfo_01`
 -- AUTO_INCREMENT for table `ya_yateeminfo_01_fb_fields`
 --
 ALTER TABLE `ya_yateeminfo_01_fb_fields`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
