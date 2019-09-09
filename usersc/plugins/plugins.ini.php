@@ -1,3 +1,3 @@
 ;<?php die();?>
 formbuilder = 1
-forms = 2
+forms = 0
