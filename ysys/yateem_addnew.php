@@ -13,7 +13,14 @@ require_once $abs_us_root.$us_url_root.'users/includes/template/prep.php';
 ?>
 
 <div class="row" dir="rtl">
-    <div class="col-md-4"></div>
+    <div class="col-md-4">
+    <br>
+    <h4>التنقل السريع</h4>
+    <a href="#dateOfEntry">البيانات الأساسية</a><br>
+    <a href="#yQuranSchool">بيانات الوصي</a><br>
+    <a href="#rWorkType">بيانات الأم</a><br>
+    <a href="#idName">بيانات المعرف</a><br>
+    </div>
 	<div class="col-sm-12 col-md-8">
     <br>
     <h2><a class="btn btn-primary" href="./index.php">استعراض الأيتام</a> نموذج اضافة يتيم جديد</h2>
