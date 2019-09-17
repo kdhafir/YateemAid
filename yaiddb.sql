@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 09, 2019 at 02:01 PM
+-- Generation Time: Sep 17, 2019 at 04:42 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -35,7 +35,7 @@ CREATE TABLE `audit` (
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `ip` varchar(255) NOT NULL,
   `viewed` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -52,7 +52,7 @@ CREATE TABLE `crons` (
   `createdby` int(11) NOT NULL,
   `created` datetime DEFAULT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `crons`
@@ -72,7 +72,7 @@ CREATE TABLE `crons_logs` (
   `cron_id` int(11) NOT NULL,
   `datetime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -134,7 +134,10 @@ INSERT INTO `fb_formbuilder` (`id`, `form`) VALUES
 (13, 'ya_settings_fstate'),
 (14, 'ya_settings_fsource'),
 (15, 'ya_settings_kafalahloop'),
-(16, 'ya_settings_kafalahtype');
+(16, 'ya_settings_kafalahtype'),
+(17, 'ya_yateeminfo_02'),
+(18, 'ya_settings_ystate'),
+(19, 'ya_settings_cities');
 
 -- --------------------------------------------------------
 
@@ -239,20 +242,14 @@ CREATE TABLE `groups_menus` (
   `id` int(11) UNSIGNED NOT NULL,
   `group_id` int(11) UNSIGNED NOT NULL,
   `menu_id` int(11) UNSIGNED NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `groups_menus`
 --
 
 INSERT INTO `groups_menus` (`id`, `group_id`, `menu_id`) VALUES
-(30, 2, 9),
-(29, 0, 8),
-(28, 0, 7),
-(27, 0, 21),
-(5, 0, 3),
 (6, 0, 1),
-(7, 0, 2),
 (8, 0, 51),
 (9, 0, 52),
 (10, 0, 37),
@@ -267,8 +264,12 @@ INSERT INTO `groups_menus` (`id`, `group_id`, `menu_id`) VALUES
 (19, 0, 46),
 (20, 0, 47),
 (21, 0, 49),
-(26, 0, 20),
 (25, 0, 18),
+(26, 0, 20),
+(27, 0, 21),
+(28, 0, 7),
+(29, 0, 8),
+(30, 2, 9),
 (31, 2, 10),
 (32, 2, 11),
 (33, 2, 12),
@@ -276,7 +277,18 @@ INSERT INTO `groups_menus` (`id`, `group_id`, `menu_id`) VALUES
 (35, 2, 14),
 (36, 2, 15),
 (37, 0, 16),
-(38, 1, 15);
+(38, 1, 15),
+(58, 0, 3),
+(60, 0, 23),
+(62, 0, 2),
+(63, 0, 25),
+(64, 0, 24),
+(66, 0, 26),
+(67, 0, 27),
+(68, 0, 28),
+(69, 0, 29),
+(70, 0, 30),
+(71, 0, 31);
 
 -- --------------------------------------------------------
 
@@ -305,9 +317,9 @@ CREATE TABLE `logs` (
   `user_id` int(3) NOT NULL,
   `logdate` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `logtype` varchar(25) NOT NULL,
-  `lognote` text NOT NULL,
+  `lognote` mediumtext NOT NULL,
   `ip` varchar(75) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `logs`
@@ -375,7 +387,57 @@ INSERT INTO `logs` (`id`, `user_id`, `logdate`, `logtype`, `lognote`, `ip`) VALU
 (59, 1, '2019-09-09 08:18:47', 'USPlugins', 'formbuilder Activated', '::1'),
 (60, 1, '2019-09-09 08:18:50', 'USPlugins', 'forms uninstalled', '::1'),
 (61, 1, '2019-09-09 08:35:50', 'USPlugins', 'forms installed', '::1'),
-(62, 1, '2019-09-09 08:35:56', 'USPlugins', 'forms Activated', '::1');
+(62, 1, '2019-09-09 08:35:56', 'USPlugins', 'forms Activated', '::1'),
+(63, 1, '2019-09-14 05:31:16', 'User', 'User logged in.', NULL),
+(64, 1, '2019-09-14 05:34:42', 'Menu Manager', 'Added new dropdown', '::1'),
+(65, 1, '2019-09-14 05:34:52', 'Menu Manager', 'Added new dropdown', '::1'),
+(66, 1, '2019-09-14 05:35:45', 'Menu Manager', 'Updated 23', '::1'),
+(67, 1, '2019-09-14 05:39:55', 'Menu Manager', 'Updated 23', '::1'),
+(68, 1, '2019-09-14 05:40:58', 'Menu Manager', 'Updated 23', '::1'),
+(69, 1, '2019-09-14 06:40:48', 'Menu Manager', 'Updated 23', '::1'),
+(70, 1, '2019-09-14 06:41:25', 'Menu Manager', 'Updated 24', '::1'),
+(71, 1, '2019-09-14 06:41:27', 'Menu Manager', 'Added new dropdown', '::1'),
+(72, 1, '2019-09-14 06:41:39', 'Menu Manager', 'Updated 25', '::1'),
+(73, 1, '2019-09-14 06:41:57', 'User', 'User logged in.', NULL),
+(74, 1, '2019-09-14 06:44:24', 'Menu Manager', 'Updated 24', '::1'),
+(75, 1, '2019-09-14 06:44:34', 'Menu Manager', 'Updated 23', '::1'),
+(76, 1, '2019-09-14 07:42:05', 'Menu Manager', 'Updated 25', '::1'),
+(77, 1, '2019-09-14 07:42:23', 'Menu Manager', 'Updated 25', '::1'),
+(78, 1, '2019-09-14 07:42:50', 'Menu Manager', 'Updated 23', '::1'),
+(79, 1, '2019-09-14 07:42:58', 'Menu Manager', 'Updated 24', '::1'),
+(80, 1, '2019-09-14 07:44:27', 'Menu Manager', 'Updated 2', '::1'),
+(81, 1, '2019-09-14 07:45:08', 'Menu Manager', 'Updated 25', '::1'),
+(82, 1, '2019-09-14 07:46:04', 'Menu Manager', 'Updated 23', '::1'),
+(83, 1, '2019-09-14 07:48:34', 'Menu Manager', 'Updated 3', '::1'),
+(84, 1, '2019-09-14 07:49:08', 'Menu Manager', 'Deleted menu 3', '::1'),
+(85, 1, '2019-09-14 07:49:59', 'Menu Manager', 'Updated 25', '::1'),
+(86, 1, '2019-09-14 07:50:20', 'Menu Manager', 'Updated 23', '::1'),
+(87, 1, '2019-09-14 07:51:02', 'Menu Manager', 'Updated 24', '::1'),
+(88, 1, '2019-09-14 07:52:45', 'Menu Manager', 'Updated 2', '::1'),
+(89, 1, '2019-09-14 07:53:01', 'Menu Manager', 'Updated 25', '::1'),
+(90, 1, '2019-09-14 07:53:12', 'Menu Manager', 'Updated 24', '::1'),
+(91, 1, '2019-09-14 07:53:27', 'Menu Manager', 'Added new item', '::1'),
+(92, 1, '2019-09-14 07:54:17', 'Menu Manager', 'Updated 26', '::1'),
+(93, 1, '2019-09-15 05:50:17', 'User', 'User logged in.', NULL),
+(94, 1, '2019-09-15 05:54:32', 'Menu Manager', 'Updated 26', '::1'),
+(95, 1, '2019-09-15 05:54:49', 'Menu Manager', 'Added new item', '::1'),
+(96, 1, '2019-09-15 05:56:17', 'Menu Manager', 'Updated 27', '::1'),
+(97, 1, '2019-09-15 05:57:31', 'Menu Manager', 'Added new item', '::1'),
+(98, 1, '2019-09-15 05:58:06', 'Menu Manager', 'Updated 28', '::1'),
+(99, 1, '2019-09-15 05:58:09', 'Menu Manager', 'Added new item', '::1'),
+(100, 1, '2019-09-15 05:58:46', 'Menu Manager', 'Updated 29', '::1'),
+(101, 1, '2019-09-15 05:59:25', 'Menu Manager', 'Added new item', '::1'),
+(102, 1, '2019-09-15 06:00:08', 'Menu Manager', 'Updated 30', '::1'),
+(103, 1, '2019-09-15 06:00:11', 'Menu Manager', 'Added new item', '::1'),
+(104, 1, '2019-09-15 06:00:38', 'Menu Manager', 'Updated 31', '::1'),
+(105, 1, '2019-09-15 07:22:54', 'USPlugins', 'forms Activated', '::1'),
+(106, 1, '2019-09-16 06:28:52', 'Pages Manager', 'Added 2 permission(s) to ysys/kafil_addnew.php.', '::1'),
+(107, 1, '2019-09-16 06:29:02', 'Pages Manager', 'Added 2 permission(s) to ysys/yateem_addnew.php.', '::1'),
+(108, 1, '2019-09-16 06:29:17', 'Pages Manager', 'Added 2 permission(s) to ysys/index.php.', '::1'),
+(109, 1, '2019-09-16 06:29:26', 'Pages Manager', 'Added 2 permission(s) to ysys/kafalah_viewall.php.', '::1'),
+(110, 1, '2019-09-16 06:29:34', 'Pages Manager', 'Added 2 permission(s) to ysys/kafil_viewall.php.', '::1'),
+(111, 1, '2019-09-16 06:31:23', 'Pages Manager', 'Added 2 permission(s) to ysys/kafalah_addnew.php.', '::1'),
+(112, 1, '2019-09-17 14:41:13', 'Pages Manager', 'Added 2 permission(s) to ysys/yateem_viewyateem.php.', '::1');
 
 -- --------------------------------------------------------
 
@@ -388,7 +450,7 @@ CREATE TABLE `logs_exempt` (
   `name` varchar(255) NOT NULL,
   `createdby` int(11) NOT NULL,
   `created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -406,7 +468,7 @@ CREATE TABLE `menus` (
   `label` varchar(255) NOT NULL,
   `link` varchar(255) NOT NULL,
   `icon_class` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `menus`
@@ -414,8 +476,7 @@ CREATE TABLE `menus` (
 
 INSERT INTO `menus` (`id`, `menu_title`, `parent`, `dropdown`, `logged_in`, `display_order`, `label`, `link`, `icon_class`) VALUES
 (1, 'main', 2, 0, 1, 1, '{{home}}', '', 'fa fa-fw fa-home'),
-(2, 'main', -1, 1, 1, 14, '', '', 'fa fa-fw fa-cogs'),
-(3, 'main', -1, 0, 1, 11, '{{username}}', 'users/account.php', 'fa fa-fw fa-user'),
+(2, 'main', -1, 1, 1, 50, '', '', 'fa fa-fw fa-cogs'),
 (4, 'main', -1, 1, 0, 3, '{{help}}', '', 'fa fa-fw fa-life-ring'),
 (5, 'main', -1, 0, 0, 2, '{{register}}', 'users/join.php', 'fa fa-fw fa-plus-square'),
 (6, 'main', -1, 0, 0, 1, '{{login}}', 'users/login.php', 'fa fa-fw fa-sign-in'),
@@ -431,7 +492,16 @@ INSERT INTO `menus` (`id`, `menu_title`, `parent`, `dropdown`, `logged_in`, `dis
 (16, 'main', -1, 0, 0, 0, '{{home}}', '', 'fa fa-fw fa-home'),
 (17, 'main', -1, 0, 1, 10, '{{home}}', '', 'fa fa-fw fa-home'),
 (18, 'main', 4, 0, 0, 1, '{{forgot}}', 'users/forgot_password.php', 'fa fa-fw fa-wrench'),
-(20, 'main', 4, 0, 0, 99999, '{{resend}}', 'users/verify_resend.php', 'fa fa-exclamation-triangle');
+(20, 'main', 4, 0, 0, 99999, '{{resend}}', 'users/verify_resend.php', 'fa fa-exclamation-triangle'),
+(23, 'main', -1, 1, 1, 12, 'الأيتام', './ysys/', ''),
+(24, 'main', -1, 1, 1, 32, 'الكفالات', './ysys/kafalah_viewall.php', ''),
+(25, 'main', -1, 1, 1, 22, 'الكافلين', './ysys/kafil_viewall.php', ''),
+(26, 'main', 23, 0, 1, 10, 'إضافة يتيم', './ysys/yateem_addnew.php', ''),
+(27, 'main', 23, 0, 1, 20, 'استعراض الأيتام', './ysys/index.php', ''),
+(28, 'main', 25, 0, 1, 10, 'اضافة كافل', './ysys/kafil_addnew.php', ''),
+(29, 'main', 25, 0, 1, 20, 'استعراض الكافلين', './ysys/kafil_viewall.php', ''),
+(30, 'main', 24, 0, 1, 10, 'اضافة كفالة', './ysys/kafalah_addnew.php', ''),
+(31, 'main', 24, 0, 1, 20, 'استعراض الكفالات', './ysys/kafalah_viewall.php', '');
 
 -- --------------------------------------------------------
 
@@ -443,12 +513,12 @@ CREATE TABLE `messages` (
   `id` int(11) NOT NULL,
   `msg_from` int(11) NOT NULL,
   `msg_to` int(11) NOT NULL,
-  `msg_body` text NOT NULL,
+  `msg_body` mediumtext NOT NULL,
   `msg_read` int(1) NOT NULL,
   `msg_thread` int(11) NOT NULL,
   `deleted` int(1) NOT NULL,
   `sent_on` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `messages`
@@ -475,7 +545,7 @@ CREATE TABLE `message_threads` (
   `archive_to` int(1) NOT NULL DEFAULT 0,
   `hidden_from` int(1) NOT NULL DEFAULT 0,
   `hidden_to` int(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `message_threads`
@@ -526,15 +596,6 @@ INSERT INTO `pages` (`id`, `page`, `title`, `private`, `re_auth`) VALUES
 (2, 'z_us_root.php', '', 0, 0),
 (3, 'users/account.php', 'Account Dashboard', 1, 0),
 (4, 'users/admin.php', 'Admin Dashboard', 1, 0),
-(5, 'users/admin_page.php', 'Pages Manager', 1, 0),
-(6, 'users/admin_pages.php', 'Pages Manager', 1, 0),
-(7, 'users/admin_permission.php', 'Permissions Manager', 1, 0),
-(8, 'users/admin_permissions.php', 'Permissions Manager', 1, 0),
-(9, 'users/admin_user.php', 'User Manager', 1, 0),
-(10, 'users/admin_users.php', 'User Manager', 1, 1),
-(11, 'users/edit_profile.php', 'Edit Profile', 1, 0),
-(12, 'users/email_settings.php', 'Email Settings', 1, 0),
-(13, 'users/email_test.php', 'Email Test', 1, 0),
 (14, 'users/forgot_password.php', 'Forgotten Password', 0, 0),
 (15, 'users/forgot_password_reset.php', 'Reset Forgotten Password', 0, 0),
 (16, 'users/index.php', 'Home', 0, 0),
@@ -543,56 +604,21 @@ INSERT INTO `pages` (`id`, `page`, `title`, `private`, `re_auth`) VALUES
 (19, 'users/joinThankYou.php', 'Join', 0, 0),
 (20, 'users/login.php', 'Login', 0, 0),
 (21, 'users/logout.php', 'Logout', 0, 0),
-(22, 'users/profile.php', 'Profile', 1, 0),
-(23, 'users/times.php', '', 0, 0),
 (24, 'users/user_settings.php', 'User Settings', 1, 0),
 (25, 'users/verify.php', 'Account Verification', 0, 0),
 (26, 'users/verify_resend.php', 'Account Verification', 0, 0),
-(27, 'users/view_all_users.php', 'View All Users', 1, 0),
-(28, 'usersc/empty.php', '', 0, 0),
-(31, 'users/oauth_success.php', '', 0, 0),
-(33, 'users/fb-callback.php', '', 0, 0),
-(37, 'users/check_updates.php', 'Check For Updates', 1, 0),
-(38, 'users/google_helpers.php', '', 0, 0),
-(39, 'users/tomfoolery.php', 'Security Log', 1, 0),
-(44, 'users/admin_backup.php', 'Backup Manager', 1, 0),
 (45, 'users/maintenance.php', 'Maintenance', 0, 0),
-(47, 'users/mqtt_settings.php', 'MQTT Settings', 1, 0),
-(49, 'users/admin_verify.php', 'Password Verification', 1, 0),
-(50, 'users/cron_manager.php', 'Cron Manager', 1, 0),
-(51, 'users/cron_post.php', '', 1, 0),
-(55, 'users/admin_logs.php', 'Logs Manager', 1, 0),
-(56, 'users/admin_logs_exempt.php', 'Logs Manager', 1, 0),
-(57, 'users/admin_logs_manager.php', 'Logs Manager', 1, 0),
-(58, 'users/admin_logs_mapper.php', 'Logs Manager', 1, 0),
 (68, 'users/update.php', 'Update Manager', 1, 0),
-(69, 'users/admin_menu_item.php', 'Menu Manager', 1, 0),
-(70, 'users/admin_menus.php', 'Menu Manager', 1, 0),
-(71, 'users/admin_menu.php', 'Menu Manager', 1, 0),
-(72, 'users/admin_ips.php', 'IP Manager', 1, 0),
-(73, 'users/subscribe.php', '', 1, 0),
-(74, 'users/admin_notifications.php', 'Notifications Manager', 1, 0),
-(76, 'users/enable2fa.php', 'Enable 2 Factor Auth', 1, 0),
-(77, 'users/disable2fa.php', 'Disable 2 Factor Auth', 1, 0),
-(78, 'users/admin_forms.php', 'Form Manager', 1, 0),
-(79, 'users/admin_form_views.php', 'Form View Manager', 1, 0),
-(80, 'users/edit_form.php', 'Form Editor', 1, 0),
 (81, 'users/admin_pin.php', 'Verification PIN Set', 1, 0),
-(82, 'users/manage2fa.php', 'Manage Two FA', 1, 0),
-(83, 'users/manage_sessions.php', 'Session Manager', 1, 0),
-(84, 'users/admin_manage_sessions.php', 'Session Administrator', 1, 1),
-(85, 'runme.php', '', 1, 0),
-(86, 'users/SSP.php', '', 1, 0),
-(87, 'users/features.ini.php', '', 1, 0),
-(88, 'users/loader.php', '', 1, 0),
-(89, 'users/twofa.php', '', 1, 0),
-(90, 'ysys/addnew.php', '', 1, 0),
-(91, 'ysys/index.php', '', 1, 0),
-(92, 'ysys/yateem_addnew.php', '', 1, 0),
-(93, 'ysys/kafil_addnew.php', '', 1, 0),
-(94, 'ysys/kafil_viewall.php', '', 1, 0),
-(95, 'ysys/kafalah_addnew.php', '', 1, 0),
-(96, 'ysys/kafalah_viewall.php', '', 1, 0);
+(97, 'users/user_agreement_acknowledge.php', '', 1, 0),
+(98, 'users/views_admin_notifications.php', '', 1, 0),
+(99, 'ysys/kafil_addnew.php', '', 1, 0),
+(100, 'ysys/yateem_addnew.php', '', 1, 0),
+(101, 'ysys/index.php', '', 1, 0),
+(102, 'ysys/kafalah_viewall.php', '', 1, 0),
+(103, 'ysys/kafil_viewall.php', '', 1, 0),
+(104, 'ysys/kafalah_addnew.php', '', 1, 0),
+(105, 'ysys/yateem_viewyateem.php', '', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -686,7 +712,21 @@ INSERT INTO `permission_page_matches` (`id`, `permission_id`, `page_id`) VALUES
 (61, 1, 93),
 (62, 1, 94),
 (63, 1, 95),
-(64, 1, 96);
+(64, 1, 96),
+(65, 1, 99),
+(66, 2, 99),
+(67, 1, 100),
+(68, 2, 100),
+(69, 1, 101),
+(70, 2, 101),
+(71, 1, 102),
+(72, 2, 102),
+(73, 1, 103),
+(74, 2, 103),
+(75, 1, 104),
+(76, 2, 104),
+(77, 1, 105),
+(78, 2, 105);
 
 -- --------------------------------------------------------
 
@@ -791,7 +831,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `recaptcha`, `force_ssl`, `css_sample`, `us_css1`, `us_css2`, `us_css3`, `site_name`, `language`, `track_guest`, `site_offline`, `force_pr`, `glogin`, `fblogin`, `gid`, `gsecret`, `gredirect`, `ghome`, `fbid`, `fbsecret`, `fbcallback`, `graph_ver`, `finalredir`, `req_cap`, `req_num`, `min_pw`, `max_pw`, `min_un`, `max_un`, `messaging`, `snooping`, `echouser`, `wys`, `change_un`, `backup_dest`, `backup_source`, `backup_table`, `msg_notification`, `permission_restriction`, `auto_assign_un`, `page_permission_restriction`, `msg_blocked_users`, `msg_default_to`, `notifications`, `notif_daylimit`, `recap_public`, `recap_private`, `page_default_private`, `navigation_type`, `copyright`, `custom_settings`, `system_announcement`, `twofa`, `force_notif`, `cron_ip`, `registration`, `join_vericode_expiry`, `reset_vericode_expiry`, `admin_verify`, `admin_verify_timeout`, `session_manager`, `template`, `saas`, `redirect_uri_after_login`, `show_tos`, `default_language`, `allow_language`, `spice_api`, `announce`) VALUES
-(1, 0, 0, 0, '../users/css/color_schemes/bootstrap.min.css', '../users/css/sb-admin.css', '../users/css/custom.css', 'مساعد اليتيم', 'en', 1, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', 0, 0, 6, 30, 4, 30, 0, 1, 0, 1, 0, '/', 'everything', '', 0, 0, 0, 0, 0, 1, 0, 7, '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI', '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe', 1, 1, 'Khalid Dhafir', 1, '', 0, 0, 'off', 1, 24, 15, 1, 120, 0, 'standard', NULL, NULL, 1, 'ar-EG', 0, 'JDMSC-YNAYD-X5D76-096E2-69A6', '2019-09-09 09:01:16');
+(1, 0, 0, 0, '../users/css/color_schemes/bootstrap.min.css', '../users/css/sb-admin.css', '../users/css/custom.css', 'مساعد اليتيم', 'en', 1, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', 0, 0, 6, 30, 4, 30, 0, 1, 0, 1, 0, '/', 'everything', '', 0, 0, 0, 0, 0, 1, 0, 7, '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI', '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe', 1, 1, 'Khalid Dhafir', 1, '', 0, 0, 'off', 1, 24, 15, 1, 120, 0, 'standard', NULL, NULL, 1, 'ar-EG', 0, 'JDMSC-YNAYD-X5D76-096E2-69A6', '2019-09-16 08:04:27');
 
 -- --------------------------------------------------------
 
@@ -804,7 +844,7 @@ CREATE TABLE `updates` (
   `migration` varchar(15) NOT NULL,
   `applied_on` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `update_skipped` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `updates`
@@ -876,12 +916,12 @@ CREATE TABLE `users` (
   `email_verified` tinyint(4) NOT NULL DEFAULT 0,
   `vericode` varchar(15) NOT NULL,
   `active` int(1) NOT NULL,
-  `oauth_provider` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `oauth_uid` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `gender` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `locale` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `gpluslink` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `picture` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `oauth_provider` varchar(255) NOT NULL,
+  `oauth_uid` varchar(255) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `locale` varchar(10) NOT NULL,
+  `gpluslink` varchar(255) NOT NULL,
+  `picture` varchar(255) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   `fb_uid` varchar(255) NOT NULL,
@@ -908,7 +948,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `email_new`, `username`, `password`, `pin`, `fname`, `lname`, `permissions`, `logins`, `account_owner`, `account_id`, `company`, `join_date`, `last_login`, `email_verified`, `vericode`, `active`, `oauth_provider`, `oauth_uid`, `gender`, `locale`, `gpluslink`, `picture`, `created`, `modified`, `fb_uid`, `un_changed`, `msg_exempt`, `last_confirm`, `protected`, `dev_user`, `msg_notification`, `force_pr`, `twoKey`, `twoEnabled`, `twoDate`, `cloak_allowed`, `org`, `account_mgr`, `oauth_tos_accepted`, `vericode_expiry`, `language`) VALUES
-(1, 'almohseneen.it@gmail.com', NULL, 'admin', '$2y$12$1v06jm2KMOXuuo3qP7erTuTIJFOnzhpds1Moa8BadnUUeX0RV3ex.', NULL, 'مدير النظام', 'Admin', 1, 2, 1, 0, 'UserSpice', '2016-01-01 00:00:00', '2019-09-07 08:11:19', 1, 'nlPsJDtyeqFWsS', 0, '', '', '', '', '', '', '0000-00-00 00:00:00', '1899-11-30 00:00:00', '', 0, 1, '2017-10-08 15:24:37', 1, 0, 1, 0, NULL, 0, NULL, 0, NULL, 0, NULL, NULL, 'ar-EG'),
+(1, 'almohseneen.it@gmail.com', NULL, 'admin', '$2y$12$1v06jm2KMOXuuo3qP7erTuTIJFOnzhpds1Moa8BadnUUeX0RV3ex.', NULL, 'مدير النظام', 'Admin', 1, 5, 1, 0, 'UserSpice', '2016-01-01 00:00:00', '2019-09-15 08:50:17', 1, 'nlPsJDtyeqFWsS', 0, '', '', '', '', '', '', '0000-00-00 00:00:00', '1899-11-30 00:00:00', '', 0, 1, '2017-10-08 15:24:37', 1, 0, 1, 0, NULL, 0, NULL, 0, NULL, 0, NULL, NULL, 'ar-EG'),
 (2, 'noreply@userspice.com', NULL, 'user', '$2y$12$HZa0/d7evKvuHO8I3U8Ff.pOjJqsGTZqlX8qURratzP./EvWetbkK', NULL, 'مدخل البيانات', 'User', 1, 2, 1, 0, 'none', '2016-01-02 00:00:00', '2019-09-07 12:56:04', 1, '2ENJN4xD8nnjOgk', 1, '', '', '', '', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 0, 0, NULL, 0, 0, 1, 0, NULL, 0, NULL, 0, NULL, 0, NULL, NULL, 'en-US');
 
 -- --------------------------------------------------------
@@ -987,7 +1027,7 @@ CREATE TABLE `us_announcements` (
   `message` varchar(255) DEFAULT NULL,
   `ignore` varchar(50) DEFAULT NULL,
   `class` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `us_announcements`
@@ -1008,7 +1048,7 @@ CREATE TABLE `us_fingerprints` (
   `Fingerprint` varchar(32) NOT NULL,
   `Fingerprint_Expiry` datetime NOT NULL,
   `Fingerprint_Added` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1022,7 +1062,7 @@ CREATE TABLE `us_fingerprint_assets` (
   `IP_Address` varchar(255) NOT NULL,
   `User_Browser` varchar(255) NOT NULL,
   `User_OS` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1033,7 +1073,14 @@ CREATE TABLE `us_fingerprint_assets` (
 CREATE TABLE `us_forms` (
   `id` int(11) NOT NULL,
   `form` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `us_forms`
+--
+
+INSERT INTO `us_forms` (`id`, `form`) VALUES
+(1, 'yayateeminfo01');
 
 -- --------------------------------------------------------
 
@@ -1046,7 +1093,7 @@ CREATE TABLE `us_form_validation` (
   `value` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   `params` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `us_form_validation`
@@ -1077,8 +1124,8 @@ CREATE TABLE `us_form_views` (
   `id` int(11) NOT NULL,
   `form_name` varchar(255) NOT NULL,
   `view_name` varchar(255) NOT NULL,
-  `fields` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `fields` mediumtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1091,7 +1138,7 @@ CREATE TABLE `us_ip_blacklist` (
   `ip` varchar(50) NOT NULL,
   `last_user` int(11) NOT NULL DEFAULT 0,
   `reason` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `us_ip_blacklist`
@@ -1113,7 +1160,7 @@ CREATE TABLE `us_ip_list` (
   `ip` varchar(50) NOT NULL,
   `user_id` int(11) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `us_ip_list`
@@ -1134,7 +1181,7 @@ INSERT INTO `us_ip_list` (`id`, `ip`, `user_id`, `timestamp`) VALUES
 CREATE TABLE `us_ip_whitelist` (
   `id` int(11) NOT NULL,
   `ip` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `us_ip_whitelist`
@@ -1156,7 +1203,7 @@ CREATE TABLE `us_management` (
   `view` varchar(255) NOT NULL,
   `feature` varchar(255) NOT NULL,
   `access` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `us_management`
@@ -1185,8 +1232,8 @@ CREATE TABLE `us_plugins` (
   `id` int(11) NOT NULL,
   `plugin` varchar(255) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
-  `updates` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `updates` mediumtext DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `us_plugins`
@@ -1194,7 +1241,7 @@ CREATE TABLE `us_plugins` (
 
 INSERT INTO `us_plugins` (`id`, `plugin`, `status`, `updates`) VALUES
 (1, 'formbuilder', 'active', '[\"5\"]'),
-(3, 'forms', 'disabled', NULL);
+(3, 'forms', 'active', NULL);
 
 -- --------------------------------------------------------
 
@@ -1221,8 +1268,8 @@ CREATE TABLE `us_saas_levels` (
   `id` int(11) NOT NULL,
   `level` varchar(255) NOT NULL,
   `users` int(11) NOT NULL,
-  `details` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `details` mediumtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1236,7 +1283,7 @@ CREATE TABLE `us_saas_orgs` (
   `owner` int(11) NOT NULL,
   `level` int(11) NOT NULL,
   `active` int(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1256,7 +1303,156 @@ CREATE TABLE `us_user_sessions` (
   `UserSessionLastPage` varchar(255) NOT NULL,
   `UserSessionEnded` tinyint(1) NOT NULL DEFAULT 0,
   `UserSessionEnded_Time` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `yayateeminfo01`
+--
+
+CREATE TABLE `yayateeminfo01` (
+  `id` int(11) NOT NULL,
+  `dateOfEntry` date DEFAULT NULL,
+  `yName` varchar(255) DEFAULT NULL,
+  `ySex` varchar(255) DEFAULT NULL,
+  `yDateOfBirth` date DEFAULT NULL,
+  `yBirthPlace` varchar(255) DEFAULT NULL,
+  `yNationality` varchar(255) DEFAULT NULL,
+  `yFeatures` text DEFAULT NULL,
+  `yAddress` varchar(255) DEFAULT NULL,
+  `yRankInFamily` decimal(50,0) DEFAULT NULL,
+  `fDeathDate` date DEFAULT NULL,
+  `fDeathReason` varchar(255) DEFAULT NULL,
+  `yEduLevel` varchar(255) DEFAULT NULL,
+  `yEduClass` varchar(255) DEFAULT NULL,
+  `yEduSchoolName` varchar(255) DEFAULT NULL,
+  `yEduSchoolPhone` decimal(50,0) DEFAULT NULL,
+  `yEduNoEduReason` text DEFAULT NULL,
+  `yHealthStatus` varchar(255) DEFAULT NULL,
+  `yHealthSickness` text DEFAULT NULL,
+  `yQuranLevel` varchar(255) DEFAULT NULL,
+  `yQuranSchool` varchar(255) DEFAULT NULL,
+  `rSectionName` varchar(255) DEFAULT NULL,
+  `rName` varchar(255) DEFAULT NULL,
+  `rSex` varchar(255) DEFAULT NULL,
+  `rDateOfBirth` date DEFAULT NULL,
+  `rRelation` varchar(255) DEFAULT NULL,
+  `rMobile` varchar(12) DEFAULT NULL,
+  `rMobilePerson` varchar(255) DEFAULT NULL,
+  `rWorkName` varchar(255) DEFAULT NULL,
+  `rWorkType` varchar(255) DEFAULT NULL,
+  `mSection` varchar(255) DEFAULT NULL,
+  `mSectionName` varchar(255) DEFAULT NULL,
+  `mName` varchar(255) DEFAULT NULL,
+  `mAlive` varchar(255) DEFAULT NULL,
+  `mStatus` varchar(255) DEFAULT NULL,
+  `mWork` varchar(255) DEFAULT NULL,
+  `fNumberOfBrothers` decimal(50,0) DEFAULT NULL,
+  `fRankInFamily` decimal(50,0) DEFAULT NULL,
+  `fHomeType` varchar(255) DEFAULT NULL,
+  `fAddress` varchar(255) DEFAULT NULL,
+  `fFinanceStatus` varchar(255) DEFAULT NULL,
+  `fFinanceSalary` decimal(50,0) DEFAULT NULL,
+  `fFinanceSource` varchar(255) DEFAULT NULL,
+  `sOpinion` text DEFAULT NULL,
+  `BasicInfo` varchar(255) DEFAULT NULL,
+  `identifierName` varchar(255) DEFAULT NULL,
+  `identifierSection` varchar(255) DEFAULT NULL,
+  `idName` varchar(255) DEFAULT NULL,
+  `idMobile` varchar(12) DEFAULT NULL,
+  `idAddress` varchar(255) DEFAULT NULL,
+  `mIDCard` varchar(255) DEFAULT NULL,
+  `rIDCard` varchar(255) DEFAULT NULL,
+  `BasicInfoSection` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `yayateeminfo01`
+--
+
+INSERT INTO `yayateeminfo01` (`id`, `dateOfEntry`, `yName`, `ySex`, `yDateOfBirth`, `yBirthPlace`, `yNationality`, `yFeatures`, `yAddress`, `yRankInFamily`, `fDeathDate`, `fDeathReason`, `yEduLevel`, `yEduClass`, `yEduSchoolName`, `yEduSchoolPhone`, `yEduNoEduReason`, `yHealthStatus`, `yHealthSickness`, `yQuranLevel`, `yQuranSchool`, `rSectionName`, `rName`, `rSex`, `rDateOfBirth`, `rRelation`, `rMobile`, `rMobilePerson`, `rWorkName`, `rWorkType`, `mSection`, `mSectionName`, `mName`, `mAlive`, `mStatus`, `mWork`, `fNumberOfBrothers`, `fRankInFamily`, `fHomeType`, `fAddress`, `fFinanceStatus`, `fFinanceSalary`, `fFinanceSource`, `sOpinion`, `BasicInfo`, `identifierName`, `identifierSection`, `idName`, `idMobile`, `idAddress`, `mIDCard`, `rIDCard`, `BasicInfoSection`) VALUES
+(1, '0000-00-00', 'ككشسيبت', NULL, '0000-00-00', 'يشيب', 'يشي', 'شيب', 'شيسب', '2', '0000-00-00', 'سيب', '', '', '', '0', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `yayateeminfo01_form`
+--
+
+CREATE TABLE `yayateeminfo01_form` (
+  `id` int(11) NOT NULL,
+  `ord` int(11) NOT NULL,
+  `col` varchar(255) NOT NULL,
+  `form_descrip` varchar(255) NOT NULL,
+  `table_descrip` varchar(255) NOT NULL,
+  `col_type` varchar(255) NOT NULL,
+  `field_type` varchar(100) NOT NULL,
+  `required` tinyint(1) NOT NULL,
+  `validation` text NOT NULL,
+  `label_class` varchar(255) NOT NULL,
+  `field_class` varchar(255) NOT NULL,
+  `input_html` text NOT NULL,
+  `select_opts` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `yayateeminfo01_form`
+--
+
+INSERT INTO `yayateeminfo01_form` (`id`, `ord`, `col`, `form_descrip`, `table_descrip`, `col_type`, `field_type`, `required`, `validation`, `label_class`, `field_class`, `input_html`, `select_opts`) VALUES
+(1, 10, 'dateOfEntry', 'DateOfEntry', 'DateOfEntry', 'date', 'date', 0, '', '', 'form-control', 'type=&quot;date&quot;', 'null'),
+(2, 20, 'yName', 'YName', 'YName', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(3, 30, 'ySex', 'YSex', 'YSex', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(4, 40, 'yDateOfBirth', 'YDateOfBirth', 'YDateOfBirth', 'date', 'date', 0, '', '', 'form-control', '', ''),
+(5, 50, 'yBirthPlace', 'YBirthPlace', 'YBirthPlace', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(6, 60, 'yNationality', 'YNationality', 'YNationality', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(7, 70, 'yFeatures', 'YFeatures', 'YFeatures', 'text', 'textarea', 0, '', '', 'form-control', '', ''),
+(8, 80, 'yAddress', 'YAddress', 'YAddress', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(9, 90, 'yRankInFamily', 'YRankInFamily', 'YRankInFamily', '', '', 0, '', '', 'form-control', '', ''),
+(10, 100, 'fDeathDate', 'FDeathDate', 'FDeathDate', 'date', 'date', 0, '', '', 'form-control', '', ''),
+(11, 110, 'fDeathReason', 'FDeathReason', 'FDeathReason', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(12, 120, 'yEduLevel', 'YEduLevel', 'YEduLevel', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(13, 130, 'yEduClass', 'YEduClass', 'YEduClass', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(14, 140, 'yEduSchoolName', 'YEduSchoolName', 'YEduSchoolName', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(15, 150, 'yEduSchoolPhone', 'YEduSchoolPhone', 'YEduSchoolPhone', '', '', 0, '', '', 'form-control', '', ''),
+(16, 160, 'yEduNoEduReason', 'YEduNoEduReason', 'YEduNoEduReason', 'text', 'textarea', 0, '', '', 'form-control', '', ''),
+(17, 170, 'yHealthStatus', 'YHealthStatus', 'YHealthStatus', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(18, 180, 'yHealthSickness', 'YHealthSickness', 'YHealthSickness', 'text', 'textarea', 0, '', '', 'form-control', '', ''),
+(19, 190, 'yQuranLevel', 'YQuranLevel', 'YQuranLevel', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(20, 200, 'yQuranSchool', 'YQuranSchool', 'YQuranSchool', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(21, 210, 'rSectionName', 'RSectionName', 'RSectionName', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(22, 220, 'rName', 'RName', 'RName', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(23, 230, 'rSex', 'RSex', 'RSex', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(24, 240, 'rDateOfBirth', 'RDateOfBirth', 'RDateOfBirth', 'date', 'date', 0, '', '', 'form-control', '', ''),
+(25, 250, 'rRelation', 'RRelation', 'RRelation', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(26, 260, 'rMobile', 'RMobile', 'RMobile', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(27, 270, 'rMobilePerson', 'RMobilePerson', 'RMobilePerson', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(28, 280, 'rWorkName', 'RWorkName', 'RWorkName', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(29, 290, 'rWorkType', 'RWorkType', 'RWorkType', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(30, 300, 'mSection', 'MSection', 'MSection', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(31, 310, 'mSectionName', 'MSectionName', 'MSectionName', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(32, 320, 'mName', 'MName', 'MName', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(33, 330, 'mAlive', 'MAlive', 'MAlive', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(34, 340, 'mStatus', 'MStatus', 'MStatus', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(35, 350, 'mWork', 'MWork', 'MWork', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(36, 360, 'fNumberOfBrothers', 'FNumberOfBrothers', 'FNumberOfBrothers', '', '', 0, '', '', 'form-control', '', ''),
+(37, 370, 'fRankInFamily', 'FRankInFamily', 'FRankInFamily', '', '', 0, '', '', 'form-control', '', ''),
+(38, 380, 'fHomeType', 'FHomeType', 'FHomeType', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(39, 390, 'fAddress', 'FAddress', 'FAddress', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(40, 400, 'fFinanceStatus', 'FFinanceStatus', 'FFinanceStatus', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(41, 410, 'fFinanceSalary', 'FFinanceSalary', 'FFinanceSalary', '', '', 0, '', '', 'form-control', '', ''),
+(42, 420, 'fFinanceSource', 'FFinanceSource', 'FFinanceSource', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(43, 430, 'sOpinion', 'SOpinion', 'SOpinion', 'text', 'textarea', 0, '', '', 'form-control', '', ''),
+(44, 440, 'BasicInfo', 'BasicInfo', 'BasicInfo', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(45, 450, 'identifierName', 'IdentifierName', 'IdentifierName', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(46, 460, 'identifierSection', 'IdentifierSection', 'IdentifierSection', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(47, 470, 'idName', 'IdName', 'IdName', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(48, 480, 'idMobile', 'IdMobile', 'IdMobile', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(49, 490, 'idAddress', 'IdAddress', 'IdAddress', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(50, 500, 'mIDCard', 'MIDCard', 'MIDCard', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(51, 510, 'rIDCard', 'RIDCard', 'RIDCard', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
+(52, 520, 'BasicInfoSection', 'BasicInfoSection', 'BasicInfoSection', 'varchar', 'text', 0, '', '', 'form-control', '', '');
 
 -- --------------------------------------------------------
 
@@ -1274,16 +1470,17 @@ CREATE TABLE `ya_kafalahinfo_01` (
   `kafalahAytam` decimal(50,0) DEFAULT NULL,
   `kafalahType` varchar(255) DEFAULT NULL,
   `kafalahSDate` date DEFAULT NULL,
-  `kafalahRepeat` decimal(50,0) DEFAULT NULL
+  `kafalahRepeat` decimal(50,0) DEFAULT NULL,
+  `kafalahLable` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `ya_kafalahinfo_01`
 --
 
-INSERT INTO `ya_kafalahinfo_01` (`id`, `kafilID`, `kafalahAmount`, `kafalahCurrency`, `kafalahDuration`, `kafalahLoop`, `kafalahAytam`, `kafalahType`, `kafalahSDate`, `kafalahRepeat`) VALUES
-(1, '1', '500000', 'YER', '1', 'w', '400', '', '0000-00-00', '2'),
-(2, '1', '500', 'USD', '2', 'w', '40', '', '2019-09-09', '3');
+INSERT INTO `ya_kafalahinfo_01` (`id`, `kafilID`, `kafalahAmount`, `kafalahCurrency`, `kafalahDuration`, `kafalahLoop`, `kafalahAytam`, `kafalahType`, `kafalahSDate`, `kafalahRepeat`, `kafalahLable`) VALUES
+(1, '1', '500000', 'YER', '1', 'w', '400', '', '0000-00-00', '2', 'كفالة 500 يتيم - راف'),
+(2, '1', '500', 'USD', '2', 'w', '40', '', '2019-09-09', '3', 'كفالة 10 ايتام - ابو محمد');
 
 -- --------------------------------------------------------
 
@@ -1317,7 +1514,8 @@ INSERT INTO `ya_kafalahinfo_01_fb_fields` (`id`, `fb_order`, `name`, `field_type
 (6, 80, 'kafalahAytam', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0639\\u062f\\u062f \\u0627\\u0644\\u0623\\u064a\\u062a\\u0627\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0639\\u062f\\u062f \\u0627\\u0644\\u0623\\u064a\\u062a\\u0627\\u0645\"}', '', '', '', ''),
 (7, 90, 'kafalahType', 'radio', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\"}', '', 'ya_settings_kafalahtype', 'kafalahType', ''),
 (8, 50, 'kafalahSDate', 'date', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0627\\u0644\\u0628\\u062f\\u0621\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0627\\u0644\\u0628\\u062f\\u0621\"}', '', '', '', ''),
-(9, 70, 'kafalahRepeat', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u062a\\u0643\\u0631\\u0627\\u0631\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u062a\\u0643\\u0631\\u0627\\u0631\"}', '', '', '', '');
+(9, 70, 'kafalahRepeat', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u062a\\u0643\\u0631\\u0627\\u0631\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u062a\\u0643\\u0631\\u0627\\u0631\"}', '', '', '', ''),
+(10, 0, 'kafalahLable', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062a\\u0633\\u0645\\u064a\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062a\\u0633\\u0645\\u064a\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\"}', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -1342,7 +1540,8 @@ CREATE TABLE `ya_kafilinfo_01` (
 
 INSERT INTO `ya_kafilinfo_01` (`id`, `kName`, `kAddress`, `kPhone`, `kType`, `kCountry`, `kEmail`, `kWebsite`) VALUES
 (1, 'فاعل خير', 'اليمن - صنعاء', '777777777', '', 'اليمن', NULL, NULL),
-(2, 'كافل يتيم', '', '0', '', '', 'شيبششسيبسيبشيسب', '');
+(2, 'كافل يتيم', '', '0', '', '', 'شيبششسيبسيبشيسب', ''),
+(3, 'تجربة', 'اليمن - صنعاء', '774030703', '', 'اليمن', '', '');
 
 -- --------------------------------------------------------
 
@@ -1375,6 +1574,55 @@ INSERT INTO `ya_kafilinfo_01_fb_fields` (`id`, `fb_order`, `name`, `field_type`,
 (5, 0, 'kCountry', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u062f\\u0648\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u062f\\u0648\\u0644\\u0629\"}', '', '', '', ''),
 (6, 0, 'kEmail', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u0628\\u0631\\u064a\\u062f \\u0627\\u0644\\u0627\\u0644\\u0643\\u062a\\u0631\\u0648\\u0646\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u0628\\u0631\\u064a\\u062f \\u0627\\u0644\\u0627\\u0644\\u0643\\u062a\\u0631\\u0648\\u0646\\u064a\"}', '', '', '', ''),
 (7, 0, 'kWebsite', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u0645\\u0648\\u0642\\u0639 \\u0627\\u0644\\u0627\\u0644\\u0643\\u062a\\u0631\\u0648\\u0646\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u0645\\u0648\\u0642\\u0639 \\u0627\\u0644\\u0627\\u0644\\u0643\\u062a\\u0631\\u0648\\u0646\\u064a\"}', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ya_settings_cities`
+--
+
+CREATE TABLE `ya_settings_cities` (
+  `id` int(11) NOT NULL,
+  `cityName` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ya_settings_cities`
+--
+
+INSERT INTO `ya_settings_cities` (`id`, `cityName`) VALUES
+(1, 'صنعاء'),
+(2, 'عدن'),
+(3, 'إب'),
+(4, 'تعز'),
+(5, 'الحديدة'),
+(6, 'مأرب');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ya_settings_cities_fb_fields`
+--
+
+CREATE TABLE `ya_settings_cities_fb_fields` (
+  `id` int(11) NOT NULL,
+  `fb_order` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `field_type` text NOT NULL,
+  `field_html` text NOT NULL,
+  `requirements` text NOT NULL,
+  `databasevalue` varchar(255) DEFAULT NULL,
+  `database_name` varchar(255) DEFAULT NULL,
+  `database_value` varchar(255) DEFAULT NULL,
+  `database_where` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ya_settings_cities_fb_fields`
+--
+
+INSERT INTO `ya_settings_cities_fb_fields` (`id`, `fb_order`, `name`, `field_type`, `field_html`, `requirements`, `databasevalue`, `database_name`, `database_value`, `database_where`) VALUES
+(1, 0, 'cityName', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0645\\u062f\\u064a\\u0646\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0645\\u062f\\u064a\\u0646\\u0629\"}', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -1845,6 +2093,53 @@ INSERT INTO `ya_settings_yesno_fb_fields` (`id`, `fb_order`, `name`, `field_type
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `ya_settings_ystate`
+--
+
+CREATE TABLE `ya_settings_ystate` (
+  `id` int(11) NOT NULL,
+  `yState` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ya_settings_ystate`
+--
+
+INSERT INTO `ya_settings_ystate` (`id`, `yState`) VALUES
+(1, 'مكفول'),
+(2, 'في الانتظار'),
+(3, 'لاستكمال البيانات'),
+(4, 'كفالة منتهية');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ya_settings_ystate_fb_fields`
+--
+
+CREATE TABLE `ya_settings_ystate_fb_fields` (
+  `id` int(11) NOT NULL,
+  `fb_order` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `field_type` text NOT NULL,
+  `field_html` text NOT NULL,
+  `requirements` text NOT NULL,
+  `databasevalue` varchar(255) DEFAULT NULL,
+  `database_name` varchar(255) DEFAULT NULL,
+  `database_value` varchar(255) DEFAULT NULL,
+  `database_where` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ya_settings_ystate_fb_fields`
+--
+
+INSERT INTO `ya_settings_ystate_fb_fields` (`id`, `fb_order`, `name`, `field_type`, `field_html`, `requirements`, `databasevalue`, `database_name`, `database_value`, `database_where`) VALUES
+(1, 0, 'yState', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062d\\u0627\\u0644\\u0629 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062d\\u0627\\u0644\\u0629 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\"}', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `ya_yateeminfo_01`
 --
 
@@ -1901,15 +2196,25 @@ CREATE TABLE `ya_yateeminfo_01` (
   `idAddress` varchar(255) DEFAULT NULL,
   `mIDCard` varchar(255) DEFAULT NULL,
   `rIDCard` varchar(255) DEFAULT NULL,
-  `BasicInfoSection` varchar(255) DEFAULT NULL
+  `BasicInfoSection` varchar(255) DEFAULT NULL,
+  `kafalahID` decimal(50,0) DEFAULT NULL,
+  `kafalahAmountY` decimal(50,0) DEFAULT NULL,
+  `kafalahCurrencyY` varchar(255) DEFAULT NULL,
+  `kafalahSection` varchar(255) DEFAULT NULL,
+  `kafalahStartDate` datetime DEFAULT NULL,
+  `kafalahEndDate` date DEFAULT NULL,
+  `kafalahEndreason` text DEFAULT NULL,
+  `yState` varchar(255) DEFAULT NULL,
+  `cityName` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `ya_yateeminfo_01`
 --
 
-INSERT INTO `ya_yateeminfo_01` (`id`, `dateOfEntry`, `yName`, `ySex`, `yDateOfBirth`, `yBirthPlace`, `yNationality`, `yFeatures`, `yAddress`, `yRankInFamily`, `fDeathDate`, `fDeathReason`, `yEduLevel`, `yEduClass`, `yEduSchoolName`, `yEduSchoolPhone`, `yEduNoEduReason`, `yHealthStatus`, `yHealthSickness`, `yQuranLevel`, `yQuranSchool`, `rSectionName`, `rName`, `rSex`, `rDateOfBirth`, `rRelation`, `rMobile`, `rMobilePerson`, `rWorkName`, `rWorkType`, `mSection`, `mSectionName`, `mName`, `mAlive`, `mStatus`, `mWork`, `fNumberOfBrothers`, `fRankInFamily`, `fHomeType`, `fAddress`, `fFinanceStatus`, `fFinanceSalary`, `fFinanceSource`, `sOpinion`, `BasicInfo`, `identifierName`, `identifierSection`, `idName`, `idMobile`, `idAddress`, `mIDCard`, `rIDCard`, `BasicInfoSection`) VALUES
-(1, '0000-00-00', 'ككشسيبت', NULL, '0000-00-00', 'يشيب', 'يشي', 'شيب', 'شيسب', '2', '0000-00-00', 'سيب', '', '', '', '0', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `ya_yateeminfo_01` (`id`, `dateOfEntry`, `yName`, `ySex`, `yDateOfBirth`, `yBirthPlace`, `yNationality`, `yFeatures`, `yAddress`, `yRankInFamily`, `fDeathDate`, `fDeathReason`, `yEduLevel`, `yEduClass`, `yEduSchoolName`, `yEduSchoolPhone`, `yEduNoEduReason`, `yHealthStatus`, `yHealthSickness`, `yQuranLevel`, `yQuranSchool`, `rSectionName`, `rName`, `rSex`, `rDateOfBirth`, `rRelation`, `rMobile`, `rMobilePerson`, `rWorkName`, `rWorkType`, `mSection`, `mSectionName`, `mName`, `mAlive`, `mStatus`, `mWork`, `fNumberOfBrothers`, `fRankInFamily`, `fHomeType`, `fAddress`, `fFinanceStatus`, `fFinanceSalary`, `fFinanceSource`, `sOpinion`, `BasicInfo`, `identifierName`, `identifierSection`, `idName`, `idMobile`, `idAddress`, `mIDCard`, `rIDCard`, `BasicInfoSection`, `kafalahID`, `kafalahAmountY`, `kafalahCurrencyY`, `kafalahSection`, `kafalahStartDate`, `kafalahEndDate`, `kafalahEndreason`, `yState`, `cityName`) VALUES
+(1, '0000-00-00', 'ككشسيبت', '1', '0000-00-00', 'يشيب', 'يشي', 'شيب', 'شيسب', '2', '0000-00-00', 'سيب', '', '', '', '0', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '20000', NULL, NULL, NULL, NULL, NULL, '2', '1'),
+(2, '0000-00-00', 'محمد محمد محمد محمد', '1', '0000-00-00', 'صنعاء', 'يمني', 'حفظ القرآن - الحساب', 'باب اليمن', '3', '0000-00-00', 'الاجل', 'اعدادي', 'السابع', 'الامل', '111111111111', '', 'جيده', 'لا يوجد', 'خمسة اجزاء', 'الامل', NULL, 'وصي وصي وصي', '', '0000-00-00', '', '111111111111', 'نفسه', 'جهة عمل', '', NULL, NULL, 'أم أم أم أم', '', '1', '', '6', '3', '2', '', '', '0', 'null', '', NULL, NULL, NULL, '', '', '', '333333333333333', '23232323', NULL, '2', '30000', '1', NULL, '0000-00-00 00:00:00', '0000-00-00', '', '2', '1');
 
 -- --------------------------------------------------------
 
@@ -1983,7 +2288,64 @@ INSERT INTO `ya_yateeminfo_01_fb_fields` (`id`, `fb_order`, `name`, `field_type`
 (46, 460, 'idMobile', 'tel', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0631\\u0642\\u0645 \\u0645\\u0648\\u0628\\u0627\\u064a\\u0644 \\u0627\\u0644\\u0645\\u0639\\u0631\\u0641\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0631\\u0642\\u0645 \\u0645\\u0648\\u0628\\u0627\\u064a\\u0644 \\u0627\\u0644\\u0645\\u0639\\u0631\\u0641\"}', '', '', '', ''),
 (47, 470, 'idAddress', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0639\\u0646\\u0648\\u0627\\u0646 \\u0633\\u0643\\u0646 \\u0627\\u0644\\u0645\\u0639\\u0631\\u0641\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0639\\u0646\\u0648\\u0627\\u0646 \\u0633\\u0643\\u0646 \\u0627\\u0644\\u0645\\u0639\\u0631\\u0641\"}', '', '', '', ''),
 (48, 321, 'mIDCard', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0631\\u0642\\u0645 \\u0627\\u0644\\u0647\\u0648\\u064a\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0631\\u0642\\u0645 \\u0627\\u0644\\u0647\\u0648\\u064a\\u0629\"}', '', '', '', ''),
-(49, 231, 'rIDCard', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0631\\u0642\\u0645 \\u0647\\u0648\\u064a\\u0629 \\u0627\\u0644\\u0648\\u0635\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0631\\u0642\\u0645 \\u0647\\u0648\\u064a\\u0629 \\u0627\\u0644\\u0648\\u0635\\u064a\"}', '', '', '', '');
+(49, 231, 'rIDCard', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0631\\u0642\\u0645 \\u0647\\u0648\\u064a\\u0629 \\u0627\\u0644\\u0648\\u0635\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0631\\u0642\\u0645 \\u0647\\u0648\\u064a\\u0629 \\u0627\\u0644\\u0648\\u0635\\u064a\"}', '', '', '', ''),
+(50, 490, 'kafalahID', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0631\\u0642\\u0645 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0631\\u0642\\u0645 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\"}', '', 'ya_kafalahinfo_01', 'kafalahLable', ''),
+(51, 500, 'kafalahAmountY', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0645\\u0628\\u0644\\u063a \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629 \\u0644\\u0644\\u064a\\u062a\\u064a\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0645\\u0628\\u0644\\u063a \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629 \\u0644\\u0644\\u064a\\u062a\\u064a\\u0645\"}', '', '', '', ''),
+(52, 510, 'kafalahCurrencyY', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0639\\u0645\\u0644\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0639\\u0645\\u0644\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\"}', '', 'ya_settings_currency', 'cNameAra', ''),
+(53, 480, 'kafalahSection', 'label', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0628\\u064a\\u0627\\u0646\\u0627\\u062a \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0628\\u064a\\u0627\\u0646\\u0627\\u062a \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\"}', '', '', '', ''),
+(54, 520, 'kafalahStartDate', 'datetime', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0628\\u062f\\u0621 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629 \\u0644\\u0644\\u064a\\u062a\\u064a\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0628\\u062f\\u0621 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629 \\u0644\\u0644\\u064a\\u062a\\u064a\\u0645\"}', '', '', '', ''),
+(55, 530, 'kafalahEndDate', 'date', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0627\\u0646\\u062a\\u0647\\u0627\\u0621 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629 \\u0644\\u0644\\u064a\\u062a\\u064a\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062a\\u0627\\u0631\\u064a\\u062e \\u0627\\u0646\\u062a\\u0647\\u0627\\u0621 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629 \\u0644\\u0644\\u064a\\u062a\\u064a\\u0645\"}', '', '', '', ''),
+(56, 540, 'kafalahEndreason', 'textarea', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0633\\u0628\\u0628 \\u0627\\u0646\\u062a\\u0647\\u0627\\u0621 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0633\\u0628\\u0628 \\u0627\\u0646\\u062a\\u0647\\u0627\\u0621 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\"}', '', '', '', ''),
+(57, 550, 'yState', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062d\\u0627\\u0644\\u0629 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062d\\u0627\\u0644\\u0629 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\"}', '', 'ya_settings_ystate', 'yState', ''),
+(58, 85, 'cityName', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u0645\\u062f\\u064a\\u0646\\u0629 \\/ \\u0627\\u0644\\u0645\\u062d\\u0627\\u0641\\u0638\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u0645\\u062f\\u064a\\u0646\\u0629 \\/ \\u0627\\u0644\\u0645\\u062d\\u0627\\u0641\\u0638\\u0629\"}', '', 'ya_settings_cities', 'cityName', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ya_yateeminfo_02`
+--
+
+CREATE TABLE `ya_yateeminfo_02` (
+  `id` int(11) NOT NULL,
+  `yKafalahState` varchar(255) DEFAULT NULL,
+  `yIDintable1` varchar(255) DEFAULT NULL,
+  `kafalahID` decimal(50,0) DEFAULT NULL,
+  `kafalahAmountY` decimal(50,0) DEFAULT NULL,
+  `kafalahCurrencyY` varchar(255) DEFAULT NULL,
+  `yKafilName` varchar(255) DEFAULT NULL,
+  `yState` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ya_yateeminfo_02_fb_fields`
+--
+
+CREATE TABLE `ya_yateeminfo_02_fb_fields` (
+  `id` int(11) NOT NULL,
+  `fb_order` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `field_type` text NOT NULL,
+  `field_html` text NOT NULL,
+  `requirements` text NOT NULL,
+  `databasevalue` varchar(255) DEFAULT NULL,
+  `database_name` varchar(255) DEFAULT NULL,
+  `database_value` varchar(255) DEFAULT NULL,
+  `database_where` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ya_yateeminfo_02_fb_fields`
+--
+
+INSERT INTO `ya_yateeminfo_02_fb_fields` (`id`, `fb_order`, `name`, `field_type`, `field_html`, `requirements`, `databasevalue`, `database_name`, `database_value`, `database_where`) VALUES
+(1, 0, 'yIDintable1', 'hidden', '{\"div_class1\":\"\",\"div_class2\":\"\",\"label\":\"\",\"label_class\":\"\",\"input_class\":\"\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\"}', '', '', '', ''),
+(2, 0, 'kafalahID', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0631\\u0642\\u0645 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0631\\u0642\\u0645 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\"}', '', '', '', ''),
+(3, 0, 'kafalahAmountY', 'number', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0645\\u0628\\u0644\\u063a \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629 \\u0644\\u0644\\u064a\\u062a\\u064a\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0645\\u0628\\u0644\\u063a \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629 \\u0644\\u0644\\u064a\\u062a\\u064a\\u0645\"}', '', '', '', ''),
+(4, 0, 'kafalahCurrencyY', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0639\\u0645\\u0644\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0639\\u0645\\u0644\\u0629 \\u0627\\u0644\\u0643\\u0641\\u0627\\u0644\\u0629\"}', '', 'ya_settings_currency', 'cNameAra', ''),
+(5, 0, 'yKafilName', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0643\\u0627\\u0641\\u0644\"}', '', 'ya_kafilinfo_01', 'kName', ''),
+(6, 0, 'yState', 'dropdown', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062d\\u0627\\u0644\\u0629 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u062d\\u0627\\u0644\\u0629 \\u0627\\u0644\\u064a\\u062a\\u064a\\u0645\"}', '', 'ya_settings_ystate', 'yState', '');
 
 --
 -- Indexes for dumped tables
@@ -2246,6 +2608,18 @@ ALTER TABLE `us_user_sessions`
   ADD PRIMARY KEY (`kUserSessionID`);
 
 --
+-- Indexes for table `yayateeminfo01`
+--
+ALTER TABLE `yayateeminfo01`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `yayateeminfo01_form`
+--
+ALTER TABLE `yayateeminfo01_form`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `ya_kafalahinfo_01`
 --
 ALTER TABLE `ya_kafalahinfo_01`
@@ -2267,6 +2641,18 @@ ALTER TABLE `ya_kafilinfo_01`
 -- Indexes for table `ya_kafilinfo_01_fb_fields`
 --
 ALTER TABLE `ya_kafilinfo_01_fb_fields`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ya_settings_cities`
+--
+ALTER TABLE `ya_settings_cities`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ya_settings_cities_fb_fields`
+--
+ALTER TABLE `ya_settings_cities_fb_fields`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2390,6 +2776,18 @@ ALTER TABLE `ya_settings_yesno_fb_fields`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `ya_settings_ystate`
+--
+ALTER TABLE `ya_settings_ystate`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ya_settings_ystate_fb_fields`
+--
+ALTER TABLE `ya_settings_ystate_fb_fields`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `ya_yateeminfo_01`
 --
 ALTER TABLE `ya_yateeminfo_01`
@@ -2399,6 +2797,18 @@ ALTER TABLE `ya_yateeminfo_01`
 -- Indexes for table `ya_yateeminfo_01_fb_fields`
 --
 ALTER TABLE `ya_yateeminfo_01_fb_fields`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ya_yateeminfo_02`
+--
+ALTER TABLE `ya_yateeminfo_02`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ya_yateeminfo_02_fb_fields`
+--
+ALTER TABLE `ya_yateeminfo_02_fb_fields`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2433,7 +2843,7 @@ ALTER TABLE `email`
 -- AUTO_INCREMENT for table `fb_formbuilder`
 --
 ALTER TABLE `fb_formbuilder`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `fb_javascript`
@@ -2463,7 +2873,7 @@ ALTER TABLE `fb_settings_fb_fields`
 -- AUTO_INCREMENT for table `groups_menus`
 --
 ALTER TABLE `groups_menus`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `keys`
@@ -2475,7 +2885,7 @@ ALTER TABLE `keys`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
 -- AUTO_INCREMENT for table `logs_exempt`
@@ -2487,7 +2897,7 @@ ALTER TABLE `logs_exempt`
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `messages`
@@ -2511,7 +2921,7 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
 -- AUTO_INCREMENT for table `permissions`
@@ -2523,7 +2933,7 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `permission_page_matches`
 --
 ALTER TABLE `permission_page_matches`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `profiles`
@@ -2589,7 +2999,7 @@ ALTER TABLE `us_fingerprint_assets`
 -- AUTO_INCREMENT for table `us_forms`
 --
 ALTER TABLE `us_forms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `us_form_validation`
@@ -2658,6 +3068,18 @@ ALTER TABLE `us_user_sessions`
   MODIFY `kUserSessionID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `yayateeminfo01`
+--
+ALTER TABLE `yayateeminfo01`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `yayateeminfo01_form`
+--
+ALTER TABLE `yayateeminfo01_form`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+
+--
 -- AUTO_INCREMENT for table `ya_kafalahinfo_01`
 --
 ALTER TABLE `ya_kafalahinfo_01`
@@ -2667,19 +3089,31 @@ ALTER TABLE `ya_kafalahinfo_01`
 -- AUTO_INCREMENT for table `ya_kafalahinfo_01_fb_fields`
 --
 ALTER TABLE `ya_kafalahinfo_01_fb_fields`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `ya_kafilinfo_01`
 --
 ALTER TABLE `ya_kafilinfo_01`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `ya_kafilinfo_01_fb_fields`
 --
 ALTER TABLE `ya_kafilinfo_01_fb_fields`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `ya_settings_cities`
+--
+ALTER TABLE `ya_settings_cities`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `ya_settings_cities_fb_fields`
+--
+ALTER TABLE `ya_settings_cities_fb_fields`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `ya_settings_currency`
@@ -2802,16 +3236,40 @@ ALTER TABLE `ya_settings_yesno_fb_fields`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `ya_settings_ystate`
+--
+ALTER TABLE `ya_settings_ystate`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `ya_settings_ystate_fb_fields`
+--
+ALTER TABLE `ya_settings_ystate_fb_fields`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `ya_yateeminfo_01`
 --
 ALTER TABLE `ya_yateeminfo_01`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `ya_yateeminfo_01_fb_fields`
 --
 ALTER TABLE `ya_yateeminfo_01_fb_fields`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+
+--
+-- AUTO_INCREMENT for table `ya_yateeminfo_02`
+--
+ALTER TABLE `ya_yateeminfo_02`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ya_yateeminfo_02_fb_fields`
+--
+ALTER TABLE `ya_yateeminfo_02_fb_fields`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
