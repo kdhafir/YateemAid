@@ -13,7 +13,9 @@ require_once $abs_us_root.$us_url_root.'users/includes/template/prep.php';
 ?>
 
 <div class="row text-right" dir="rtl">
-
+<?php
+    generateForm('ya_yateeminfo_01',1, $skip=['id']);
+?>
 </div>
 
 
