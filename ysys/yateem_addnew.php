@@ -12,7 +12,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/template/prep.php';
 
 ?>
 
-<div class="row" dir="rtl">
+<div class="row text-right" dir="rtl">
     <div class="col-md-4">
     <br>
     <h4>التنقل السريع</h4>
@@ -32,7 +32,8 @@ require_once $abs_us_root.$us_url_root.'users/includes/template/prep.php';
         'class'=>'btn btn-success',
         'value'=>'This is the submit button',
         );
-    fb_displayform('ya_yateeminfo_01',$options);
+        //displayForm('yayateeminfo01',$options);
+        fb_displayform('ya_yateeminfo_01',$options);
     ?>
     <br><br><br><br>
     </div>

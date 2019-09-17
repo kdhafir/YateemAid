@@ -28,12 +28,9 @@ font-family: 'Roboto', sans-serif !important;
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>) -->
 <script src="<?=$us_url_root?>usersc/templates/<?=$settings->template?>/assets/js/bootstrap.min.js" type="text/javascript"></script>
 <link href="<?=$us_url_root?>usersc/templates/<?=$settings->template?>/assets/css/hamburgers.min.css" rel="stylesheet">
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-
-
 <?php
 //optional
-//require_once $abs_us_root.$us_url_root.'usersc/includes/bootstrap_corrections.php'; ?>
+if(file_exists($abs_us_root.$us_url_root.'usersc/templates/'.$settings->template.'.css')){?> <link href="<?=$us_url_root?>usersc/templates/<?=$settings->template?>.css" rel="stylesheet"> <?php } ?>
 
 </head>
 <?php require_once($abs_us_root.$us_url_root.'users/includes/template/header3_must_include.php'); ?>

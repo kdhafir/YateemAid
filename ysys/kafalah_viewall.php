@@ -11,7 +11,7 @@ $kafalahQ = $db->query("SELECT * FROM `ya_kafalahinfo_01` ORDER BY id DESC");
 $counKafalah = $kafalahQ->count();
 
 ?>
-<div class="row" dir="rtl">
+<div class="row text-right" dir="rtl">
 	<div class="col-sm-12 col-md-12">
 	<br>
 	<div class="d-flex justify-content-start bg-secondary">
