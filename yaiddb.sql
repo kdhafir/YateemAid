@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 17, 2019 at 04:42 PM
+-- Generation Time: Sep 19, 2019 at 11:49 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -437,7 +437,15 @@ INSERT INTO `logs` (`id`, `user_id`, `logdate`, `logtype`, `lognote`, `ip`) VALU
 (109, 1, '2019-09-16 06:29:26', 'Pages Manager', 'Added 2 permission(s) to ysys/kafalah_viewall.php.', '::1'),
 (110, 1, '2019-09-16 06:29:34', 'Pages Manager', 'Added 2 permission(s) to ysys/kafil_viewall.php.', '::1'),
 (111, 1, '2019-09-16 06:31:23', 'Pages Manager', 'Added 2 permission(s) to ysys/kafalah_addnew.php.', '::1'),
-(112, 1, '2019-09-17 14:41:13', 'Pages Manager', 'Added 2 permission(s) to ysys/yateem_viewyateem.php.', '::1');
+(112, 1, '2019-09-17 14:41:13', 'Pages Manager', 'Added 2 permission(s) to ysys/yateem_viewyateem.php.', '::1'),
+(113, 1, '2019-09-18 05:07:39', 'User', 'User logged in.', NULL),
+(114, 1, '2019-09-18 06:13:34', 'Pages Manager', 'Added 2 permission(s) to ysys/yateem_viewyateem.php.', '::1'),
+(115, 1, '2019-09-18 08:52:31', 'Pages Manager', 'Added 2 permission(s) to ysys/yateem_addnew.php.', '::1'),
+(116, 1, '2019-09-18 08:56:16', 'Pages Manager', 'Added 2 permission(s) to ysys/index.php.', '::1'),
+(117, 1, '2019-09-18 09:50:03', 'Pages Manager', 'Added 2 permission(s) to ysys/kafil_addnew.php.', '::1'),
+(118, 1, '2019-09-18 09:50:13', 'Pages Manager', 'Added 2 permission(s) to ysys/kafil_viewall.php.', '::1'),
+(119, 1, '2019-09-18 09:50:26', 'Pages Manager', 'Added 2 permission(s) to ysys/kafalah_addnew.php.', '::1'),
+(120, 1, '2019-09-18 10:10:56', 'Pages Manager', 'Added 2 permission(s) to ysys/kafalah_viewall.php.', '::1');
 
 -- --------------------------------------------------------
 
@@ -612,13 +620,13 @@ INSERT INTO `pages` (`id`, `page`, `title`, `private`, `re_auth`) VALUES
 (81, 'users/admin_pin.php', 'Verification PIN Set', 1, 0),
 (97, 'users/user_agreement_acknowledge.php', '', 1, 0),
 (98, 'users/views_admin_notifications.php', '', 1, 0),
-(99, 'ysys/kafil_addnew.php', '', 1, 0),
-(100, 'ysys/yateem_addnew.php', '', 1, 0),
-(101, 'ysys/index.php', '', 1, 0),
-(102, 'ysys/kafalah_viewall.php', '', 1, 0),
-(103, 'ysys/kafil_viewall.php', '', 1, 0),
-(104, 'ysys/kafalah_addnew.php', '', 1, 0),
-(105, 'ysys/yateem_viewyateem.php', '', 1, 0);
+(106, 'ysys/yateem_viewyateem.php', '', 1, 0),
+(107, 'ysys/yateem_addnew.php', '', 1, 0),
+(108, 'ysys/index.php', '', 1, 0),
+(109, 'ysys/kafil_addnew.php', '', 1, 0),
+(110, 'ysys/kafil_viewall.php', '', 1, 0),
+(111, 'ysys/kafalah_addnew.php', '', 1, 0),
+(112, 'ysys/kafalah_viewall.php', '', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -726,7 +734,21 @@ INSERT INTO `permission_page_matches` (`id`, `permission_id`, `page_id`) VALUES
 (75, 1, 104),
 (76, 2, 104),
 (77, 1, 105),
-(78, 2, 105);
+(78, 2, 105),
+(79, 1, 106),
+(80, 2, 106),
+(81, 1, 107),
+(82, 2, 107),
+(83, 1, 108),
+(84, 2, 108),
+(85, 1, 109),
+(86, 2, 109),
+(87, 1, 110),
+(88, 2, 110),
+(89, 1, 111),
+(90, 2, 111),
+(91, 1, 112),
+(92, 2, 112);
 
 -- --------------------------------------------------------
 
@@ -831,7 +853,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `recaptcha`, `force_ssl`, `css_sample`, `us_css1`, `us_css2`, `us_css3`, `site_name`, `language`, `track_guest`, `site_offline`, `force_pr`, `glogin`, `fblogin`, `gid`, `gsecret`, `gredirect`, `ghome`, `fbid`, `fbsecret`, `fbcallback`, `graph_ver`, `finalredir`, `req_cap`, `req_num`, `min_pw`, `max_pw`, `min_un`, `max_un`, `messaging`, `snooping`, `echouser`, `wys`, `change_un`, `backup_dest`, `backup_source`, `backup_table`, `msg_notification`, `permission_restriction`, `auto_assign_un`, `page_permission_restriction`, `msg_blocked_users`, `msg_default_to`, `notifications`, `notif_daylimit`, `recap_public`, `recap_private`, `page_default_private`, `navigation_type`, `copyright`, `custom_settings`, `system_announcement`, `twofa`, `force_notif`, `cron_ip`, `registration`, `join_vericode_expiry`, `reset_vericode_expiry`, `admin_verify`, `admin_verify_timeout`, `session_manager`, `template`, `saas`, `redirect_uri_after_login`, `show_tos`, `default_language`, `allow_language`, `spice_api`, `announce`) VALUES
-(1, 0, 0, 0, '../users/css/color_schemes/bootstrap.min.css', '../users/css/sb-admin.css', '../users/css/custom.css', 'مساعد اليتيم', 'en', 1, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', 0, 0, 6, 30, 4, 30, 0, 1, 0, 1, 0, '/', 'everything', '', 0, 0, 0, 0, 0, 1, 0, 7, '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI', '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe', 1, 1, 'Khalid Dhafir', 1, '', 0, 0, 'off', 1, 24, 15, 1, 120, 0, 'standard', NULL, NULL, 1, 'ar-EG', 0, 'JDMSC-YNAYD-X5D76-096E2-69A6', '2019-09-16 08:04:27');
+(1, 0, 0, 0, '../users/css/color_schemes/bootstrap.min.css', '../users/css/sb-admin.css', '../users/css/custom.css', 'مساعد اليتيم', 'en', 1, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', 0, 0, 6, 30, 4, 30, 0, 1, 0, 1, 0, '/', 'everything', '', 0, 0, 0, 0, 0, 1, 0, 7, '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI', '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe', 1, 1, 'Khalid Dhafir', 1, '', 0, 0, 'off', 1, 24, 15, 1, 120, 0, 'standard', NULL, NULL, 1, 'ar-EG', 0, 'JDMSC-YNAYD-X5D76-096E2-69A6', '2019-09-18 11:34:11');
 
 -- --------------------------------------------------------
 
@@ -948,7 +970,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `email_new`, `username`, `password`, `pin`, `fname`, `lname`, `permissions`, `logins`, `account_owner`, `account_id`, `company`, `join_date`, `last_login`, `email_verified`, `vericode`, `active`, `oauth_provider`, `oauth_uid`, `gender`, `locale`, `gpluslink`, `picture`, `created`, `modified`, `fb_uid`, `un_changed`, `msg_exempt`, `last_confirm`, `protected`, `dev_user`, `msg_notification`, `force_pr`, `twoKey`, `twoEnabled`, `twoDate`, `cloak_allowed`, `org`, `account_mgr`, `oauth_tos_accepted`, `vericode_expiry`, `language`) VALUES
-(1, 'almohseneen.it@gmail.com', NULL, 'admin', '$2y$12$1v06jm2KMOXuuo3qP7erTuTIJFOnzhpds1Moa8BadnUUeX0RV3ex.', NULL, 'مدير النظام', 'Admin', 1, 5, 1, 0, 'UserSpice', '2016-01-01 00:00:00', '2019-09-15 08:50:17', 1, 'nlPsJDtyeqFWsS', 0, '', '', '', '', '', '', '0000-00-00 00:00:00', '1899-11-30 00:00:00', '', 0, 1, '2017-10-08 15:24:37', 1, 0, 1, 0, NULL, 0, NULL, 0, NULL, 0, NULL, NULL, 'ar-EG'),
+(1, 'almohseneen.it@gmail.com', NULL, 'admin', '$2y$12$1v06jm2KMOXuuo3qP7erTuTIJFOnzhpds1Moa8BadnUUeX0RV3ex.', NULL, 'مدير النظام', 'Admin', 1, 6, 1, 0, 'UserSpice', '2016-01-01 00:00:00', '2019-09-18 08:07:39', 1, 'nlPsJDtyeqFWsS', 0, '', '', '', '', '', '', '0000-00-00 00:00:00', '1899-11-30 00:00:00', '', 0, 1, '2017-10-08 15:24:37', 1, 0, 1, 0, NULL, 0, NULL, 0, NULL, 0, NULL, NULL, 'ar-EG'),
 (2, 'noreply@userspice.com', NULL, 'user', '$2y$12$HZa0/d7evKvuHO8I3U8Ff.pOjJqsGTZqlX8qURratzP./EvWetbkK', NULL, 'مدخل البيانات', 'User', 1, 2, 1, 0, 'none', '2016-01-02 00:00:00', '2019-09-07 12:56:04', 1, '2ENJN4xD8nnjOgk', 1, '', '', '', '', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 0, 0, NULL, 0, 0, 1, 0, NULL, 0, NULL, 0, NULL, 0, NULL, NULL, 'en-US');
 
 -- --------------------------------------------------------
@@ -990,7 +1012,8 @@ CREATE TABLE `users_session` (
 --
 
 INSERT INTO `users_session` (`id`, `user_id`, `hash`, `uagent`) VALUES
-(1, 2, '3a229148f5903294d29d73e8e0ce63ec8a0a13d398cd86aefc7ee812396c487f', 'Mozilla (Windows NT 6.1) AppleWebKit (KHTML, like Gecko) Chrome Safari');
+(1, 2, '3a229148f5903294d29d73e8e0ce63ec8a0a13d398cd86aefc7ee812396c487f', 'Mozilla (Windows NT 6.1) AppleWebKit (KHTML, like Gecko) Chrome Safari'),
+(2, 1, '783be300f0a674daae3204c52e54f63486fab90263b9337e115777bfdaa5bba7', 'Mozilla (Windows NT 10.0; Win64; x64; rv:69.0) Gecko Firefox');
 
 -- --------------------------------------------------------
 
@@ -1080,7 +1103,7 @@ CREATE TABLE `us_forms` (
 --
 
 INSERT INTO `us_forms` (`id`, `form`) VALUES
-(1, 'yayateeminfo01');
+(2, 'yayateeminfo1');
 
 -- --------------------------------------------------------
 
@@ -1126,6 +1149,13 @@ CREATE TABLE `us_form_views` (
   `view_name` varchar(255) NOT NULL,
   `fields` mediumtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `us_form_views`
+--
+
+INSERT INTO `us_form_views` (`id`, `form_name`, `view_name`, `fields`) VALUES
+(1, 'yayateeminfo1', 'yateeminfoview001', '[\"2\",\"4\",\"5\",\"6\",\"7\",\"8\",\"10\",\"11\",\"12\",\"13\",\"14\",\"16\",\"17\",\"18\",\"19\",\"20\",\"62\",\"64\",\"77\"]');
 
 -- --------------------------------------------------------
 
@@ -1308,10 +1338,10 @@ CREATE TABLE `us_user_sessions` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `yayateeminfo01`
+-- Table structure for table `yayateeminfo1`
 --
 
-CREATE TABLE `yayateeminfo01` (
+CREATE TABLE `yayateeminfo1` (
   `id` int(11) NOT NULL,
   `dateOfEntry` date DEFAULT NULL,
   `yName` varchar(255) DEFAULT NULL,
@@ -1354,7 +1384,7 @@ CREATE TABLE `yayateeminfo01` (
   `fAddress` varchar(255) DEFAULT NULL,
   `fFinanceStatus` varchar(255) DEFAULT NULL,
   `fFinanceSalary` decimal(50,0) DEFAULT NULL,
-  `fFinanceSource` varchar(255) DEFAULT NULL,
+  `fFinanceSource` longtext DEFAULT NULL,
   `sOpinion` text DEFAULT NULL,
   `BasicInfo` varchar(255) DEFAULT NULL,
   `identifierName` varchar(255) DEFAULT NULL,
@@ -1364,23 +1394,40 @@ CREATE TABLE `yayateeminfo01` (
   `idAddress` varchar(255) DEFAULT NULL,
   `mIDCard` varchar(255) DEFAULT NULL,
   `rIDCard` varchar(255) DEFAULT NULL,
-  `BasicInfoSection` varchar(255) DEFAULT NULL
+  `BasicInfoSection` varchar(255) DEFAULT NULL,
+  `kafalahID` decimal(50,0) DEFAULT NULL,
+  `kafalahAmountY` decimal(50,0) DEFAULT NULL,
+  `kafalahCurrencyY` varchar(255) DEFAULT NULL,
+  `kafalahSection` varchar(255) DEFAULT NULL,
+  `kafalahStartDate` date DEFAULT NULL,
+  `kafalahEndDate` date DEFAULT NULL,
+  `kafalahEndreason` text DEFAULT NULL,
+  `yState` varchar(255) DEFAULT NULL,
+  `cityName` varchar(255) DEFAULT NULL,
+  `kafalahAmount` decimal(11,2) DEFAULT NULL,
+  `kafalahCurrency` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `yayateeminfo01`
+-- Dumping data for table `yayateeminfo1`
 --
 
-INSERT INTO `yayateeminfo01` (`id`, `dateOfEntry`, `yName`, `ySex`, `yDateOfBirth`, `yBirthPlace`, `yNationality`, `yFeatures`, `yAddress`, `yRankInFamily`, `fDeathDate`, `fDeathReason`, `yEduLevel`, `yEduClass`, `yEduSchoolName`, `yEduSchoolPhone`, `yEduNoEduReason`, `yHealthStatus`, `yHealthSickness`, `yQuranLevel`, `yQuranSchool`, `rSectionName`, `rName`, `rSex`, `rDateOfBirth`, `rRelation`, `rMobile`, `rMobilePerson`, `rWorkName`, `rWorkType`, `mSection`, `mSectionName`, `mName`, `mAlive`, `mStatus`, `mWork`, `fNumberOfBrothers`, `fRankInFamily`, `fHomeType`, `fAddress`, `fFinanceStatus`, `fFinanceSalary`, `fFinanceSource`, `sOpinion`, `BasicInfo`, `identifierName`, `identifierSection`, `idName`, `idMobile`, `idAddress`, `mIDCard`, `rIDCard`, `BasicInfoSection`) VALUES
-(1, '0000-00-00', 'ككشسيبت', NULL, '0000-00-00', 'يشيب', 'يشي', 'شيب', 'شيسب', '2', '0000-00-00', 'سيب', '', '', '', '0', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `yayateeminfo1` (`id`, `dateOfEntry`, `yName`, `ySex`, `yDateOfBirth`, `yBirthPlace`, `yNationality`, `yFeatures`, `yAddress`, `yRankInFamily`, `fDeathDate`, `fDeathReason`, `yEduLevel`, `yEduClass`, `yEduSchoolName`, `yEduSchoolPhone`, `yEduNoEduReason`, `yHealthStatus`, `yHealthSickness`, `yQuranLevel`, `yQuranSchool`, `rSectionName`, `rName`, `rSex`, `rDateOfBirth`, `rRelation`, `rMobile`, `rMobilePerson`, `rWorkName`, `rWorkType`, `mSection`, `mSectionName`, `mName`, `mAlive`, `mStatus`, `mWork`, `fNumberOfBrothers`, `fRankInFamily`, `fHomeType`, `fAddress`, `fFinanceStatus`, `fFinanceSalary`, `fFinanceSource`, `sOpinion`, `BasicInfo`, `identifierName`, `identifierSection`, `idName`, `idMobile`, `idAddress`, `mIDCard`, `rIDCard`, `BasicInfoSection`, `kafalahID`, `kafalahAmountY`, `kafalahCurrencyY`, `kafalahSection`, `kafalahStartDate`, `kafalahEndDate`, `kafalahEndreason`, `yState`, `cityName`, `kafalahAmount`, `kafalahCurrency`) VALUES
+(1, '2019-09-19', 'ككشسيبت', 'male', '2019-09-11', 'يشيب', 'يشي', 'شيب', 'شيسب', '2', '0000-00-00', 'سيب', '', '', '', '0', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'mSalary', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '20000', NULL, NULL, NULL, NULL, NULL, '2', '1', NULL, NULL),
+(2, '0000-00-00', 'محمد محمد محمد محمد', '1', '0000-00-00', 'صنعاء', 'يمني', 'حفظ القرآن - الحساب', 'باب اليمن', '3', '0000-00-00', 'الاجل', 'اعدادي', 'السابع', 'الامل', '111111111111', '', 'جيده', 'لا يوجد', 'خمسة اجزاء', 'الامل', NULL, 'وصي وصي وصي', '', '0000-00-00', '', '111111111111', 'نفسه', 'جهة عمل', '', NULL, NULL, 'أم أم أم أم', '', '1', '', '6', '3', '2', '', '', '0', 'mHelps', '', NULL, NULL, NULL, '', '', '', '333333333333333', '23232323', NULL, '2', '30000', '1', NULL, '0000-00-00', '0000-00-00', '', '2', '1', NULL, NULL),
+(14, '0000-00-00', 'علي أحمد أحمد أحمد', 'male', '2010-09-05', 'صنعاء', 'يمني', 'الانشاد', 'باب اليمن', '3', '2017-09-09', 'الاجل', 'الابتدائي', '5', 'الامل', '0', '', 'بخير', '', 'خمسة اجزاء', 'الامل', NULL, 'وصي وصي وصي', 'male', '1970-09-12', 'خاله', '324209009', 'نفسه', '', 'gov', NULL, NULL, '', NULL, 'widow', '', '5', '2', 'owner', '', 'meduim', '0', NULL, '', NULL, NULL, NULL, '', '', '', '', '', NULL, '0', NULL, NULL, NULL, '2019-09-10', '0000-00-00', '', 'كفالة منتهية', 'sanaa', '0.00', 'yer'),
+(19, '0000-00-00', 'صالح', 'male', '2019-09-11', 'يشيب', 'يشي', 'شيب', 'شيسب', '2', '0000-00-00', 'سيب', '', '', '', '0', '', '', '', '', '', NULL, '', NULL, '0000-00-00', '', '', '', '', 'special', NULL, NULL, '', 'yes', 'widow', '', '0', '0', 'rent', '', 'meduim', '0', NULL, '', NULL, NULL, NULL, '', '', '', '', '', NULL, '1', NULL, NULL, NULL, '0000-00-00', '0000-00-00', '', 'لاستكمال البيانات', '1', '0.00', NULL),
+(20, '0000-00-00', 'محمد محمد محمد محمد', 'male', '0000-00-00', 'صنعاء', 'يمني', 'حفظ القرآن - الحساب', 'باب اليمن', '3', '0000-00-00', 'الاجل', 'اعدادي', 'السابع', 'الامل', '0', '', 'جيده', 'لا يوجد', 'خمسة اجزاء', 'الامل', NULL, 'وصي وصي وصي', NULL, '0000-00-00', '', '111111111111', 'نفسه', 'جهة عمل', NULL, NULL, NULL, 'أم أم أم أم', NULL, '1', '', '6', '3', '2', '', NULL, '0', NULL, '', NULL, NULL, NULL, '', '', '', '333333333333333', '23232323', NULL, '2', NULL, NULL, NULL, '0000-00-00', '0000-00-00', '', 'لاستكمال البيانات', '1', '0.00', NULL),
+(21, '0000-00-00', 'أحمد', 'male', '0000-00-00', 'صنعاء', 'يمني', 'حفظ القرآن - الحساب', 'باب اليمن', '3', '0000-00-00', 'الاجل', 'اعدادي', 'السابع', 'الامل', '0', '', 'جيده', 'لا يوجد', 'خمسة اجزاء', 'الامل', NULL, 'وصي وصي وصي', NULL, '0000-00-00', '', '111111111111', 'نفسه', 'جهة عمل', NULL, NULL, NULL, 'أم أم أم أم', NULL, '1', '', '6', '3', '2', '', NULL, '0', NULL, '', NULL, NULL, NULL, '', '', '', '333333333333333', '23232323', NULL, '2', NULL, NULL, NULL, '0000-00-00', '0000-00-00', '', 'لاستكمال البيانات', '1', '0.00', NULL),
+(22, '2019-09-04', 'صالح مسعد', 'male', '2011-09-20', 'الأمانة', 'يمني', '', 'الحصبة', NULL, '2017-09-12', 'الاجل', 'اعدادي', 'السابع', 'الامل', NULL, '', 'بخير', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'sanaa', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `yayateeminfo01_form`
+-- Table structure for table `yayateeminfo1_form`
 --
 
-CREATE TABLE `yayateeminfo01_form` (
+CREATE TABLE `yayateeminfo1_form` (
   `id` int(11) NOT NULL,
   `ord` int(11) NOT NULL,
   `col` varchar(255) NOT NULL,
@@ -1397,62 +1444,63 @@ CREATE TABLE `yayateeminfo01_form` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `yayateeminfo01_form`
+-- Dumping data for table `yayateeminfo1_form`
 --
 
-INSERT INTO `yayateeminfo01_form` (`id`, `ord`, `col`, `form_descrip`, `table_descrip`, `col_type`, `field_type`, `required`, `validation`, `label_class`, `field_class`, `input_html`, `select_opts`) VALUES
-(1, 10, 'dateOfEntry', 'DateOfEntry', 'DateOfEntry', 'date', 'date', 0, '', '', 'form-control', 'type=&quot;date&quot;', 'null'),
-(2, 20, 'yName', 'YName', 'YName', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(3, 30, 'ySex', 'YSex', 'YSex', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(4, 40, 'yDateOfBirth', 'YDateOfBirth', 'YDateOfBirth', 'date', 'date', 0, '', '', 'form-control', '', ''),
-(5, 50, 'yBirthPlace', 'YBirthPlace', 'YBirthPlace', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(6, 60, 'yNationality', 'YNationality', 'YNationality', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(7, 70, 'yFeatures', 'YFeatures', 'YFeatures', 'text', 'textarea', 0, '', '', 'form-control', '', ''),
-(8, 80, 'yAddress', 'YAddress', 'YAddress', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(9, 90, 'yRankInFamily', 'YRankInFamily', 'YRankInFamily', '', '', 0, '', '', 'form-control', '', ''),
-(10, 100, 'fDeathDate', 'FDeathDate', 'FDeathDate', 'date', 'date', 0, '', '', 'form-control', '', ''),
-(11, 110, 'fDeathReason', 'FDeathReason', 'FDeathReason', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(12, 120, 'yEduLevel', 'YEduLevel', 'YEduLevel', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(13, 130, 'yEduClass', 'YEduClass', 'YEduClass', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(14, 140, 'yEduSchoolName', 'YEduSchoolName', 'YEduSchoolName', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(15, 150, 'yEduSchoolPhone', 'YEduSchoolPhone', 'YEduSchoolPhone', '', '', 0, '', '', 'form-control', '', ''),
-(16, 160, 'yEduNoEduReason', 'YEduNoEduReason', 'YEduNoEduReason', 'text', 'textarea', 0, '', '', 'form-control', '', ''),
-(17, 170, 'yHealthStatus', 'YHealthStatus', 'YHealthStatus', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(18, 180, 'yHealthSickness', 'YHealthSickness', 'YHealthSickness', 'text', 'textarea', 0, '', '', 'form-control', '', ''),
-(19, 190, 'yQuranLevel', 'YQuranLevel', 'YQuranLevel', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(20, 200, 'yQuranSchool', 'YQuranSchool', 'YQuranSchool', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(21, 210, 'rSectionName', 'RSectionName', 'RSectionName', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(22, 220, 'rName', 'RName', 'RName', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(23, 230, 'rSex', 'RSex', 'RSex', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(24, 240, 'rDateOfBirth', 'RDateOfBirth', 'RDateOfBirth', 'date', 'date', 0, '', '', 'form-control', '', ''),
-(25, 250, 'rRelation', 'RRelation', 'RRelation', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(26, 260, 'rMobile', 'RMobile', 'RMobile', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(27, 270, 'rMobilePerson', 'RMobilePerson', 'RMobilePerson', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(28, 280, 'rWorkName', 'RWorkName', 'RWorkName', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(29, 290, 'rWorkType', 'RWorkType', 'RWorkType', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(30, 300, 'mSection', 'MSection', 'MSection', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(31, 310, 'mSectionName', 'MSectionName', 'MSectionName', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(32, 320, 'mName', 'MName', 'MName', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(33, 330, 'mAlive', 'MAlive', 'MAlive', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(34, 340, 'mStatus', 'MStatus', 'MStatus', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(35, 350, 'mWork', 'MWork', 'MWork', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(36, 360, 'fNumberOfBrothers', 'FNumberOfBrothers', 'FNumberOfBrothers', '', '', 0, '', '', 'form-control', '', ''),
-(37, 370, 'fRankInFamily', 'FRankInFamily', 'FRankInFamily', '', '', 0, '', '', 'form-control', '', ''),
-(38, 380, 'fHomeType', 'FHomeType', 'FHomeType', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(39, 390, 'fAddress', 'FAddress', 'FAddress', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(40, 400, 'fFinanceStatus', 'FFinanceStatus', 'FFinanceStatus', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(41, 410, 'fFinanceSalary', 'FFinanceSalary', 'FFinanceSalary', '', '', 0, '', '', 'form-control', '', ''),
-(42, 420, 'fFinanceSource', 'FFinanceSource', 'FFinanceSource', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(43, 430, 'sOpinion', 'SOpinion', 'SOpinion', 'text', 'textarea', 0, '', '', 'form-control', '', ''),
-(44, 440, 'BasicInfo', 'BasicInfo', 'BasicInfo', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(45, 450, 'identifierName', 'IdentifierName', 'IdentifierName', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(46, 460, 'identifierSection', 'IdentifierSection', 'IdentifierSection', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(47, 470, 'idName', 'IdName', 'IdName', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(48, 480, 'idMobile', 'IdMobile', 'IdMobile', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(49, 490, 'idAddress', 'IdAddress', 'IdAddress', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(50, 500, 'mIDCard', 'MIDCard', 'MIDCard', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(51, 510, 'rIDCard', 'RIDCard', 'RIDCard', 'varchar', 'text', 0, '', '', 'form-control', '', ''),
-(52, 520, 'BasicInfoSection', 'BasicInfoSection', 'BasicInfoSection', 'varchar', 'text', 0, '', '', 'form-control', '', '');
+INSERT INTO `yayateeminfo1_form` (`id`, `ord`, `col`, `form_descrip`, `table_descrip`, `col_type`, `field_type`, `required`, `validation`, `label_class`, `field_class`, `input_html`, `select_opts`) VALUES
+(2, 20, 'yName', 'اسم اليتيم رباعياً مع اللقب', 'اسم اليتيم', 'varchar', 'text', 0, '', '', 'form-control', '', 'null'),
+(4, 40, 'yDateOfBirth', 'تاريخ ميلاد اليتيم', 'ميلاد اليتيم', 'date', 'date', 0, '', '', 'form-control', '', 'null'),
+(5, 50, 'yBirthPlace', 'محل الميلاد', 'محل الميلاد', 'varchar', 'text', 0, '', '', 'form-control', '', 'null'),
+(6, 60, 'yNationality', 'جنسية اليتيم', 'جنسية اليتيم', 'varchar', 'text', 0, '', '', 'form-control', '', 'null'),
+(7, 70, 'yFeatures', 'مواهب ومميزات اليتيم', 'مواهب ومميزات اليتيم', 'text', 'textarea', 0, '', '', 'form-control', '', 'null'),
+(8, 80, 'yAddress', 'محل اقامة اليتيم [ مديرية - عزلة / حي ]', 'محل اقامة اليتيم', 'varchar', 'text', 0, '', '', 'form-control', '', 'null'),
+(10, 100, 'fDeathDate', 'تاريخ وفاة الأب', 'تاريخ وفاة الأب', 'date', 'date', 0, '', '', 'form-control', '', 'null'),
+(11, 110, 'fDeathReason', 'سبب وفاة الأب', 'سبب وفاة الأب', 'varchar', 'text', 0, '', '', 'form-control', '', 'null'),
+(12, 120, 'yEduLevel', 'المستوى التعليمي', 'المستوى التعليمي', 'varchar', 'text', 0, '', '', 'form-control', '', 'null'),
+(13, 130, 'yEduClass', 'الصف الدراسي', 'الصف الدراسي', 'varchar', 'text', 0, '', '', 'form-control', '', 'null'),
+(14, 140, 'yEduSchoolName', 'اسم المدرسة', 'اسم المدرسة', 'varchar', 'text', 0, '', '', 'form-control', '', 'null'),
+(16, 160, 'yEduNoEduReason', 'سبب الانقاطع عن التعليم [ في حال الانقطاع ]', 'سبب الانقاطع عن التعليم', 'text', 'textarea', 0, '', '', 'form-control', '', 'null'),
+(17, 170, 'yHealthStatus', 'الحالة الصحية', 'الحالة الصحية', 'varchar', 'text', 0, '', '', 'form-control', '', 'null'),
+(18, 180, 'yHealthSickness', 'بيان المرض [ إن وجد ]', 'بيان المرض', 'text', 'textarea', 0, '', '', 'form-control', '', 'null'),
+(19, 190, 'yQuranLevel', 'مقدار الحفظ من القرآن', 'مقدار الحفظ من القرآن', 'varchar', 'text', 0, '', '', 'form-control', '', 'null'),
+(20, 200, 'yQuranSchool', 'اسم مدرسة التحفيظ', 'اسم مدرسة التحفيظ', 'varchar', 'text', 0, '', '', 'form-control', '', 'null'),
+(22, 220, 'rName', 'اسم الوصي', 'اسم الوصي', 'varchar', 'text', 0, '', '', 'form-control', '', 'null'),
+(24, 240, 'rDateOfBirth', 'تاريخ ميلاد الوصي', 'ميلاد الوصي', 'date', 'date', 0, '', '', 'form-control', '', 'null'),
+(25, 250, 'rRelation', 'صلة قرابة الوصي باليتيم', 'صلة قرابة الوصي باليتيم', 'varchar', 'text', 0, '', '', 'form-control', '', 'null'),
+(26, 260, 'rMobile', 'رقم موبايل الوصي', 'رقم موبايل الوصي', 'varchar', 'text', 0, '', '', 'form-control', '', 'null'),
+(27, 270, 'rMobilePerson', 'صاحب الموبايل (مسجل باسم من)', 'صاحب الموبايل (مسجل باسم من)', 'varchar', 'text', 0, '', '', 'form-control', '', 'null'),
+(28, 280, 'rWorkName', 'جهة عمل الوصي', 'جهة عمل الوصي', 'varchar', 'text', 0, '', '', 'form-control', '', 'null'),
+(32, 310, 'mName', 'اسم الأم', 'اسم الأم', 'varchar', 'text', 0, '', '', 'form-control', '', 'null'),
+(35, 350, 'mWork', 'عمل الأم [ إن وجد ]', 'عمل الأم [ إن وجد ]', 'varchar', 'text', 0, '', '', 'form-control', '', 'null'),
+(39, 390, 'fAddress', 'عنوان سكن الأسرة', 'عنوان سكن الأسرة', 'varchar', 'text', 0, '', '', 'form-control', '', 'null'),
+(43, 430, 'sOpinion', 'رأي الإدارة المعنية [ المختص ]', 'رأي الإدارة المعنية [ المختص ]', 'text', 'textarea', 0, '', '', 'form-control', '', 'null'),
+(47, 470, 'idName', 'اسم المعرف', 'اسم المعرف', 'varchar', 'text', 0, '', '', 'form-control', '', 'null'),
+(48, 480, 'idMobile', 'رقم موبايل المعرف', 'رقم موبايل المعرف', 'varchar', 'text', 0, '', '', 'form-control', '', 'null'),
+(49, 490, 'idAddress', 'عنوان سكن المعرف', 'عنوان سكن المعرف', 'varchar', 'text', 0, '', '', 'form-control', '', 'null'),
+(50, 320, 'mIDCard', 'رقم هوية الأم', 'رقم هوية الأم', 'varchar', 'text', 0, '', '', 'form-control', '', 'null'),
+(51, 300, 'rIDCard', 'رقم هوية الوصي', 'رقم هوية الوصي', 'varchar', 'text', 0, '', '', 'form-control', '', 'null'),
+(59, 590, 'kafalahEndreason', 'سبب انتهاء الكفالة', 'سبب انتهاء الكفالة', 'text', 'textarea', 0, '', '', 'form-control', '', 'null'),
+(62, 10, 'DateOfEntry', 'تاريخ الادخال', 'تاريخ الادخال', 'date', 'date', 1, '', '', 'form-control', '', '{\"\":\"\"}'),
+(64, 30, 'ySex', 'جنس اليتيم', 'جنس اليتيم', 'varchar', 'dropdown', 0, '', '', 'form-control', '', '{\"male\":\"\\u0630\\u0643\\u0631\",\"female\":\"\\u0623\\u0646\\u062b\\u0649\"}'),
+(65, 90, 'yRankInFamily', 'ترتيب اليتيم بين اخوانه واخواته [ من الأكبر الى الأصغر ]', 'ترتيب اليتيم', 'int', 'number', 0, '', '', 'form-control', '', '{\"\":\"\"}'),
+(66, 150, 'YEduSchoolPhone', 'رقم هاتف المدرسة', 'رقم هاتف المدرسة', 'int', 'number', 0, '', '', 'form-control', '', '{\"\":\"\"}'),
+(67, 230, 'rSex', 'جنس الوصي', 'جنس الوصي', 'varchar', 'dropdown', 0, '', '', 'form-control', '', '{\"male\":\"\\u0630\\u0643\\u0631\",\"female\":\"\\u0623\\u0646\\u062b\\u0649\"}'),
+(68, 290, 'rWorkType', 'نوع العمل', 'نوع العمل', 'varchar', 'dropdown', 0, '', '', 'form-control', '', '{\"gov\":\"\\u062d\\u0643\\u0648\\u0645\\u064a\",\"special\":\"\\u062e\\u0627\\u0635\",\"charity\":\"\\u062e\\u064a\\u0631\\u064a\",\"free\":\"\\u062d\\u0631\",\"none\":\"\\u0644\\u0627 \\u064a\\u0648\\u062c\\u062f\"}'),
+(69, 360, 'fNumberOfBrothers', 'عدد الاخوة والأخوات', 'عدد الاخوة والأخوات', 'int', 'number', 0, '', '', 'form-control', '', '{\"\":\"\"}'),
+(70, 370, 'fRankInFamily', 'ترتيب اليتيم بين اخوانه واخواته [ من الأكبر الى الأصغر ]', 'ترتيب اليتيم', 'int', 'number', 0, '', '', 'form-control', '', '{\"\":\"\"}'),
+(71, 410, 'fFinanceSalary', 'الدخل الشهري للأسرة', 'الدخل الشهري للأسرة', 'money', 'money', 0, '', '', 'form-control', '', '{\"\":\"\"}'),
+(72, 420, 'fFinanceSource', 'مصدر الدخل للأسرة', 'مصدر الدخل للأسرة', 'text', 'checkbox', 0, '', '', 'form-control', '', '{\"mSalary\":\"\\u0631\\u0627\\u062a\\u0628 \\u0634\\u0647\\u0631\\u064a\",\"mHelps\":\"\\u0645\\u0633\\u0627\\u0639\\u062f\\u0627\\u062a \\u0634\\u0647\\u0631\\u064a\\u0629\",\"other\":\"\\u0645\\u0635\\u0627\\u062f\\u0631 \\u0623\\u062e\\u0631\\u0649\"}'),
+(73, 530, 'kafalahID', 'رقم الكفالة', 'رقم الكفالة', 'int', 'number', 0, '', '', 'form-control', '', '{\"\":\"\"}'),
+(74, 540, 'kafalahAmount', 'مبلغ الكفالة لليتيم', 'مبلغ الكفالة لليتيم', 'money', 'money', 0, '', '', 'form-control', '', '{\"\":\"\"}'),
+(75, 570, 'kafalahStartDate', 'تاريخ بدء الكفالة لليتيم', 'تاريخ بدء الكفالة لليتيم', 'date', 'date', 0, '', '', 'form-control', '', '{\"\":\"\"}'),
+(76, 580, 'kafalahEndDate', 'تاريخ انتهاء الكفالة لليتيم', 'تاريخ انتهاء الكفالة لليتيم', 'date', 'date', 0, '', '', 'form-control', '', '{\"\":\"\"}'),
+(77, 75, 'cityName', 'المدينة / المحافظة', 'المدينة', 'varchar', 'dropdown', 0, '', '', 'form-control', '', '{\"sanaa\":\"\\u0635\\u0646\\u0639\\u0627\\u0621\",\"aden\":\"\\u0639\\u062f\\u0646\",\"ibb\":\"\\u0625\\u0628\",\"taiz\":\"\\u062a\\u0639\\u0632\",\"mareb\":\"\\u0645\\u0627\\u0631\\u0628\"}'),
+(78, 600, 'yState', 'حالة اليتيم', 'حالة اليتيم', 'varchar', 'dropdown', 0, '', '', 'form-control', '', '{\"\\u0644\\u0627\\u0633\\u062a\\u0643\\u0645\\u0627\\u0644 \\u0627\\u0644\\u0628\\u064a\\u0627\\u0646\\u0627\\u062a\":\"\\u0644\\u0627\\u0633\\u062a\\u0643\\u0645\\u0627\\u0644 \\u0627\\u0644\\u0628\\u064a\\u0627\\u0646\\u0627\\u062a\",\"\\u0644\\u0644\\u062a\\u0633\\u0648\\u064a\\u0642\":\"\\u0644\\u0644\\u062a\\u0633\\u0648\\u064a\\u0642\",\"\\u0645\\u0643\\u0641\\u0648\\u0644\":\"\\u0645\\u0643\\u0641\\u0648\\u0644\",\"\\u0643\\u0641\\u0627\\u0644\\u0629 \\u0645\\u0646\\u062a\\u0647\\u064a\\u0629\":\"\\u0643\\u0641\\u0627\\u0644\\u0629 \\u0645\\u0646\\u062a\\u0647\\u064a\\u0629\"}'),
+(79, 550, 'kafalahCurrency', 'عملة الكفالة', 'عملة الكفالة', 'varchar', 'dropdown', 0, '', '', 'form-control', '', '{\"yer\":\"\\u0631\\u064a\\u0627\\u0644 \\u064a\\u0645\\u0646\\u064a\",\"usd\":\"\\u062f\\u0648\\u0644\\u0627\\u0631 \\u0623\\u0645\\u0631\\u064a\\u0643\\u064a\",\"sar\":\"\\u0631\\u064a\\u0627\\u0644 \\u0633\\u0639\\u0648\\u062f\\u064a\",\"qar\":\"\\u0631\\u064a\\u0627\\u0644 \\u0642\\u0637\\u0631\\u064a\"}'),
+(80, 330, 'mAlive', 'هل الأم على قيد الحياة', 'هل الأم على قيد الحياة', 'varchar', 'radio', 0, '', '', 'form-control', '', '{\"yes\":\"\\u0646\\u0639\\u0645\",\"no\":\"\\u0644\\u0627\"}'),
+(81, 340, 'mStatus', 'حالة الأم الاجتماعية', 'حالة الأم', 'varchar', 'dropdown', 0, '', '', 'form-control', '', '{\"widow\":\"\\u0623\\u0631\\u0645\\u0644\\u0629\",\"married\":\"\\u0645\\u062a\\u0632\\u0648\\u062c\\u0629\"}'),
+(82, 400, 'fFinanceStatus', 'الوضع المادي للأسرة', 'الوضع المادي للأسرة', 'varchar', 'dropdown', 0, '', '', 'form-control', '', '{\"meduim\":\"\\u0645\\u062a\\u0648\\u0633\\u0637\",\"poor\":\"\\u0641\\u0642\\u064a\\u0631\\u0629\",\"verypoor\":\"\\u0645\\u0639\\u062f\\u0645\\u0629\"}'),
+(83, 380, 'fHomeType', 'نوع السكن', 'نوع السكن', 'varchar', 'dropdown', 0, '', '', 'form-control', '', '{\"owner\":\"\\u0645\\u0644\\u0643\",\"rent\":\"\\u0627\\u064a\\u062c\\u0627\\u0631\"}');
 
 -- --------------------------------------------------------
 
@@ -2608,15 +2656,15 @@ ALTER TABLE `us_user_sessions`
   ADD PRIMARY KEY (`kUserSessionID`);
 
 --
--- Indexes for table `yayateeminfo01`
+-- Indexes for table `yayateeminfo1`
 --
-ALTER TABLE `yayateeminfo01`
+ALTER TABLE `yayateeminfo1`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `yayateeminfo01_form`
+-- Indexes for table `yayateeminfo1_form`
 --
-ALTER TABLE `yayateeminfo01_form`
+ALTER TABLE `yayateeminfo1_form`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2885,7 +2933,7 @@ ALTER TABLE `keys`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 
 --
 -- AUTO_INCREMENT for table `logs_exempt`
@@ -2921,7 +2969,7 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
 -- AUTO_INCREMENT for table `permissions`
@@ -2933,7 +2981,7 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `permission_page_matches`
 --
 ALTER TABLE `permission_page_matches`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT for table `profiles`
@@ -2969,7 +3017,7 @@ ALTER TABLE `users_online`
 -- AUTO_INCREMENT for table `users_session`
 --
 ALTER TABLE `users_session`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user_permission_matches`
@@ -2999,7 +3047,7 @@ ALTER TABLE `us_fingerprint_assets`
 -- AUTO_INCREMENT for table `us_forms`
 --
 ALTER TABLE `us_forms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `us_form_validation`
@@ -3011,7 +3059,7 @@ ALTER TABLE `us_form_validation`
 -- AUTO_INCREMENT for table `us_form_views`
 --
 ALTER TABLE `us_form_views`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `us_ip_blacklist`
@@ -3068,16 +3116,16 @@ ALTER TABLE `us_user_sessions`
   MODIFY `kUserSessionID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `yayateeminfo01`
+-- AUTO_INCREMENT for table `yayateeminfo1`
 --
-ALTER TABLE `yayateeminfo01`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `yayateeminfo1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT for table `yayateeminfo01_form`
+-- AUTO_INCREMENT for table `yayateeminfo1_form`
 --
-ALTER TABLE `yayateeminfo01_form`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+ALTER TABLE `yayateeminfo1_form`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- AUTO_INCREMENT for table `ya_kafalahinfo_01`
