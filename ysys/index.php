@@ -16,6 +16,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/template/prep.php';
 		<a class="btn btn-info" href="yateem_addnew.php">إضافة يتيم</a>
 		<a class="btn btn-info" href="yateem_addnew.php">إضافة يتيم</a>
 		<a class="btn btn-info" href="yateem_addnew.php">إضافة يتيم</a>
+		
 	</div>
 	<br>
 	<?php
@@ -28,5 +29,4 @@ require_once $abs_us_root.$us_url_root.'users/includes/template/prep.php';
 
 
 <!-- footers -->
-
 <?php require_once $abs_us_root . $us_url_root . 'users/includes/html_footer.php'; ?>

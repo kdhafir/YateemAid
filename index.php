@@ -51,31 +51,11 @@ $counAytam = $aytamQ->count();
 		<a class="btn btn-info" href="ysys/yateem_addnew.php">إضافة يتيم</a>&nbsp;
 		<button class="btn btn-info" type="submit">كفالة المحدد</button>
 		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-		<select name="" id="" class="form-control col-md-2">
-			<option disabled="" selected="">--اختر كافل--</option>
-			<option value="1">فاعل خير</option>
-			<option value="2">كافل يتيم</option>
-			<option value="3">تجربة</option>
-		</select>
-		&nbsp;
-		<select name="" id="" class="form-control col-md-2">
-			<option disabled="" selected="">--اختر كفالة--</option>
-			<option value="1">فاعل خير</option>
-			<option value="2">كافل يتيم</option>
-			<option value="3">تجربة</option>
-		</select>
-		&nbsp;
-		<select name="" id="" class="form-control col-md-2">
-			<option disabled="" selected="">--اختر محافظة--</option>
-			<option value="1">فاعل خير</option>
-			<option value="2">كافل يتيم</option>
-			<option value="3">تجربة</option>
-		</select>
-		&nbsp;
-		<a class="btn btn-info" href="yateem_addnew.php">فرز</a>
+		<input class="form-control col-md-4" type="text" id="searchInput" onkeyup="searchtable()" placeholder="بحث وفرز" style="text-align: center;">
+		
 	</div>
 	<br>
-	<table class="table table-striped">
+	<table class="table table-striped" id="searchTable">
 	
 	<thead class="thead-light">
 	<tr>
@@ -159,6 +139,41 @@ if($counAytam > 0){
 </div>
 
 <!-- Place any per-page javascript here -->
+<script>
+function searchtable() {
+    // Declare variables 
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("searchInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("searchTable");
+    tr = table.getElementsByTagName("tr");
+    // number of columns 
+    var cols = 7;
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+        //loop through table columns
+        for(j = 0; j < cols; j++){
+            //td = tr[i].getElementsByTagName("td")[colname];
+            td = tr[i].getElementsByTagName("td")[j];
+            if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                    break;
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+}
+function submitdelete() {
+     var confirmdel = confirm('هل أنت متأكد من أنك تريد حذف الأسماء المحددة ؟');
+    if(confirmdel){
+        document.getElementById("control").value = "delete"; 
+        document.getElementById("contacttablefrm").submit(); 
+    }
+}
 
+</script>
 
 <?php require_once $abs_us_root . $us_url_root . 'users/includes/html_footer.php'; ?>
