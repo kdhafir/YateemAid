@@ -7,6 +7,10 @@ require_once '../users/init.php';
 if (!securePage($_SERVER['PHP_SELF'])){die();}
 require_once $abs_us_root.$us_url_root.'users/includes/template/prep.php';
 
+// Processing Form
+if(!empty($_POST)){
+    processForm();
+    }
 //$aytamQ = $db->query("SELECT * FROM `yy_yateem_main_info` ORDER BY id DESC");
 //$counAytam = $aytamQ->count();
 
@@ -28,12 +32,13 @@ require_once $abs_us_root.$us_url_root.'users/includes/template/prep.php';
     <hr>
     <?php
     $options = array(
-        'submit'=>'حفظ البيانات', //If you want a custom submit button you must do 'submit'=>something. This doubles as the field name
+        'submit'=>'submit', //If you want a custom submit button you must do 'submit'=>something. This doubles as the field name
         'class'=>'btn btn-success',
-        'value'=>'This is the submit button',
+        'value'=>'حفظ البيانات',
         );
+        displayForm('yayateeminfo1',$options);
         //displayForm('yayateeminfo01',$options);
-        fb_displayform('ya_yateeminfo_01',$options);
+        //fb_displayform('ya_yateeminfo_01',$options);
     ?>
     <br><br><br><br>
     </div>

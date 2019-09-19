@@ -34,7 +34,7 @@ function getOptions($option,$optionID){
 		return $db->first()->yState;
 	}
 }
-$aytamQ = $db->query("SELECT * FROM `ya_yateeminfo_01` ORDER BY id DESC");
+$aytamQ = $db->query("SELECT * FROM `yayateeminfo1` ORDER BY id DESC");
 $counAytam = $aytamQ->count();
 
 ?>
@@ -100,14 +100,14 @@ if($counAytam > 0){
 		<td><input type="checkbox" class="form-check-input" name="ycode" value="<?php echo $ar->id; ?>"></td>
 		<td><a href="./ysys/yateem_viewyateem.php?ycode=<?php echo $ar->id; ?>"><?php echo $ar->yName; ?></a></td>
 		<td>
-		المدينة: <?php echo getOptions("city",$ar->cityName); ?><br>
+		المدينة: <?php echo $ar->cityName;// getOptions("city",$ar->cityName); ?><br>
 		<?php echo $ar->yAddress; ?>
 		</td>
-		<td><?php echo getOptions("yState",$ar->yState); ?></td>
+		<td><?php echo $ar->yState;//echo getOptions("yState",$ar->yState); ?></td>
 		<td><?php echo getKafil($ar->kafalahID); ?></td>
 		<td>
 		رقم: <?php echo $ar->kafalahID; ?> <br>
-		<?php echo getOptions("kafalahLable",$ar->kafalahID); ?> <br>
+		<?php echo $ar->kafalahID;// getOptions("kafalahLable",$ar->kafalahID); ?> <br>
 		مبلغ: <?php echo $ar->kafalahAmountY; ?> <br>
 		</td>
 		<td></td>
