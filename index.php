@@ -48,11 +48,10 @@ $counAytam = $aytamQ->count();
 	<br>
 	<form>
 	<div class="d-flex justify-content-start bg-secondary">
-		<a class="btn btn-info" href="ysys/yateem_addnew.php">إضافة يتيم</a>&nbsp;
+		<a class="btn btn-info" href="ysys/yateem_addnew_01.php">إضافة يتيم</a>&nbsp;
 		<button class="btn btn-info" type="submit">كفالة المحدد</button>
 		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 		<input class="form-control col-md-4" type="text" id="searchInput" onkeyup="searchtable()" placeholder="بحث وفرز" style="text-align: center;">
-		
 	</div>
 	<br>
 	<table class="table table-striped" id="searchTable">
