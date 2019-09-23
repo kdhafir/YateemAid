@@ -1,147 +1,225 @@
-# Plupload
+# jQuery File Upload
 
-Plupload is a cross-browser multi-runtime file uploading API. Basically, a set of tools that will help you to 
-build a reliable and visually appealing file uploader in minutes.
+## Contents
 
-Historically, Plupload comes from a dark and hostile age of no HTML5, hence all the alternative fallbacks, 
-like Flash, Silverlight and Java (still in development). It is meant to provide an API, that 
-will work anywhere and in any case, in one way or another. While having very solid fallbacks, Plupload 
-is built with the future of HTML5 in mind.
+- [Description](#description)
+- [Demo](#demo)
+- [Features](#features)
+- [Security](#security)
+- [Setup](#setup)
+- [Requirements](#requirements)
+  - [Mandatory requirements](#mandatory-requirements)
+  - [Optional requirements](#optional-requirements)
+  - [Cross-domain requirements](#cross-domain-requirements)
+- [Browsers](#browsers)
+  - [Desktop browsers](#desktop-browsers)
+  - [Mobile browsers](#mobile-browsers)
+  - [Extended browser support information](#extended-browser-support-information)
+- [Testing](#testing)
+- [Support](#support)
+- [License](#license)
 
-### Table of Contents
-* [Backstory](#backstory)
-* [Structure](#structure)
-  * [File API and XHR L2 pollyfills](https://github.com/moxiecode/moxie/blob/master/README.md)
-  * [Plupload API](https://github.com/moxiecode/plupload/wiki/API)
-  * [UI Widget](https://github.com/moxiecode/plupload/wiki/UI.Plupload)
-  * [Queue Widget](https://github.com/moxiecode/plupload/wiki/pluploadQueue)
-* [Demos](https://github.com/jayarjo/plupload-demos/blob/master/README.md)
-* [Building Instructions](#build)
-* [Getting Started](https://github.com/moxiecode/plupload/wiki/Getting-Started)
-  * [Options](https://github.com/moxiecode/plupload/wiki/Options)
-  * [Events](https://github.com/moxiecode/plupload/wiki/Uploader#wiki-events)
-  * [Methods](https://github.com/moxiecode/plupload/wiki/Uploader#wiki-methods)
-  * [Plupload in Your Language](https://github.com/moxiecode/plupload/wiki/Plupload-in-Your-Language)
-  * [File Filters](https://github.com/moxiecode/plupload/wiki/File-Filters) 
-  * [Image Resizing on Client-Side](https://github.com/moxiecode/plupload/wiki/Image-Resizing-on-Client-Side) 
-  * [Chunking](https://github.com/moxiecode/plupload/wiki/Chunking) 
-  * [Upload to Amazon S3](https://github.com/moxiecode/plupload/wiki/Upload-to-Amazon-S3) 
-* [FAQ](https://github.com/moxiecode/plupload/wiki/Frequently-Asked-Questions)
-* [Support](#support)
-  * [Create a Fiddle](https://github.com/moxiecode/plupload/wiki/Create-a-Fiddle)
-* [Contributing](#contribute)
-* [License](#license)
-* [Contact Us](http://www.moxiecode.com/contact.php)
+## Description
 
-<a name="backstory"></a>
-### Backstory
+> File Upload widget with multiple file selection, drag&amp;drop support,
+> progress bars, validation and preview images, audio and video for jQuery.  
+> Supports cross-domain, chunked and resumable file uploads and client-side
+> image resizing.  
+> Works with any server-side platform (PHP, Python, Ruby on Rails, Java,
+> Node.js, Go etc.) that supports standard HTML form file uploads.
 
-Plupload started in a time when uploading a file in a responsive and customizable manner was a real pain. 
-Internally, browsers only had the `input[type="file"]` element. It was ugly and clunky at the same time. 
-One couldn't even change it's visuals, without hiding it and coding another one on top of it from scratch. 
-And then there was no progress indication for the upload process... Sounds pretty crazy today.
+## Demo
 
-It was very logical for developers to look for alternatives and writing their own implementations, using 
-Flash and Java, in order to somehow extend limited browser capabilities. And so did we, in our search for 
-a reliable and flexible file uploader for 
-our [TinyMCE](http://www.tinymce.com/index.php)'s
-[MCImageManager](http://www.tinymce.com/enterprise/mcimagemanager.php). 
+[Demo File Upload](https://blueimp.github.io/jQuery-File-Upload/)
 
-Quickly enough though, Plupload grew big.  It easily split into a standalone project. 
-With major *version 2.0* it underwent another huge reconstruction, basically 
-[from the ground up](http://blog.moxiecode.com/2012/11/28/first-public-beta-plupload-2/), 
-as all the low-level runtime logic has been extracted into separate [File API](http://www.w3.org/TR/FileAPI/) 
-and [XHR L2](http://www.w3.org/TR/XMLHttpRequest/) pollyfills (currently known under combined name of [mOxie](https://github.com/moxiecode/moxie)), 
-giving Plupload a chance to evolve further.
+## Features
 
-<a name="structure"></a>
-### Structure
+- **Multiple file upload:**  
+  Allows to select multiple files at once and upload them simultaneously.
+- **Drag & Drop support:**  
+  Allows to upload files by dragging them from your desktop or file manager and
+  dropping them on your browser window.
+- **Upload progress bar:**  
+  Shows a progress bar indicating the upload progress for individual files and
+  for all uploads combined.
+- **Cancelable uploads:**  
+  Individual file uploads can be canceled to stop the upload progress.
+- **Resumable uploads:**  
+  Aborted uploads can be resumed with browsers supporting the Blob API.
+- **Chunked uploads:**  
+  Large files can be uploaded in smaller chunks with browsers supporting the
+  Blob API.
+- **Client-side image resizing:**  
+  Images can be automatically resized on client-side with browsers supporting
+  the required JS APIs.
+- **Preview images, audio and video:**  
+  A preview of image, audio and video files can be displayed before uploading
+  with browsers supporting the required APIs.
+- **No browser plugins (e.g. Adobe Flash) required:**  
+  The implementation is based on open standards like HTML5 and JavaScript and
+  requires no additional browser plugins.
+- **Graceful fallback for legacy browsers:**  
+  Uploads files via XMLHttpRequests if supported and uses iframes as fallback
+  for legacy browsers.
+- **HTML file upload form fallback:**  
+  Allows progressive enhancement by using a standard HTML file upload form as
+  widget element.
+- **Cross-site file uploads:**  
+  Supports uploading files to a different domain with cross-site XMLHttpRequests
+  or iframe redirects.
+- **Multiple plugin instances:**  
+  Allows to use multiple plugin instances on the same webpage.
+- **Customizable and extensible:**  
+  Provides an API to set individual options and define callback methods for
+  various upload events.
+- **Multipart and file contents stream uploads:**  
+  Files can be uploaded as standard "multipart/form-data" or file contents
+  stream (HTTP PUT file upload).
+- **Compatible with any server-side application platform:**  
+  Works with any server-side platform (PHP, Python, Ruby on Rails, Java,
+  Node.js, Go etc.) that supports standard HTML form file uploads.
 
-Currently, Plupload may be considered as consisting of three parts: low-level pollyfills, 
-Plupload API and Widgets (UI and Queue). Initially, Widgets were meant only to serve as examples 
-of the API, but quickly formed into fully-functional API implementations that now come bundled with 
-the Plupload API. This has been a source for multiple misconceptions about the API as Widgets were 
-easily mistaken for the Plupload itself. They are only implementations, such as any of you can 
-build by yourself out of the API.
+## Security
 
-* [Low-level pollyfills (mOxie)](https://github.com/moxiecode/moxie) - have their own [code base](https://github.com/moxiecode/moxie) and [documentation](https://github.com/moxiecode/moxie/wiki) on GitHub.
-* [Plupload API](https://github.com/moxiecode/plupload/wiki/API)
-* [UI Widget](https://github.com/moxiecode/plupload/wiki/UI.Plupload)
-* [Queue Widget](https://github.com/moxiecode/plupload/wiki/pluploadQueue)
+⚠️ Please read the [VULNERABILITIES](VULNERABILITIES.md) document for a list of
+fixed vulnerabilities
 
-<a name="build"></a>
-### Building instructions
+Please also read the [SECURITY](SECURITY.md) document for instructions on how to
+securely configure your Webserver for file uploads.
 
-Plupload depends on File API and XHR2 L2 pollyfills that currently have their 
-[own repository](https://github.com/moxiecode/moxie) on GitHub. However, in most cases you shouldn't 
-care as we bundle the latest build of mOxie, including full and minified JavaScript source and 
-pre-compiled `SWF` and `XAP` components, with [every release](https://github.com/moxiecode/plupload/releases). You can find everything you may need under `js/` folder.
+## Setup
 
-There are cases where you might need a custom build, for example free of unnecessary runtimes, half the 
-original size, etc. The difficult part of this task comes from mOxie and its set of additional runtimes 
-that require special tools on your workstation in order to compile. 
-Consider [build instructions for mOxie](https://github.com/moxiecode/moxie#build-instructions) - 
-everything applies to Plupload as well.
+jQuery File Upload can be installed via [NPM](https://www.npmjs.com/):
 
-First of all, if you want to build custom Plupload packages you will require [Node.js](http://nodejs.org/), 
-as this is our build environment of choice. Node.js binaries (as well as Source)
-[are available](http://nodejs.org/download/) for all major operating systems.
-
-Plupload includes _mOxie_ as a submodule, it also depends on some other repositories for building up it's dev
-environment - to avoid necessity of downloading them one by one, we recommended you to simply clone Plupload 
-with [git](http://git-scm.com/) recursively (you will require git installed on your system for this operation 
-to succeed):
-
+```sh
+npm install blueimp-file-upload
 ```
-git clone --recursive https://github.com/moxiecode/plupload.git
+
+This allows you to include [jquery.fileupload.js](js/jquery.fileupload.js) and
+its extensions via `node_modules`, e.g:
+
+```html
+<script src="node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
 ```
 
-And finalize the preparation stage with: `npm install` - this will install all additional modules, including those
-required by dev and test environments. In case you would rather keep it minimal, add a `--production` flag.
+The widget can then be initialized on a file upload form the following way:
 
-*Note:* Currently, for an unknown reason, locally installed Node.js modules on Windows, may not be automatically 
-added to the system PATH. So, if `jake` commands below are not recognized you will need to add them manually:
-
+```js
+$('#fileupload').fileupload();
 ```
-set PATH=%PATH%;%CD%\node_modules\.bin\
-``` 
 
-<a name="support"></a>
-### Support
+For further information, please refer to the following guides:
 
-We are actively standing behind the Plupload and now that we are done with major rewrites and refactoring,
-the only real goal that we have ahead is making it as reliable and bulletproof as possible. We are open to 
-all the suggestions and feature requests. We ask you to file bug reports if you encounter any. We may not 
-react to them instantly, but we constantly bear them in my mind as we extend the code base.
+- [Main documentation page](https://github.com/blueimp/jQuery-File-Upload/wiki)
+- [List of all available Options](https://github.com/blueimp/jQuery-File-Upload/wiki/Options)
+- [The plugin API](https://github.com/blueimp/jQuery-File-Upload/wiki/API)
+- [How to setup the plugin on your website](https://github.com/blueimp/jQuery-File-Upload/wiki/Setup)
+- [How to use only the basic plugin.](https://github.com/blueimp/jQuery-File-Upload/wiki/Basic-plugin)
 
-In addition to dedicated support for those who dare to buy our OEM licenses, we got 
-[discussion boards](http://www.plupload.com/punbb/index.php), which is like an enormous FAQ, 
-covering every possible application case. Of course, you are welcome to file a bug report or feature request, 
-here on [GitHub](https://github.com/moxiecode/plupload/issues).
+## Requirements
 
-Sometimes it is easier to notice the problem when bug report is accompained by the actual code. Consider providing 
-[a Plupload fiddle](https://github.com/moxiecode/plupload/wiki/Create-a-Fiddle) for the troublesome code.
+### Mandatory requirements
 
-<a name="contribute"></a>
-### Contributing
+- [jQuery](https://jquery.com/) v1.6+
+- [jQuery UI widget factory](https://api.jqueryui.com/jQuery.widget/) v1.9+
+  (included): Required for the basic File Upload plugin, but very lightweight
+  without any other dependencies from the jQuery UI suite.
+- [jQuery Iframe Transport plugin](https://github.com/blueimp/jQuery-File-Upload/blob/master/js/jquery.iframe-transport.js)
+  (included): Required for
+  [browsers without XHR file upload support](https://github.com/blueimp/jQuery-File-Upload/wiki/Browser-support).
 
-We are open to suggestions and code revisions, however there are some rules and limitations that you might 
-want to consider first.
+### Optional requirements
 
-* Code that you contribute will automatically be licensed under the LGPL, but will not be limited to LGPL.
-* Although all contributors will get the credit for their work, copyright notices will be changed to [Moxiecode Systems AB](http://www.moxiecode.com/).
-* Third party code will be reviewed, tested and possibly modified before being released.
+- [JavaScript Templates engine](https://github.com/blueimp/JavaScript-Templates)
+  v3+: Used to render the selected and uploaded files for the Basic Plus UI and
+  jQuery UI versions.
+- [JavaScript Load Image library](https://github.com/blueimp/JavaScript-Load-Image)
+  v2+: Required for the image previews and resizing functionality.
+- [JavaScript Canvas to Blob polyfill](https://github.com/blueimp/JavaScript-Canvas-to-Blob)
+  v3+:Required for the image previews and resizing functionality.
+- [blueimp Gallery](https://github.com/blueimp/Gallery) v2+: Used to display the
+  uploaded images in a lightbox.
+- [Bootstrap](https://getbootstrap.com/) v3+: Used for the demo design.
+- [Glyphicons](https://glyphicons.com/) Icon set used by Bootstrap.
 
-These basic rules help us earn a living and ensure that code remains Open Source and compatible with LGPL license. All contributions will be added to the changelog and appear in every release and on the site. 
+### Cross-domain requirements
 
-An easy place to start is to [translate Plupload to your language](https://github.com/moxiecode/plupload/wiki/Plupload-in-Your-Language#contribute).
+[Cross-domain File Uploads](https://github.com/blueimp/jQuery-File-Upload/wiki/Cross-domain-uploads)
+using the
+[Iframe Transport plugin](https://github.com/blueimp/jQuery-File-Upload/blob/master/js/jquery.iframe-transport.js)
+require a redirect back to the origin server to retrieve the upload results. The
+[example implementation](https://github.com/blueimp/jQuery-File-Upload/blob/master/js/main.js)
+makes use of
+[result.html](https://github.com/blueimp/jQuery-File-Upload/blob/master/cors/result.html)
+as a static redirect page for the origin server.
 
-You can read more about how to contribute at: [http://www.plupload.com/contributing](http://www.plupload.com/contributing)
+The repository also includes the
+[jQuery XDomainRequest Transport plugin](https://github.com/blueimp/jQuery-File-Upload/blob/master/js/cors/jquery.xdr-transport.js),
+which enables limited cross-domain AJAX requests in Microsoft Internet Explorer
+8 and 9 (IE 10 supports cross-domain XHR requests).  
+The XDomainRequest object allows GET and POST requests only and doesn't support
+file uploads. It is used on the
+[Demo](https://blueimp.github.io/jQuery-File-Upload/) to delete uploaded files
+from the cross-domain demo file upload service.
 
-<a name="license"></a>
-### License
+## Browsers
 
-Copyright 2013, [Moxiecode Systems AB](http://www.moxiecode.com/)  
-Released under [GPLv2 License](https://github.com/moxiecode/plupload/blob/master/license.txt).
+### Desktop browsers
 
-We also provide [commercial license](http://www.plupload.com/commercial.php).
+The File Upload plugin is regularly tested with the latest browser versions and
+supports the following minimal versions:
+
+- Google Chrome
+- Apple Safari 4.0+
+- Mozilla Firefox 3.0+
+- Opera 11.0+
+- Microsoft Internet Explorer 6.0+
+
+### Mobile browsers
+
+The File Upload plugin has been tested with and supports the following mobile
+browsers:
+
+- Apple Safari on iOS 6.0+
+- Google Chrome on iOS 6.0+
+- Google Chrome on Android 4.0+
+- Default Browser on Android 2.3+
+- Opera Mobile 12.0+
+
+### Extended browser support information
+
+For a detailed overview of the features supported by each browser version and
+known operating system / browser bugs, please have a look at the
+[Extended browser support information](https://github.com/blueimp/jQuery-File-Upload/wiki/Browser-support).
+
+## Testing
+
+The project comes with three sets of tests:
+
+1. Code linting using [ESLint](https://eslint.org/).
+2. Unit tests using [Mocha](https://mochajs.org/).
+3. End-to-end tests using [blueimp/wdio](https://github.com/blueimp/wdio).
+
+To run the tests, follow these steps:
+
+1. Start [Docker](https://docs.docker.com/).
+2. Install development dependencies:
+   ```sh
+   npm install
+   ```
+3. Run the tests:
+   ```sh
+   npm test
+   ```
+
+## Support
+
+This project is actively maintained, but there is no official support channel.  
+If you have a question that another developer might help you with, please post
+to
+[Stack Overflow](https://stackoverflow.com/questions/tagged/blueimp+jquery+file-upload)
+and tag your question with `blueimp jquery file upload`.
+
+## License
+
+Released under the [MIT license](https://opensource.org/licenses/MIT).
