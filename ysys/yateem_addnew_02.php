@@ -3,73 +3,30 @@
 /*
 Aytam Aid System - Open Source
 */
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 require_once '../users/init.php';
 if (!securePage($_SERVER['PHP_SELF'])){die();}
 require_once $abs_us_root.$us_url_root.'users/includes/template/prep.php';
-/*
-// Processing Form
-if(!empty($_POST)){
-    $response = preProcessForm();
-    if($response['form_valid'] == true){
-    //do something here after the form has been validated
-    //$goNext = $response['fields']['continueData'];
-    postProcessForm($response);
-    }
-}*/
-if(!empty($_POST)){
-    uploadYateemDocs();
-}
-function uploadYateemDocs(){
-$target_dir = "aytamattachments/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-// Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
-    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-    if($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".";
-        $uploadOk = 1;
-    } else {
-        echo "File is not an image.";
-        $uploadOk = 0;
-    }
-}
-// Check if file already exists
-if (file_exists($target_file)) {
-    echo "Sorry, file already exists.";
-    $uploadOk = 0;
-}
-// Check file size
-if ($_FILES["fileToUpload"]["size"] > 500000) {
-    echo "Sorry, your file is too large.";
-    $uploadOk = 0;
-}
-// Allow certain file formats
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-&& $imageFileType != "gif" ) {
-    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-    $uploadOk = 0;
-}
-// Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded.";
-// if everything is ok, try to upload file
-} else {
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-    } else {
-        echo "Sorry, there was an error uploading your file.";
-    }
-}
-}
-$goNext = Input::get('continueData');
-if($goNext){
-    Redirect::to("./yateem_addnew_02.php?ycode=");
-}else{
-        
-}
+require_once $abs_us_root.$us_url_root.'ysys/functions.php';
 
+$yCode = Input::get('ycode');
+if(!empty($_POST)){
+    $aType = Input::get('aType');
+    if(uploadYateemDocs($aType,$yCode)){
+        $uploadMsg = "تم رفع الصورة بنجاح";
+        
+        $yCertLink = "./aytamattachments/". $yCode . "_" . $aType . ".png";
+        $dbFieldName = "y". $aType . "Link";
+        $fields = array(
+            $dbFieldName   => $yCertLink,
+        );
+        $db->update('yayateeminfo1',$yCode,$fields);
+    }else{
+        $uploadMsg = "خطأ، لم يتم رفع الصورة";
+    }
+    Redirect::to("./yateem_addnew_02.php?ycode=". $yCode."&msg=" . $uploadMsg);
+}
 
 ?>
 
@@ -85,7 +42,7 @@ if($goNext){
     </div>
 	<div class="col-sm-12 col-md-9">
     <br>
-    <h2>رفع المرفقات الخاصة باليتيم</h2>
+    <h2>رفع المرفقات الخاصة باليتيم <?php echo getYateemName($yCode); ?></h2>
     <div class="row">
     <table class="table">
         <tr>
@@ -109,28 +66,51 @@ if($goNext){
         <tr>
             <td>شهادة الميلاد</td>
             <td>
-                <form class="" method="post" target="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
+                <?php
+                $yCertB = checkCertfield($yCode,"birthCert");
+                if($yCertB){
+                    echo "<a href=\"".$yCertB."\" target=\"_blank\"><img src=\"".$yCertB."\" height=\"50\" ></a>";
+                }else{
+                    ?>
+                
+                <form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
                 <div class="form-group row">
-                <input type="file" class="form-control-file col" name="birthCert">
+                <input type="hidden" name="aType" value="birthCert">
+                <input type="hidden" name="ycode" value="<?php echo $yCode; ?>">
+                <input type="file" class="form-control-file col" name="birthCert" id="birthCert"><!--birthCert-->
                 <input type="submit" class="btn btn-info col" value="رفع">
                 </div>
                 </form>
+                <?php
+                }
+                ?>
             </td>
         </tr>
         <tr>
             <td>شهادة وفاة الأب</td>
             <td>
-                <form class="" target="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
+            <?php
+                $yCertD = checkCertfield($yCode,"deathCert");
+                if($yCertD){
+                    echo "<a href=\"".$yCertD."\" target=\"_blank\"><img src=\"".$yCertD."\" height=\"50\" ></a>";
+                }else{
+                    ?>
+                <form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
                 <div class="form-group row">
+                <input type="hidden" name="aType" value="deathCert">
+                <input type="hidden" name="ycode" value="<?php echo $yCode; ?>">
                 <input type="file" class="form-control-file col" name="deathCert">
                 <input type="submit" class="btn btn-info col" value="رفع">
                 </div>
                 </form>
+                <?php
+                }
+                ?>
             </td>
         </tr>
         </tbody>
     </table>
-    
+    <a class="btn btn-primary" href="./yateem_addnew_03.php?ycode=<?php echo $yCode; ?>">التالي</a>
 </div>
 </div>
 

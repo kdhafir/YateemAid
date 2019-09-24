@@ -6,6 +6,7 @@ Aytam Aid System - Open Source
 require_once '../users/init.php';
 if (!securePage($_SERVER['PHP_SELF'])){die();}
 require_once $abs_us_root.$us_url_root.'users/includes/template/prep.php';
+require_once $abs_us_root.$us_url_root.'ysys/functions.php';
 
 // Processing Form
 if(!empty($_POST)){
@@ -16,13 +17,11 @@ if(!empty($_POST)){
     postProcessForm($response);
     }
 }
+$yCode = Input::get('ycode');
 $goNext = Input::get('continueData');
 if($goNext){
-    $lastID = $db->lastId();
-    Redirect::to("./yateem_addnew_02.php?ycode=". $lastID);
+    Redirect::to("./yateem_addnew_04.php?ycode=". $yCode);
 }
-//$aytamQ = $db->query("SELECT * FROM `yy_yateem_main_info` ORDER BY id DESC");
-//$counAytam = $aytamQ->count();
 
 ?>
 
