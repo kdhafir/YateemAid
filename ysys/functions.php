@@ -54,6 +54,8 @@ function checkCertfield($recordID,$feildToCheck){
     if($counCert){
         if($feildToCheck == "birthCert"){
             return $certQ->first()->yBirthCertLink;
+        }elseif($feildToCheck == "personalPhoto"){
+            return $certQ->first()->yPersonalPhotoLink;
         }else{
             return $certQ->first()->yDeathCertLink;
         }
@@ -72,5 +74,30 @@ function getYateemName($yateemID){
         return "غير معروف";
     }
 }
-
+function getFieldData($recordID,$fieldName){
+    $db = DB::getInstance();
+    $yFieldQ = $db->query("SELECT * FROM `yayateeminfo1` WHERE id = ?",[$recordID]);
+    return $yFieldQ->first()->$fieldName;
+}
+function buildYateemReport($recordID){
+    $db = DB::getInstance();
+    $formQ = $db->query("SELECT * FROM `yayateeminfo1_form` order by ord");
+    $counForm = $formQ->count();
+    $formR = $formQ->results();
+    foreach($formR as $rF){
+        echo "<div class=\"border bg-dark text-white col-md-2\">\n";
+        echo $rF->form_descrip;
+        echo "</div>\n";
+        echo "<div class=\"border bg-light col-md-4\">\n";
+        if($rF->special_field_type == "image"){
+            echo "<img src=\"";
+            echo getFieldData($recordID,$rF->col);
+            echo "\" height=\"50px\">";
+        }else{
+            echo getFieldData($recordID,$rF->col);
+        }
+        
+        echo "</div>\n";
+    }
+}
 ?>

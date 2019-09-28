@@ -64,6 +64,29 @@ if(!empty($_POST)){
         </thead>
         <tbody>
         <tr>
+            <td>صورة شخصية لليتيم</td>
+            <td>
+                <?php
+                $pPhoto = checkCertfield($yCode,"personalPhoto");
+                if($pPhoto){
+                    echo "<a href=\"".$pPhoto."\" target=\"_blank\"><img src=\"".$pPhoto."\" height=\"50\" ></a>";
+                }else{
+                    ?>
+                
+                <form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
+                <div class="form-group row">
+                <input type="hidden" name="aType" value="personalPhoto">
+                <input type="hidden" name="ycode" value="<?php echo $yCode; ?>">
+                <input type="file" class="form-control-file col" name="personalPhoto" id="personalPhoto"><!--birthCert-->
+                <input type="submit" class="btn btn-info col" value="رفع">
+                </div>
+                </form>
+                <?php
+                }
+                ?>
+            </td>
+        </tr>
+        <tr>
             <td>شهادة الميلاد</td>
             <td>
                 <?php

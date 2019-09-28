@@ -207,11 +207,12 @@ includeHook($hooks,'pre');
               </div>
 
               <div class="card no-padding">
-                <div class="card-header"><h3>Invisible Recaptcha</h3></div>
+                <div class="card-header"><h3>Invisible Recaptcha v3</h3></div>
                 <div class="card-body">
+
                   <!-- Recaptcha Option -->
                   <div class="form-group">
-                    <label for="recaptcha">Invisible Recaptcha <a href="#!" tabindex="-1" title="Note" data-trigger="focus" class="nounderline" data-toggle="popover" data-content="Use the Google Recaptcha to protect yourself from spam registrations and logins, and to verify the legitimacy of a users session. You can set this to Enabled for Registration and Logins, or just Registrations.Â Default: Disabled."><i class="fa fa-question-circle"></i></a></label>
+                    <label for="recaptcha">Invisible Recaptcha (requires v3 Keys from <a href="https://www.google.com/recaptcha">here.</a>) <a href="#!" tabindex="-1" title="Note" data-trigger="focus" class="nounderline" data-toggle="popover" data-content="Use the Google Recaptcha to protect yourself from spam registrations and logins, and to verify the legitimacy of a users session. You can set this to Enabled for Registration and Logins, or just Registrations. Default: Disabled."><i class="fa fa-question-circle"></i></a></label>
                     <select id="recaptcha" class="form-control ajxnum" data-desc="Invisible Recaptcha" name="recaptcha">
                       <option value="1" <?php if($settings->recaptcha==1) echo 'selected="selected"'; ?> >Enabled</option>
                       <option value="0" <?php if($settings->recaptcha==0) echo 'selected="selected"'; ?> >Disabled</option>

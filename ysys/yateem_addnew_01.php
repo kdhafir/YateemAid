@@ -52,7 +52,7 @@ if($goNext){
     </table>
     </div>
     
-    <form class="" action="/yateemAid/ysys/yateem_addnew_01.php" method="post">
+    <form class="" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
     <input type="hidden" name="csrf" value="<?php echo Token::generate(); ?>">
     <div class="row">
     <div class="form-group col-md-5">
@@ -190,25 +190,8 @@ if($goNext){
 </div>
     </div><!--end of div row-->
     <input type="hidden" name="form_name" value="yayateeminfo1">
-          </form>
-    <?php
-    /*
-    $options = array(
-        'noclose'=>1,
-        'submit'=>'submit', //If you want a custom submit button you must do 'submit'=>something. This doubles as the field name
-        'class'=>'btn btn-success',
-        'value'=>'حفظ البيانات',
-        
-        );*/
-        $options = ['noclose'=>1];
-        //displayView(1,$options);
-        //displayForm('yayateeminfo1',$options);
-        //displayForm('yayateeminfo01',$options);
-        //fb_displayform('ya_yateeminfo_01',$options);
-    ?>
-    
-    
-    <br><br><br><br>
+</form>
+<br><br>
     </div>
 
 </div>
