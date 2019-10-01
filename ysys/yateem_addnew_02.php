@@ -16,7 +16,7 @@ if(!empty($_POST)){
     if(uploadYateemDocs($aType,$yCode)){
         $uploadMsg = "تم رفع الصورة بنجاح";
         
-        $yCertLink = "./aytamattachments/". $yCode . "_" . $aType . ".png";
+        $yCertLink = "/aytamattachments/". $yCode . "_" . $aType . ".png";
         $dbFieldName = "y". $aType . "Link";
         $fields = array(
             $dbFieldName   => $yCertLink,
@@ -25,7 +25,7 @@ if(!empty($_POST)){
     }else{
         $uploadMsg = "خطأ، لم يتم رفع الصورة";
     }
-    Redirect::to("./yateem_addnew_02.php?ycode=". $yCode."&msg=" . $uploadMsg);
+    Redirect::to("/yateem_addnew_02.php?ycode=". $yCode."&msg=" . $uploadMsg);
 }
 
 ?>

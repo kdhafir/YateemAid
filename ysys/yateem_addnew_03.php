@@ -54,12 +54,12 @@
 		<div class="row">
 			<div class="form-group col-md-6">
 				<label class="" for="mName">اسم الأم</label>
-				<input type="text" name="mName" id="mName" class="form-control" value="">
+				<input type="text" name="mName" id="mName" class="form-control" value="<?php echo getFieldData($yCode,"mName"); ?>">
 				<!-- final div -->
 			</div>
 			<div class="form-group col-md-6">
 				<label class="" for="mIDCard">رقم هوية الأم</label>
-				<input type="text" name="mIDCard" id="mIDCard" class="form-control" value="">
+				<input type="text" name="mIDCard" id="mIDCard" class="form-control" value="<?php echo getFieldData($yCode,"mIDCard"); ?>">
 				<!-- final div -->
 			</div>
 		</div>
@@ -77,70 +77,60 @@
     <div class="row">
 		<div class="form-group col">
 			<label class="" for="mStatus">حالة الأم الاجتماعية</label>
-			<select name="mStatus" id="mStatus" class="form-control">
-				<option disabled="" selected="" value="">--Select One--</option>
-				<option value="widow">أرملة</option>
-				<option value="married">متزوجة</option>
-			</select>
+			<?php menuQuery("w",0,"ya_settings_mstate","mStatus","mStatus"); ?>
 			<!-- final div -->
     </div>
 		<div class="form-group col">
 			<label class="" for="mWork">عمل الأم [ إن وجد ]</label>
-			<input type="text" name="mWork" id="mWork" class="form-control" value="">
+			<input type="text" name="mWork" id="mWork" class="form-control" value="<?php echo getFieldData($yCode,"mWork"); ?>">
 			<!-- final div -->
     </div>
     </div><!--End of row-->
     <div class="row">
 		<div class="form-group col">
 			<label class="" for="fNumberOfBrothers">عدد الاخوة والأخوات</label>
-			<input type="number" step="1" name="fNumberOfBrothers" id="fNumberOfBrothers" class="form-control" value="">
+			<input type="number" step="1" name="fNumberOfBrothers" id="fNumberOfBrothers" class="form-control" value="<?php echo getFieldData($yCode,"fNumberOfBrothers"); ?>">
 			<!-- final div -->
 		</div>
 		<div class="form-group col">
-			<label class="" for="fRankInFamily">ترتيب اليتيم بين اخوانه واخواته [ من الأكبر الى الأصغر ]                  </label>
-			<input type="number" step="1" name="fRankInFamily" id="fRankInFamily" class="form-control" value="">
+			<label class="" for="fRankInFamily">ترتيب اليتيم بين اخوانه واخواته [ من الأكبر الى الأصغر ]</label>
+			<input type="number" step="1" name="fRankInFamily" id="fRankInFamily" class="form-control" value="<?php echo getFieldData($yCode,"fRankInFamily"); ?>">
 			<!-- final div -->
     </div>
     </div><!--End of row-->
     <div class="row">
 		<div class="form-group col">
 			<label class="" for="fHomeType">نوع السكن</label>
-			<select name="fHomeType" id="fHomeType" class="form-control">
-				<option disabled="" selected="" value="">--Select One--</option>
-				<option value="owner">ملك</option>
-				<option value="rent">ايجار</option>
-			</select>
+			<?php menuQuery("w",0,"ya_settings_hometype","hType","fHomeType"); ?>
 			<!-- final div -->
 		</div>
 		<div class="form-group col">
 			<label class="" for="fAddress">عنوان سكن الأسرة</label>
-			<input type="text" name="fAddress" id="fAddress" class="form-control" value="">
+			<input type="text" name="fAddress" id="fAddress" class="form-control" value="<?php echo getFieldData($yCode,"fAddress"); ?>">
 			<!-- final div -->
     </div>
     </div><!--End of row-->
     <div class="row">
 		<div class="form-group col">
 			<label class="" for="fFinanceStatus">الوضع المادي للأسرة</label>
-			<select name="fFinanceStatus" id="fFinanceStatus" class="form-control">
-				<option disabled="" selected="" value="">--Select One--</option>
-				<option value="meduim">متوسط</option>
-				<option value="poor">فقيرة</option>
-				<option value="verypoor">معدمة</option>
-			</select>
+			<?php menuQuery("w",0,"ya_settings_fstate","fFinanceStatus","fFinanceStatus"); ?>
 			<!-- final div -->
 		</div>
 		<div class="form-group col">
 			<label class="" for="fFinanceSalary">الدخل الشهري للأسرة</label>
-			<input type="number" step=".01" name="fFinanceSalary" id="fFinanceSalary" class="form-control" value="">
+			<input type="number" step=".01" name="fFinanceSalary" id="fFinanceSalary" class="form-control" value="<?php echo getFieldData($yCode,"fFinanceSalary"); ?>">
 			<!-- final div -->
     </div>
     </div><!--End of row-->
     <div class="row">
 		<div class="form-group col">
 			<label class="" for="fFinanceSource">مصدر الدخل للأسرة</label>
+			<input type="text" name="fFinanceSource" id="fFinanceSource" class="form-control" value="<?php echo getFieldData($yCode,"fFinanceSource"); ?>">
+			<!--
 			<label class="form-control"><input type="checkbox" >راتب شهري</label>
 			<label class="form-control"><input type="checkbox" >مساعدات شهرية</label>
 			<label class="form-control"><input type="checkbox">مصادر أخرى</label>
+			-->
 			<!-- final div -->
     </div>
     </div><!--End of row-->

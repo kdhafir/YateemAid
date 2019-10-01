@@ -74,6 +74,16 @@ function getYateemName($yateemID){
         return "غير معروف";
     }
 }
+// دالة لايجاد حالة كفالة اليتيم بناءاً على الاي دي الخاص به
+function getYateemKafalahState($yateemID){
+    $db = DB::getInstance();
+    $yateemQ = $db->query("SELECT * FROM `yayateeminfo1` WHERE id = ?",[$yateemID]);
+    if($yateemQ->count()){
+        return $yateemQ->first()->yState;
+    }else{
+        return "غير معروف";
+    }
+}
 function getFieldData($recordID,$fieldName){
     $db = DB::getInstance();
     $yFieldQ = $db->query("SELECT * FROM `yayateeminfo1` WHERE id = ?",[$recordID]);
@@ -99,5 +109,96 @@ function buildYateemReport($recordID){
         
         echo "</div>\n";
     }
+}
+// دالة بناء نموذج تحرير بيانات اليتيم
+function buildYateemFormEditable($recordID){
+    $db = DB::getInstance();
+    $formQ = $db->query("SELECT * FROM `yayateeminfo1_form` order by ord");
+    $counForm = $formQ->count();
+    $formR = $formQ->results();
+    echo "<form class=\"\" action=\"". htmlentities($_SERVER['PHP_SELF']) ."\" method=\"POST\">";
+    echo "<input type=\"hidden\" name=\"csrf\" value=\"" . Token::generate() . "\">";
+    echo "<input type=\"hidden\" name=\"ycode\" value=\"" . $yCode . "\">";
+    foreach($formR as $rF){
+        echo "<div class=\"form-group col\">";
+		echo "<label class=\"\" for=\"kafalahID\">رقم الكفالة</label>";
+		echo "<input type=\"number\" step=\"1\" name=\"kafalahID\" id=\"kafalahID\" class=\"form-control\" value=\"\">";
+        echo "<div class=\"border bg-dark text-white col-md-2\">\n";
+        echo $rF->form_descrip;
+        echo "</div>\n";
+        echo "<div class=\"border bg-light col-md-4\">\n";
+        if($rF->special_field_type == "image"){
+            echo "<img src=\"";
+            echo getFieldData($recordID,$rF->col);
+            echo "\" height=\"50px\">";
+        }else{
+            echo getFieldData($recordID,$rF->col);
+        }
+        
+        echo "</div>\n";
+    }
+}
+
+function getKafil($kafalahID){
+	$db = DB::getInstance();
+	$kafaQ = $db->query("SELECT kafilID FROM `ya_kafalahinfo_01` WHERE id = ?",[$kafalahID]);
+	if ($kafaQ->count()){
+		$kafiID = $db->first()->kafilID;
+		$kafiQ = $db->query("SELECT kName FROM `ya_kafilinfo_01` WHERE id = ?",[$kafiID]);
+		return $db->first()->kName;
+	}else{
+		return "غير موجود";
+	}
+}
+
+// get menu options function 
+// الدالة لها وضعين اما انشاء القائمة أو البحث عن اسم عنصر بواسطة رقمه [ الاي دي ] 
+function menuQuery($mode, $itemID,$menuTableName,$menuFieldName,$formFieldName){
+    $db = DB::getInstance();
+    //$menuTableName = "ya_settings_cities";
+    //$menuFieldName = "cityName";
+    if ($mode == "r"){
+        $itemsQ = $db->query("SELECT * FROM $menuTableName WHERE id = ?",[$itemID]);
+        if($itemsQ->count()){
+            echo $itemsQ->first()->$menuFieldName;
+        }else{
+            echo "<span class='text-danger'>" . "خارج النطاق" . "</span>";
+        }
+    }elseif($mode == "w"){
+        $itemsQ = $db->query("SELECT * FROM $menuTableName order by id");
+        $counItems = $itemsQ->count();
+        $itemsR = $itemsQ->results();
+        echo "<select name=\"" . $formFieldName . "\" id=\"" . $formFieldName . "\" class=\"form-control\">";
+        echo "<option disabled=\"\" selected=\"\" value=\"\">--اختر--</option>";
+        foreach($itemsR as $r){
+            echo "<option value=\"" . $r->id . "\">" . $r->$menuFieldName . "</option>";
+        }
+        echo "</select>";
+    } 
+}
+
+function kafalahQuery($mode,$itemID){
+    $db = DB::getInstance();
+    $menuTableName = " 	ya_kafalahinfo_01";
+    $menuFieldName = "kafalahLable";
+    $formFieldName = "kafalahID";
+    if ($mode == "r" && $itemID > 0){
+        $itemsQ = $db->query("SELECT * FROM $menuTableName WHERE id = ?",[$itemID]);
+        if($itemsQ->count()){
+            echo $itemsQ->first()->$menuFieldName;
+        }else{
+            echo "غير موجود";
+        }
+    }elseif($mode == "w"){
+        $itemsQ = $db->query("SELECT * FROM $menuTableName order by id");
+        $counItems = $itemsQ->count();
+        $itemsR = $itemsQ->results();
+        echo "<select name=\"" . $formFieldName . "\" id=\"" . $formFieldName . "\" class=\"form-control\">";
+        echo "<option disabled=\"\" selected=\"\" value=\"\">--اختر--</option>";
+        foreach($itemsR as $r){
+            echo "<option value=\"" . $r->id . "\">" . $r->$menuFieldName . " [ " . getKafil($r->id) . " ] " . "</option>";
+        }
+        echo "</select>";
+    } 
 }
 ?>

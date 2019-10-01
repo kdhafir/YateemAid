@@ -54,12 +54,12 @@
 			<div class="row">
 				<div class="form-group col">
 					<label class="" for="rName">اسم الوصي</label>
-					<input type="text" name="rName" id="rName" class="form-control" value="">
+					<input type="text" name="rName" id="rName" class="form-control" value="<?php echo getFieldData($yCode,"rName"); ?>">
 					<!-- final div -->
 				</div>
 				<div class="form-group col">
 					<label class="" for="rIDCard">رقم هوية الوصي</label>
-					<input type="text" name="rIDCard" id="rIDCard" class="form-control" value="">
+					<input type="text" name="rIDCard" id="rIDCard" class="form-control" value="<?php echo getFieldData($yCode,"rIDCard"); ?>">
 					<!-- final div -->
 				</div>
 			</div>
@@ -67,16 +67,12 @@
 			<div class="row">
 				<div class="form-group col">
 					<label class="" for="rSex">جنس الوصي</label>
-					<select name="rSex" id="rSex" class="form-control">
-						<option disabled="" selected="" value="">--Select One--</option>
-						<option value="male">ذكر</option>
-						<option value="female">أنثى</option>
-					</select>
+					<?php menuQuery("w",0,"ya_settings_sex","sNameAra","rSex"); ?>
 					<!-- final div -->
 				</div>
 				<div class="form-group col">
 					<label class="" for="rDateOfBirth">تاريخ ميلاد الوصي</label>
-					<input type="date" class="form-control hasDatepicker" name="rDateOfBirth" id="rDateOfBirth" value="">
+					<input type="date" class="form-control hasDatepicker" name="rDateOfBirth" id="rDateOfBirth" value="<?php echo getFieldData($yCode,"rDateOfBirth"); ?>">
 					<!-- final div -->
 				</div>
 			</div>
@@ -84,7 +80,7 @@
 			<div class="row">
 				<div class="form-group col">
 					<label class="" for="rRelation">صلة قرابة الوصي باليتيم</label>
-					<input type="text" name="rRelation" id="rRelation" class="form-control" value="">
+					<input type="text" name="rRelation" id="rRelation" class="form-control" value="<?php echo getFieldData($yCode,"rRelation"); ?>">
 					<!-- final div -->
 				</div>
 			</div>
@@ -92,12 +88,12 @@
 			<div class="row">
 				<div class="form-group col">
 					<label class="" for="rMobile">رقم موبايل الوصي</label>
-					<input type="text" name="rMobile" id="rMobile" class="form-control" value="">
+					<input type="text" name="rMobile" id="rMobile" class="form-control" value="<?php echo getFieldData($yCode,"rMobile"); ?>">
 					<!-- final div -->
 				</div>
 				<div class="form-group col">
 					<label class="" for="rMobilePerson">صاحب الموبايل (مسجل باسم من)</label>
-					<input type="text" name="rMobilePerson" id="rMobilePerson" class="form-control" value="">
+					<input type="text" name="rMobilePerson" id="rMobilePerson" class="form-control" value="<?php echo getFieldData($yCode,"rMobilePerson"); ?>">
 					<!-- final div -->
 				</div>
 			</div>
@@ -105,19 +101,13 @@
 			<div class="row">
 				<div class="form-group col">
 					<label class="" for="rWorkName">جهة عمل الوصي</label>
-					<input type="text" name="rWorkName" id="rWorkName" class="form-control" value="">
+					<input type="text" name="rWorkName" id="rWorkName" class="form-control" value="<?php echo getFieldData($yCode,"rWorkName"); ?>">
 					<!-- final div -->
 				</div>
 				<div class="form-group col">
 					<label class="" for="rWorkType">نوع العمل</label>
-					<select name="rWorkType" id="rWorkType" class="form-control">
-						<option disabled="" selected="" value="">--Select One--</option>
-						<option value="gov">حكومي</option>
-						<option value="special">خاص</option>
-						<option value="charity">خيري</option>
-						<option value="free">حر</option>
-						<option value="none">لا يوجد</option>
-					</select>
+
+					<?php menuQuery("w",0,"ya_settings_jobtype","rWorkType","rWorkType"); ?>
 					<!-- final div -->
 				</div>
 			</div>

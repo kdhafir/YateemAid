@@ -7,20 +7,11 @@ if(file_exists("install/index.php")){
 
 require_once 'users/init.php';
 require_once $abs_us_root.$us_url_root.'users/includes/template/prep.php';
+require_once $abs_us_root.$us_url_root.'ysys/functions.php';
 if(isset($user) && $user->isLoggedIn()){
 }
 
-function getKafil($kafalahID){
-	$db = DB::getInstance();
-	$kafaQ = $db->query("SELECT kafilID FROM `ya_kafalahinfo_01` WHERE id = ?",[$kafalahID]);
-	if ($kafaQ->count()){
-		$kafiID = $db->first()->kafilID;
-		$kafiQ = $db->query("SELECT kName FROM `ya_kafilinfo_01` WHERE id = ?",[$kafiID]);
-		return $db->first()->kName;
-	}else{
-		return "غير موجود";
-	}
-}
+
 function getOptions($option,$optionID){
 	$db = DB::getInstance();
 	if($option == "city"){
@@ -46,10 +37,10 @@ $counAytam = $aytamQ->count();
 <div class="row text-right" dir="rtl">
 	<div class="col-sm-12 col-md-12">
 	<br>
-	<form>
+	<form method="GET" action="./ysys/kafalh_dokafalah.php">
 	<div class="d-flex justify-content-start bg-secondary">
 		<a class="btn btn-info" href="ysys/yateem_addnew_01.php">إضافة يتيم</a>&nbsp;
-		<button class="btn btn-info" type="submit">كفالة المحدد</button>
+		<button class="btn btn-info" type="submit">تغيير حالة اليتيم</button>
 		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 		<input class="form-control col-md-4" type="text" id="searchInput" onkeyup="searchtable()" placeholder="بحث وفرز" style="text-align: center;">
 	</div>
@@ -76,20 +67,37 @@ if($counAytam > 0){
 ?>
 		
 		<tr>
-		<td><input type="checkbox" class="form-check-input" name="ycode" value="<?php echo $ar->id; ?>"></td>
-		<td><a href="./ysys/yateem_viewyateem.php?ycode=<?php echo $ar->id; ?>"><?php echo $ar->yName; ?></a></td>
+		<td><input type="checkbox" class="form-check-input" name="ycode[]" value="<?php echo $ar->id; ?>"></td>
 		<td>
-		المدينة: <?php echo $ar->cityName;// getOptions("city",$ar->cityName); ?><br>
+			<a href="./ysys/yateem_viewyateem.php?ycode=<?php echo $ar->id; ?>"><?php echo $ar->yName; ?></a><br>
+			<a href="./ysys/yateem_edityateemdata.php?ycode=<?php echo $ar->id; ?>">[تحرير البيانات]</a>
+		</td>
+		<td>
+		المدينة: <?php menuQuery("r",$ar->cityName," 	ya_settings_cities","cityName","cityName");// getOptions("city",$ar->cityName); ?><br>
 		<?php echo $ar->yAddress; ?>
 		</td>
-		<td><?php echo $ar->yState;//echo getOptions("yState",$ar->yState); ?></td>
+		<td><?php menuQuery("r",$ar->yState,"ya_settings_ystate","yState","yState");//echo getOptions("yState",$ar->yState); ?></td>
 		<td><?php echo getKafil($ar->kafalahID); ?></td>
 		<td>
 		رقم: <?php echo $ar->kafalahID; ?> <br>
-		<?php echo $ar->kafalahID;// getOptions("kafalahLable",$ar->kafalahID); ?> <br>
-		مبلغ: <?php echo $ar->kafalahAmountY; ?> <br>
+		<?php echo kafalahQuery("r",$ar->kafalahID);// getOptions("kafalahLable",$ar->kafalahID); ?> <br>
+		مبلغ: <?php echo $ar->kafalahAmount; ?> <br>
 		</td>
-		<td></td>
+		<td>
+			<?php 
+			if($ar->yPersonalPhotoLink){
+			echo "<a href=\"ysys/" . $ar->yPersonalPhotoLink . "\" target=\"_blank\">صورة شخصية</a><br>"; 
+			}
+			if($ar->yBirthCertLink){
+				echo "<a href=\"ysys/" . $ar->yBirthCertLink . "\" target=\"_blank\">شهادة الميلاد</a><br>"; 
+			}
+			if($ar->yPersonalPhotoLink){
+				echo "<a href=\"ysys/" . $ar->yDeathCertLink . "\" target=\"_blank\">شهادة الوفاة</a>"; 
+			}
+
+			
+			?>
+		</td>
 
 		</tr>
 		

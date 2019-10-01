@@ -51,23 +51,23 @@
 			<input type="hidden" name="csrf" value="<?php echo Token::generate(); ?>">
 			<input type="hidden" name="ycode" value="<?php echo $yCode; ?>">
 			<div class="form-group">
-				<label class="" for="idName">اسم المعرف                  </label>
-				<input type="text" name="idName" id="idName" class="form-control" value="">
+				<label class="" for="idName">اسم المعرف</label>
+				<input type="text" name="idName" id="idName" class="form-control" value="<?php echo getFieldData($yCode,"idName"); ?>">
 				<!-- final div -->
 			</div>
 			<div class="form-group">
-				<label class="" for="idMobile">رقم موبايل المعرف                  </label>
-				<input type="text" name="idMobile" id="idMobile" class="form-control" value="">
+				<label class="" for="idMobile">رقم موبايل المعرف</label>
+				<input type="text" name="idMobile" id="idMobile" class="form-control" value="<?php echo getFieldData($yCode,"idMobile"); ?>">
 				<!-- final div -->
 			</div>
 			<div class="form-group">
-				<label class="" for="idAddress">عنوان سكن المعرف                  </label>
-				<input type="text" name="idAddress" id="idAddress" class="form-control" value="">
+				<label class="" for="idAddress">عنوان سكن المعرف</label>
+				<input type="text" name="idAddress" id="idAddress" class="form-control" value="<?php echo getFieldData($yCode,"idAddress"); ?>">
 				<!-- final div -->
 			</div>
 			<div class="form-group">
-				<label class="" for="sOpinion">رأي الإدارة المعنية [ المختص ]                  </label>
-				<textarea name="sOpinion" id="sOpinion" class="form-control"></textarea>
+				<label class="" for="sOpinion">رأي الإدارة المعنية [ المختص ]</label>
+				<textarea name="sOpinion" id="sOpinion" class="form-control"><?php echo getFieldData($yCode,"sOpinion"); ?></textarea>
 				<!-- final div -->
 			</div>
 			<input type="hidden" name="form_name" value="yayateeminfo1">

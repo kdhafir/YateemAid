@@ -6,6 +6,7 @@ Aytam Aid System - Open Source
 require_once '../users/init.php';
 if (!securePage($_SERVER['PHP_SELF'])){die();}
 require_once $abs_us_root.$us_url_root.'users/includes/template/prep.php';
+require_once $abs_us_root.$us_url_root.'ysys/functions.php';
 
 // Processing Form
 if(!empty($_POST)){
@@ -17,9 +18,14 @@ if(!empty($_POST)){
     }
 }
 $goNext = Input::get('continueData');
-if($goNext){
+if($goNext == "next"){
     $lastID = $db->lastId();
     Redirect::to("./yateem_addnew_02.php?ycode=". $lastID);
+}elseif($goNext == "new"){
+  Redirect::to("./yateem_addnew_01.php");
+}elseif($goNext == "summary"){
+  $lastID = $db->lastId();
+  Redirect::to("./yateem_viewyateem.php?ycode=". $lastID);
 }
 //$aytamQ = $db->query("SELECT * FROM `yy_yateem_main_info` ORDER BY id DESC");
 //$counAytam = $aytamQ->count();
@@ -81,10 +87,7 @@ if($goNext){
 <div class="row">
 <div class="form-group col-md-4">
               <label class="" for="ySex">جنس اليتيم</label>
-                  <select name="ySex" id="ySex" class="form-control">
-                            <option value="male">ذكر</option>
-                              <option value="female">أنثى</option>
-                          </select>
+                  <?php menuQuery("w",0,"ya_settings_sex","sNameAra","ySex"); ?>
             <!-- final div -->
           </div>
               <div class="form-group col-md-4">
@@ -103,13 +106,7 @@ if($goNext){
 <div class="row">
 <div class="form-group col-md-5">
               <label class="" for="cityName">المدينة / المحافظة</label>
-                  <select name="cityName" id="cityName" class="form-control">
-                            <option value="sanaa">صنعاء</option>
-                              <option value="aden">عدن</option>
-                              <option value="ibb">إب</option>
-                              <option value="taiz">تعز</option>
-                              <option value="mareb">مارب</option>
-                          </select>
+                  <?php menuQuery("w",0,"ya_settings_cities","cityName","cityName"); ?>
             <!-- final div -->
           </div>
               <div class="form-group col-md-7">
@@ -182,11 +179,13 @@ if($goNext){
           </div><!--end of div row-->
 <div class="row">
         <div class="form-group col-md-4">
-            <button class="btn btn-primary" type="submit" name="continueData" value="false">حفظ + جديد</button>
-              <input type="submit" name="submit" value="button" >
+            <button class="btn btn-primary" type="submit" name="continueData" value="new">حفظ + جديد</button>
 </div>
             <div class="form-group col-md-4">
-            <button class="btn btn-info" type="submit" name="continueData" value="true">حفظ + التالي</button>
+            <button class="btn btn-info" type="submit" name="continueData" value="next">حفظ + التالي</button>
+</div>
+<div class="form-group col-md-4">
+            <button class="btn btn-info" type="submit" name="continueData" value="summary">حفظ وعرض الاستمارة</button>
 </div>
     </div><!--end of div row-->
     <input type="hidden" name="form_name" value="yayateeminfo1">
