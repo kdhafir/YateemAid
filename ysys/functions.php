@@ -153,7 +153,7 @@ function getKafil($kafalahID){
 
 // get menu options function 
 // الدالة لها وضعين اما انشاء القائمة أو البحث عن اسم عنصر بواسطة رقمه [ الاي دي ] 
-function menuQuery($mode, $itemID,$menuTableName,$menuFieldName,$formFieldName){
+function menuQuery($mode, $itemID,$menuTableName,$menuFieldName){ //,$formFieldName
     $db = DB::getInstance();
     //$menuTableName = "ya_settings_cities";
     //$menuFieldName = "cityName";
@@ -168,12 +168,12 @@ function menuQuery($mode, $itemID,$menuTableName,$menuFieldName,$formFieldName){
         $itemsQ = $db->query("SELECT * FROM $menuTableName order by id");
         $counItems = $itemsQ->count();
         $itemsR = $itemsQ->results();
-        echo "<select name=\"" . $formFieldName . "\" id=\"" . $formFieldName . "\" class=\"form-control\">";
-        echo "<option disabled=\"\" selected=\"\" value=\"\">--اختر--</option>";
+        //echo "<select name=\"" . $formFieldName . "\" id=\"" . $formFieldName . "\" class=\"form-control\">";
+        //echo "<option disabled=\"\" selected=\"\" value=\"\">--اختر--</option>";
         foreach($itemsR as $r){
             echo "<option value=\"" . $r->id . "\">" . $r->$menuFieldName . "</option>";
         }
-        echo "</select>";
+        //echo "</select>";
     } 
 }
 
@@ -193,12 +193,12 @@ function kafalahQuery($mode,$itemID){
         $itemsQ = $db->query("SELECT * FROM $menuTableName order by id");
         $counItems = $itemsQ->count();
         $itemsR = $itemsQ->results();
-        echo "<select name=\"" . $formFieldName . "\" id=\"" . $formFieldName . "\" class=\"form-control\">";
-        echo "<option disabled=\"\" selected=\"\" value=\"\">--اختر--</option>";
+        //echo "<select name=\"" . $formFieldName . "\" id=\"" . $formFieldName . "\" class=\"form-control\">";
+        //echo "<option disabled=\"\" selected=\"\" value=\"\">--اختر--</option>";
         foreach($itemsR as $r){
             echo "<option value=\"" . $r->id . "\">" . $r->$menuFieldName . " [ " . getKafil($r->id) . " ] " . "</option>";
         }
-        echo "</select>";
+        //echo "</select>";
     } 
 }
 ?>

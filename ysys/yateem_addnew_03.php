@@ -77,7 +77,10 @@
     <div class="row">
 		<div class="form-group col">
 			<label class="" for="mStatus">حالة الأم الاجتماعية</label>
-			<?php menuQuery("w",0,"ya_settings_mstate","mStatus","mStatus"); ?>
+			<select name="mStatus" id="mStatus" class="form-control">
+              <option value="<?php echo getFieldData($yCode,"mStatus"); ?>"><?php menuQuery("r",getFieldData($yCode,"mStatus"),"ya_settings_mstate","mStatus"); ?></option>
+			<?php menuQuery("w",0,"ya_settings_mstate","mStatus"); ?>
+			</select>
 			<!-- final div -->
     </div>
 		<div class="form-group col">
@@ -101,7 +104,10 @@
     <div class="row">
 		<div class="form-group col">
 			<label class="" for="fHomeType">نوع السكن</label>
-			<?php menuQuery("w",0,"ya_settings_hometype","hType","fHomeType"); ?>
+			<select name="fHomeType" id="fHomeType" class="form-control">
+              <option value="<?php echo getFieldData($yCode,"fHomeType"); ?>"><?php menuQuery("r",getFieldData($yCode,"fHomeType"),"ya_settings_hometype","fHomeType"); ?></option>
+			<?php menuQuery("w",0,"ya_settings_hometype","hType"); ?>
+			</select>
 			<!-- final div -->
 		</div>
 		<div class="form-group col">
@@ -113,7 +119,10 @@
     <div class="row">
 		<div class="form-group col">
 			<label class="" for="fFinanceStatus">الوضع المادي للأسرة</label>
+			<select name="fFinanceStatus" id="fFinanceStatus" class="form-control">
+              <option value="<?php echo getFieldData($yCode,"fFinanceStatus"); ?>"><?php menuQuery("r",getFieldData($yCode,"fFinanceStatus"),"ya_settings_fstate","fFinanceStatus"); ?></option>
 			<?php menuQuery("w",0,"ya_settings_fstate","fFinanceStatus","fFinanceStatus"); ?>
+			</select>
 			<!-- final div -->
 		</div>
 		<div class="form-group col">

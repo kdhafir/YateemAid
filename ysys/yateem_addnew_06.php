@@ -54,12 +54,18 @@
 		<div class="row">
 		<div class="form-group col">
 			<label class="" for="yState">حالة اليتيم</label>
-			<?php menuQuery("w",0,"ya_settings_ystate","yState","yState"); ?>
+			<select name="yState" id="yState" class="form-control">
+              <option value="<?php echo getFieldData($yCode,"yState"); ?>"><?php menuQuery("r",getFieldData($yCode,"yState"),"ya_settings_ystate","yState"); ?></option>
+			<?php menuQuery("w",0,"ya_settings_ystate","yState"); ?>
+			</select>
 			<!-- final div -->
 		</div>
 			<div class="form-group col">
 			<label class="" for="kafalahID">رقم الكفالة</label>
+			<select name="kafalahID" id="kafalahID" class="form-control">
+              <option value="<?php echo getFieldData($yCode,"kafalahID"); ?>"><?php kafalahQuery("r",getFieldData($yCode,"kafalahID")); ?></option>
 			<?php kafalahQuery("w",0); ?>
+			</select>
 			<!-- final div -->
 		</div>
 		</div><!--End of row-->
@@ -71,7 +77,10 @@
 		</div>
 		<div class="form-group col">
 			<label class="" for="kafalahCurrency">عملة الكفالة</label>
-			<?php menuQuery("w",0,"ya_settings_currency","cNameAra","kafalahCurrency"); ?>
+			<select name="kafalahCurrency" id="kafalahCurrency" class="form-control">
+              <option value="<?php echo getFieldData($yCode,"kafalahCurrency"); ?>"><?php menuQuery("r",getFieldData($yCode,"kafalahCurrency"),"ya_settings_currency","cNameAra"); ?></option>
+			<?php menuQuery("w",0,"ya_settings_currency","cNameAra"); ?>
+			</select>
 			<!-- final div -->
 		</div>
 		</div><!--End of row-->

@@ -67,7 +67,10 @@
 			<div class="row">
 				<div class="form-group col">
 					<label class="" for="rSex">جنس الوصي</label>
-					<?php menuQuery("w",0,"ya_settings_sex","sNameAra","rSex"); ?>
+					<select name="rSex" id="rSex" class="form-control">
+              		<option value="<?php echo getFieldData($yCode,"rSex"); ?>"><?php menuQuery("r",getFieldData($yCode,"rSex"),"ya_settings_sex","sNameAra"); ?></option>
+					<?php menuQuery("w",0,"ya_settings_sex","sNameAra"); ?>
+					</select>
 					<!-- final div -->
 				</div>
 				<div class="form-group col">
@@ -106,8 +109,10 @@
 				</div>
 				<div class="form-group col">
 					<label class="" for="rWorkType">نوع العمل</label>
-
-					<?php menuQuery("w",0,"ya_settings_jobtype","rWorkType","rWorkType"); ?>
+					<select name="rWorkType" id="rWorkType" class="form-control">
+              		<option value="<?php echo getFieldData($yCode,"rWorkType"); ?>"><?php menuQuery("r",getFieldData($yCode,"rWorkType"),"ya_settings_jobtype","jName"); ?></option>
+					<?php menuQuery("w",0,"ya_settings_jobtype","jName"); ?>
+					</select>
 					<!-- final div -->
 				</div>
 			</div>
