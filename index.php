@@ -110,8 +110,15 @@ if($counAytam > 0){
 </table>
 	</div>
 <?php }else{?>
-					<a class="btn btn-warning" href="users/login.php" role="button"><?=lang("SIGNIN_TEXT");?> &raquo;</a>
-					<a class="btn btn-info" href="users/join.php" role="button"><?=lang("SIGNUP_TEXT");?> &raquo;</a>
+	<div class="jumbotron">
+			<h1 align="center"> نظام مساعد اليتيم</h1>
+			<p align="center" class="text-muted">لإدارة الأيتام وكفالاتهم</p>
+			<p align="center">
+	<div class="row text-center">
+		<a class="btn btn-warning col" href="users/login.php" role="button"><?=lang("SIGNIN_TEXT");?> &raquo;</a>
+		<a class="btn btn-info col" href="users/join.php" role="button"><?=lang("SIGNUP_TEXT");?> &raquo;</a>
+	</div>
+</div>
 				<?php }?>
 				<!--
 		<div class="jumbotron">

@@ -1,7 +1,9 @@
 <?php
 // دالة رفع مرفقات اليتيم شهادة الميلاد وشهادة الوفاة
 function uploadYateemDocs($fieldName,$yateemID){
-    $target_dir = "aytamattachments/";
+    global $abs_us_root;
+    global $us_url_root;
+    $target_dir = $abs_us_root.$us_url_root."ysys/aytamattachments/";
     $target_file = $target_dir . $yateemID. "_". $fieldName. ".png";//basename($_FILES[$fieldName]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));

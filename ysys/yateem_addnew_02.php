@@ -13,10 +13,11 @@ require_once $abs_us_root.$us_url_root.'ysys/functions.php';
 $yCode = Input::get('ycode');
 if(!empty($_POST)){
     $aType = Input::get('aType');
+    echo "IN IN IN ";
     if(uploadYateemDocs($aType,$yCode)){
         $uploadMsg = "تم رفع الصورة بنجاح";
         
-        $yCertLink = "/aytamattachments/". $yCode . "_" . $aType . ".png";
+        $yCertLink = $us_url_root."ysys/aytamattachments/". $yCode . "_" . $aType . ".png";
         $dbFieldName = "y". $aType . "Link";
         $fields = array(
             $dbFieldName   => $yCertLink,
@@ -25,7 +26,7 @@ if(!empty($_POST)){
     }else{
         $uploadMsg = "خطأ، لم يتم رفع الصورة";
     }
-    Redirect::to("/yateem_addnew_02.php?ycode=". $yCode."&msg=" . $uploadMsg);
+    Redirect::to($us_url_root."ysys/yateem_addnew_02.php?ycode=". $yCode."&msg=" . $uploadMsg);
 }
 
 ?>
@@ -70,6 +71,7 @@ if(!empty($_POST)){
                 $pPhoto = checkCertfield($yCode,"personalPhoto");
                 if($pPhoto){
                     echo "<a href=\"".$pPhoto."\" target=\"_blank\"><img src=\"".$pPhoto."\" height=\"50\" ></a>";
+                    echo " <a href=\"?ycode=" . $yCode . "&action=dpersonal\" class=\"btn btn-danger pull-left\">حذف</a>";
                 }else{
                     ?>
                 
