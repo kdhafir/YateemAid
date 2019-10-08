@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 28, 2019 at 09:36 AM
+-- Generation Time: Oct 08, 2019 at 11:15 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -283,12 +283,12 @@ INSERT INTO `groups_menus` (`id`, `group_id`, `menu_id`) VALUES
 (62, 0, 2),
 (63, 0, 25),
 (64, 0, 24),
-(66, 0, 26),
 (67, 0, 27),
 (68, 0, 28),
 (69, 0, 29),
 (70, 0, 30),
-(71, 0, 31);
+(71, 0, 31),
+(72, 0, 26);
 
 -- --------------------------------------------------------
 
@@ -451,7 +451,17 @@ INSERT INTO `logs` (`id`, `user_id`, `logdate`, `logtype`, `lognote`, `ip`) VALU
 (123, 1, '2019-09-24 07:24:15', 'Pages Manager', 'Added 2 permission(s) to ysys/yateem_addnew_03.php.', '::1'),
 (124, 1, '2019-09-24 08:49:13', 'Pages Manager', 'Added 2 permission(s) to ysys/yateem_addnew_04.php.', '::1'),
 (125, 1, '2019-09-24 09:00:46', 'Pages Manager', 'Added 2 permission(s) to ysys/yateem_addnew_05.php.', '::1'),
-(126, 1, '2019-09-24 09:16:30', 'Pages Manager', 'Added 2 permission(s) to ysys/yateem_addnew_06.php.', '::1');
+(126, 1, '2019-09-24 09:16:30', 'Pages Manager', 'Added 2 permission(s) to ysys/yateem_addnew_06.php.', '::1'),
+(127, 1, '2019-09-28 09:20:56', 'Pages Manager', 'Added 2 permission(s) to ysys/kafalh_dokafalah.php.', '::1'),
+(128, 1, '2019-09-30 07:00:45', 'User', 'User logged in.', '::1'),
+(129, 1, '2019-09-30 08:01:44', 'Pages Manager', 'Added 2 permission(s) to ysys/yateem_edityateemdata.php.', '::1'),
+(130, 1, '2019-09-30 09:22:22', 'Menu Manager', 'Updated 26', '::1'),
+(131, 2, '2019-10-02 07:52:53', 'User', 'User logged in.', '10.0.0.81'),
+(132, 2, '2019-10-02 07:53:22', 'User', 'User logged in.', '10.0.0.81'),
+(133, 1, '2019-10-02 09:41:36', 'User', 'User logged in.', '::1'),
+(134, 1, '2019-10-08 08:35:46', 'User', 'User logged in.', '::1'),
+(135, 1, '2019-10-08 08:37:06', 'User', 'User logged in.', '::1'),
+(136, 1, '2019-10-08 09:06:45', 'Pages Manager', 'Added 2 permission(s) to ysys/projects_addnew.php.', '::1');
 
 -- --------------------------------------------------------
 
@@ -510,7 +520,7 @@ INSERT INTO `menus` (`id`, `menu_title`, `parent`, `dropdown`, `logged_in`, `dis
 (23, 'main', -1, 1, 1, 12, 'الأيتام', './ysys/', ''),
 (24, 'main', -1, 1, 1, 32, 'الكفالات', './ysys/kafalah_viewall.php', ''),
 (25, 'main', -1, 1, 1, 22, 'الكافلين', './ysys/kafil_viewall.php', ''),
-(26, 'main', 23, 0, 1, 10, 'إضافة يتيم', './ysys/yateem_addnew.php', ''),
+(26, 'main', 23, 0, 1, 10, 'إضافة يتيم', './ysys/yateem_addnew_01.php', ''),
 (27, 'main', 23, 0, 1, 20, 'استعراض الأيتام', './ysys/index.php', ''),
 (28, 'main', 25, 0, 1, 10, 'اضافة كافل', './ysys/kafil_addnew.php', ''),
 (29, 'main', 25, 0, 1, 20, 'استعراض الكافلين', './ysys/kafil_viewall.php', ''),
@@ -638,7 +648,10 @@ INSERT INTO `pages` (`id`, `page`, `title`, `private`, `re_auth`) VALUES
 (115, 'ysys/yateem_addnew_03.php', '', 1, 0),
 (116, 'ysys/yateem_addnew_04.php', '', 1, 0),
 (117, 'ysys/yateem_addnew_05.php', '', 1, 0),
-(118, 'ysys/yateem_addnew_06.php', '', 1, 0);
+(118, 'ysys/yateem_addnew_06.php', '', 1, 0),
+(119, 'ysys/kafalh_dokafalah.php', '', 1, 0),
+(120, 'ysys/yateem_edityateemdata.php', '', 1, 0),
+(121, 'ysys/projects_addnew.php', '', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -772,7 +785,13 @@ INSERT INTO `permission_page_matches` (`id`, `permission_id`, `page_id`) VALUES
 (101, 1, 117),
 (102, 2, 117),
 (103, 1, 118),
-(104, 2, 118);
+(104, 2, 118),
+(105, 1, 119),
+(106, 2, 119),
+(107, 1, 120),
+(108, 2, 120),
+(109, 1, 121),
+(110, 2, 121);
 
 -- --------------------------------------------------------
 
@@ -877,7 +896,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `recaptcha`, `force_ssl`, `css_sample`, `us_css1`, `us_css2`, `us_css3`, `site_name`, `language`, `track_guest`, `site_offline`, `force_pr`, `glogin`, `fblogin`, `gid`, `gsecret`, `gredirect`, `ghome`, `fbid`, `fbsecret`, `fbcallback`, `graph_ver`, `finalredir`, `req_cap`, `req_num`, `min_pw`, `max_pw`, `min_un`, `max_un`, `messaging`, `snooping`, `echouser`, `wys`, `change_un`, `backup_dest`, `backup_source`, `backup_table`, `msg_notification`, `permission_restriction`, `auto_assign_un`, `page_permission_restriction`, `msg_blocked_users`, `msg_default_to`, `notifications`, `notif_daylimit`, `recap_public`, `recap_private`, `page_default_private`, `navigation_type`, `copyright`, `custom_settings`, `system_announcement`, `twofa`, `force_notif`, `cron_ip`, `registration`, `join_vericode_expiry`, `reset_vericode_expiry`, `admin_verify`, `admin_verify_timeout`, `session_manager`, `template`, `saas`, `redirect_uri_after_login`, `show_tos`, `default_language`, `allow_language`, `spice_api`, `announce`) VALUES
-(1, 0, 0, 0, '../users/css/color_schemes/bootstrap.min.css', '../users/css/sb-admin.css', '../users/css/custom.css', 'مساعد اليتيم', 'en', 1, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', 0, 0, 6, 30, 4, 30, 0, 1, 0, 1, 0, '/', 'everything', '', 0, 0, 0, 0, 0, 1, 0, 7, '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI', '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe', 1, 1, 'Khalid Dhafir', 1, '', 0, 0, 'off', 1, 24, 15, 1, 120, 0, 'standard', NULL, NULL, 1, 'ar-EG', 0, 'JDMSC-YNAYD-X5D76-096E2-69A6', '2019-09-21 10:38:04');
+(1, 0, 0, 0, '../users/css/color_schemes/bootstrap.min.css', '../users/css/sb-admin.css', '../users/css/custom.css', 'مساعد اليتيم', 'en', 1, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', 0, 0, 6, 30, 4, 30, 0, 1, 0, 1, 0, '/', 'everything', '', 0, 0, 0, 0, 0, 1, 0, 7, '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI', '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe', 1, 1, 'Khalid Dhafir', 1, '', 0, 0, 'off', 1, 24, 15, 1, 120, 0, 'bs4', NULL, 'index.php', 1, 'ar-EG', 0, 'JDMSC-YNAYD-X5D76-096E2-69A6', '2019-10-08 11:35:54');
 
 -- --------------------------------------------------------
 
@@ -994,8 +1013,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `email_new`, `username`, `password`, `pin`, `fname`, `lname`, `permissions`, `logins`, `account_owner`, `account_id`, `company`, `join_date`, `last_login`, `email_verified`, `vericode`, `active`, `oauth_provider`, `oauth_uid`, `gender`, `locale`, `gpluslink`, `picture`, `created`, `modified`, `fb_uid`, `un_changed`, `msg_exempt`, `last_confirm`, `protected`, `dev_user`, `msg_notification`, `force_pr`, `twoKey`, `twoEnabled`, `twoDate`, `cloak_allowed`, `org`, `account_mgr`, `oauth_tos_accepted`, `vericode_expiry`, `language`) VALUES
-(1, 'almohseneen.it@gmail.com', NULL, 'admin', '$2y$12$1v06jm2KMOXuuo3qP7erTuTIJFOnzhpds1Moa8BadnUUeX0RV3ex.', NULL, 'مدير النظام', 'Admin', 1, 6, 1, 0, 'UserSpice', '2016-01-01 00:00:00', '2019-09-18 08:07:39', 1, 'nlPsJDtyeqFWsS', 0, '', '', '', '', '', '', '0000-00-00 00:00:00', '1899-11-30 00:00:00', '', 0, 1, '2017-10-08 15:24:37', 1, 0, 1, 0, NULL, 0, NULL, 0, NULL, 0, NULL, NULL, 'ar-EG'),
-(2, 'noreply@userspice.com', NULL, 'user', '$2y$12$HZa0/d7evKvuHO8I3U8Ff.pOjJqsGTZqlX8qURratzP./EvWetbkK', NULL, 'مدخل البيانات', 'User', 1, 2, 1, 0, 'none', '2016-01-02 00:00:00', '2019-09-07 12:56:04', 1, '2ENJN4xD8nnjOgk', 1, '', '', '', '', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 0, 0, NULL, 0, 0, 1, 0, NULL, 0, NULL, 0, NULL, 0, NULL, NULL, 'en-US');
+(1, 'almohseneen.it@gmail.com', NULL, 'admin', '$2y$12$1v06jm2KMOXuuo3qP7erTuTIJFOnzhpds1Moa8BadnUUeX0RV3ex.', NULL, 'مدير النظام', 'Admin', 1, 10, 1, 0, 'UserSpice', '2016-01-01 00:00:00', '2019-10-08 11:37:06', 1, 'nlPsJDtyeqFWsS', 0, '', '', '', '', '', '', '0000-00-00 00:00:00', '1899-11-30 00:00:00', '', 0, 1, '2017-10-08 15:24:37', 1, 0, 1, 0, NULL, 0, NULL, 0, NULL, 0, NULL, NULL, 'ar-EG'),
+(2, 'noreply@userspice.com', NULL, 'user', '$2y$12$HZa0/d7evKvuHO8I3U8Ff.pOjJqsGTZqlX8qURratzP./EvWetbkK', NULL, 'مدخل البيانات', 'User', 1, 4, 1, 0, 'none', '2016-01-02 00:00:00', '2019-10-02 10:53:22', 1, '2ENJN4xD8nnjOgk', 1, '', '', '', '', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 0, 0, NULL, 0, 0, 1, 0, NULL, 0, NULL, 0, NULL, 0, NULL, NULL, 'en-US');
 
 -- --------------------------------------------------------
 
@@ -1030,14 +1049,6 @@ CREATE TABLE `users_session` (
   `hash` varchar(255) NOT NULL,
   `uagent` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `users_session`
---
-
-INSERT INTO `users_session` (`id`, `user_id`, `hash`, `uagent`) VALUES
-(1, 2, '3a229148f5903294d29d73e8e0ce63ec8a0a13d398cd86aefc7ee812396c487f', 'Mozilla (Windows NT 6.1) AppleWebKit (KHTML, like Gecko) Chrome Safari'),
-(2, 1, '783be300f0a674daae3204c52e54f63486fab90263b9337e115777bfdaa5bba7', 'Mozilla (Windows NT 10.0; Win64; x64; rv:69.0) Gecko Firefox');
 
 -- --------------------------------------------------------
 
@@ -1127,7 +1138,8 @@ CREATE TABLE `us_forms` (
 --
 
 INSERT INTO `us_forms` (`id`, `form`) VALUES
-(2, 'yayateeminfo1');
+(2, 'yayateeminfo1'),
+(3, 'yayateemprojects');
 
 -- --------------------------------------------------------
 
@@ -1224,7 +1236,8 @@ INSERT INTO `us_ip_list` (`id`, `ip`, `user_id`, `timestamp`) VALUES
 (1, '::1', 1, '2017-10-09 15:20:03'),
 (2, '127.0.0.1', 1, '2019-09-03 08:08:43'),
 (3, '10.0.0.68', 2, '2019-09-07 09:48:45'),
-(4, '10.0.0.252', 2, '2019-09-07 09:56:04');
+(4, '10.0.0.252', 2, '2019-09-07 09:56:04'),
+(5, '10.0.0.81', 2, '2019-10-02 07:52:53');
 
 -- --------------------------------------------------------
 
@@ -1408,7 +1421,7 @@ CREATE TABLE `yayateeminfo1` (
   `fAddress` varchar(255) DEFAULT NULL,
   `fFinanceStatus` varchar(255) DEFAULT NULL,
   `fFinanceSalary` decimal(50,0) DEFAULT NULL,
-  `fFinanceSource` longtext DEFAULT NULL,
+  `fFinanceSource` text DEFAULT NULL,
   `sOpinion` text DEFAULT NULL,
   `BasicInfo` varchar(255) DEFAULT NULL,
   `identifierName` varchar(255) DEFAULT NULL,
@@ -1440,24 +1453,27 @@ CREATE TABLE `yayateeminfo1` (
 --
 
 INSERT INTO `yayateeminfo1` (`id`, `dateOfEntry`, `yName`, `ySex`, `yDateOfBirth`, `yBirthPlace`, `yNationality`, `yFeatures`, `yAddress`, `yRankInFamily`, `fDeathDate`, `fDeathReason`, `yEduLevel`, `yEduClass`, `yEduSchoolName`, `yEduSchoolPhone`, `yEduNoEduReason`, `yHealthStatus`, `yHealthSickness`, `yQuranLevel`, `yQuranSchool`, `rSectionName`, `rName`, `rSex`, `rDateOfBirth`, `rRelation`, `rMobile`, `rMobilePerson`, `rWorkName`, `rWorkType`, `mSection`, `mSectionName`, `mName`, `mAlive`, `mStatus`, `mWork`, `fNumberOfBrothers`, `fRankInFamily`, `fHomeType`, `fAddress`, `fFinanceStatus`, `fFinanceSalary`, `fFinanceSource`, `sOpinion`, `BasicInfo`, `identifierName`, `identifierSection`, `idName`, `idMobile`, `idAddress`, `mIDCard`, `rIDCard`, `BasicInfoSection`, `kafalahID`, `kafalahAmountY`, `kafalahCurrencyY`, `kafalahSection`, `kafalahStartDate`, `kafalahEndDate`, `kafalahEndreason`, `yState`, `cityName`, `kafalahAmount`, `kafalahCurrency`, `yBirthCertLink`, `yDeathCertLink`, `yPersonalPhotoLink`) VALUES
-(1, '2019-09-19', 'ككشسيبت', 'male', '2019-09-11', 'يشيب', 'يشي', 'شيب', 'شيسب', '2', '0000-00-00', 'سيب', '', '', '', '0', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'mSalary', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '20000', NULL, NULL, NULL, NULL, NULL, '2', '1', NULL, NULL, NULL, NULL, NULL),
+(1, '2019-09-19', 'ككشسيبت', '2', '2019-09-11', 'يشيب', 'يشي', 'شيب', 'شيسب', '2', '0000-00-00', 'سيب', '', '', '', '0', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'mSalary', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '20000', NULL, NULL, NULL, NULL, NULL, '2', '1', NULL, NULL, NULL, NULL, NULL),
 (2, '0000-00-00', 'محمد محمد محمد محمد', '1', '0000-00-00', 'صنعاء', 'يمني', 'حفظ القرآن - الحساب', 'باب اليمن', '3', '0000-00-00', 'الاجل', 'اعدادي', 'السابع', 'الامل', '111111111111', '', 'جيده', 'لا يوجد', 'خمسة اجزاء', 'الامل', NULL, 'وصي وصي وصي', '', '0000-00-00', '', '111111111111', 'نفسه', 'جهة عمل', '', NULL, NULL, 'أم أم أم أم', '', '1', '', '6', '3', '2', '', '', '0', 'mHelps', '', NULL, NULL, NULL, '', '', '', '333333333333333', '23232323', NULL, '2', '30000', '1', NULL, '0000-00-00', '0000-00-00', '', '2', '1', NULL, NULL, NULL, NULL, NULL),
-(14, '0000-00-00', 'علي أحمد أحمد أحمد', 'male', '2010-09-05', 'صنعاء', 'يمني', 'الانشاد', 'باب اليمن', '3', '2017-09-09', 'الاجل', 'الابتدائي', '5', 'الامل', '0', '', 'بخير', '', 'خمسة اجزاء', 'الامل', NULL, 'وصي وصي وصي', 'male', '1970-09-12', 'خاله', '324209009', 'نفسه', '', 'gov', NULL, NULL, '', NULL, 'widow', '', '5', '2', 'owner', '', 'meduim', '0', NULL, '', NULL, NULL, NULL, '', '', '', '', '', NULL, '0', NULL, NULL, NULL, '2019-09-10', '0000-00-00', '', 'كفالة منتهية', 'sanaa', '0.00', 'yer', NULL, NULL, NULL),
-(19, '0000-00-00', 'صالح', 'male', '2019-09-11', 'يشيب', 'يشي', 'شيب', 'شيسب', '2', '0000-00-00', 'سيب', '', '', '', '0', '', '', '', '', '', NULL, '', NULL, '0000-00-00', '', '', '', '', 'special', NULL, NULL, '', 'yes', 'widow', '', '0', '0', 'rent', '', 'meduim', '0', NULL, '', NULL, NULL, NULL, '', '', '', '', '', NULL, '1', NULL, NULL, NULL, '0000-00-00', '0000-00-00', '', 'لاستكمال البيانات', '1', '0.00', NULL, NULL, NULL, NULL),
-(20, '0000-00-00', 'محمد محمد محمد محمد', 'male', '0000-00-00', 'صنعاء', 'يمني', 'حفظ القرآن - الحساب', 'باب اليمن', '3', '0000-00-00', 'الاجل', 'اعدادي', 'السابع', 'الامل', '0', '', 'جيده', 'لا يوجد', 'خمسة اجزاء', 'الامل', NULL, 'وصي وصي وصي', NULL, '0000-00-00', '', '111111111111', 'نفسه', 'جهة عمل', NULL, NULL, NULL, 'أم أم أم أم', NULL, '1', '', '6', '3', '2', '', NULL, '0', NULL, '', NULL, NULL, NULL, '', '', '', '333333333333333', '23232323', NULL, '2', NULL, NULL, NULL, '0000-00-00', '0000-00-00', '', 'لاستكمال البيانات', '1', '0.00', NULL, NULL, NULL, NULL),
-(21, '0000-00-00', 'أحمد', 'male', '0000-00-00', 'صنعاء', 'يمني', 'حفظ القرآن - الحساب', 'باب اليمن', '3', '0000-00-00', 'الاجل', 'اعدادي', 'السابع', 'الامل', '0', '', 'جيده', 'لا يوجد', 'خمسة اجزاء', 'الامل', NULL, 'وصي وصي وصي', NULL, '0000-00-00', '', '111111111111', 'نفسه', 'جهة عمل', NULL, NULL, NULL, 'أم أم أم أم', NULL, '1', '', '6', '3', '2', '', NULL, '0', NULL, '', NULL, NULL, NULL, '', '', '', '333333333333333', '23232323', NULL, '2', NULL, NULL, NULL, '0000-00-00', '0000-00-00', '', 'لاستكمال البيانات', '1', '0.00', NULL, NULL, NULL, NULL),
-(22, '2019-09-04', 'صالح مسعد', 'male', '2011-09-20', 'الأمانة', 'يمني', '', 'الحصبة', NULL, '2017-09-12', 'الاجل', 'اعدادي', 'السابع', 'الامل', NULL, '', 'بخير', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'sanaa', NULL, NULL, NULL, NULL, NULL),
-(23, '2019-09-22', 'حسن صالح محسن', 'male', '2008-04-20', 'صنعاء', 'يمني', '', '', NULL, '0000-00-00', '', '', '', '', NULL, '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'sanaa', NULL, NULL, NULL, NULL, NULL),
-(24, '2019-09-22', 'تجربة1', 'male', '0000-00-00', '', '', '', '', NULL, '0000-00-00', '', '', '', '', NULL, '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'sanaa', NULL, NULL, NULL, NULL, NULL),
-(25, '2019-09-04', 'تجربة2', 'male', '0000-00-00', '', '', '', '', NULL, '0000-00-00', '', '', '', '', NULL, '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'sanaa', NULL, NULL, NULL, NULL, NULL),
-(26, '2019-09-22', 'تجربة3', 'male', '0000-00-00', '', '', '', '', NULL, '0000-00-00', '', '', '', '', NULL, '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'sanaa', NULL, NULL, NULL, NULL, NULL),
-(27, '2019-09-22', 'تجربة5', 'male', '0000-00-00', '', '', '', '', NULL, '0000-00-00', '', '', '', '', NULL, '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'sanaa', NULL, NULL, NULL, NULL, NULL),
-(28, '2019-09-22', 'تجربة1', 'male', '0000-00-00', '', '', '', '', NULL, '0000-00-00', '', '', '', '', NULL, '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'sanaa', NULL, NULL, NULL, NULL, NULL),
-(29, '2019-09-22', 'تجربة10', 'male', '0000-00-00', '', '', '', '', NULL, '0000-00-00', '', '', '', '', NULL, '', '', '', '', '', NULL, 'وصي وصي وصي', 'male', '1987-09-24', '', '234234', '', '', 'charity', NULL, NULL, 'ام تجربة', 'yes', NULL, '', '0', '0', NULL, '', NULL, '0', NULL, 'كلام صحيح', NULL, NULL, NULL, 'معرف معرف معرف', '234234324', 'سكن المعرف', '929384923', '324124', NULL, '2', NULL, NULL, NULL, '2019-09-24', '2020-09-17', '', 'لاستكمال البيانات', 'sanaa', '14000.00', 'yer', NULL, NULL, NULL),
-(30, '2019-09-23', 'محسن', 'male', '0000-00-00', '', '', '', '', NULL, '0000-00-00', '', '', '', '', NULL, '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'الأم الحنون', 'yes', 'widow', '', '0', '0', 'rent', '', 'meduim', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '32423423', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'sanaa', NULL, NULL, './aytamattachments/30_birthCert.png', './aytamattachments/30_deathCert.png', './aytamattachments/30_personalPhoto.png'),
-(32, '2019-09-24', 'علياء', 'female', '2011-10-13', 'صنعاء', '', '', '', NULL, '0000-00-00', '', '', '', '', NULL, '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'أم علياء', NULL, 'married', '', '0', '0', 'owner', '', NULL, '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'sanaa', NULL, NULL, './aytamattachments/32_birthCert.png', './aytamattachments/32_deathCert.png', NULL),
-(33, '2019-09-25', 'تجربة يتيم د', 'male', '0000-00-00', '', '', '', '', NULL, '0000-00-00', '', '', '', '', NULL, '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'sanaa', NULL, NULL, NULL, NULL, NULL),
-(34, '2019-09-25', 'تجربة يتيم د', 'male', '0000-00-00', '', '', '', '', NULL, '0000-00-00', '', '', '', '', NULL, '', '', '', '', '', NULL, '', NULL, '0000-00-00', '', '', '', '', NULL, NULL, NULL, 'ام اليتيم', NULL, NULL, '', '0', '0', NULL, '', NULL, '0', NULL, '', NULL, NULL, NULL, '', '', '', '', '', NULL, '0', NULL, NULL, NULL, '0000-00-00', '0000-00-00', '', NULL, 'sanaa', '0.00', NULL, './aytamattachments/34_birthCert.png', './aytamattachments/34_deathCert.png', NULL);
+(14, '0000-00-00', 'علي أحمد أحمد أحمد', '1', '2010-09-05', 'صنعاء', 'يمني', 'الانشاد', 'باب اليمن', '3', '2017-09-09', 'الاجل', 'الابتدائي', '5', 'الامل', '0', '', 'بخير', '', 'خمسة اجزاء', 'الامل', NULL, 'وصي وصي وصي', 'male', '1970-09-12', 'خاله', '324209009', 'نفسه', '', 'gov', NULL, NULL, '', NULL, 'widow', '', '5', '2', 'owner', '', 'meduim', '0', NULL, '', NULL, NULL, NULL, '', '', '', '', '', NULL, '0', NULL, NULL, NULL, '2019-09-10', '0000-00-00', '', '3', '1', '0.00', 'yer', NULL, NULL, NULL),
+(19, '0000-00-00', 'صالح', '1', '2019-09-11', 'يشيب', 'يشي', 'شيب', 'شيسب', '2', '0000-00-00', 'سيب', '', '', '', '0', '', '', '', '', '', NULL, '', NULL, '0000-00-00', '', '', '', '', 'special', NULL, NULL, '', 'yes', 'widow', '', '0', '0', 'rent', '', 'meduim', '0', NULL, '', NULL, NULL, NULL, '', '', '', '', '', NULL, '1', NULL, NULL, NULL, '0000-00-00', '0000-00-00', '', '3', '1', '0.00', NULL, NULL, NULL, NULL),
+(20, '0000-00-00', 'محمد محمد محمد محمد', '1', '0000-00-00', 'صنعاء', 'يمني', 'حفظ القرآن - الحساب', 'باب اليمن', '3', '0000-00-00', 'الاجل', 'اعدادي', 'السابع', 'الامل', '0', '', 'جيده', 'لا يوجد', 'خمسة اجزاء', 'الامل', NULL, 'وصي وصي وصي', NULL, '0000-00-00', '', '111111111111', 'نفسه', 'جهة عمل', NULL, NULL, NULL, 'أم أم أم أم', NULL, '1', '', '6', '3', '2', '', NULL, '0', NULL, '', NULL, NULL, NULL, '', '', '', '333333333333333', '23232323', NULL, '2', NULL, NULL, NULL, '0000-00-00', '0000-00-00', '', '3', '1', '0.00', NULL, NULL, NULL, NULL),
+(21, '0000-00-00', 'أحمد', '1', '0000-00-00', 'صنعاء', 'يمني', 'حفظ القرآن - الحساب', 'باب اليمن', '3', '0000-00-00', 'الاجل', 'اعدادي', 'السابع', 'الامل', '0', '', 'جيده', 'لا يوجد', 'خمسة اجزاء', 'الامل', NULL, 'وصي وصي وصي', NULL, '0000-00-00', '', '111111111111', 'نفسه', 'جهة عمل', NULL, NULL, NULL, 'أم أم أم أم', NULL, '1', '', '6', '3', '2', '', NULL, '0', NULL, '', NULL, NULL, NULL, '', '', '', '333333333333333', '23232323', NULL, '2', NULL, NULL, NULL, '0000-00-00', '0000-00-00', '', '3', '1', '0.00', NULL, NULL, NULL, NULL),
+(22, '2019-09-04', 'صالح مسعد', 'male', '2011-09-20', 'الأمانة', 'يمني', '', 'الحصبة', NULL, '2017-09-12', 'الاجل', 'اعدادي', 'السابع', 'الامل', NULL, '', 'بخير', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00', '0000-00-00', '', '2', '3', '0.00', NULL, NULL, NULL, NULL),
+(23, '2019-09-22', 'حسن صالح محسن', '1', '2008-04-20', 'صنعاء', 'يمني', '', '', NULL, '0000-00-00', '', '', '', '', NULL, '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00', '0000-00-00', '', '2', '3', '0.00', NULL, NULL, NULL, NULL),
+(24, '2019-09-22', 'تجربة1', 'male', '0000-00-00', '', '', '', '', NULL, '0000-00-00', '', '', '', '', NULL, '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00', '0000-00-00', '', '2', '1', '0.00', NULL, NULL, NULL, NULL),
+(25, '2019-09-04', 'تجربة2', 'male', '0000-00-00', '', '', '', '', NULL, '0000-00-00', '', '', '', '', NULL, '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00', '0000-00-00', '', '2', '1', '0.00', NULL, NULL, NULL, NULL),
+(26, '2019-09-22', 'تجربة3', 'male', '0000-00-00', '', '', '', '', NULL, '0000-00-00', '', '', '', '', NULL, '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00', '0000-00-00', '', '2', '1', '0.00', NULL, NULL, NULL, NULL),
+(27, '2019-09-22', 'تجربة5', 'male', '0000-00-00', '', '', '', '', NULL, '0000-00-00', '', '', '', '', NULL, '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00', '0000-00-00', '', '2', '1', '0.00', NULL, NULL, NULL, NULL),
+(28, '2019-09-22', 'تجربة1', 'male', '0000-00-00', '', '', '', '', NULL, '0000-00-00', '', '', '', '', NULL, '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00', '0000-00-00', '', '2', '1', '0.00', NULL, NULL, NULL, NULL),
+(29, '2019-09-22', 'تجربة10', 'male', '0000-00-00', '', '', '', '', NULL, '0000-00-00', '', '', '', '', NULL, '', '', '', '', '', NULL, 'وصي وصي وصي', 'male', '1987-09-24', '', '234234', '', '', 'charity', NULL, NULL, 'ام تجربة', 'yes', NULL, '', '0', '0', NULL, '', NULL, '0', NULL, 'كلام صحيح', NULL, NULL, NULL, 'معرف معرف معرف', '234234324', 'سكن المعرف', '929384923', '324124', NULL, '3', NULL, NULL, NULL, '2020-10-02', '0000-00-00', '', '1', '1', '100.00', '2', NULL, NULL, NULL),
+(30, '2019-09-23', 'محسن', 'male', '0000-00-00', '', '', '', '', NULL, '0000-00-00', '', '', '', '', NULL, '', '', '', '', '', NULL, 'وصي وصي وصي', NULL, '1994-09-10', 'عم', '8737723', 'نفسه', 'عمل حر', NULL, NULL, NULL, 'الأم الحنون', 'yes', '1', 'لاي يوجد', '5', '3', '1', 'الحثيلي', '1', '20000', 'null', 'تمام', NULL, NULL, NULL, 'معرف معرف معرف', '234234324', 'سكن المعرف', '32423423', '234252345234', NULL, '3', NULL, NULL, NULL, '2020-10-02', '0000-00-00', '', '1', '2', '100.00', '2', './aytamattachments/30_birthCert.png', './aytamattachments/30_deathCert.png', './aytamattachments/30_personalPhoto.png'),
+(32, '2019-09-24', 'علياء', 'female', '2011-10-13', 'صنعاء', '', '', '', NULL, '0000-00-00', '', '', '', '', NULL, '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '3', NULL, NULL, 'أم علياء', NULL, 'married', '', '0', '0', 'owner', '', NULL, '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, '2', NULL, NULL, NULL, '0000-00-00', '0000-00-00', '', '1', '2', '0.00', 'yer', './aytamattachments/32_birthCert.png', './aytamattachments/32_deathCert.png', NULL),
+(33, '2019-09-25', 'تجربة يتيم د', 'male', '0000-00-00', '', '', '', '', NULL, '0000-00-00', '', '', '', '', NULL, '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2', NULL, NULL, NULL, '0000-00-00', '0000-00-00', '', '1', '2', '0.00', 'yer', NULL, NULL, NULL),
+(34, '2019-09-25', 'تجربة يتيم د', 'male', '0000-00-00', '', '', '', '', NULL, '0000-00-00', '', '', '', '', NULL, '', '', '', '', '', NULL, '', NULL, '0000-00-00', '', '', '', '', '1', NULL, NULL, 'ام اليتيم', NULL, NULL, '', '0', '0', NULL, '', NULL, '0', NULL, '', NULL, NULL, NULL, '', '', '', '', '', NULL, '3', NULL, NULL, NULL, '2020-10-02', '0000-00-00', '', '1', '2', '100.00', '2', './aytamattachments/34_birthCert.png', './aytamattachments/34_deathCert.png', NULL),
+(35, '2019-10-01', 'test', '', '0000-00-00', '', '', '', '', NULL, '0000-00-00', '', '', '', '', NULL, '', '', '', '', '', NULL, '', '', '0000-00-00', '', '', '', '', '1', NULL, NULL, '', NULL, '', '', '0', '0', '', '', '', '0', 'null', '', NULL, NULL, NULL, '', '', '', '', '', NULL, '3', NULL, NULL, NULL, '2020-10-02', '0000-00-00', '', '1', '2', '100.00', '2', NULL, NULL, NULL),
+(36, '2019-10-01', 'باراك اوباما', '1', '2010-07-01', 'نيويورك', 'امريكي', 'رئيس امريكا', 'بيت بوس', NULL, '2018-07-10', 'ضبح', 'اعدادي', 'السابع', 'الامل', NULL, '', 'جيده', '', 'لا شيء', 'لا يوجد', NULL, 'وصي وصي وصي', '1', '1969-08-14', 'عم', '8737723', 'نفسه', 'عمل حر', '3', NULL, NULL, 'أم باراك', 'yes', '1', 'محامية', '5', '4', '2', 'الحثيلي - نيويورك', '1', '10000', 'null', '', NULL, NULL, NULL, 'معرف معرف معرف', '234234324', 'سكن المعرف', '324234232', '324124', NULL, '3', NULL, NULL, NULL, '2020-10-02', '0000-00-00', '', '1', '1', '100.00', '2', '/yateemAid/ysys/aytamattachments/36_birthCert.png', '/yateemAid/ysys/aytamattachments/36_deathCert.png', '/yateemAid/ysys/aytamattachments/36_personalPhoto.png'),
+(37, NULL, 'يتيم', NULL, '0000-00-00', '', '', '', '', NULL, '0000-00-00', '', '', '', '', NULL, '', '', '', '', '', NULL, '', '', '0000-00-00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '0', '0', '', '', '', '0', 'null', '', NULL, NULL, NULL, '', '', '', '', '', NULL, '0', NULL, NULL, NULL, '0000-00-00', '0000-00-00', '', '', NULL, '0.00', '', NULL, NULL, '/yateemAid/ysys/aytamattachments/37_personalPhoto.png');
 
 -- --------------------------------------------------------
 
@@ -1547,6 +1563,57 @@ INSERT INTO `yayateeminfo1_form` (`id`, `ord`, `col`, `form_descrip`, `table_des
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `yayateemprojects`
+--
+
+CREATE TABLE `yayateemprojects` (
+  `id` int(11) NOT NULL,
+  `prName` varchar(255) DEFAULT NULL,
+  `kafilID` int(11) DEFAULT NULL,
+  `prCurrency` int(11) DEFAULT NULL,
+  `prStartDate` datetime DEFAULT NULL,
+  `prEndDate` date DEFAULT NULL,
+  `prCycle` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `yayateemprojects_form`
+--
+
+CREATE TABLE `yayateemprojects_form` (
+  `id` int(11) NOT NULL,
+  `ord` int(11) NOT NULL,
+  `col` varchar(255) NOT NULL,
+  `form_descrip` varchar(255) NOT NULL,
+  `table_descrip` varchar(255) NOT NULL,
+  `col_type` varchar(255) NOT NULL,
+  `field_type` varchar(100) NOT NULL,
+  `length` int(11) NOT NULL,
+  `required` tinyint(1) NOT NULL,
+  `validation` text NOT NULL,
+  `label_class` varchar(255) NOT NULL,
+  `field_class` varchar(255) NOT NULL,
+  `input_html` text NOT NULL,
+  `select_opts` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `yayateemprojects_form`
+--
+
+INSERT INTO `yayateemprojects_form` (`id`, `ord`, `col`, `form_descrip`, `table_descrip`, `col_type`, `field_type`, `length`, `required`, `validation`, `label_class`, `field_class`, `input_html`, `select_opts`) VALUES
+(1, 10, 'prName', 'اسم المشروع', 'اسم المشروع', 'varchar', 'text', 0, 1, '', '', 'form-control', '', '{\"\":\"\"}'),
+(2, 20, 'kafilID', 'الكافل', 'الكافل', 'int', 'number', 0, 0, '', '', 'form-control', '', '{\"\":\"\"}'),
+(3, 30, 'prCurrency', 'العملة', 'العملة', 'int', 'number', 0, 0, '', '', 'form-control', '', '{\"\":\"\"}'),
+(5, 40, 'prStartDate', 'تاريخ البدء', 'تاريخ البدء', 'date', 'date', 0, 0, '', '', 'form-control', '', '{\"\":\"\"}'),
+(6, 50, 'prEndDate', 'تاريخ الانتهاء', 'تاريخ الانتهاء', 'date', 'date', 0, 0, '', '', 'form-control', '', '{\"\":\"\"}'),
+(7, 60, 'prCycle', 'التكرار', 'التكرار', 'int', 'number', 0, 0, '', '', 'form-control', '', '{\"\":\"\"}');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `ya_kafalahinfo_01`
 --
 
@@ -1570,7 +1637,8 @@ CREATE TABLE `ya_kafalahinfo_01` (
 
 INSERT INTO `ya_kafalahinfo_01` (`id`, `kafilID`, `kafalahAmount`, `kafalahCurrency`, `kafalahDuration`, `kafalahLoop`, `kafalahAytam`, `kafalahType`, `kafalahSDate`, `kafalahRepeat`, `kafalahLable`) VALUES
 (1, '1', '500000', 'YER', '1', 'w', '400', '', '0000-00-00', '2', 'كفالة 500 يتيم - راف'),
-(2, '1', '500', 'USD', '2', 'w', '40', '', '2019-09-09', '3', 'كفالة 10 ايتام - ابو محمد');
+(2, '1', '500', 'USD', '2', 'w', '40', '', '2019-09-09', '3', 'كفالة 10 ايتام - ابو محمد'),
+(3, '4', '100000', '2', '12', '2', '100', '', '0000-00-00', '3', 'كفالة الشيخ عدنان الصلوي لـ 100 يتيم');
 
 -- --------------------------------------------------------
 
@@ -1631,7 +1699,8 @@ CREATE TABLE `ya_kafilinfo_01` (
 INSERT INTO `ya_kafilinfo_01` (`id`, `kName`, `kAddress`, `kPhone`, `kType`, `kCountry`, `kEmail`, `kWebsite`) VALUES
 (1, 'فاعل خير', 'اليمن - صنعاء', '777777777', '', 'اليمن', NULL, NULL),
 (2, 'كافل يتيم', '', '0', '', '', 'شيبششسيبسيبشيسب', ''),
-(3, 'تجربة', 'اليمن - صنعاء', '774030703', '', 'اليمن', '', '');
+(3, 'تجربة', 'اليمن - صنعاء', '774030703', '', 'اليمن', '', ''),
+(4, 'الشيخ عدنان الصلوي', '', '0', NULL, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -1819,17 +1888,18 @@ INSERT INTO `ya_settings_fsource_fb_fields` (`id`, `fb_order`, `name`, `field_ty
 
 CREATE TABLE `ya_settings_fstate` (
   `id` int(11) NOT NULL,
-  `fState` varchar(255) DEFAULT NULL
+  `fState` varchar(255) DEFAULT NULL,
+  `fFinanceStatus` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `ya_settings_fstate`
 --
 
-INSERT INTO `ya_settings_fstate` (`id`, `fState`) VALUES
-(1, 'متوسط'),
-(2, 'فقيرة'),
-(3, 'معدمة');
+INSERT INTO `ya_settings_fstate` (`id`, `fState`, `fFinanceStatus`) VALUES
+(1, 'متوسط', 'متوسط'),
+(2, 'فقيرة', 'فقيرة'),
+(3, 'معدمة', 'معدمة');
 
 -- --------------------------------------------------------
 
@@ -1855,7 +1925,7 @@ CREATE TABLE `ya_settings_fstate_fb_fields` (
 --
 
 INSERT INTO `ya_settings_fstate_fb_fields` (`id`, `fb_order`, `name`, `field_type`, `field_html`, `requirements`, `databasevalue`, `database_name`, `database_value`, `database_where`) VALUES
-(1, 0, 'fState', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u0648\\u0636\\u0639 \\u0627\\u0644\\u0645\\u0627\\u062f\\u064a \\u0644\\u0644\\u0623\\u0633\\u0631\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u0648\\u0636\\u0639 \\u0627\\u0644\\u0645\\u0627\\u062f\\u064a \\u0644\\u0644\\u0623\\u0633\\u0631\\u0629\",\"required\":true}', '', '', '', '');
+(1, 0, 'fFinanceStatus', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u0648\\u0636\\u0639 \\u0627\\u0644\\u0645\\u0627\\u062f\\u064a \\u0644\\u0644\\u0623\\u0633\\u0631\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u0648\\u0636\\u0639 \\u0627\\u0644\\u0645\\u0627\\u062f\\u064a \\u0644\\u0644\\u0623\\u0633\\u0631\\u0629\",\"required\":true}', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -1865,16 +1935,17 @@ INSERT INTO `ya_settings_fstate_fb_fields` (`id`, `fb_order`, `name`, `field_typ
 
 CREATE TABLE `ya_settings_hometype` (
   `id` int(11) NOT NULL,
-  `hType` varchar(255) DEFAULT NULL
+  `hType` varchar(255) DEFAULT NULL,
+  `fHomeType` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `ya_settings_hometype`
 --
 
-INSERT INTO `ya_settings_hometype` (`id`, `hType`) VALUES
-(1, 'ملك'),
-(2, 'ايجار');
+INSERT INTO `ya_settings_hometype` (`id`, `hType`, `fHomeType`) VALUES
+(1, 'ملك', 'ملك'),
+(2, 'ايجار', 'ايجار');
 
 -- --------------------------------------------------------
 
@@ -1900,7 +1971,7 @@ CREATE TABLE `ya_settings_hometype_fb_fields` (
 --
 
 INSERT INTO `ya_settings_hometype_fb_fields` (`id`, `fb_order`, `name`, `field_type`, `field_html`, `requirements`, `databasevalue`, `database_name`, `database_value`, `database_where`) VALUES
-(1, 0, 'hType', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0633\\u0643\\u0646\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0633\\u0643\\u0646\",\"required\":true}', '', '', '', '');
+(1, 0, 'fHomeType', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0633\\u0643\\u0646\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0646\\u0648\\u0639 \\u0627\\u0644\\u0633\\u0643\\u0646\",\"required\":true}', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -1910,19 +1981,20 @@ INSERT INTO `ya_settings_hometype_fb_fields` (`id`, `fb_order`, `name`, `field_t
 
 CREATE TABLE `ya_settings_jobtype` (
   `id` int(11) NOT NULL,
-  `jName` varchar(255) DEFAULT NULL
+  `jName` varchar(255) DEFAULT NULL,
+  `rWorkType` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `ya_settings_jobtype`
 --
 
-INSERT INTO `ya_settings_jobtype` (`id`, `jName`) VALUES
-(1, 'حكومي'),
-(2, 'خاص'),
-(3, 'خيري'),
-(4, 'حر'),
-(5, 'لا يوجد');
+INSERT INTO `ya_settings_jobtype` (`id`, `jName`, `rWorkType`) VALUES
+(1, 'حكومي', NULL),
+(2, 'خاص', NULL),
+(3, 'خيري', NULL),
+(4, 'حر', NULL),
+(5, 'لا يوجد', NULL);
 
 -- --------------------------------------------------------
 
@@ -1948,7 +2020,7 @@ CREATE TABLE `ya_settings_jobtype_fb_fields` (
 --
 
 INSERT INTO `ya_settings_jobtype_fb_fields` (`id`, `fb_order`, `name`, `field_type`, `field_html`, `requirements`, `databasevalue`, `database_name`, `database_value`, `database_where`) VALUES
-(1, 0, 'jName', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0639\\u0645\\u0644\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0639\\u0645\\u0644\",\"required\":true}', '', '', '', '');
+(1, 0, 'rWorkType', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0639\\u0645\\u0644\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0633\\u0645 \\u0627\\u0644\\u0639\\u0645\\u0644\",\"required\":true}', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -2049,16 +2121,17 @@ INSERT INTO `ya_settings_kafalahtype_fb_fields` (`id`, `fb_order`, `name`, `fiel
 
 CREATE TABLE `ya_settings_mstate` (
   `id` int(11) NOT NULL,
-  `msName` varchar(255) DEFAULT NULL
+  `msName` varchar(255) DEFAULT NULL,
+  `mStatus` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `ya_settings_mstate`
 --
 
-INSERT INTO `ya_settings_mstate` (`id`, `msName`) VALUES
-(1, 'أرملة'),
-(2, 'متزوجة');
+INSERT INTO `ya_settings_mstate` (`id`, `msName`, `mStatus`) VALUES
+(1, 'أرملة', 'أرملة'),
+(2, 'متزوجة', 'متزوجة');
 
 -- --------------------------------------------------------
 
@@ -2084,7 +2157,7 @@ CREATE TABLE `ya_settings_mstate_fb_fields` (
 --
 
 INSERT INTO `ya_settings_mstate_fb_fields` (`id`, `fb_order`, `name`, `field_type`, `field_html`, `requirements`, `databasevalue`, `database_name`, `database_value`, `database_where`) VALUES
-(1, 0, 'msName', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062d\\u0627\\u0644\\u0629 \\u0627\\u0644\\u0623\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u062d\\u0627\\u0644\\u0629 \\u0627\\u0644\\u0623\\u0645\",\"required\":true}', '', '', '', '');
+(1, 0, 'mStatus', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u062d\\u0627\\u0644\\u0629 \\u0627\\u0644\\u0623\\u0645\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u062d\\u0627\\u0644\\u0629 \\u0627\\u0644\\u0623\\u0645\",\"required\":true}', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -2096,16 +2169,17 @@ CREATE TABLE `ya_settings_sex` (
   `id` int(11) NOT NULL,
   `sNameAra` varchar(255) DEFAULT NULL,
   `sNameEng` varchar(255) DEFAULT NULL,
-  `sSymbol` varchar(255) DEFAULT NULL
+  `sSymbol` varchar(255) DEFAULT NULL,
+  `ySex` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `ya_settings_sex`
 --
 
-INSERT INTO `ya_settings_sex` (`id`, `sNameAra`, `sNameEng`, `sSymbol`) VALUES
-(1, 'ذكر', 'Male', 'M'),
-(2, 'أنثى', 'Female', 'F');
+INSERT INTO `ya_settings_sex` (`id`, `sNameAra`, `sNameEng`, `sSymbol`, `ySex`) VALUES
+(1, 'ذكر', 'Male', 'M', NULL),
+(2, 'أنثى', 'Female', 'F', NULL);
 
 -- --------------------------------------------------------
 
@@ -2131,7 +2205,7 @@ CREATE TABLE `ya_settings_sex_fb_fields` (
 --
 
 INSERT INTO `ya_settings_sex_fb_fields` (`id`, `fb_order`, `name`, `field_type`, `field_html`, `requirements`, `databasevalue`, `database_name`, `database_value`, `database_where`) VALUES
-(1, 0, 'sNameAra', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u062c\\u0646\\u0633 \\u0628\\u0627\\u0644\\u0639\\u0631\\u0628\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u062c\\u0646\\u0633 \\u0628\\u0627\\u0644\\u0639\\u0631\\u0628\\u064a\",\"required\":true}', '', '', '', ''),
+(1, 0, 'ySex', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u062c\\u0646\\u0633 \\u0628\\u0627\\u0644\\u0639\\u0631\\u0628\\u064a\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"1\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u062c\\u0646\\u0633 \\u0628\\u0627\\u0644\\u0639\\u0631\\u0628\\u064a\",\"required\":true}', '', '', '', ''),
 (2, 0, 'sNameEng', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u0627\\u0633\\u0645 \\u0628\\u0627\\u0644\\u0627\\u0646\\u062c\\u0644\\u064a\\u0632\\u064a\\u0629\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u0627\\u0633\\u0645 \\u0628\\u0627\\u0644\\u0627\\u0646\\u062c\\u0644\\u064a\\u0632\\u064a\\u0629\"}', '', '', '', ''),
 (3, 0, 'sSymbol', 'text', '{\"div_class1\":\"\",\"div_class2\":\"form-group\",\"label\":\"\\u0627\\u0644\\u0631\\u0645\\u0632\",\"label_class\":\"form-group\",\"input_class\":\"form-control\",\"input_html\":\"\",\"required\":\"\",\"input_step\":\"\"}', '{\"display\":\"\\u0627\\u0644\\u0631\\u0645\\u0632\"}', '', '', '', '');
 
@@ -2710,6 +2784,18 @@ ALTER TABLE `yayateeminfo1_form`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `yayateemprojects`
+--
+ALTER TABLE `yayateemprojects`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `yayateemprojects_form`
+--
+ALTER TABLE `yayateemprojects_form`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `ya_kafalahinfo_01`
 --
 ALTER TABLE `ya_kafalahinfo_01`
@@ -2963,7 +3049,7 @@ ALTER TABLE `fb_settings_fb_fields`
 -- AUTO_INCREMENT for table `groups_menus`
 --
 ALTER TABLE `groups_menus`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `keys`
@@ -2975,7 +3061,7 @@ ALTER TABLE `keys`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
 
 --
 -- AUTO_INCREMENT for table `logs_exempt`
@@ -3011,7 +3097,7 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
 
 --
 -- AUTO_INCREMENT for table `permissions`
@@ -3023,7 +3109,7 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `permission_page_matches`
 --
 ALTER TABLE `permission_page_matches`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 
 --
 -- AUTO_INCREMENT for table `profiles`
@@ -3089,7 +3175,7 @@ ALTER TABLE `us_fingerprint_assets`
 -- AUTO_INCREMENT for table `us_forms`
 --
 ALTER TABLE `us_forms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `us_form_validation`
@@ -3113,7 +3199,7 @@ ALTER TABLE `us_ip_blacklist`
 -- AUTO_INCREMENT for table `us_ip_list`
 --
 ALTER TABLE `us_ip_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `us_ip_whitelist`
@@ -3161,7 +3247,7 @@ ALTER TABLE `us_user_sessions`
 -- AUTO_INCREMENT for table `yayateeminfo1`
 --
 ALTER TABLE `yayateeminfo1`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `yayateeminfo1_form`
@@ -3170,10 +3256,22 @@ ALTER TABLE `yayateeminfo1_form`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
+-- AUTO_INCREMENT for table `yayateemprojects`
+--
+ALTER TABLE `yayateemprojects`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `yayateemprojects_form`
+--
+ALTER TABLE `yayateemprojects_form`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `ya_kafalahinfo_01`
 --
 ALTER TABLE `ya_kafalahinfo_01`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `ya_kafalahinfo_01_fb_fields`
@@ -3185,7 +3283,7 @@ ALTER TABLE `ya_kafalahinfo_01_fb_fields`
 -- AUTO_INCREMENT for table `ya_kafilinfo_01`
 --
 ALTER TABLE `ya_kafilinfo_01`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `ya_kafilinfo_01_fb_fields`
