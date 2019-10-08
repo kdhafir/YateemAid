@@ -27,7 +27,6 @@ function getOptions($option,$optionID){
 }
 $aytamQ = $db->query("SELECT * FROM `yayateeminfo1` ORDER BY id DESC");
 $counAytam = $aytamQ->count();
-
 ?>
 <div id="page-wrapper">
 	<div class="container" dir="rtl">
@@ -46,7 +45,7 @@ $counAytam = $aytamQ->count();
 	</div>
 	<br>
 	<table class="table table-striped" id="searchTable">
-	
+
 	<thead class="thead-light">
 	<tr>
       <th>#</th>
@@ -65,7 +64,7 @@ if($counAytam > 0){
     $x = 1;
     foreach($aytamResult as $ar){
 ?>
-		
+
 		<tr>
 		<td><input type="checkbox" class="form-check-input" name="ycode[]" value="<?php echo $ar->id; ?>"></td>
 		<td>
@@ -84,23 +83,20 @@ if($counAytam > 0){
 		مبلغ: <?php echo $ar->kafalahAmount; ?> <br>
 		</td>
 		<td>
-			<?php 
+			<?php
 			if($ar->yPersonalPhotoLink){
-			echo "<a href=\"ysys/" . $ar->yPersonalPhotoLink . "\" target=\"_blank\">صورة شخصية</a><br>"; 
+			echo "<a href=\"ysys/" . $ar->yPersonalPhotoLink . "\" target=\"_blank\">صورة شخصية</a><br>";
 			}
 			if($ar->yBirthCertLink){
-				echo "<a href=\"ysys/" . $ar->yBirthCertLink . "\" target=\"_blank\">شهادة الميلاد</a><br>"; 
+				echo "<a href=\"ysys/" . $ar->yBirthCertLink . "\" target=\"_blank\">شهادة الميلاد</a><br>";
 			}
 			if($ar->yPersonalPhotoLink){
-				echo "<a href=\"ysys/" . $ar->yDeathCertLink . "\" target=\"_blank\">شهادة الوفاة</a>"; 
+				echo "<a href=\"ysys/" . $ar->yDeathCertLink . "\" target=\"_blank\">شهادة الوفاة</a>";
 			}
-
-			
 			?>
 		</td>
-
 		</tr>
-		
+
 <?php
 	} // end of foreach($aytamResult as $ar)
 } // end of if($counAytam > 0)
@@ -127,7 +123,7 @@ if($counAytam > 0){
 			<p align="center">
 				<?php
 				if($user->isLoggedIn()){?>
-					
+
 					<a class="btn btn-success" href="ysys/kafil_addnew.php" role="button">إضافة كافل &raquo;</a>
 					<a class="btn btn-success" href="ysys/kafil_viewall.php" role="button">ادارة الكافلين &raquo;</a>
 					<br><br>
@@ -144,10 +140,10 @@ if($counAytam > 0){
 				<?php }?>
 			</p>
 			<br>
-			
+
 		</div>-->
-		
-<?php  languageSwitcher();?> 
+
+<?php  languageSwitcher();?>
 	</form>
 	</div>
 </div>
@@ -155,13 +151,13 @@ if($counAytam > 0){
 <!-- Place any per-page javascript here -->
 <script>
 function searchtable() {
-    // Declare variables 
+    // Declare variables
     var input, filter, table, tr, td, i;
     input = document.getElementById("searchInput");
     filter = input.value.toUpperCase();
     table = document.getElementById("searchTable");
     tr = table.getElementsByTagName("tr");
-    // number of columns 
+    // number of columns
     var cols = 7;
     // Loop through all table rows, and hide those who don't match the search query
     for (i = 0; i < tr.length; i++) {
@@ -183,11 +179,10 @@ function searchtable() {
 function submitdelete() {
      var confirmdel = confirm('هل أنت متأكد من أنك تريد حذف الأسماء المحددة ؟');
     if(confirmdel){
-        document.getElementById("control").value = "delete"; 
-        document.getElementById("contacttablefrm").submit(); 
+        document.getElementById("control").value = "delete";
+        document.getElementById("contacttablefrm").submit();
     }
 }
-
 </script>
 
 <?php require_once $abs_us_root . $us_url_root . 'users/includes/html_footer.php'; ?>
