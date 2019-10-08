@@ -33,121 +33,92 @@ $counAytam = $aytamQ->count();
 	<br>
 	<?php
 		if($user->isLoggedIn()){?>
-<div class="row text-right" dir="rtl">
-	<div class="col-sm-12 col-md-12">
-	<br>
-	<form method="GET" action="./ysys/kafalh_dokafalah.php">
-	<div class="d-flex justify-content-start bg-secondary">
-		<a class="btn btn-info" href="ysys/yateem_addnew_01.php">إضافة يتيم</a>&nbsp;
-		<button class="btn btn-info" type="submit">تغيير حالة اليتيم</button>
-		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-		<input class="form-control col-md-4" type="text" id="searchInput" onkeyup="searchtable()" placeholder="بحث وفرز" style="text-align: center;">
-	</div>
-	<br>
-	<table class="table table-striped" id="searchTable">
+			<div class="row text-right" dir="rtl">
+			<div class="col-sm-12 col-md-12">
+			<br>
+			<form method="GET" action="./ysys/kafalh_dokafalah.php">
+			<div class="d-flex justify-content-start bg-secondary">
+				<a class="btn btn-info" href="ysys/yateem_addnew_01.php">إضافة يتيم</a>&nbsp;
+				<button class="btn btn-info" type="submit">تغيير حالة اليتيم</button>
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+				<input class="form-control col-md-4" type="text" id="searchInput" onkeyup="searchtable()" placeholder="بحث وفرز" style="text-align: center;">
+			</div>
+			<br>
+			<table class="table table-striped" id="searchTable">
 
-	<thead class="thead-light">
-	<tr>
-      <th>#</th>
-      <th>الاسم</th>
-      <th>العنوان</th>
-	  <th>الحالة</th>
-	  <th>اسم الكافل</th>
-	  <th>الكفالة</th>
-	  <th>المرفقات</th>
-    </tr>
-	</thead>
-	<tbody>
-<?php
-if($counAytam > 0){
-    $aytamResult = $aytamQ->results();
-    $x = 1;
-    foreach($aytamResult as $ar){
-?>
-
-		<tr>
-		<td><input type="checkbox" class="form-check-input" name="ycode[]" value="<?php echo $ar->id; ?>"></td>
-		<td>
-			<a href="./ysys/yateem_viewyateem.php?ycode=<?php echo $ar->id; ?>"><?php echo $ar->yName; ?></a><br>
-			<a href="./ysys/yateem_edityateemdata.php?ycode=<?php echo $ar->id; ?>">[تحرير البيانات]</a>
-		</td>
-		<td>
-		المدينة: <?php menuQuery("r",$ar->cityName," 	ya_settings_cities","cityName","cityName");// getOptions("city",$ar->cityName); ?><br>
-		<?php echo $ar->yAddress; ?>
-		</td>
-		<td><?php menuQuery("r",$ar->yState,"ya_settings_ystate","yState","yState");//echo getOptions("yState",$ar->yState); ?></td>
-		<td><?php echo getKafil($ar->kafalahID); ?></td>
-		<td>
-		رقم: <?php echo $ar->kafalahID; ?> <br>
-		<?php echo kafalahQuery("r",$ar->kafalahID);// getOptions("kafalahLable",$ar->kafalahID); ?> <br>
-		مبلغ: <?php echo $ar->kafalahAmount; ?> <br>
-		</td>
-		<td>
-			<?php
-			if($ar->yPersonalPhotoLink){
-			echo "<a href=\"ysys/" . $ar->yPersonalPhotoLink . "\" target=\"_blank\">صورة شخصية</a><br>";
-			}
-			if($ar->yBirthCertLink){
-				echo "<a href=\"ysys/" . $ar->yBirthCertLink . "\" target=\"_blank\">شهادة الميلاد</a><br>";
-			}
-			if($ar->yPersonalPhotoLink){
-				echo "<a href=\"ysys/" . $ar->yDeathCertLink . "\" target=\"_blank\">شهادة الوفاة</a>";
-			}
-			?>
-		</td>
-		</tr>
-
-<?php
-	} // end of foreach($aytamResult as $ar)
-} // end of if($counAytam > 0)
-
-?>
-</tbody>
-</table>
-	</div>
+			<thead class="thead-light">
+			<tr>
+		      <th>#</th>
+		      <th>الاسم</th>
+		      <th>العنوان</th>
+			  	<th>الحالة</th>
+			  	<th>اسم الكافل</th>
+			  	<th>الكفالة</th>
+			  	<th>المرفقات</th>
+		    </tr>
+			</thead>
+			<tbody>
+	<?php
+	if($counAytam > 0){
+	    $aytamResult = $aytamQ->results();
+	    $x = 1;
+	    foreach($aytamResult as $ar){
+	?>
+			<tr>
+			<td><input type="checkbox" class="form-check-input" name="ycode[]" value="<?php echo $ar->id; ?>"></td>
+			<td>
+				<a href="./ysys/yateem_viewyateem.php?ycode=<?php echo $ar->id; ?>"><?php echo $ar->yName; ?></a><br>
+				<a href="./ysys/yateem_edityateemdata.php?ycode=<?php echo $ar->id; ?>">[تحرير البيانات]</a>
+			</td>
+			<td>
+			المدينة: <?php menuQuery("r",$ar->cityName," 	ya_settings_cities","cityName","cityName");// getOptions("city",$ar->cityName); ?><br>
+			<?php echo $ar->yAddress; ?>
+			</td>
+			<td><?php menuQuery("r",$ar->yState,"ya_settings_ystate","yState","yState");//echo getOptions("yState",$ar->yState); ?></td>
+			<td><?php echo getKafil($ar->kafalahID); ?></td>
+			<td>
+			رقم: <?php echo $ar->kafalahID; ?> <br>
+			<?php echo kafalahQuery("r",$ar->kafalahID);// getOptions("kafalahLable",$ar->kafalahID); ?> <br>
+			مبلغ: <?php echo $ar->kafalahAmount; ?> <br>
+			</td>
+			<td>
+				<?php
+				if($ar->yPersonalPhotoLink){
+				echo "<a href=\"ysys/" . $ar->yPersonalPhotoLink . "\" target=\"_blank\">صورة شخصية</a><br>";
+				}
+				if($ar->yBirthCertLink){
+					echo "<a href=\"ysys/" . $ar->yBirthCertLink . "\" target=\"_blank\">شهادة الميلاد</a><br>";
+				}
+				if($ar->yPersonalPhotoLink){
+					echo "<a href=\"ysys/" . $ar->yDeathCertLink . "\" target=\"_blank\">شهادة الوفاة</a>";
+				}
+				?>
+			</td>
+			</tr>
+	<?php
+		} // end of foreach($aytamResult as $ar)
+	} // end of if($counAytam > 0)
+	?>
+		</tbody>
+		</table>
+		</div>
 <?php }else{?>
-	<div class="jumbotron">
-			<h1 align="center"> نظام مساعد اليتيم</h1>
-			<p align="center" class="text-muted">لإدارة الأيتام وكفالاتهم</p>
-			<p align="center">
-	<div class="row text-center">
-		<a class="btn btn-warning col" href="users/login.php" role="button"><?=lang("SIGNIN_TEXT");?> &raquo;</a>
-		<a class="btn btn-info col" href="users/join.php" role="button"><?=lang("SIGNUP_TEXT");?> &raquo;</a>
-	</div>
-</div>
-				<?php }?>
-				<!--
 		<div class="jumbotron">
 			<h1 align="center"> نظام مساعد اليتيم</h1>
 			<p align="center" class="text-muted">لإدارة الأيتام وكفالاتهم</p>
 			<p align="center">
-				<?php
-				if($user->isLoggedIn()){?>
+				<div class="row text-center">
+					<a class="btn btn-warning col" href="users/login.php" role="button"><?=lang("SIGNIN_TEXT");?> &raquo;</a>
+					<a class="btn btn-info col" href="users/join.php" role="button"><?=lang("SIGNUP_TEXT");?> &raquo;</a>
+				</div>
+		</div>
+<?php }?>
 
-					<a class="btn btn-success" href="ysys/kafil_addnew.php" role="button">إضافة كافل &raquo;</a>
-					<a class="btn btn-success" href="ysys/kafil_viewall.php" role="button">ادارة الكافلين &raquo;</a>
-					<br><br>
-					<a class="btn btn-warning" href="ysys/kafalah_addnew.php" role="button">إضافة كفالة &raquo;</a>
-					<a class="btn btn-warning" href="ysys/kafalah_viewall.php" role="button">ادارة الكفالات &raquo;</a>
-					<br><br>
-					<a class="btn btn-primary" href="ysys/yateem_addnew.php" role="button">إضافة يتيم &raquo;</a>
-					<a class="btn btn-primary" href="ysys/index.php" role="button">استعراض الأيتام &raquo;</a>
-					<br><br>
-					<a class="btn btn-primary" href="users/account.php" role="button"><?=lang("ACCT_HOME");?> &raquo;</a>
-				<?php }else{?>
-					<a class="btn btn-warning" href="users/login.php" role="button"><?=lang("SIGNIN_TEXT");?> &raquo;</a>
-					<a class="btn btn-info" href="users/join.php" role="button"><?=lang("SIGNUP_TEXT");?> &raquo;</a>
-				<?php }?>
-			</p>
-			<br>
 
-		</div>-->
-
-<?php  languageSwitcher();?>
 	</form>
 	</div>
 </div>
-
+<?php  languageSwitcher();?>
 <!-- Place any per-page javascript here -->
 <script>
 function searchtable() {
@@ -184,5 +155,4 @@ function submitdelete() {
     }
 }
 </script>
-
 <?php require_once $abs_us_root . $us_url_root . 'users/includes/html_footer.php'; ?>

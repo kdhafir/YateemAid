@@ -86,11 +86,13 @@ function getYateemKafalahState($yateemID){
         return "غير معروف";
     }
 }
+// دالة ارجاع قيمة من قاعدة البيانات بناءاً على الاي دي واسم العمود
 function getFieldData($recordID,$fieldName){
     $db = DB::getInstance();
     $yFieldQ = $db->query("SELECT * FROM `yayateeminfo1` WHERE id = ?",[$recordID]);
     return $yFieldQ->first()->$fieldName;
 }
+// دالة انشاء استمارة اليتيم
 function buildYateemReport($recordID){
     $db = DB::getInstance();
     $formQ = $db->query("SELECT * FROM `yayateeminfo1_form` order by ord");
@@ -108,7 +110,7 @@ function buildYateemReport($recordID){
         }else{
             echo getFieldData($recordID,$rF->col);
         }
-        
+
         echo "</div>\n";
     }
 }
@@ -136,11 +138,11 @@ function buildYateemFormEditable($recordID){
         }else{
             echo getFieldData($recordID,$rF->col);
         }
-        
+
         echo "</div>\n";
     }
 }
-
+// دالة ايجاد اسم الكافل بناءاً على الاي الخاص به
 function getKafil($kafalahID){
 	$db = DB::getInstance();
 	$kafaQ = $db->query("SELECT kafilID FROM `ya_kafalahinfo_01` WHERE id = ?",[$kafalahID]);
@@ -153,8 +155,8 @@ function getKafil($kafalahID){
 	}
 }
 
-// get menu options function 
-// الدالة لها وضعين اما انشاء القائمة أو البحث عن اسم عنصر بواسطة رقمه [ الاي دي ] 
+// get menu options function
+// الدالة لها وضعين اما انشاء القائمة أو البحث عن اسم عنصر بواسطة رقمه [ الاي دي ]
 function menuQuery($mode, $itemID,$menuTableName,$menuFieldName){ //,$formFieldName
     $db = DB::getInstance();
     //$menuTableName = "ya_settings_cities";
@@ -176,12 +178,12 @@ function menuQuery($mode, $itemID,$menuTableName,$menuFieldName){ //,$formFieldN
             echo "<option value=\"" . $r->id . "\">" . $r->$menuFieldName . "</option>";
         }
         //echo "</select>";
-    } 
+    }
 }
 
 function kafalahQuery($mode,$itemID){
     $db = DB::getInstance();
-    $menuTableName = " 	ya_kafalahinfo_01";
+    $menuTableName = "ya_kafalahinfo_01";
     $menuFieldName = "kafalahLable";
     $formFieldName = "kafalahID";
     if ($mode == "r" && $itemID > 0){
@@ -201,6 +203,6 @@ function kafalahQuery($mode,$itemID){
             echo "<option value=\"" . $r->id . "\">" . $r->$menuFieldName . " [ " . getKafil($r->id) . " ] " . "</option>";
         }
         //echo "</select>";
-    } 
+    }
 }
 ?>
