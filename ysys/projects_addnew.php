@@ -7,9 +7,6 @@ require_once '../users/init.php';
 if (!securePage($_SERVER['PHP_SELF'])){die();}
 require_once $abs_us_root.$us_url_root.'users/includes/template/prep.php';
 
-//$aytamQ = $db->query("SELECT * FROM `yy_yateem_main_info` ORDER BY id DESC");
-//$counAytam = $aytamQ->count();
-
 ?>
 
 <div class="row text-right" dir="rtl">
@@ -36,8 +33,6 @@ require_once $abs_us_root.$us_url_root.'users/includes/template/prep.php';
     </div>
 
 </div>
-
-
 
 <!-- footers -->
 
